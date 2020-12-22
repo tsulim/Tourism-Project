@@ -31,8 +31,31 @@ WHERE  TABLE_TYPE = 'BASE TABLE'
 Exec Sp_executesql @sql2
 --Trillium's Destroy all Constraints and Tables Copy Pasta Codes (END)--
 
---Table Creation Codes (START)
 
+--Table of Contents
+
+--> Global
+--> User 
+--Xiu Jia
+-->
+--Trillium
+--> Events
+--> Blog
+--> Comment
+--Hui En
+--> Tour
+--> Booking
+--> Review
+--Nazrie
+--> Policy
+--> Reminder
+--> Invoice
+--> Feedback
+
+
+
+
+--Table Creation Codes (START)
 CREATE TABLE [dbo].[User]
 (
     [Id] INT NOT NULL PRIMARY KEY, 
@@ -45,9 +68,6 @@ CREATE TABLE [dbo].[User]
     [Authorization] INT NULL,
     [StripeId] NVARCHAR(MAX) NULL
 )
-
---Xiu Jia
-    
 
 CREATE TABLE [dbo].[Location]
 (
@@ -102,3 +122,105 @@ CREATE TABLE [dbo].[PurchasedTicket]
 	[UserId] INT NULL,
     CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
+
+
+-- Trillium
+
+CREATE TABLE [dbo].[Event]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NULL, 
+    [Desc] NVARCHAR(MAX) NULL, 
+    [Images] NVARCHAR(MAX) NULL, 
+    [StartDate] DATETIME NULL, 
+    [EndDate] DATETIME NULL, 
+    [Approved] BIT NULL,
+
+    [UserId] INT NULL,
+	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
+)
+
+-- The Event Planner Tables, add it in baka
+
+-- Hui En
+
+CREATE TABLE [dbo].[Tour] (
+    [Id]            INT            NOT NULL,
+    [Image]         NVARCHAR (MAX) NULL,
+    [Name]          NVARCHAR (MAX) NULL,
+    [Details]       NVARCHAR (MAX) NULL,
+    [StartDateTime] DATETIME       NULL,
+    [EndDateTime]   DATETIME       NULL,
+    [Price]         FLOAT (53)     NULL,
+    [MinPpl]        INT            NULL,
+    [MaxPpl]        INT            NULL,
+    [AvailSlots]    INT            NULL,
+    [Itin]          NVARCHAR (MAX) NULL,
+    [Location]      NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Booking] (
+    [Id]        INT            NOT NULL,
+    [StartDate] DATE           NULL,
+    [EndDate]   DATE           NULL,
+    [AmtPpl]    INT            NULL,
+    [Status]    NVARCHAR (30) NULL,
+    [TourId] INT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC), 
+    CONSTRAINT [FK_Booking_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
+);
+
+CREATE TABLE [dbo].[Review]
+(
+    [Id] INT NOT NULL PRIMARY KEY, 
+    [Image] NVARCHAR(MAX) NULL, 
+    [Content] NVARCHAR(MAX) NULL, 
+    [Rating] INT NULL, 
+    [TourId] INT NULL, 
+    CONSTRAINT [FK_Review_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
+)
+
+-- Nazrie
+CREATE TABLE [dbo].[Invoice]
+(
+    [Id] INT NOT NULL PRIMARY KEY, 
+    [Type] NVARCHAR(20) NULL, 
+    [CreateDate] DATETIME NULL, 
+    [Status] BIT NULL,
+
+    [BookingId] INT NULL,
+    [TourId] INT NULL,
+    [UserId] INT NULL,
+    CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [Booking]([Id]), 
+    CONSTRAINT [FK_Invoice_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
+    CONSTRAINT [FK_Invoice_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+
+)
+
+CREATE TABLE [dbo].[Reminder]
+(
+    [Id] INT NOT NULL PRIMARY KEY, 
+    [Desc] NVARCHAR(MAX) NULL,
+
+    [UserId] INT NULL,
+    CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+)
+
+CREATE TABLE [dbo].[Policy]
+(
+    [Id] INT NOT NULL PRIMARY KEY, 
+    [Desc] NVARCHAR(MAX) NULL
+)
+
+CREATE TABLE [dbo].[Feedback]
+(
+    [Id] INT NOT NULL PRIMARY KEY, 
+    [Type] NVARCHAR(10) NULL, 
+    [Desc] NVARCHAR(MAX) NULL,
+
+    [UserId] INT NULL,
+    CONSTRAINT [FK_Feedback_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+
+)
+
