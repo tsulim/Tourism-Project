@@ -69,6 +69,8 @@ CREATE TABLE [dbo].[User]
     [StripeId] NVARCHAR(MAX) NULL
 )
 
+-- Xiu Jia
+
 CREATE TABLE [dbo].[Location]
 (
     [Id] INT NOT NULL PRIMARY KEY, 
@@ -122,7 +124,6 @@ CREATE TABLE [dbo].[PurchasedTicket]
 	[UserId] INT NULL,
     CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
-
 
 -- Trillium
 
