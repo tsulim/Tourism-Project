@@ -156,6 +156,14 @@ CREATE TABLE [dbo].[Like]
     CONSTRAINT [FK_Like_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
 )
 
+CREATE TABLE [dbo].[Comment]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Content] NVARCHAR(MAX) NULL, 
+	[BlogId] INT NULL,
+    CONSTRAINT [FK_Comment_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
+)
+
 -- Trillium
 
 CREATE TABLE [dbo].[Event]
