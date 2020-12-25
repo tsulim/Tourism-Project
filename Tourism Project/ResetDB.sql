@@ -131,6 +131,25 @@ CREATE TABLE [dbo].[PurchasedTicket]
 	CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
+-- Composite Table
+CREATE TABLE [dbo].[LocationPromotion]
+(
+	[LocationId] INT NOT NULL,
+	[PromotionId] INT NOT NULL,
+    CONSTRAINT [FK_LocationPromotion_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
+    CONSTRAINT [FK_LocationPromotion_ToPromotion] FOREIGN KEY ([PromotionId]) REFERENCES [Promotion]([Id]), 
+    CONSTRAINT [PK_LocationPromotion] PRIMARY KEY ([LocationId], [PromotionId])
+)
+
+CREATE TABLE [dbo].[LocationEvent]
+(
+	[LocationId] INT NOT NULL,
+	[EventId] INT NOT NULL,
+    CONSTRAINT [FK_LocationEvent_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
+    CONSTRAINT [FK_LocationEvent_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]), 
+    CONSTRAINT [PK_LocationEvent] PRIMARY KEY ([LocationId], [EventId])
+)
+
 -- Trillium
 
 CREATE TABLE [dbo].[Event]
@@ -187,6 +206,15 @@ CREATE TABLE [dbo].[Review]
 	[Rating] INT NULL, 
 	[TourId] INT NULL, 
 	CONSTRAINT [FK_Review_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
+)
+
+CREATE TABLE [dbo].[LocationTour]
+(
+	[LocationId] INT NOT NULL,
+	[TourId] INT NOT NULL,
+    CONSTRAINT [FK_LocationTour_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
+    CONSTRAINT [FK_LocationTour_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
+    CONSTRAINT [PK_LocationTour] PRIMARY KEY ([LocationId], [TourId])
 )
 
 -- Nazrie
