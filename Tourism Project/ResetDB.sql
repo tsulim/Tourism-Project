@@ -148,6 +148,14 @@ CREATE TABLE [dbo].[Blog]
     CONSTRAINT [FK_Blog_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
 )
 
+CREATE TABLE [dbo].[Like]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Status] BIT NULL DEFAULT 0,
+	[BlogId] INT NULL, 
+    CONSTRAINT [FK_Like_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
+)
+
 -- Trillium
 
 CREATE TABLE [dbo].[Event]
