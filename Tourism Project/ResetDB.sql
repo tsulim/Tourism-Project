@@ -4,19 +4,19 @@ SELECT @SQL = @SQL + 'ALTER TABLE ' + QUOTENAME(FK.TABLE_SCHEMA) + '.' + QUOTENA
 --SELECT K_Table = FK.TABLE_NAME, FK_Column = CU.COLUMN_NAME, PK_Table = PK.TABLE_NAME, PK_Column = PT.COLUMN_NAME, Constraint_Name = C.CONSTRAINT_NAME
   FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS C
  INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS FK
-    ON C.CONSTRAINT_NAME = FK.CONSTRAINT_NAME
+	ON C.CONSTRAINT_NAME = FK.CONSTRAINT_NAME
  INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS PK
-    ON C.UNIQUE_CONSTRAINT_NAME = PK.CONSTRAINT_NAME
+	ON C.UNIQUE_CONSTRAINT_NAME = PK.CONSTRAINT_NAME
  INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE CU
-    ON C.CONSTRAINT_NAME = CU.CONSTRAINT_NAME
+	ON C.CONSTRAINT_NAME = CU.CONSTRAINT_NAME
  INNER JOIN (
-            SELECT i1.TABLE_NAME, i2.COLUMN_NAME
-              FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS i1
-             INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE i2
-                ON i1.CONSTRAINT_NAME = i2.CONSTRAINT_NAME
-            WHERE i1.CONSTRAINT_TYPE = 'PRIMARY KEY'
-           ) PT
-    ON PT.TABLE_NAME = PK.TABLE_NAME
+			SELECT i1.TABLE_NAME, i2.COLUMN_NAME
+			  FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS i1
+			 INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE i2
+				ON i1.CONSTRAINT_NAME = i2.CONSTRAINT_NAME
+			WHERE i1.CONSTRAINT_TYPE = 'PRIMARY KEY'
+		   ) PT
+	ON PT.TABLE_NAME = PK.TABLE_NAME
 
 EXEC (@SQL)
 PRINT @SQL
@@ -37,15 +37,21 @@ Exec Sp_executesql @sql2
 --> Global
 --> User 
 --Xiu Jia
--->
+--> Location
+--> Promotion
+--> Statistics
+--> Ticket
+--> Location Promotion
 --Trillium
 --> Events
 --> Blog
 --> Comment
+--> Event Location
 --Hui En
 --> Tour
 --> Booking
 --> Review
+--> Tour Location
 --Nazrie
 --> Policy
 --> Reminder
@@ -58,71 +64,71 @@ Exec Sp_executesql @sql2
 --Table Creation Codes (START)
 CREATE TABLE [dbo].[User]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [ProfImage] NVARCHAR(MAX) NULL, 
-    [Name] NVARCHAR(MAX) NULL, 
-    [PasswordHash] NVARCHAR(MAX) NULL,
-    [PasswordSalt] NVARCHAR(MAX) NULL,
-    [Email] NVARCHAR(50) NULL, 
-    [Contact] NVARCHAR(20) NULL, 
-    [Authorization] INT NULL,
-    [StripeId] NVARCHAR(MAX) NULL
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[ProfImage] NVARCHAR(MAX) NULL, 
+	[Name] NVARCHAR(MAX) NULL, 
+	[PasswordHash] NVARCHAR(MAX) NULL,
+	[PasswordSalt] NVARCHAR(MAX) NULL,
+	[Email] NVARCHAR(50) NULL, 
+	[Contact] NVARCHAR(20) NULL, 
+	[Authorization] INT NULL,
+	[StripeId] NVARCHAR(MAX) NULL
 )
 
 -- Xiu Jia
 
 CREATE TABLE [dbo].[Location]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Name] NVARCHAR(MAX) NULL, 
-    [Address] NVARCHAR(MAX) NULL, 
-    [Type] NVARCHAR(20) NULL, 
-    [Images] NVARCHAR(MAX) NULL, 
-    [Status] BIT NULL,
-    [UserId] INT NULL, 
-    CONSTRAINT [FK_Location_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Name] NVARCHAR(MAX) NULL, 
+	[Address] NVARCHAR(MAX) NULL, 
+	[Type] NVARCHAR(20) NULL, 
+	[Images] NVARCHAR(MAX) NULL, 
+	[Status] BIT NULL,
+	[UserId] INT NULL, 
+	CONSTRAINT [FK_Location_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
 CREATE TABLE [dbo].[Statistic]
 (
-    [Id] INT NOT NULL PRIMARY KEY,
-    [SDate] DATE NULL,
-    [Revenue] FLOAT NULL,
-    [LocationId] INT NULL,
-    CONSTRAINT [FK_Statistic_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
+	[Id] INT NOT NULL PRIMARY KEY,
+	[SDate] DATE NULL,
+	[Revenue] FLOAT NULL,
+	[LocationId] INT NULL,
+	CONSTRAINT [FK_Statistic_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
 )
 
 CREATE TABLE [dbo].[Promotion]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Title] NVARCHAR(50) NULL, 
-    [StartDate] DATETIME NULL, 
-    [EndDate] DATETIME NULL, 
-    [LocationArr] NVARCHAR(MAX) NULL,
+	[Title] NVARCHAR(50) NULL, 
+	[StartDate] DATETIME NULL, 
+	[EndDate] DATETIME NULL, 
+	[LocationArr] NVARCHAR(MAX) NULL,
 	[UserId] INT NULL,
-    CONSTRAINT [FK_Promotion_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	CONSTRAINT [FK_Promotion_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
 CREATE TABLE [dbo].[Ticket]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Type] NVARCHAR(MAX) NULL, 
-    [Price] FLOAT NULL, 
-    [TotalAmount] INT NULL, 
-    [SoldAmount] INT NULL, 
-    [LocationId] INT NULL, 
-    CONSTRAINT [FK_Ticket_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
+	[Type] NVARCHAR(MAX) NULL, 
+	[Price] FLOAT NULL, 
+	[TotalAmount] INT NULL, 
+	[SoldAmount] INT NULL, 
+	[LocationId] INT NULL, 
+	CONSTRAINT [FK_Ticket_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
 )
 
 CREATE TABLE [dbo].[PurchasedTicket]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Type] NVARCHAR(MAX) NULL, 
-    [Price] FLOAT NULL, 
-    [TotalAmount] INT NULL, 
-    [SoldAmount] INT NULL, 
+	[Type] NVARCHAR(MAX) NULL, 
+	[Price] FLOAT NULL, 
+	[TotalAmount] INT NULL, 
+	[SoldAmount] INT NULL, 
 	[UserId] INT NULL,
-    CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
 -- Trillium
@@ -130,14 +136,14 @@ CREATE TABLE [dbo].[PurchasedTicket]
 CREATE TABLE [dbo].[Event]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Name] NVARCHAR(50) NULL, 
-    [Desc] NVARCHAR(MAX) NULL, 
-    [Images] NVARCHAR(MAX) NULL, 
-    [StartDate] DATETIME NULL, 
-    [EndDate] DATETIME NULL, 
-    [Approved] BIT NULL,
+	[Name] NVARCHAR(50) NULL, 
+	[Desc] NVARCHAR(MAX) NULL, 
+	[Images] NVARCHAR(MAX) NULL, 
+	[StartDate] DATETIME NULL, 
+	[EndDate] DATETIME NULL, 
+	[Approved] BIT NULL,
 
-    [UserId] INT NULL,
+	[UserId] INT NULL,
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
 )
 
@@ -146,82 +152,83 @@ CREATE TABLE [dbo].[Event]
 -- Hui En
 
 CREATE TABLE [dbo].[Tour] (
-    [Id]            INT            NOT NULL,
-    [Image]         NVARCHAR (MAX) NULL,
-    [Name]          NVARCHAR (MAX) NULL,
-    [Details]       NVARCHAR (MAX) NULL,
-    [StartDateTime] DATETIME       NULL,
-    [EndDateTime]   DATETIME       NULL,
-    [Price]         FLOAT (53)     NULL,
-    [MinPpl]        INT            NULL,
-    [MaxPpl]        INT            NULL,
-    [AvailSlots]    INT            NULL,
-    [Itin]          NVARCHAR (MAX) NULL,
-    [Location]      NVARCHAR (MAX) NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
+	[Id]            INT            NOT NULL,
+	[Image]         NVARCHAR (MAX) NULL,
+	[Name]          NVARCHAR (MAX) NULL,
+	[Details]       NVARCHAR (MAX) NULL,
+	[StartDateTime] DATETIME       NULL,
+	[EndDateTime]   DATETIME       NULL,
+	[Price]         FLOAT (50)     NULL,
+	[MinPpl]        INT            NULL,
+	[MaxPpl]        INT            NULL,
+	[AvailSlots]    INT            NULL,
+	[Itin]          NVARCHAR (MAX) NULL,
+	[UserId] INT NULL,
+	PRIMARY KEY CLUSTERED ([Id] ASC), 
+	CONSTRAINT [FK_Tour_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+)
 
 CREATE TABLE [dbo].[Booking] (
-    [Id]        INT            NOT NULL,
-    [StartDate] DATE           NULL,
-    [EndDate]   DATE           NULL,
-    [AmtPpl]    INT            NULL,
-    [Status]    NVARCHAR (30) NULL,
-    [TourId] INT NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC), 
-    CONSTRAINT [FK_Booking_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
+	[Id]        INT            NOT NULL,
+	[StartDate] DATE           NULL,
+	[EndDate]   DATE           NULL,
+	[AmtPpl]    INT            NULL,
+	[Status]    NVARCHAR (30) NULL,
+	[TourId] INT NULL, 
+	PRIMARY KEY CLUSTERED ([Id] ASC), 
+	CONSTRAINT [FK_Booking_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
 );
 
 CREATE TABLE [dbo].[Review]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Image] NVARCHAR(MAX) NULL, 
-    [Content] NVARCHAR(MAX) NULL, 
-    [Rating] INT NULL, 
-    [TourId] INT NULL, 
-    CONSTRAINT [FK_Review_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Image] NVARCHAR(MAX) NULL, 
+	[Content] NVARCHAR(MAX) NULL, 
+	[Rating] INT NULL, 
+	[TourId] INT NULL, 
+	CONSTRAINT [FK_Review_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
 )
 
 -- Nazrie
 CREATE TABLE [dbo].[Invoice]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Type] NVARCHAR(20) NULL, 
-    [CreateDate] DATETIME NULL, 
-    [Status] BIT NULL,
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Type] NVARCHAR(20) NULL, 
+	[CreateDate] DATETIME NULL, 
+	[Status] BIT NULL,
 
-    [BookingId] INT NULL,
-    [TourId] INT NULL,
-    [UserId] INT NULL,
-    CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [Booking]([Id]), 
-    CONSTRAINT [FK_Invoice_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
-    CONSTRAINT [FK_Invoice_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	[BookingId] INT NULL,
+	[TourId] INT NULL,
+	[UserId] INT NULL,
+	CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [Booking]([Id]), 
+	CONSTRAINT [FK_Invoice_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
+	CONSTRAINT [FK_Invoice_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 
 )
 
 CREATE TABLE [dbo].[Reminder]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Desc] NVARCHAR(MAX) NULL,
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Desc] NVARCHAR(MAX) NULL,
 
-    [UserId] INT NULL,
-    CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	[UserId] INT NULL,
+	CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
 CREATE TABLE [dbo].[Policy]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Desc] NVARCHAR(MAX) NULL
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Desc] NVARCHAR(MAX) NULL
 )
 
 CREATE TABLE [dbo].[Feedback]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Type] NVARCHAR(10) NULL, 
-    [Desc] NVARCHAR(MAX) NULL,
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[Type] NVARCHAR(10) NULL, 
+	[Desc] NVARCHAR(MAX) NULL,
 
-    [UserId] INT NULL,
-    CONSTRAINT [FK_Feedback_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+	[UserId] INT NULL,
+	CONSTRAINT [FK_Feedback_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 
 )
 
