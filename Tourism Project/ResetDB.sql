@@ -129,7 +129,6 @@ CREATE TABLE [dbo].[PurchasedTicket]
 	CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
--- Composite Table
 CREATE TABLE [dbo].[LocationPromotion]
 (
 	[LocationId] INT NOT NULL,
@@ -137,6 +136,16 @@ CREATE TABLE [dbo].[LocationPromotion]
 	CONSTRAINT [FK_LocationPromotion_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
 	CONSTRAINT [FK_LocationPromotion_ToPromotion] FOREIGN KEY ([PromotionId]) REFERENCES [Promotion]([Id]), 
 	CONSTRAINT [PK_LocationPromotion] PRIMARY KEY ([LocationId], [PromotionId])
+)
+
+CREATE TABLE [dbo].[Blog]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Content] NVARCHAR(MAX) NULL, 
+    [ImageArr] NVARCHAR(MAX) NULL, 
+    [Like] INT NULL, 
+    [LocationId] INT NULL, 
+    CONSTRAINT [FK_Blog_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
 )
 
 -- Trillium
