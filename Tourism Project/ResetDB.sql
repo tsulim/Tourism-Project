@@ -129,7 +129,6 @@ CREATE TABLE [dbo].[PurchasedTicket]
 	CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
--- Composite Table
 CREATE TABLE [dbo].[LocationPromotion]
 (
 	[LocationId] INT NOT NULL,
@@ -139,34 +138,31 @@ CREATE TABLE [dbo].[LocationPromotion]
 	CONSTRAINT [PK_LocationPromotion] PRIMARY KEY ([LocationId], [PromotionId])
 )
 
-CREATE TABLE [dbo].[LocationEvent]
+CREATE TABLE [dbo].[Blog]
 (
-	[LocationId] INT NOT NULL,
-	[EventId] INT NOT NULL,
-	CONSTRAINT [FK_LocationEvent_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
-	CONSTRAINT [FK_LocationEvent_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]), 
-	CONSTRAINT [PK_LocationEvent] PRIMARY KEY ([LocationId], [EventId])
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Content] NVARCHAR(MAX) NULL, 
+    [ImageArr] NVARCHAR(MAX) NULL, 
+    [Like] INT NULL, 
+    [LocationId] INT NULL, 
+    CONSTRAINT [FK_Blog_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])
 )
 
--- Composite Table
-CREATE TABLE [dbo].[LocationPromotion]
+CREATE TABLE [dbo].[Like]
 (
-	[LocationId] INT NOT NULL,
-	[PromotionId] INT NOT NULL,
-	CONSTRAINT [FK_LocationPromotion_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
-	CONSTRAINT [FK_LocationPromotion_ToPromotion] FOREIGN KEY ([PromotionId]) REFERENCES [Promotion]([Id]), 
-	CONSTRAINT [PK_LocationPromotion] PRIMARY KEY ([LocationId], [PromotionId])
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Status] BIT NULL DEFAULT 0,
+	[BlogId] INT NULL, 
+    CONSTRAINT [FK_Like_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
 )
 
-CREATE TABLE [dbo].[LocationEvent]
+CREATE TABLE [dbo].[Comment]
 (
-	[LocationId] INT NOT NULL,
-	[EventId] INT NOT NULL,
-	CONSTRAINT [FK_LocationEvent_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
-	CONSTRAINT [FK_LocationEvent_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]), 
-	CONSTRAINT [PK_LocationEvent] PRIMARY KEY ([LocationId], [EventId])
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Content] NVARCHAR(MAX) NULL, 
+	[BlogId] INT NULL,
+    CONSTRAINT [FK_Comment_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
 )
-
 
 -- Trillium
 
@@ -182,6 +178,15 @@ CREATE TABLE [dbo].[Event]
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[LocationEvent]
+(
+	[LocationId] INT NOT NULL,
+	[EventId] INT NOT NULL,
+	CONSTRAINT [FK_LocationEvent_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id]), 
+	CONSTRAINT [FK_LocationEvent_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]), 
+	CONSTRAINT [PK_LocationEvent] PRIMARY KEY ([LocationId], [EventId])
 )
 
 -- The Event Planner Tables, add it in baka
