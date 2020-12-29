@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -26,6 +27,12 @@ namespace DBService
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public User GetUserById(string id)
+        {
+            User user = new User();
+            return user.SelectById(id);
         }
     }
 }

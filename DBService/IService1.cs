@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBService.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,6 +19,9 @@ namespace DBService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+
+        [OperationContract]
+        User GetUserById(string id);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
