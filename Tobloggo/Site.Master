@@ -12,7 +12,6 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <%--For Bootstrap datepicker--%>
@@ -44,9 +43,16 @@
     <%--Bootstrap CSS--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
 
 
+    <%-- Bootstrap 4 JS --%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
 </head>
 <body>
     <form runat="server">
@@ -71,7 +77,89 @@
         </asp:ScriptManager>
 
         <%-- Start of Navigation Bar --%>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+            <div>
+                <a class="navbar-brand" href="#">
+                    Tobloggo
+                </a>
+            </div>
+
+            <div class="nav-contents">
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div>
+                    <%-- Top navbar --%>
+                    <div class="topNav">
+                        <div class="form-inline searchbar1">
+                            <input class="form-control" type="text" placeholder="Search" />
+                            <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <%-- Bottom navbar --%>
+                    <div class="bottomNav">
+                        <div class="collapse navbar-collapse" id="navContentLinks">
+                            <div class="navLinks">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item searchbar2">
+                                        <div class="form-inline">
+                                            <input class="form-control" type="text" placeholder="Search" />
+                                            <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="glyphicon glyphicon-user"></span>Sign Up
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="glyphicon glyphicon-log-in"></span>Login
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item searchbar2">
+                        <div class="form-inline">
+                            <input class="form-control" type="text" placeholder="Search" />
+                            <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <%--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="container col-sm-2">
                     <div class="navbar-header">
@@ -98,10 +186,10 @@
                                 <li><a href="./">Blogs</a></li>
                                 <li><a href="./">Tour Packages</a></li>
                                 <li><a href="./">Events</a></li>
-                                <li><a href="./">Join Us</a></li>
+                                <li><a href="./">Join Us</a></li>--%>
                                 <%--<li><a runat="server" href="~/About">About</a></li>
                             <li><a runat="server" href="~/Contact">Contact</a></li>--%>
-                            </ul>
+                            <%--</ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
@@ -110,7 +198,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <%-- End of Navigation Bar --%>
 
         <div class="container body-content">
@@ -128,9 +216,9 @@
 
     <%--  Optional JavaScript --%>
     <%--jQuery first, then Popper.js, then Bootstrap JS --%>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js"></script>
 
 </body>
