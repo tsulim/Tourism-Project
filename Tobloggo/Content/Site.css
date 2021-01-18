@@ -52,7 +52,7 @@ textarea {
 }
 
 .nav-contents {
-    width: -webkit-fill-available;
+    width: auto;
 }
 
 .navbar-right {
@@ -83,6 +83,9 @@ textarea {
 
     #collapsibleNavbar {
         display: none !important;
+    }
+    .nav-contents {
+        width: -webkit-fill-available;
     }
 }
 
