@@ -34,5 +34,20 @@ namespace DBService
             User user = new User();
             return user.SelectById(id);
         }
+        public List<Tour> GetAllTour()
+        {
+            Tour tour = new Tour();
+            return tour.SelectAll();
+        }
+        public Tour GetTourByTitle(string title)
+        {
+            Tour tour = new Tour();
+            return tour.SelectByTitle(title);
+        }
+        public int CreateTour(string title, string image, string details, DateTime startDateTime, DateTime endDateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+            Tour tour = new Tour(title, image, details, startDateTime, endDateTime, price, minPpl, maxPpl, iti);
+            return tour.Insert();
+        }
     }
 }

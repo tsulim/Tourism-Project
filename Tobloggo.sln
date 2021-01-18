@@ -5,10 +5,10 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tobloggo", "Tobloggo\Tobloggo.csproj", "{A0BD9C0E-02ED-46AE-B6AF-68DD1846AABA}"
 	ProjectSection(ProjectDependencies) = postProject
-		{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708} = {3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}
+		{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF} = {A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBService", "DBService\DBService.csproj", "{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBService", "DBService\DBService.csproj", "{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +20,10 @@ Global
 		{A0BD9C0E-02ED-46AE-B6AF-68DD1846AABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0BD9C0E-02ED-46AE-B6AF-68DD1846AABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0BD9C0E-02ED-46AE-B6AF-68DD1846AABA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D70EFE5-2ECD-4FFC-947F-F77E9AA57708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D21C17-6248-4F7E-ABF4-73C02CAB6FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
