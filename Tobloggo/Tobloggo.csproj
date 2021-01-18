@@ -112,6 +112,8 @@
     <Content Include="App_Data\TobloggoDB_log.ldf">
       <DependentUpon>TobloggoDB.mdf</DependentUpon>
     </Content>
+    <Content Include="BackendSite.Master" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
@@ -202,6 +204,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BackendSite.Master.cs">
+      <DependentUpon>BackendSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BackendSite.Master.designer.cs">
+      <DependentUpon>BackendSite.Master</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\MyDBServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -245,6 +254,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
