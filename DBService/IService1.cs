@@ -20,8 +20,17 @@ namespace DBService
 
         // TODO: Add your service operations here
 
+        // User Codes Start
         [OperationContract]
         User GetUserById(string id);
+        // User Codes End
+
+        // Location Codes Start
+        [OperationContract]
+        List<Location> GetAllLocations();
+        [OperationContract]
+        int CreateLocation(string name, string address, string type, string images, bool status, int userid);
+        // Location Codes End
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

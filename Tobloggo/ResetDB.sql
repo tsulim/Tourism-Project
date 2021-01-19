@@ -62,7 +62,7 @@ Exec Sp_executesql @sql2
 --Table Creation Codes (START)
 CREATE TABLE [dbo].[User]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[ProfImage] NVARCHAR(MAX) NULL, 
 	[Name] NVARCHAR(MAX) NULL, 
 	[PasswordHash] NVARCHAR(MAX) NULL,
@@ -82,7 +82,7 @@ CREATE TABLE [dbo].[User]
 
 CREATE TABLE [dbo].[Location]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(MAX) NULL, 
 	[Address] NVARCHAR(MAX) NULL, 
 	[Type] NVARCHAR(20) NULL, 
@@ -94,7 +94,7 @@ CREATE TABLE [dbo].[Location]
 
 CREATE TABLE [dbo].[Statistic]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	[SDate] DATE NULL,
 	[Revenue] FLOAT NULL,
 	[LocationId] INT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE [dbo].[Statistic]
 
 CREATE TABLE [dbo].[Promotion]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Title] NVARCHAR(50) NULL, 
 	[StartDate] DATETIME NULL, 
 	[EndDate] DATETIME NULL, 
@@ -114,7 +114,7 @@ CREATE TABLE [dbo].[Promotion]
 
 CREATE TABLE [dbo].[Ticket]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Type] NVARCHAR(MAX) NULL, 
 	[Price] FLOAT NULL, 
 	[TotalAmount] INT NULL, 
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Ticket]
 
 CREATE TABLE [dbo].[PurchasedTicket]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Type] NVARCHAR(MAX) NULL, 
 	[Price] FLOAT NULL, 
 	[TotalAmount] INT NULL, 
@@ -145,7 +145,7 @@ CREATE TABLE [dbo].[LocationPromotion]
 
 CREATE TABLE [dbo].[Blog]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Content] NVARCHAR(MAX) NULL, 
 	[ImageArr] NVARCHAR(MAX) NULL, 
 	[Like] INT NULL, 
@@ -155,7 +155,7 @@ CREATE TABLE [dbo].[Blog]
 
 CREATE TABLE [dbo].[Like]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Status] BIT NULL DEFAULT 0,
 	[BlogId] INT NULL, 
 	CONSTRAINT [FK_Like_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])
@@ -163,7 +163,7 @@ CREATE TABLE [dbo].[Like]
 
 CREATE TABLE [dbo].[Comment]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
 	[Content] NVARCHAR(MAX) NULL, 
 	[BlogId] INT NULL,
 	CONSTRAINT [FK_Comment_ToBlog] FOREIGN KEY ([BlogId]) REFERENCES [Blog]([Id])

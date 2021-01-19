@@ -29,10 +29,26 @@ namespace DBService
             return composite;
         }
 
+        // User Codes Start
         public User GetUserById(string id)
         {
             User user = new User();
             return user.SelectById(id);
         }
+        // User Codes End
+
+        // Location Codes Start
+        public List<Location> GetAllLocations()
+        {
+            Location loca = new Location();
+            return loca.SelectAll();
+        }
+
+        public int CreateLocation(string name, string address, string type, string images, bool status, int userid)
+        {
+            Location loca = new Location(name, address, type, images, status, userid);
+            return loca.Insert();
+        }
+        // Location Codes End
     }
 }
