@@ -22,6 +22,7 @@ namespace DBService
         [OperationContract]
         int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
 
+        // User Codes Start
         [OperationContract]
         int UpdateUser(User user);
 
@@ -33,6 +34,14 @@ namespace DBService
 
         [OperationContract]
         List<User> GetAllUsers();
+        // User Codes End
+
+        // Location Codes Start
+        [OperationContract]
+        List<Location> GetAllLocations();
+        [OperationContract]
+        int CreateLocation(string name, string address, string type, string images, bool status, int userid);
+        // Location Codes End
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

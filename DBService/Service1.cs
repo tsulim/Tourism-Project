@@ -29,6 +29,7 @@ namespace DBService
             return composite;
         }
 
+        // User Codes Start
         public int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key)
         {
             User user = new User(name, passwordHash, passwordSalt, email, contact, iv, key);
@@ -56,5 +57,20 @@ namespace DBService
             User user = new User();
             return user.SelectAll();
         }
+        // User Codes End
+
+        // Location Codes Start
+        public List<Location> GetAllLocations()
+        {
+            Location loca = new Location();
+            return loca.SelectAll();
+        }
+
+        public int CreateLocation(string name, string address, string type, string images, bool status, int userid)
+        {
+            Location loca = new Location(name, address, type, images, status, userid);
+            return loca.Insert();
+        }
+        // Location Codes End
     }
 }

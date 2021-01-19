@@ -56,6 +56,8 @@
     </asp:ContentPlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
@@ -116,7 +118,7 @@
                                         <a class="nav-link" href="#">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Location</a>
+                                        <a class="nav-link" href="Locations.aspx">Location</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Blogs</a>
@@ -162,7 +164,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Location</a>
+                        <a class="nav-link" href="Locations.aspx">Location</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blogs</a>
@@ -194,7 +196,6 @@
 
     <asp:ContentPlaceHolder ID="ScriptAfterContent" runat="server">
     </asp:ContentPlaceHolder>
-
 
     <%--  Optional JavaScript --%>
     <%--jQuery first, then Popper.js, then Bootstrap JS --%>
