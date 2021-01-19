@@ -29,10 +29,32 @@ namespace DBService
             return composite;
         }
 
+        public int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key)
+        {
+            User user = new User(name, passwordHash, passwordSalt, email, contact, iv, key);
+            return user.CreateUser();
+        }
+
+        public int UpdateUser(User user)
+        {
+            return user.UpdateUser();
+        }
+
         public User GetUserById(string id)
         {
             User user = new User();
             return user.SelectById(id);
+        }
+        public User GetUserByEmail(string email)
+        {
+            User user = new User();
+            return user.SelectByEmail(email);
+        }
+
+        public List<User> GetAllUsers()
+        {
+            User user = new User();
+            return user.SelectAll();
         }
     }
 }

@@ -93,7 +93,16 @@ namespace Tobloggo.MyDBServiceReference {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IVField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LockoutCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -160,6 +169,19 @@ namespace Tobloggo.MyDBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IV {
+            get {
+                return this.IVField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IVField, value) != true)) {
+                    this.IVField = value;
+                    this.RaisePropertyChanged("IV");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Id {
             get {
                 return this.IdField;
@@ -168,6 +190,32 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.IdField, value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LockoutCount {
+            get {
+                return this.LockoutCountField;
+            }
+            set {
+                if ((this.LockoutCountField.Equals(value) != true)) {
+                    this.LockoutCountField = value;
+                    this.RaisePropertyChanged("LockoutCount");
                 }
             }
         }
@@ -263,11 +311,35 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.CompositeType> GetDataUsingDataContractAsync(Tobloggo.MyDBServiceReference.CompositeType composite);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
+        int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
+        System.Threading.Tasks.Task<int> CreateUserAsync(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
+        int UpdateUser(Tobloggo.MyDBServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
+        System.Threading.Tasks.Task<int> UpdateUserAsync(Tobloggo.MyDBServiceReference.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserById", ReplyAction="http://tempuri.org/IService1/GetUserByIdResponse")]
         Tobloggo.MyDBServiceReference.User GetUserById(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserById", ReplyAction="http://tempuri.org/IService1/GetUserByIdResponse")]
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User> GetUserByIdAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByEmail", ReplyAction="http://tempuri.org/IService1/GetUserByEmailResponse")]
+        Tobloggo.MyDBServiceReference.User GetUserByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserByEmail", ReplyAction="http://tempuri.org/IService1/GetUserByEmailResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User> GetUserByEmailAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllUsers", ReplyAction="http://tempuri.org/IService1/GetAllUsersResponse")]
+        Tobloggo.MyDBServiceReference.User[] GetAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllUsers", ReplyAction="http://tempuri.org/IService1/GetAllUsersResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User[]> GetAllUsersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -313,12 +385,44 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
+        public int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key) {
+            return base.Channel.CreateUser(name, passwordHash, passwordSalt, email, contact, iv, key);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateUserAsync(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key) {
+            return base.Channel.CreateUserAsync(name, passwordHash, passwordSalt, email, contact, iv, key);
+        }
+        
+        public int UpdateUser(Tobloggo.MyDBServiceReference.User user) {
+            return base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateUserAsync(Tobloggo.MyDBServiceReference.User user) {
+            return base.Channel.UpdateUserAsync(user);
+        }
+        
         public Tobloggo.MyDBServiceReference.User GetUserById(string id) {
             return base.Channel.GetUserById(id);
         }
         
         public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User> GetUserByIdAsync(string id) {
             return base.Channel.GetUserByIdAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.User GetUserByEmail(string email) {
+            return base.Channel.GetUserByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User> GetUserByEmailAsync(string email) {
+            return base.Channel.GetUserByEmailAsync(email);
+        }
+        
+        public Tobloggo.MyDBServiceReference.User[] GetAllUsers() {
+            return base.Channel.GetAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User[]> GetAllUsersAsync() {
+            return base.Channel.GetAllUsersAsync();
         }
     }
 }
