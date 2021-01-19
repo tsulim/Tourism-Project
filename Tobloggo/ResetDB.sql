@@ -62,7 +62,7 @@ Exec Sp_executesql @sql2
 --Table Creation Codes (START)
 CREATE TABLE [dbo].[User]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY, 
 	[ProfImage] NVARCHAR(MAX) NULL, 
 	[Name] NVARCHAR(MAX) NULL, 
 	[PasswordHash] NVARCHAR(MAX) NULL,
@@ -70,7 +70,10 @@ CREATE TABLE [dbo].[User]
 	[Email] NVARCHAR(50) NULL, 
 	[Contact] NVARCHAR(20) NULL, 
 	[Authorization] INT NULL,
-	[StripeId] NVARCHAR(MAX) NULL
+	[StripeId] NVARCHAR(MAX) NULL,
+	[IV]           NVARCHAR (MAX) NULL,
+	[Key]          NVARCHAR (MAX) NULL,
+	[LockoutCount] SMALLINT       DEFAULT 0 NULL,
 )
 
 --CREATE TABLE [dbo].[CreditCard]

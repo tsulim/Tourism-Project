@@ -19,9 +19,20 @@ namespace DBService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        [OperationContract]
+        int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
+
+        [OperationContract]
+        int UpdateUser(User user);
 
         [OperationContract]
         User GetUserById(string id);
+
+        [OperationContract]
+        User GetUserByEmail(string email);
+
+        [OperationContract]
+        List<User> GetAllUsers();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
