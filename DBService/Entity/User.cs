@@ -97,7 +97,7 @@ namespace DBService.Entity
 
             string sqlStmt = "UPDATE [User] SET ProfImage=@paraProfImage, Name=@paraName, PasswordHash=@paraPasswordHash, PasswordSalt=@paraPasswordSalt," +
                 "Contact=@paraContact, [Authorization]=@paraAuthorization, StripeId=@paraStripeId, IV=@paraIV, [Key]=@paraKey, LockoutCount=@paraLockoutCount " +
-                "WHERE Email=@paraEmail;";
+                "WHERE LOWER(Email)=LOWER(@paraEmail);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -161,7 +161,7 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select * from [User] where Email = @paraEmail";
+            string sqlStmt = "Select * from [User] where LOWER(Email) = LOWER(@paraEmail)";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
             da.SelectCommand.Parameters.AddWithValue("@paraEmail", email);
 
