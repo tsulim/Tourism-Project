@@ -35,7 +35,7 @@
         <%--  --%>
         <div class="row form-group" style="margin-top: 40px;">
             <div class="col-md-12">
-                <asp:Button CssClass="btn btn-default" ID="GoogleBtn" runat="server" Text="Login with Google account" OnClick="GoogleBtnClick"></asp:Button>
+                <asp:Button CssClass="btn btn-default" ID="GoogleBtn" runat="server" Text="Login with Google account" OnClick="Google_Click"></asp:Button>
             </div>
         </div>
         <div class="row form-group">
@@ -55,7 +55,7 @@
 
     </div>
 
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Registration.aspx">Click here to Register</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignUp.aspx">Click here to Register</asp:HyperLink>
     <br />
     <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
 
