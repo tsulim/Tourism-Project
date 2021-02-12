@@ -10,21 +10,32 @@ namespace Tobloggo
 {
     public partial class CreateLocation : System.Web.UI.Page
     {
+        int counter = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void btnAdd_onClick(object sender, EventArgs e)
         {
+            string folderPath = Server.MapPath("~/images/");
+
+            // Check whether Directory exists
+            if (!Directory.Exists(folderPath))
+            {
+                // If Directory does not exist. Create it
+                Directory.CreateDirectory(folderPath);
+            }
+
             List<String> fileList = new List<String>();
             for (var i = 0; i < locaImages.PostedFiles.Count(); i++)
             {
                 Guid g = Guid.NewGuid();
                 string fileName = Path.GetFileName(locaImages.PostedFiles[i].FileName);
-                locaImages.SaveAs(Server.MapPath("~/images/" + g + fileName));
-                fileList.Add(fileName);
+                string newFileName = g + fileName;
+                locaImages.SaveAs(Server.MapPath("~/images/" + newFileName));
+                fileList.Add(newFileName);
             }
-            
+
             string name = locaName.Text.ToString();
             string address = locaAddress.Text.ToString();
             string type = locaType.SelectedValue.ToString();
@@ -39,7 +50,7 @@ namespace Tobloggo
                 Response.Redirect("~/Locations.aspx");
             } else
             {
-                lbl_name.Text = "Error";
+                //lbl_name.Text = "Error";
             }
             //var reqImages = Request.Form["locaImages"].ToString().Split(',').ToList<String>();
 
@@ -52,5 +63,26 @@ namespace Tobloggo
 
             //Response.Redirect("~/WebForm1.aspx");
         }
+
+        protected void noItemBtn(object sender, EventArgs e)
+        {
+            optionsInfo.Visible = false;
+            noItemOptions.Visible = true;
+            moreOptions.Visible = false;
+        }
+
+        protected void enableOptions(object sender, EventArgs e)
+        {
+            if (optionsInfo.Visible == false)
+            {
+                optionsInfo.Visible = true;
+                noItemOptions.Visible = false;
+                moreOptions.Visible = false;
+            } else
+            {
+                moreOptions.Visible = true;
+            }
+        }
+        
     }
 }
