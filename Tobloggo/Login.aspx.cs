@@ -17,16 +17,6 @@ using System.Web.Services;
 using Tobloggo.MyDBServiceReference;
 
 
-using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Books.v1;
-using Google.Apis.Books.v1.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
 
 using Nemiro.OAuth;
 using Nemiro.OAuth.Clients;
@@ -39,6 +29,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading.Tasks;
 
 namespace Tobloggo
 {
@@ -86,12 +77,28 @@ namespace Tobloggo
 
                             if (serStatus != null)
                             {
+                                Session.Remove("loginWith");
                                 string accessToken = string.Empty;
                                 accessToken = serStatus.access_token;
 
+                                System.Diagnostics.Debug.WriteLine("SomeText");
                                 if (!string.IsNullOrEmpty(accessToken))
                                 {
+                                    GoogleUserOutputData userData = getgoogleplususerdataSer(accessToken).Result;
+                                    //Create new google account
+                                    MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                                    client.CreateOrFindSingleGoogleUser(userData.id, userData.name, userData.email);
+
+                                    Session["UserID"] = userData.email;
+
+                                    //Create a new GUID and save into the session
+                                    string guid = Guid.NewGuid().ToString();
+                                    Session["AuthToken"] = guid;
+                                    Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+
+                                    //Go back to home page
                                     Response.Redirect("Default.aspx");
+
                                 }
                             }
 
@@ -101,14 +108,15 @@ namespace Tobloggo
                 catch (Exception ex)
                 {
                     //throw new Exception(ex.Message, ex);
-                    Response.Redirect("default.aspx");
+                    //Response.Redirect("Default.aspx");
                 }
             }
         }
 
+
         protected void Google_Click(object sender, EventArgs e)
         {
-            var Googleurl = "https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=" + googleplus_redirect_url + "&scope=https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile&client_id=" + googleplus_client_id;
+            var Googleurl = "https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=" + googleplus_redirect_url + "&scope=https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile&client_id=" + googleplus_client_id+ "&prompt=select_account";
             Session["loginWith"] = "google";
             Response.Redirect(Googleurl);
         }
@@ -121,7 +129,7 @@ namespace Tobloggo
             public string id_token { get; set; }
             public string refresh_token { get; set; }
         }
-        private async void getgoogleplususerdataSer(string access_token)
+        private async Task<GoogleUserOutputData> getgoogleplususerdataSer(string access_token)
         {
             try
             {
@@ -129,7 +137,8 @@ namespace Tobloggo
                 var urlProfile = "https://www.googleapis.com/oauth2/v1/userinfo?access_token=" + access_token;
 
                 client.CancelPendingRequests();
-                HttpResponseMessage output = await client.GetAsync(urlProfile);
+                System.Diagnostics.Debug.WriteLine(access_token);
+                HttpResponseMessage output = client.GetAsync(urlProfile).Result;
 
                 if (output.IsSuccessStatusCode)
                 {
@@ -138,13 +147,15 @@ namespace Tobloggo
 
                     if (serStatus != null)
                     {
-                        // You will get the user information here.
+                        return serStatus;
                     }
                 }
+                return new GoogleUserOutputData();
             }
             catch (Exception ex)
             {
                 //catching the exception
+                return new GoogleUserOutputData();
             }
         }
 
@@ -223,65 +234,44 @@ namespace Tobloggo
 
                 string dbHash = user.PasswordHash;
                 string dbSalt = user.PasswordSalt;
-                int attempts = user.LockoutCount;
 
-                if (attempts >= 3)
+                try
                 {
-                    lbl_errormsg.Text = "Your account has been locked out.";
-                }
-                else
-                {
-                    try
+                    if (dbSalt != null && dbSalt.Length > 0 && dbHash != null && dbHash.Length > 0)
                     {
-                        if (dbSalt != null && dbSalt.Length > 0 && dbHash != null && dbHash.Length > 0)
+                        string pwdWithSalt = pwd + dbSalt;
+                        byte[] hashWithSalt = hashing.ComputeHash(Encoding.UTF8.GetBytes(pwdWithSalt));
+                        string userHash = Convert.ToBase64String(hashWithSalt);
+                        if (userHash.Equals(dbHash))
                         {
-                            string pwdWithSalt = pwd + dbSalt;
-                            byte[] hashWithSalt = hashing.ComputeHash(Encoding.UTF8.GetBytes(pwdWithSalt));
-                            string userHash = Convert.ToBase64String(hashWithSalt);
-                            if (userHash.Equals(dbHash))
-                            {
-                                Session["UserID"] = email;
+                            Session["UserID"] = email;
 
-                                //Create a new GUID and save into the session
-                                string guid = Guid.NewGuid().ToString();
-                                Session["AuthToken"] = guid;
-                                Response.Cookies.Add(new HttpCookie("AuthToken", guid));
+                            //Create a new GUID and save into the session
+                            string guid = Guid.NewGuid().ToString();
+                            Session["AuthToken"] = guid;
+                            Response.Cookies.Add(new HttpCookie("AuthToken", guid));
 
-                                user.LockoutCount = 0;
-                                client.UpdateUser(user);
+                            //client.UpdateUser(user);
 
-                                Response.Redirect("Default.aspx", false);
-                            }
-                            else
-                            {
-                                user.LockoutCount = user.LockoutCount + 1;
+                            //List<User> name = client.GetAllUsers().ToList();
 
-                                int remainingAttempts = 2 - attempts;
-                                if (remainingAttempts <= 0)
-                                {
-                                    lbl_errormsg.Text = "Account has been locked out!";
-                                }
-                                else if (remainingAttempts == 1)
-                                {
-                                    lbl_errormsg.Text = "Email or password is not valid. Please try again. 1 more attempt before account lockout";
-                                }
-                                else
-                                {
-                                    lbl_errormsg.Text = "Email or password is not valid. Please try again.";
-                                }
-                            }
+                            Response.Redirect("Default.aspx", false);
                         }
                         else
                         {
                             lbl_errormsg.Text = "Email or password is not valid. Please try again.";
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        throw new Exception(ex.ToString());
+                        lbl_errormsg.Text = "Email or password is not valid. Please try again.";
                     }
-                    finally { }
                 }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+                finally { }
             }
             else
             {
@@ -311,23 +301,5 @@ namespace Tobloggo
             public string locale { get; set; }
             public string gender { get; set; }
         }
-        public class FacebookInfo
-        {
-            public string first_name { get; set; }
-            public string last_name { get; set; }
-            public string gender { get; set; }
-            public string locale { get; set; }
-            public string link { get; set; }
-            public string id { get; set; }
-            public string email { get; set; }
-        }
-
-        public class FacebookToken
-        {
-            public string access_token { get; set; }
-            public string token_type { get; set; }
-            public int expires_in { get; set; }
-        }
-
     }
 }

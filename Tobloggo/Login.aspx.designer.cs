@@ -60,15 +60,6 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Button GoogleBtn;
 
         /// <summary>
-        /// txtResponse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal txtResponse;
-
-        /// <summary>
         /// lbl_errormsg control.
         /// </summary>
         /// <remarks>
@@ -94,5 +85,14 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_gScore;
+
+        /// <summary>
+        /// locaImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload locaImages;
     }
 }

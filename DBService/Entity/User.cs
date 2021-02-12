@@ -14,6 +14,7 @@ namespace DBService.Entity
     {
 
         public string Id { get; set; }
+        public string GoogleId { get; set; }
         public string ProfImage { get; set; }
         public string Name { get; set; }
         public string PasswordHash { get; set; }
@@ -24,15 +25,15 @@ namespace DBService.Entity
         public string StripeId { get; set; }
         public string IV { get; set; }
         public string Key { get; set; }
-        public int LockoutCount { get; set; }
 
         public User()
         {
         }
 
-        public User( string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key)
+        public User(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key)
         {
             Id = "0";
+            GoogleId = null;
             ProfImage = null;
             Name = name;
             PasswordHash = passwordHash;
@@ -43,12 +44,28 @@ namespace DBService.Entity
             StripeId = null;
             IV = iv;
             Key = key;
-            LockoutCount = 0;
 
         }
-        public User(string id, string profImage, string name, string passwordHash, string passwordSalt, string email, string contact, int authorization, string stripeId, string iv, string key, int lockoutCount)
+        public User(string googleId, string name, string email)
+        {
+            Id = "0";
+            GoogleId = googleId;
+            ProfImage = null;
+            Name = name;
+            PasswordHash = null;
+            PasswordSalt = null;
+            Email = email;
+            Contact = null;
+            Authorization = 0;
+            StripeId = null;
+            IV = null;
+            Key = null;
+
+        }
+        public User(string id, string googleId, string profImage, string name, string passwordHash, string passwordSalt, string email, string contact, int authorization, string stripeId, string iv, string key)
         {
             Id = id;
+            GoogleId = googleId;
             ProfImage = profImage;
             Name = name;
             PasswordHash = passwordHash;
@@ -59,7 +76,6 @@ namespace DBService.Entity
             StripeId = stripeId;
             IV = iv;
             Key = key;
-            LockoutCount = lockoutCount;
 
         }
 
@@ -68,10 +84,11 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO [User] (ProfImage, Name, PasswordHash, PasswordSalt, Email, Contact, [Authorization], StripeId, IV, [Key], LockoutCount) " +
-                "VALUES (@paraProfImage, @paraName, @paraPasswordHash, @paraPasswordSalt, @paraEmail, @paraContact, @paraAuthorization, @paraStripeId, @paraIV, @paraKey, @paraLockoutCount)";
+            string sqlStmt = "INSERT INTO [User] (GoogleId, ProfImage, Name, PasswordHash, PasswordSalt, Email, Contact, [Authorization], StripeId, IV, [Key]) " +
+                "VALUES (@paraGoogleId, @paraProfImage, @paraName, @paraPasswordHash, @paraPasswordSalt, @paraEmail, @paraContact, @paraAuthorization, @paraStripeId, @paraIV, @paraKey)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
+            sqlCmd.Parameters.AddWithValue("@paraGoogleId", GoogleId);
             sqlCmd.Parameters.AddWithValue("@paraProfImage", String.Empty);
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraPasswordHash", PasswordHash);
@@ -82,7 +99,34 @@ namespace DBService.Entity
             sqlCmd.Parameters.AddWithValue("@paraStripeId", String.Empty);
             sqlCmd.Parameters.AddWithValue("@paraIV", IV);
             sqlCmd.Parameters.AddWithValue("@paraKey", Key);
-            sqlCmd.Parameters.AddWithValue("@paraLockoutCount", LockoutCount);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+
+            return result;
+        }
+
+        public int CreateGoogleUser()
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO [User] (GoogleId, ProfImage, Name, PasswordHash, PasswordSalt, Email, Contact, [Authorization], StripeId, IV, [Key]) " +
+                "VALUES (@paraGoogleId, @paraProfImage, @paraName, @paraPasswordHash, @paraPasswordSalt, @paraEmail, @paraContact, @paraAuthorization, @paraStripeId, @paraIV, @paraKey)";
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraGoogleId", GoogleId);
+            sqlCmd.Parameters.AddWithValue("@paraProfImage", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraName", Name);
+            sqlCmd.Parameters.AddWithValue("@paraPasswordHash", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraPasswordSalt", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraEmail", Email);
+            sqlCmd.Parameters.AddWithValue("@paraContact", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraAuthorization", Authorization);
+            sqlCmd.Parameters.AddWithValue("@paraStripeId", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraIV", String.Empty);
+            sqlCmd.Parameters.AddWithValue("@paraKey", String.Empty);
 
             myConn.Open();
             int result = sqlCmd.ExecuteNonQuery();
@@ -95,12 +139,13 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE [User] SET ProfImage=@paraProfImage, Name=@paraName, PasswordHash=@paraPasswordHash, PasswordSalt=@paraPasswordSalt," +
-                "Contact=@paraContact, [Authorization]=@paraAuthorization, StripeId=@paraStripeId, IV=@paraIV, [Key]=@paraKey, LockoutCount=@paraLockoutCount " +
+            string sqlStmt = "UPDATE [User] SET GoogleId=@paraGoogleId, ProfImage=@paraProfImage, Name=@paraName, PasswordHash=@paraPasswordHash, PasswordSalt=@paraPasswordSalt," +
+                "Contact=@paraContact, [Authorization]=@paraAuthorization, StripeId=@paraStripeId, IV=@paraIV, [Key]=@paraKey " +
                 "WHERE LOWER(Email)=LOWER(@paraEmail);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
+            sqlCmd.Parameters.AddWithValue("@paraGoogleId", GoogleId);
             sqlCmd.Parameters.AddWithValue("@paraProfImage", ProfImage);
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraPasswordHash", PasswordHash);
@@ -110,7 +155,6 @@ namespace DBService.Entity
             sqlCmd.Parameters.AddWithValue("@paraStripeId", StripeId);
             sqlCmd.Parameters.AddWithValue("@paraIV", IV);
             sqlCmd.Parameters.AddWithValue("@paraKey", Key);
-            sqlCmd.Parameters.AddWithValue("@paraLockoutCount", LockoutCount);
 
             sqlCmd.Parameters.AddWithValue("@paraEmail", Email);
 
@@ -138,6 +182,7 @@ namespace DBService.Entity
             {
                 DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
                 //string idVal = row["Id"].ToString();
+                string googleId = row["GoogleId"].ToString();
                 string profImage = row["ProfImage"].ToString();
                 string name = row["Name"].ToString();
                 string passwordHash = row["PasswordHash"].ToString();
@@ -148,10 +193,9 @@ namespace DBService.Entity
                 string stripeId = row["StripeId"].ToString();
                 string iv = row["IV"].ToString();
                 string key = row["Key"].ToString();
-                int lockoutCount = int.Parse(row["LockoutCount"].ToString());
 
 
-                user = new User(id, profImage, name, passwordHash, passwordSalt, email, contact, authorization, stripeId, iv, key, lockoutCount);
+                user = new User(id, googleId, profImage, name, passwordHash, passwordSalt, email, contact, authorization, stripeId, iv, key);
             }
             return user;
         }
@@ -174,6 +218,7 @@ namespace DBService.Entity
             {
                 DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
                 string id = row["Id"].ToString();
+                string googleId = row["GoogleId"].ToString();
                 string profImage = row["ProfImage"].ToString();
                 string name = row["Name"].ToString();
                 string passwordHash = row["PasswordHash"].ToString();
@@ -184,10 +229,9 @@ namespace DBService.Entity
                 string stripeId = row["StripeId"].ToString();
                 string iv = row["IV"].ToString();
                 string key = row["Key"].ToString();
-                int lockoutCount = int.Parse(row["LockoutCount"].ToString());
 
 
-                user = new User(id, profImage, name, passwordHash, passwordSalt, emailVal, contact, authorization, stripeId, iv, key, lockoutCount);
+                user = new User(id, googleId, profImage, name, passwordHash, passwordSalt, emailVal, contact, authorization, stripeId, iv, key);
             }
             return user;
         }
@@ -211,6 +255,7 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
 
                 string id = row["Id"].ToString();
+                string googleId = row["GoogleId"].ToString();
                 string profImage = row["ProfImage"].ToString();
                 string name = row["Name"].ToString();
                 string passwordHash = row["PasswordHash"].ToString();
@@ -221,10 +266,9 @@ namespace DBService.Entity
                 string stripeId = row["StripeId"].ToString();
                 string iv = row["IV"].ToString();
                 string key = row["Key"].ToString();
-                int lockoutCount = int.Parse(row["LockoutCount"].ToString());
 
 
-                User user = new User(id, profImage, name, passwordHash, passwordSalt, email, contact, authorization, stripeId, iv, key, lockoutCount);
+                User user = new User(id, googleId, profImage, name, passwordHash, passwordSalt, email, contact, authorization, stripeId, iv, key);
                 userList.Add(user);
             }
             return userList;

@@ -93,6 +93,9 @@ namespace Tobloggo.MyDBServiceReference {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GoogleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IVField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -100,9 +103,6 @@ namespace Tobloggo.MyDBServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string KeyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LockoutCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -169,6 +169,19 @@ namespace Tobloggo.MyDBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GoogleId {
+            get {
+                return this.GoogleIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GoogleIdField, value) != true)) {
+                    this.GoogleIdField = value;
+                    this.RaisePropertyChanged("GoogleId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string IV {
             get {
                 return this.IVField;
@@ -203,19 +216,6 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.KeyField, value) != true)) {
                     this.KeyField = value;
                     this.RaisePropertyChanged("Key");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LockoutCount {
-            get {
-                return this.LockoutCountField;
-            }
-            set {
-                if ((this.LockoutCountField.Equals(value) != true)) {
-                    this.LockoutCountField = value;
-                    this.RaisePropertyChanged("LockoutCount");
                 }
             }
         }
@@ -442,6 +442,12 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateUser", ReplyAction="http://tempuri.org/IService1/CreateUserResponse")]
         System.Threading.Tasks.Task<int> CreateUserAsync(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateOrFindSingleGoogleUser", ReplyAction="http://tempuri.org/IService1/CreateOrFindSingleGoogleUserResponse")]
+        int CreateOrFindSingleGoogleUser(string googleId, string name, string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateOrFindSingleGoogleUser", ReplyAction="http://tempuri.org/IService1/CreateOrFindSingleGoogleUserResponse")]
+        System.Threading.Tasks.Task<int> CreateOrFindSingleGoogleUserAsync(string googleId, string name, string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
         int UpdateUser(Tobloggo.MyDBServiceReference.User user);
         
@@ -528,6 +534,14 @@ namespace Tobloggo.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreateUserAsync(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key) {
             return base.Channel.CreateUserAsync(name, passwordHash, passwordSalt, email, contact, iv, key);
+        }
+        
+        public int CreateOrFindSingleGoogleUser(string googleId, string name, string email) {
+            return base.Channel.CreateOrFindSingleGoogleUser(googleId, name, email);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateOrFindSingleGoogleUserAsync(string googleId, string name, string email) {
+            return base.Channel.CreateOrFindSingleGoogleUserAsync(googleId, name, email);
         }
         
         public int UpdateUser(Tobloggo.MyDBServiceReference.User user) {

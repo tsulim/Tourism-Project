@@ -4,9 +4,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ScriptHeadContent" runat="server">
     <script src="https://www.google.com/recaptcha/api.js?render=6LfNt-sZAAAAAFNy9lUXnfG4dp-Hl_Z09yDJnBZO"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="748299484002-a0rjtlk5ovijs0pgdf2gfcs0429he8gs.apps.googleusercontent.com">
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,20 +33,14 @@
         </table>
         <asp:Button ID="btn_submit" runat="server" OnClick="btn_submit_Click" Text="Login" />
 
+
         <%--  --%>
         <div class="row form-group" style="margin-top: 40px;">
             <div class="col-md-12">
                 <asp:Button CssClass="btn btn-default" ID="GoogleBtn" runat="server" Text="Login with Google account" OnClick="Google_Click"></asp:Button>
             </div>
         </div>
-        <div class="row form-group">
-            <h3 class="col-md-12">
-                User Info:
-            </h3>
-            <div class="col-md-12">
-                <asp:Literal ID="txtResponse" runat="server">External user info will populate here in json format.</asp:Literal>
-            </div>
-        </div>
+
         <%--  --%>
 
         <br />
@@ -58,6 +53,11 @@
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignUp.aspx">Click here to Register</asp:HyperLink>
     <br />
     <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
+
+    <br />
+
+    <asp:FileUpload ID="locaImages" runat="server" AllowMultiple="true" ClientIDMode="Static"  />
+    <div id="imageresult"></div>
 
 
 </asp:Content>
