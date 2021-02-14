@@ -118,9 +118,8 @@ CREATE TABLE [dbo].[Promotion]
 CREATE TABLE [dbo].[Ticket]
 (
 	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(MAX) NULL, 
+	[Name] NVARCHAR(MAX) NULL, 
 	[Price] FLOAT NULL, 
-	[TotalAmount] INT NULL, 
 	[SoldAmount] INT NULL, 
 	[LocationId] INT NULL, 
 	CONSTRAINT [FK_Ticket_ToLocation] FOREIGN KEY ([LocationId]) REFERENCES [Location]([Id])

@@ -56,65 +56,65 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div>
-        <br />
-        <asp:Label ID="Label7" runat="server" Font-Size="Larger" Text="Registration"></asp:Label>
-        <br />
-        <br />
-        <table id="signupTable" class="auto-style4">
-            <tr>
-                <td class="auto-style9" >
-                    <asp:Label ID="Label1" runat="server" Text="Account Name: " Width="272px" Height="22px"></asp:Label>
-                </td>
-                <td class="auto-style1">
-                    <asp:TextBox ID="tb_accname" runat="server"></asp:TextBox>
-                </td>
-                <td class="auto-style1">
-                    <asp:Label ID="lbl_accnamechecker" runat="server" ForeColor="#CC3300"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style15">
-                    <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label>
-                </td>
-                <td class="auto-style16">
-                    <asp:TextBox ID="tb_email" runat="server" CssClass="auto-style8"></asp:TextBox>
-                </td>
-                <td class="auto-style1">
-                    <asp:Label ID="lbl_emailchecker" runat="server" ForeColor="#CC3300"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style11">
-                    <asp:Label ID="Label5" runat="server" Text="Password: "></asp:Label>
-                </td>
-                <td class="auto-style6">
-                    <asp:TextBox ID="tb_password" runat="server" TextMode="Password" onkeyup="javascript:validate()" ClientIDMode="Static"></asp:TextBox>
-                </td>
-                <td class="auto-style1">
-                    <asp:Label ID="lbl_pwdchecker" runat="server" ForeColor="#CC3300" ClientIDMode="Static"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style11">
-                    <asp:Label ID="Label8" runat="server" Text="Confirm Password: "></asp:Label>
-                </td>
-                <td class="auto-style6">
-                    <asp:TextBox ID="tb_cfmPassword" runat="server" TextMode="Password" onkeyup="javascript:validate()" ClientIDMode="Static"></asp:TextBox>
-                </td>
-                <td class="auto-style1">
-                    <asp:Label ID="lbl_cfmchecker" runat="server" ForeColor="#CC3300" ClientIDMode="Static"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style9">Password must have at least:<br />
-                    •
+    <div class="container">
+        <div>
+            <br />
+            <asp:Label ID="Label7" runat="server" Font-Size="Larger" Text="Registration"></asp:Label>
+            <br />
+            <br />
+            <table id="signupTable" class="auto-style4">
+                <tr>
+                    <td class="auto-style9">
+                        <asp:Label ID="Label1" runat="server" Text="Account Name: " Width="272px" Height="22px"></asp:Label>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:TextBox ID="tb_accname" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lbl_accnamechecker" runat="server" ForeColor="#CC3300"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style15">
+                        <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label>
+                    </td>
+                    <td class="auto-style16">
+                        <asp:TextBox ID="tb_email" runat="server" CssClass="auto-style8"></asp:TextBox>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lbl_emailchecker" runat="server" ForeColor="#CC3300"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Label ID="Label5" runat="server" Text="Password: "></asp:Label>
+                    </td>
+                    <td class="auto-style6">
+                        <asp:TextBox ID="tb_password" runat="server" TextMode="Password" onkeyup="javascript:validate()" ClientIDMode="Static"></asp:TextBox>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lbl_pwdchecker" runat="server" ForeColor="#CC3300" ClientIDMode="Static"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Label ID="Label8" runat="server" Text="Confirm Password: "></asp:Label>
+                    </td>
+                    <td class="auto-style6">
+                        <asp:TextBox ID="tb_cfmPassword" runat="server" TextMode="Password" onkeyup="javascript:validate()" ClientIDMode="Static"></asp:TextBox>
+                    </td>
+                    <td class="auto-style1">
+                        <asp:Label ID="lbl_cfmchecker" runat="server" ForeColor="#CC3300" ClientIDMode="Static"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style9">Password must have at least:<br />
+                        •
                     8 Digits<br />
-                    • 1 Uppercase &amp; 1 Lowercase letter<br />
-                    •
+                        • 1 Uppercase &amp; 1 Lowercase letter<br />
+                        •
                     1 Special Character<br />
-                    •
+                        •
                     1 Number<br />
                 </td>
             </tr>
@@ -135,8 +135,8 @@
     <br />
     <asp:Label ID="lbl_submitchecker" runat="server"></asp:Label>
 
-    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"/>
-
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+    </div>
 </asp:Content>
 
 

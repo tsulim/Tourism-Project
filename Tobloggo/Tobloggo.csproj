@@ -185,15 +185,16 @@
       <DependentUpon>TobloggoDB.mdf</DependentUpon>
     </Content>
     <Content Include="BackendSite.Master" />
+    <Content Include="CustomErrors\Error500.html" />
+    <Content Include="Locations\CreateLocation.aspx" />
+    <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
     <Content Include="Events\EventList.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Content\Location.css" />
-    <Content Include="CreateLocation.aspx" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="Locations.aspx" />
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
@@ -327,18 +328,28 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateLocation.aspx.cs">
-      <DependentUpon>CreateLocation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateLocation.aspx.designer.cs">
-      <DependentUpon>CreateLocation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Locations\CreateLocation.aspx.cs">
+      <DependentUpon>CreateLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations\CreateLocation.aspx.designer.cs">
+      <DependentUpon>CreateLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Locations\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\EventList.aspx.cs">
@@ -400,13 +411,6 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Locations.aspx.cs">
-      <DependentUpon>Locations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Locations.aspx.designer.cs">
-      <DependentUpon>Locations.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

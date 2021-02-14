@@ -308,6 +308,9 @@ namespace Tobloggo.MyDBServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -341,6 +344,19 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -479,10 +495,22 @@ namespace Tobloggo.MyDBServiceReference {
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllLocationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        int CreateLocation(string name, string address, string type, string images, bool status, int userid);
+        int CreateLocation(string name, string address, string type, string images, int userid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, bool status, int userid);
+        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
+        Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location> GetLastLocationAsync(int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
+        int CreateTicket(string name, double price, int locaid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
+        System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -584,12 +612,28 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetAllLocationsAsync();
         }
         
-        public int CreateLocation(string name, string address, string type, string images, bool status, int userid) {
-            return base.Channel.CreateLocation(name, address, type, images, status, userid);
+        public int CreateLocation(string name, string address, string type, string images, int userid) {
+            return base.Channel.CreateLocation(name, address, type, images, userid);
         }
         
-        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, bool status, int userid) {
-            return base.Channel.CreateLocationAsync(name, address, type, images, status, userid);
+        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid) {
+            return base.Channel.CreateLocationAsync(name, address, type, images, userid);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid) {
+            return base.Channel.GetLastLocation(userid);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location> GetLastLocationAsync(int userid) {
+            return base.Channel.GetLastLocationAsync(userid);
+        }
+        
+        public int CreateTicket(string name, double price, int locaid) {
+            return base.Channel.CreateTicket(name, price, locaid);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid) {
+            return base.Channel.CreateTicketAsync(name, price, locaid);
         }
     }
 }

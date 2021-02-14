@@ -139,7 +139,6 @@
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="images" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="status" type="xs:boolean" />
         <xs:element minOccurs="0" name="userid" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -148,6 +147,36 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CreateLocationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q8:Location" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
+        <xs:element minOccurs="0" name="locaid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateTicketResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

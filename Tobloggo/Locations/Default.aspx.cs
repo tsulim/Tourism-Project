@@ -6,9 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Tobloggo.MyDBServiceReference;
 
-namespace Tobloggo
+namespace Tobloggo.Locations
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class _Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,10 +22,12 @@ namespace Tobloggo
 
             if (lList != null)
             {
+                
                 gvLocation.Visible = true;
                 gvLocation.DataSource = lList;
                 gvLocation.DataBind();
-            } else
+            }
+            else
             {
                 gvLocation.Visible = false;
             }

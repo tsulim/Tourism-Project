@@ -43,8 +43,16 @@ namespace DBService
         [OperationContract]
         List<Location> GetAllLocations();
         [OperationContract]
-        int CreateLocation(string name, string address, string type, string images, bool status, int userid);
+        int CreateLocation(string name, string address, string type, string images, int userid);
+        [OperationContract]
+        Location GetLastLocation(int userid);
         // Location Codes End
+
+        // Ticket Codes Start
+        [OperationContract]
+        int CreateTicket(string name, double price, int locaid);
+        // Ticket Codes End
+
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

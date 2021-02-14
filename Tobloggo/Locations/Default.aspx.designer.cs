@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tobloggo
+namespace Tobloggo.Locations
 {
 
 
-    public partial class WebForm2
+    public partial class _Default
     {
 
         /// <summary>

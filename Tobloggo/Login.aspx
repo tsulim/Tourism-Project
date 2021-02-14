@@ -13,6 +13,27 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container">
+        <div>
+            <br />
+            <asp:Label ID="Label7" runat="server" Font-Size="Larger" Text="Login"></asp:Label>
+            <br />
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <asp:TextBox ID="tb_email" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>
+                        <asp:TextBox ID="tb_password" TextMode="Password" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+            <asp:Button ID="btn_submit" runat="server" OnClick="btn_submit_Click" Text="Login" />
 
     <div>
         <br />
@@ -49,17 +70,16 @@
         </asp:LinkButton>
         <%--  --%>
 
-        <br />
-        <asp:Label ID="lbl_errormsg" runat="server"></asp:Label>
+            <br />
+            <asp:Label ID="lbl_errormsg" runat="server"></asp:Label>
 
-        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"/>
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
 
-    </div>
+        </div>
 
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignUp.aspx">Click here to Register</asp:HyperLink>
     <br />
     <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
-
 
 
 </asp:Content>
