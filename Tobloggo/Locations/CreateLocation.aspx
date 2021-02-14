@@ -14,7 +14,8 @@
         var files = ""
         var idList = []
 
-        window.onload = function () {            
+        window.onload = function () {
+
             //Check File API support
             if (window.File && window.FileList && window.FileReader) {
                 var filesInput = document.getElementById("locaImages");
@@ -147,8 +148,8 @@
             itemCount ++
             var tr = document.createElement("tr");
 
-            tr.innerHTML = '<td><input type="text" id="multipleItemName' + itemCount + '" class="form-control" placeholder="Enter item name"></td><td>' +
-                '<input type="text" id="multipleItemPrice' + itemCount + '" class="form-control" placeholder="$ Input"></td>' +
+            tr.innerHTML = '<td><input type="text" name="multipleItemName' + itemCount + '" id="multipleItemName' + itemCount + '" class="form-control" placeholder="Enter item name"></td><td>' +
+                '<input type="text" name="multipleItemPrice' + itemCount + '" id="multipleItemPrice' + itemCount + '" class="form-control" placeholder="$ Input"></td>' +
                 '<td><button type="button" class="btn btn-outline-success" onclick="addItem(this)"><i class="fa fa-plus"></i></button> <button type="button" class="btn btn-outline-danger" onclick="removeItem(this)"><i class="fa fa-trash"></i></button></td>';
 
             var td = document.createElement("td");
@@ -239,10 +240,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="multipleItemName1" CssClass="form-control" runat="server" placeholder="Enter item name" ClientIDMode="Static"></asp:TextBox>
+                                        <input type="text" name="multipleItemName1" id="multipleItemName1" class="form-control" placeholder="Enter item name">
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="multipleItemPrice1" CssClass="form-control" runat="server" placeholder="$ Input" ClientIDMode="Static"></asp:TextBox>
+                                        <input type="text" name="multipleItemPrice1" id="multipleItemPrice1" class="form-control" placeholder="$ Input">
                                     </td>
                                     <td>
                                         <button type="button" runat="server" class="btn btn-outline-success" ClientIdMode="Static" onclick="addItem(this)" visible="true"><i class="fa fa-plus"></i></button>
@@ -255,7 +256,8 @@
                 </div>
             </div>
             <div id="bottomLoca">
-                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/~/WebForm1.aspx" ClientIDMode="Static" />
+                <asp:Button ID="testBtn" runat="server" Text="test" CssClass="btn btn-dark" ClientIDMode="Static" OnClick="btnTest_onClick" />
+                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
                 <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" />
                 <%--                <button class="btn btn-outline-danger" type="button">Cancel</button>
                 <button class="btn btn-primary" type="button" onclick="btnAdd_onClick">Add</button>--%>

@@ -66,11 +66,25 @@ namespace DBService
             return loca.SelectAll();
         }
 
-        public int CreateLocation(string name, string address, string type, string images, bool status, int userid)
+        public int CreateLocation(string name, string address, string type, string images, int userid)
         {
-            Location loca = new Location(name, address, type, images, status, userid);
+            Location loca = new Location(name, address, type, images, userid);
             return loca.Insert();
         }
+
+        public Location GetLastLocation(int userid)
+        {
+            Location loca = new Location();
+            return loca.SelectLast(userid);
+        }
         // Location Codes End
+
+        // Ticket Codes Start
+        public int CreateTicket(string name, double price, int locaid)
+        {
+            Ticket tic = new Ticket(name, price, locaid);
+            return tic.Insert();
+        }
+        // Ticket Codes End
     }
 }

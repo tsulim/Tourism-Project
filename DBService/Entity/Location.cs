@@ -13,6 +13,7 @@ namespace DBService.Entity
 {
     public class Location
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Type { get; set; }
@@ -24,8 +25,20 @@ namespace DBService.Entity
         {
         }
 
-        public Location(string name, string address, string type, string images, bool status, int userid)
+        public Location(string name, string address, string type, string images, int userid)
         {
+            Id = 0;
+            Name = name;
+            Address = address;
+            Type = type;
+            Images = images;
+            Status = true;
+            UserId = userid;
+        }
+
+        public Location(int id, string name, string address, string type, string images, bool status, int userid)
+        {
+            Id = id;
             Name = name;
             Address = address;
             Type = type;
@@ -75,6 +88,7 @@ namespace DBService.Entity
             for (int i = 0; i < rec_cnt; i++)
             {
                 DataRow row = ds.Tables[0].Rows[i];
+                int id = Convert.ToInt32(row["Id"]);
                 string name = row["Name"].ToString();
                 string address = row["Address"].ToString();
                 string type = row["Type"].ToString();
@@ -82,10 +96,39 @@ namespace DBService.Entity
                 bool status = Convert.ToBoolean(row["Status"]);
                 int userId = Convert.ToInt32(row["UserId"]);
 
-                Location loca = new Location(name, address, type, images, status, userId);
+                Location loca = new Location(id, name, address, type, images, status, userId);
                 locaList.Add(loca);
             }
             return locaList;
+        }
+
+        public Location SelectLast(int userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Location where UserId = @paraUserId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            Location loca = null;
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt >= 1)
+            {
+                DataRow row = ds.Tables[0].Rows[rec_cnt-1];  // Retrieve last record
+                int id = Convert.ToInt32(row["Id"].ToString());
+                string name = row["Name"].ToString();
+                string address = row["Address"].ToString();
+                string type = row["Type"].ToString();
+                string images = row["Images"].ToString();
+                bool status = Convert.ToBoolean(row["Status"]);
+
+                loca = new Location(id, name, address, type, images, status, userId);
+            }
+            return loca;
         }
     }
 }

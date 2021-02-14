@@ -114,24 +114,6 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.HtmlControls.HtmlTable itemTable;
 
         /// <summary>
-        /// multipleItemName1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox multipleItemName1;
-
-        /// <summary>
-        /// multipleItemPrice1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox multipleItemPrice1;
-
-        /// <summary>
         /// cancelBtn control.
         /// </summary>
         /// <remarks>
