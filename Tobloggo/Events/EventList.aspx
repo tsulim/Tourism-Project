@@ -8,7 +8,7 @@
         <p>There are {} total events</p>
 
         <div class="d-flex justify-content-end">
-            <asp:HyperLink ID="AddEventBtn" runat="server">+ Add New Event</asp:HyperLink>
+            <asp:HyperLink href="/Events/CreateEvent" ID="AddEventBtn" runat="server">+ Add New Event</asp:HyperLink>
         </div>
 
         <hr />

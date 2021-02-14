@@ -39,6 +39,21 @@ namespace DBService
         List<User> GetAllUsers();
         // User Codes End
 
+        // Event Codes Start
+        [OperationContract]
+        int CreateEvent(string name, string location, string desc, DateTime eStartDate, DateTime eEndDate, string userId);
+
+        [OperationContract]
+        int UpdateEvent(Event eventObj);
+
+        [OperationContract]
+        Event GetEventById(string id);
+
+        [OperationContract]
+        List<Event> GetAllEvents();
+
+        // Event Codes End
+
         // Location Codes Start
         [OperationContract]
         List<Location> GetAllLocations();

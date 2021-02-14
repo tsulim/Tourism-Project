@@ -73,6 +73,33 @@ namespace DBService
         }
         // User Codes End
 
+        // Event Codes Start
+        public int CreateEvent(string name, string location, string desc, DateTime eStartDate, DateTime eEndDate, string userId)
+        {
+            Event eventObj = new Event(name, location, desc, eStartDate, eEndDate, userId);
+            return eventObj.CreateEvent();
+        }
+
+        public int UpdateEvent(Event eventObj)
+        {
+            return eventObj.UpdateEvent();
+        }
+
+        public Event GetEventById(string id)
+        {
+            Event eventObj = new Event();
+            return eventObj.SelectById(id);
+        }
+
+        public List<Event> GetAllEvents()
+        {
+            Event eventObj = new Event();
+            return eventObj.SelectAll();
+        }
+
+
+        // Event Codes End
+
         // Location Codes Start
         public List<Location> GetAllLocations()
         {

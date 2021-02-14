@@ -186,6 +186,9 @@
     </Content>
     <Content Include="BackendSite.Master" />
     <Content Include="CustomErrors\Error500.html" />
+    <Content Include="Events\CreateEvent.aspx" />
+    <Content Include="Events\EventProgressChartPage.aspx" />
+    <Content Include="Events\EventTeamPage.aspx" />
     <Content Include="Locations\CreateLocation.aspx" />
     <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
@@ -240,6 +243,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -334,6 +340,27 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEvent.aspx.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEvent.aspx.designer.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventProgressChartPage.aspx.cs">
+      <DependentUpon>EventProgressChartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventProgressChartPage.aspx.designer.cs">
+      <DependentUpon>EventProgressChartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventTeamPage.aspx.cs">
+      <DependentUpon>EventTeamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventTeamPage.aspx.designer.cs">
+      <DependentUpon>EventTeamPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

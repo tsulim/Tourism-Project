@@ -33,22 +33,13 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// editAccountName control.
+        /// eventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label editAccountName;
-
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox eventName;
 
         /// <summary>
         /// Label2 control.
@@ -60,13 +51,13 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Label3 control.
+        /// eventLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox eventLocation;
 
         /// <summary>
         /// Label6 control.
@@ -78,13 +69,13 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// editEmail control.
+        /// eventDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label editEmail;
+        protected global::System.Web.UI.WebControls.TextBox eventDescription;
 
         /// <summary>
         /// Label4 control.
@@ -96,66 +87,39 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// editContact control.
+        /// eventStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label editContact;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartDate;
 
         /// <summary>
-        /// Label7 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// editAuthorization control.
+        /// eventEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList editAuthorization;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndDate;
 
         /// <summary>
-        /// Label9 control.
+        /// event_create_btn_submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-
-        /// <summary>
-        /// editStripeId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label editStripeId;
-
-        /// <summary>
-        /// edit_btn_submit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edit_btn_submit;
-
-        /// <summary>
-        /// lbl_submitchecker control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_submitchecker;
+        protected global::System.Web.UI.WebControls.Button event_create_btn_submit;
     }
 }

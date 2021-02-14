@@ -175,7 +175,7 @@ CREATE TABLE [dbo].[Comment]
 
 CREATE TABLE [dbo].[Event]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(50) NULL, 
 	[Location] NVARCHAR(MAX) NULL, 
 	[Status] NVARCHAR(MAX) NULL, 
@@ -183,7 +183,8 @@ CREATE TABLE [dbo].[Event]
 	[Images] NVARCHAR(MAX) NULL, 
 	[EStartDate] DATETIME NULL, 
 	[EEndDate] DATETIME NULL, 
-
+	
+	[ProgCreated] INT NOT NULL, 
 	[PStartDate] DATETIME NULL, 
 	[PEndDate] DATETIME NULL, 
 
