@@ -134,6 +134,8 @@
                                     </li>
                                 </ul>
                             </div>
+                            <% if (Session["UserId"] == null)
+                                { %>
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
@@ -148,6 +150,27 @@
                                     </li>
                                 </ul>   
                             </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1){ %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
+                            <%} else { %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Log Out
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>

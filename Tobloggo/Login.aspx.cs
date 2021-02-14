@@ -97,7 +97,7 @@ namespace Tobloggo
                                     Response.Cookies.Add(new HttpCookie("AuthToken", guid));
 
                                     //Go back to home page
-                                    Response.Redirect("Default.aspx");
+                                    Response.Redirect("Default.aspx", false);
 
                                 }
                             }
@@ -245,7 +245,6 @@ namespace Tobloggo
                         if (userHash.Equals(dbHash))
                         {
                             Session["UserID"] = email;
-
                             //Create a new GUID and save into the session
                             string guid = Guid.NewGuid().ToString();
                             Session["AuthToken"] = guid;

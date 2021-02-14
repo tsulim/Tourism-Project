@@ -50,7 +50,7 @@
 
             document.getElementById("lbl_cfmchecker").innerHTML = ""
 
-            document.getElementById("btn_submit").disabled = false;
+            document.getElementById("signup_btn_submit").disabled = false;
         }
     </script>
 </asp:Content>
@@ -131,7 +131,7 @@
             </tr>
         </table>
     </div>
-    <asp:Button ID="btn_submit" runat="server" OnClick="btn_submit_Click" Text="Submit" Enabled="False" ClientIDMode="Static"/>
+    <asp:Button ID="signup_btn_submit" runat="server" OnClick="btn_submit_Click" Text="Submit" Enabled="False" ClientIDMode="Static"/>
     <br />
     <asp:Label ID="lbl_submitchecker" runat="server"></asp:Label>
 

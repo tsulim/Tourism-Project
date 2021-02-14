@@ -7,6 +7,8 @@
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="748299484002-a0rjtlk5ovijs0pgdf2gfcs0429he8gs.apps.googleusercontent.com">
+    
+    <link href="/Content/Login.css" rel="stylesheet">
 
 </asp:Content>
 
@@ -35,12 +37,16 @@
 
 
         <%--  --%>
-        <div class="row form-group" style="margin-top: 40px;">
-            <div class="col-md-12">
-                <asp:Button CssClass="btn btn-default" ID="GoogleBtn" runat="server" Text="Login with Google account" OnClick="Google_Click"></asp:Button>
+        <br />
+        <br />
+        <asp:LinkButton ID="GoogleBtn2" runat="server" OnClick="Google_Click">
+            <div class="google-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              </div>
+              <p class="btn-text"><b>Sign in with google</b></p>
             </div>
-        </div>
-
+        </asp:LinkButton>
         <%--  --%>
 
         <br />
@@ -54,10 +60,6 @@
     <br />
     <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
 
-    <br />
-
-    <asp:FileUpload ID="locaImages" runat="server" AllowMultiple="true" ClientIDMode="Static"  />
-    <div id="imageresult"></div>
 
 
 </asp:Content>

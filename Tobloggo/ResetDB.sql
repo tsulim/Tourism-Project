@@ -178,11 +178,15 @@ CREATE TABLE [dbo].[Event]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(50) NULL, 
+	[Location] NVARCHAR(MAX) NULL, 
+	[Status] NVARCHAR(MAX) NULL, 
 	[Desc] NVARCHAR(MAX) NULL, 
 	[Images] NVARCHAR(MAX) NULL, 
-	[StartDate] DATETIME NULL, 
-	[EndDate] DATETIME NULL, 
-	[Approved] BIT NULL,
+	[EStartDate] DATETIME NULL, 
+	[EEndDate] DATETIME NULL, 
+
+	[PStartDate] DATETIME NULL, 
+	[PEndDate] DATETIME NULL, 
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
