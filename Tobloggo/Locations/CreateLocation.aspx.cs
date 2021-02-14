@@ -85,11 +85,5 @@ namespace Tobloggo.Locations
                 Response.Redirect("~/CustomErrors/Error500.html");
             }
         }
-
-        protected void btnTest_onClick(object sender, EventArgs e)
-        {
-            Response.Redirect("~/CustomErrors/Error500.html");
-
-        }
     }
 }

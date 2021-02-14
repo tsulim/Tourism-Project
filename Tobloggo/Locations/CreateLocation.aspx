@@ -256,11 +256,8 @@
                 </div>
             </div>
             <div id="bottomLoca">
-                <asp:Button ID="testBtn" runat="server" Text="test" CssClass="btn btn-dark" ClientIDMode="Static" OnClick="btnTest_onClick" />
                 <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
                 <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" />
-                <%--                <button class="btn btn-outline-danger" type="button">Cancel</button>
-                <button class="btn btn-primary" type="button" onclick="btnAdd_onClick">Add</button>--%>
             </div>
         </div>
     </div>
