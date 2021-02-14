@@ -15,42 +15,6 @@ namespace Tobloggo
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// lbl_createTour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_createTour;
-
-        /// <summary>
-        /// lbl_img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_img;
-
-        /// <summary>
-        /// tb_img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_img;
-
-        /// <summary>
         /// lbl_title control.
         /// </summary>
         /// <remarks>
@@ -67,6 +31,24 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tb_title;
+
+        /// <summary>
+        /// lbl_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_img;
+
+        /// <summary>
+        /// FileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload;
 
         /// <summary>
         /// lbl_details control.
@@ -87,40 +69,22 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.TextBox tb_details;
 
         /// <summary>
-        /// lbl_startDT control.
+        /// lbl_startD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_startDT;
+        protected global::System.Web.UI.WebControls.Label lbl_startD;
 
         /// <summary>
-        /// tb_startDT control.
+        /// calendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_startDT;
-
-        /// <summary>
-        /// lbl_endDT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_endDT;
-
-        /// <summary>
-        /// tb_endDT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_endDT;
+        protected global::System.Web.UI.WebControls.TextBox calendar;
 
         /// <summary>
         /// lbl_price control.
@@ -150,13 +114,13 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label lbl_minPpl;
 
         /// <summary>
-        /// tb_minPpl control.
+        /// ddlMinPpl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_minPpl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinPpl;
 
         /// <summary>
         /// lbl_maxPpl control.
@@ -168,13 +132,13 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label lbl_maxPpl;
 
         /// <summary>
-        /// tb_maxPpl control.
+        /// ddlMaxPpl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_maxPpl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaxPpl;
 
         /// <summary>
         /// lbl_iti control.
@@ -204,6 +168,15 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Button btnCreate;
 
         /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
+
+        /// <summary>
         /// lbMsg control.
         /// </summary>
         /// <remarks>
@@ -211,14 +184,5 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbMsg;
-
-        /// <summary>
-        /// gvTour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTour;
     }
 }

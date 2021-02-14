@@ -44,6 +44,12 @@
   <wsdl:message name="IService1_CreateTour_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateTourResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateTour_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTour" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTourResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -68,6 +74,10 @@
     <wsdl:operation name="CreateTour">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTour" message="tns:IService1_CreateTour_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateTourResponse" message="tns:IService1_CreateTour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTour" message="tns:IService1_UpdateTour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTourResponse" message="tns:IService1_UpdateTour_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -119,6 +129,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateTour">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateTour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTour">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTour" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

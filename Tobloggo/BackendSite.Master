@@ -62,7 +62,7 @@
         <%-- Start of Navigation Bar --%>
         <nav class="navbar navbar-expand-sm bg-light navbar-dark backendNav">
             <div>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="TourOverview.aspx">
                     Tobloggo
                 </a>
             </div>
@@ -93,7 +93,10 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link" href="TourOverview.aspx">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="CreateTour.aspx">Create Tour Package</a>
                                     </li>
                                 </ul>
                             </div>

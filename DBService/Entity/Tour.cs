@@ -11,12 +11,12 @@ namespace DBService.Entity
 {
     public class Tour
     {
+
         //Define class properties
         public string Title { get; set; }
         public string Image { get; set; }
         public string Details { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public string DateTime{ get; set; }
         public double Price { get; set; }
         public int MinPeople { get; set; }
         public int MaxPeople { get; set; }
@@ -29,17 +29,16 @@ namespace DBService.Entity
         }
 
         //Define a constructor to initialize all the properties
-        public Tour(string title, string img, string details, DateTime sDateTime, DateTime eDateTime, double price, int minPpl, int maxPpl, string itin)
+        public Tour(string title, string img, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
         {
             Title = title;
             Image = img;
             Details = details;
-            StartDateTime = sDateTime;
-            EndDateTime = eDateTime;
+            DateTime = dateTime;
             Price = price;
             MinPeople = minPpl;
             MaxPeople = maxPpl;
-            Itinerary = itin;
+            Itinerary = iti;
             //AvailableSlot = CalculateAvailSlots();
         }
 
@@ -51,15 +50,14 @@ namespace DBService.Entity
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             // Step 2 - Create a SqlCommand object to add record with INSERT statement
-            string sqlStmt = "INSERT INTO Tour (title, image, details, startDT, endDT, price, minPpl, maxPpl, iti) " + "VALUES (@paraTitle, @paraImage, @paraDetails, @paraStartDT, @paraEndDT, @paraPrice, @paraMinPpl, @paraMaxPpl, @paraIti)";
+            string sqlStmt = "INSERT INTO Tour (title, image, details, DateTime, price, minPpl, maxPpl, iti) " + "VALUES (@paraTitle, @paraImage, @paraDetails, @paraDateTime, @paraPrice, @paraMinPpl, @paraMaxPpl, @paraIti)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             // Step 3 : Add each parameterised variable with value
             sqlCmd.Parameters.AddWithValue("@paraTitle", Title);
             sqlCmd.Parameters.AddWithValue("@paraImage", Image);
             sqlCmd.Parameters.AddWithValue("@paraDetails", Details);
-            sqlCmd.Parameters.AddWithValue("@paraStartDT", StartDateTime.ToShortDateString());
-            sqlCmd.Parameters.AddWithValue("@paraEndDT", EndDateTime.ToShortDateString());
+            sqlCmd.Parameters.AddWithValue("@paraDateTime", DateTime);
             sqlCmd.Parameters.AddWithValue("@paraPrice", Price);
             sqlCmd.Parameters.AddWithValue("@paraMinPpl", MinPeople);
             sqlCmd.Parameters.AddWithValue("@paraMaxPpl", MaxPeople);
@@ -74,6 +72,8 @@ namespace DBService.Entity
 
             return result;
         }
+        
+        
         public Tour SelectByTitle(string title)
         {
             //Step 1 -  Define a connection to the database by getting
@@ -84,7 +84,7 @@ namespace DBService.Entity
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
             string sqlStmt = "Select * from Tour where title = @paraTitle";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraTitle",Title );
+            da.SelectCommand.Parameters.AddWithValue("@paraTitle", title);
 
             //Step 3 -  Create a DataSet to store the data to be retrieved
             DataSet ds = new DataSet();
@@ -100,14 +100,13 @@ namespace DBService.Entity
                 DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
                 string image = row["image"].ToString();
                 string details = row["details"].ToString();
-                DateTime startDT = Convert.ToDateTime(row["startDateTime"].ToString());
-                DateTime endDT = Convert.ToDateTime(row["endDateTime"].ToString());
+                string dateTime = row["dateTime"].ToString();;
                 string p = row["price"].ToString();
                 double price = Convert.ToDouble(p);
-                int minPpl = Convert.ToInt32(row["minPeople"].ToString());
-                int maxPpl = Convert.ToInt32(row["maxPeople"].ToString());
-                string iti = row["itinerary"].ToString();
-                tour = new Tour(title,image, details, startDT, endDT, price, minPpl, maxPpl, iti);
+                int minPpl = Convert.ToInt32(row["minPpl"].ToString());
+                int maxPpl = Convert.ToInt32(row["maxPpl"].ToString());
+                string iti = row["iti"].ToString();
+                tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
             }
             return tour;
         }
@@ -132,23 +131,59 @@ namespace DBService.Entity
             //Step 5 -  Read data from DataSet to List
             List<Tour> tourList = new List<Tour>();
             int rec_cnt = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < rec_cnt; i++)
+            if (rec_cnt == 0)
             {
-                DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
-                string title = row["title"].ToString();
-                string image = row["image"].ToString();
-                string details = row["details"].ToString();
-                DateTime startDT = Convert.ToDateTime(row["startDateTime"].ToString());
-                DateTime endDT = Convert.ToDateTime(row["endDateTime"].ToString());
-                string p = row["price"].ToString();
-                double price = Convert.ToDouble(p);
-                int minPpl = Convert.ToInt32(row["minPeople"].ToString());
-                int maxPpl = Convert.ToInt32(row["maxPeople"].ToString());
-                string iti = row["itinerary"].ToString();
-                Tour tour = new Tour(title, image, details, startDT, endDT, price, minPpl, maxPpl, iti);
-                tourList.Add(tour);
+                tourList = null;
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    string title = row["title"].ToString();
+                    string image = "Images\\" + row["image"].ToString();
+                    string details = row["details"].ToString();
+                    string dateTime = row["dateTime"].ToString();
+                    string p = row["price"].ToString();
+                    double price = Convert.ToDouble(p);
+                    int minPpl = Convert.ToInt32(row["minPpl"].ToString());
+                    int maxPpl = Convert.ToInt32(row["maxPpl"].ToString());
+                    string iti = row["iti"].ToString();
+                    Tour tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+                    tourList.Add(tour);
+                }
             }
             return tourList;
+        }
+
+        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from App.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Create a SqlCommand object to add record with UPDATE statement
+            string sqlStmt = "UPDATE Tour SET details = @paraDetails where title = @paraTitle";
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@paraTitle", title);
+            sqlCmd.Parameters.AddWithValue("@paraImage", image);
+            sqlCmd.Parameters.AddWithValue("@paraDetails", details);
+            sqlCmd.Parameters.AddWithValue("@paraDateTime", dateTime);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", price);
+            sqlCmd.Parameters.AddWithValue("@paraMinPpl", minPpl);
+            sqlCmd.Parameters.AddWithValue("@paraMaxPpl", maxPpl);
+            sqlCmd.Parameters.AddWithValue("@paraIti", iti);
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+            return result;
         }
     }
 }

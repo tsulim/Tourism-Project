@@ -1,142 +1,144 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateTour.aspx.cs" Inherits="Tobloggo.CreateTour" %>
+﻿<%@ Page Title="CreateTour" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateTour.aspx.cs" Inherits="Tobloggo.CreateTour" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <style type="text/css">
         .auto-style1 {
             width: 6px;
         }
+
         .auto-style2 {
             width: 256px;
         }
+
         .auto-style3 {
             width: 6px;
             height: 33px;
         }
+
         .auto-style4 {
             width: 256px;
             height: 33px;
         }
-        .auto-style5 {
-            height: 33px;
-        }
+
         .auto-style6 {
             width: 100%;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="lbl_createTour" runat="server" Text="Create Tour Package"></asp:Label>
-            <br />
-            <br />
-            <table class="auto-style6">
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_img" runat="server" Text="Images :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_img" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_title" runat="server" Text="Title :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_title" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_details" runat="server" Text="Details"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_details" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_startDT" runat="server" Text="Select Start Date Time :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_startDT" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_endDT" runat="server" Text="Select End Date Time :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_endDT" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_price" runat="server" Text="Price :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_price" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_minPpl" runat="server" Text="No. of Min People : "></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_minPpl" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3"></td>
-                    <td class="auto-style4">
-                        <asp:Label ID="lbl_maxPpl" runat="server" Text="No. of Max People :"></asp:Label>
-                    </td>
-                    <td class="auto-style5">
-                        <asp:TextBox ID="tb_maxPpl" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">
-                        <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
+    <div>
+        <h3>Create Tour Package</h3>
+        <table class="auto-style6">
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_title" runat="server" Text="Title :"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_title" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_img" runat="server" Text="Image :"></asp:Label>
+                </td>
+                <td>
+                    <asp:FileUpload ID="FileUpload" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_details" runat="server" Text="Details :"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_details" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_startD" runat="server" Text="Select Start Date Time and End Date Time:"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="calendar" runat="server" ClientIDMode="Static" Width="715px" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_price" runat="server" Text="Price :"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_price" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_minPpl" runat="server" Text="Minimum number of People : "></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlMinPpl" runat="server" Width="148px">
+                        <asp:ListItem Selected="True" Value="0">- Select -</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                        <asp:ListItem Value="10">10</asp:ListItem>
+                        <asp:ListItem Value="15">15</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3"></td>
+                <td class="auto-style4">
+                    <asp:Label ID="lbl_maxPpl" runat="server" Text="Maximum number of People :"></asp:Label>
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlMaxPpl" runat="server" Width="148px">
+                        <asp:ListItem Selected="True" Value="0">- Select -</asp:ListItem>
+                        <asp:ListItem Value="20">20</asp:ListItem>
+                        <asp:ListItem Value="25">25</asp:ListItem>
+                        <asp:ListItem Value="30">30</asp:ListItem>
+                        <asp:ListItem Value="35">35</asp:ListItem>
+                        <asp:ListItem Value="40">40</asp:ListItem>
+                        <asp:ListItem Value="45">45</asp:ListItem>
+                        <asp:ListItem Value="50">50</asp:ListItem>
+                        <asp:ListItem Value="55">55</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
+                </td>
+            </tr>
 
-            </table>
+        </table>
 
-            <br />
-            <asp:Button ID="btnCreate" runat="server" OnClick="btnAdd_Click" Text="Create" />
-            <br />
-            <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
-            <asp:GridView ID="gvTour" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid">
-            <Columns>
-                <asp:BoundField DataField="Title" HeaderText="Name" ReadOnly="True" />
-                <asp:BoundField DataField="Image" HeaderText="Image" ReadOnly="True" />
-                <asp:BoundField DataField="Details" HeaderText="Details" ReadOnly="True" />
-                <asp:BoundField DataField="StartDT" HeaderText="StartDT" ReadOnly="True" />
-                <asp:BoundField DataField="EndDT" HeaderText="EndDT" ReadOnly="True" />
-                <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
-                <asp:BoundField DataField="MinPpl" HeaderText="MinPpl" ReadOnly="True" />
-                <asp:BoundField DataField="MaxPpl" HeaderText="MaxPpl" ReadOnly="True" />
-                <asp:BoundField DataField="Iti" HeaderText="Itinerary" ReadOnly="True" />
-            </Columns>
-        </asp:GridView>
-        </div>
-    </form>
-</body>
-</html>
+        <br />
+        <asp:Button ID="btnCreate" runat="server" OnClick="btnAdd_Click" Text="Create" />
+        <br />
+        <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
+        <br />
+        <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
+        <script>
+            $(function () {
+                $('input[id="calendar"]').daterangepicker({
+                    timePicker: true,
+                    startDate: moment().startOf('hour'),
+                    endDate: moment().startOf('hour').add(32, 'hour'),
+                    locale: {
+                        format: 'MM/DD/YY hh:mm A'
+                    }
+                });
+            });
+        </script>
+    </div>
+</asp:Content>

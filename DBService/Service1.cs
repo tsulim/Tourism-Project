@@ -44,10 +44,17 @@ namespace DBService
             Tour tour = new Tour();
             return tour.SelectByTitle(title);
         }
-        public int CreateTour(string title, string image, string details, DateTime startDateTime, DateTime endDateTime, double price, int minPpl, int maxPpl, string iti)
+        public int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
         {
-            Tour tour = new Tour(title, image, details, startDateTime, endDateTime, price, minPpl, maxPpl, iti);
+            Tour tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
             return tour.Insert();
+        }
+
+        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        { 
+        
+            Tour tour = new Tour();
+            return tour.UpdateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
         }
     }
 }

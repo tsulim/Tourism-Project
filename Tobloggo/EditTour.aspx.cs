@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Tobloggo.DBServiceReference;
 
 namespace Tobloggo
 {
@@ -11,7 +13,82 @@ namespace Tobloggo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.IsPostBack == false)
+            {
+                if (Session["SSTitle"] != null)
+                {
+                    //Assign session variables
+                    lbl_title1.Text = Session["SSTitle"].ToString();
+                    tb_details.Text = Session["SSDetails"].ToString();
+                    calendar.Text = Session["SSDateTime"].ToString();
+                    tb_price.Text = Session["SSPrice"].ToString();
+                    ddlMinPpl.Text = Session["SSMinPpl"].ToString();
+                    ddlMaxPpl.Text = Session["SSMaxPpl"].ToString();
+                    tb_iti.Text = Session["SSIti"].ToString();
 
+                    //Retrieve Tour by Title
+                    Service1Client client = new Service1Client();
+                    Tour tour = client.GetTourByTitle(lbl_title1.Text);
+
+                    tb_details.Text = tour.Details;
+                    ViewState["currDetails"] = tour.Details;
+                    ViewState["currDateTime"] = tour.DateTime;
+                    ViewState["currPrice"] = tour.Price.ToString();
+                    ViewState["currMinPpl"] = tour.MinPeople.ToString();
+                    ViewState["currMaxPpl"] = tour.MaxPeople.ToString();
+                    ViewState["currIti"] = tour.Itinerary;
+
+                }
+                else
+                {
+                    Response.Redirect("TourOverview.aspx");
+                }
+            }
+        }
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int updCnt;
+
+            ////Retrieve the current value from ViewState
+            //string currDetails = (string)ViewState["currDetails"];
+            //string currDateTime = (string)ViewState["currDateTime"];
+            //string currPrice = (string)ViewState["currPrice"];
+            //string currMinPpl = (string)ViewState["currMinPpl"];
+            //string currMaxPpl = (string)ViewState["currMaxPpl"];
+            //string currIti = (string)ViewState["currIti"];
+
+            string newImage = FileUpload.FileName;
+            string newDetails = tb_details.Text;
+            string newDateTime = calendar.Text;
+            string newPrice = tb_price.Text;
+            string newMinPpl = ddlMinPpl.Text;
+            string newMaxPpl = ddlMaxPpl.Text;
+            string newIti = tb_iti.Text;
+
+            int minPpl = Convert.ToInt32(newMinPpl);
+            int maxPpl = Convert.ToInt32(newMaxPpl);
+            double price = Convert.ToDouble(newPrice);
+
+            Service1Client client = new Service1Client();
+            updCnt = client.UpdateTour(lbl_title.Text, newImage, newDetails, newDateTime, price, minPpl, maxPpl, newIti);
+
+            if (updCnt == 1)
+            {
+                lbMsg.Text = "Details Updated!";
+                lbMsg.ForeColor = Color.Green;
+            }
+            else
+            {
+                lbMsg.Text = "Unable to update details, please inform system administrator!";
+
+                btnUpdate.Enabled = false;
+            }
+            btnUpdate.Enabled = false;
+
+        }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TourOverview.aspx");
         }
     }
 }

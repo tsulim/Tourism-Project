@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Tobloggo.DBServiceReference;
 
 namespace Tobloggo
 {
@@ -12,23 +11,24 @@ namespace Tobloggo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RefreshGridView();
-        }
 
-        private void RefreshGridView()
-        {
         }
 
         private bool ValidateInput()
         {
-            bool result;
-            lbMsg.Text = String.Empty;
+            bool result;lbMsg.Text = String.Empty;
             lbMsg.ForeColor = Color.Red;
             if (String.IsNullOrEmpty(tb_title.Text))
             {
                 lbMsg.Text += "Title is required!" + "<br/>";
             }
-            if (String.IsNullOrEmpty(tb_img.Text))
+            Service1Client client = new Service1Client();
+            Tour tour = client.GetTourByTitle(tb_title.Text);
+            if (tour != null)
+            {
+                lbMsg.Text += "Title already exists!" + "<br/>";
+            }
+            if (String.IsNullOrEmpty(FileUpload.FileName))
             {
                 lbMsg.Text += "Image is required!" + "<br/>";
             }
@@ -36,31 +36,23 @@ namespace Tobloggo
             {
                 lbMsg.Text += "Details is required!" + "<br/>";
             }
-            DateTime startDT;
-            result = DateTime.TryParse(tb_startDT.Text, out startDT);
-            if (!result)
-            {
-                lbMsg.Text += "Start Date Time is invalid!" + "<br/>";
-            }
-            DateTime endDT;
-            result = DateTime.TryParse(tb_endDT.Text, out endDT);
-            if (!result)
-            {
-                lbMsg.Text += "End Date Time is invalid!" + "<br/>";
-            }
             double price;
             result = double.TryParse(tb_price.Text, out price);
-            if (!result)
+            if (String.IsNullOrEmpty(tb_price.Text))
+            {
+                lbMsg.Text += "Price is required!" + "<br/>";
+            }
+            else if (!result)
             {
                 lbMsg.Text += "Price is invalid!" + "<br/>";
             }
-            if (String.IsNullOrEmpty(tb_minPpl.Text))
+            if (ddlMinPpl.SelectedIndex == 0)
             {
-                lbMsg.Text += "Number of minimum people is required!" + "<br/>";
+                lbMsg.Text += "Minimum number of people is required!" + "<br/>";
             }
-            if (String.IsNullOrEmpty(tb_maxPpl.Text))
+            if (ddlMaxPpl.SelectedIndex == 0)
             {
-                lbMsg.Text += "Number of maximum people is required!" + "<br/>";
+                lbMsg.Text += "Maximum number of people is required!" + "<br/>";
             }
             if (String.IsNullOrEmpty(tb_iti.Text))
             {
@@ -78,27 +70,38 @@ namespace Tobloggo
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            string image = "";
+            if (FileUpload.HasFile == true)
+            {
+                image = "Images\\" + FileUpload.FileName;
+            }
+
             bool validInput = ValidateInput();
 
             if (validInput)
             {
-                DateTime startDT= Convert.ToDateTime(tb_startDT.Text);
-                DateTime endDT = Convert.ToDateTime(tb_endDT.Text);
-                int minPpl = Convert.ToInt32(tb_minPpl.Text);
-                int maxPpl = Convert.ToInt32(tb_maxPpl.Text);
+                int minPpl = Convert.ToInt32(ddlMinPpl.Text);
+                int maxPpl = Convert.ToInt32(ddlMaxPpl.Text);
                 double price = Convert.ToDouble(tb_price.Text);
 
-                DBServiceReference.Service1Client client = new DBServiceReference.Service1Client();
-                int result = client.CreateTour(tb_title.Text, tb_img.Text, tb_details.Text, startDT, endDT, price, minPpl, maxPpl, tb_iti.Text);
+                var reqDateTime = calendar.Text;
+
+                Service1Client client = new Service1Client();
+                int result = client.CreateTour(tb_title.Text, FileUpload.FileName, tb_details.Text, reqDateTime, price, minPpl, maxPpl, tb_iti.Text);
                 if (result == 1)
                 {
-                    RefreshGridView();
+                    string saveimg = Server.MapPath(" ") + "\\" + image;
+                    FileUpload.SaveAs(saveimg);
                     lbMsg.ForeColor = Color.Green;
-                    lbMsg.Text = "Employee Record Inserted Successfully!";
+                    lbMsg.Text = "Tour Record Inserted Successfully!";
                 }
                 else
                     lbMsg.Text = "SQL Error. Insert Unsuccessful!";
             }
+        }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TourOverview.aspx");
         }
     }
 }
