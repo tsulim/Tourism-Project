@@ -137,7 +137,7 @@
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Signup.aspx">
+                                        <a class="nav-link" href="SignUp.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Sign Up
                                         </a>
                                     </li>
@@ -146,7 +146,7 @@
                                             <span class="glyphicon glyphicon-log-in"></span>Login
                                         </a>
                                     </li>
-                                </ul>
+                                </ul>   
                             </div>
                         </div>
                     </div>

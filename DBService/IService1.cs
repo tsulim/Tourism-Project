@@ -19,10 +19,13 @@ namespace DBService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+        // User Codes Start
         [OperationContract]
         int CreateUser(string name, string passwordHash, string passwordSalt, string email, string contact, string iv, string key);
 
-        // User Codes Start
+        [OperationContract]
+        int CreateOrFindSingleGoogleUser(string googleId, string name, string email);
+
         [OperationContract]
         int UpdateUser(User user);
 

@@ -63,6 +63,7 @@ Exec Sp_executesql @sql2
 CREATE TABLE [dbo].[User]
 (
 	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[GoogleId] NVARCHAR(MAX) NULL, 
 	[ProfImage] NVARCHAR(MAX) NULL, 
 	[Name] NVARCHAR(MAX) NULL, 
 	[PasswordHash] NVARCHAR(MAX) NULL,
@@ -73,7 +74,6 @@ CREATE TABLE [dbo].[User]
 	[StripeId] NVARCHAR(MAX) NULL,
 	[IV]           NVARCHAR (MAX) NULL,
 	[Key]          NVARCHAR (MAX) NULL,
-	[LockoutCount] SMALLINT       DEFAULT 0 NULL,
 )
 
 --CREATE TABLE [dbo].[CreditCard]

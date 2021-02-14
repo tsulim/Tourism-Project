@@ -26,6 +26,12 @@
   <wsdl:message name="IService1_CreateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CreateOrFindSingleGoogleUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrFindSingleGoogleUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateOrFindSingleGoogleUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrFindSingleGoogleUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
   </wsdl:message>
@@ -87,6 +93,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateUser" message="tns:IService1_CreateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateUserResponse" message="tns:IService1_CreateUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateOrFindSingleGoogleUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateOrFindSingleGoogleUser" message="tns:IService1_CreateOrFindSingleGoogleUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateOrFindSingleGoogleUserResponse" message="tns:IService1_CreateOrFindSingleGoogleUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUser" message="tns:IService1_UpdateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateUserResponse" message="tns:IService1_UpdateUser_OutputMessage" />
@@ -142,6 +152,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateUser">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrFindSingleGoogleUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateOrFindSingleGoogleUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

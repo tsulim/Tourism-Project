@@ -36,6 +36,20 @@ namespace DBService
             return user.CreateUser();
         }
 
+        public int CreateOrFindSingleGoogleUser(string googleId, string name, string email)
+        {
+            User user = new User(googleId, name, email);
+            User finding = user.SelectByEmail(user.Email);
+            if (finding == null)
+            {
+                var result = user.CreateGoogleUser();
+                return result;
+            } else
+            {
+                return 0;
+            }
+        }
+
         public int UpdateUser(User user)
         {
             return user.UpdateUser();
