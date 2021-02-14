@@ -137,12 +137,12 @@
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="Signup.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Sign Up
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="Login.aspx">
                                             <span class="glyphicon glyphicon-log-in"></span>Login
                                         </a>
                                     </li>
@@ -183,7 +183,7 @@
         </nav>
         <%-- End of Navigation Bar --%>
 
-        <div class="container body-content">
+        <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
