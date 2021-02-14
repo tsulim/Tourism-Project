@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tobloggo
+namespace Tobloggo.Locations
 {
 
 
@@ -60,40 +60,58 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.FileUpload locaImages;
 
         /// <summary>
-        /// itemName control.
+        /// imageresult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox itemName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imageresult;
 
         /// <summary>
-        /// itemPrice control.
+        /// test control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox itemPrice;
+        protected global::System.Web.UI.WebControls.Label test;
 
         /// <summary>
-        /// enableOption control.
+        /// itemInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enableOption;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemInfo;
 
         /// <summary>
-        /// noItem control.
+        /// optionsInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button noItem;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optionsInfo;
+
+        /// <summary>
+        /// itemCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField itemCount;
+
+        /// <summary>
+        /// itemTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable itemTable;
 
         /// <summary>
         /// cancelBtn control.
@@ -112,59 +130,5 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addBtn;
-
-        /// <summary>
-        /// lbl_name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_name;
-
-        /// <summary>
-        /// lbl_address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_address;
-
-        /// <summary>
-        /// lbl_type control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_type;
-
-        /// <summary>
-        /// lbl_images control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_images;
-
-        /// <summary>
-        /// lbl_status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_status;
-
-        /// <summary>
-        /// lbl_userid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_userid;
     }
 }

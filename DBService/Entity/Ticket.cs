@@ -13,17 +13,31 @@ namespace DBService.Entity
 {
     public class Ticket
     {
-        public string Type { get; set; }
-        public float Price { get; set; }
-        public int TotalAmount { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
         public int SoldAmount { get; set; }
         public int LocationId { get; set; }
 
-        public Ticket(string type, float price, int totalAmt, int soldAmt, int locationId)
+        public Ticket()
         {
-            Type = type;
+
+        }
+
+        public Ticket(string name, double price, int locationId)
+        {
+            Id = 0;
+            Name = name;
             Price = price;
-            TotalAmount = totalAmt;
+            SoldAmount = 0;
+            LocationId = locationId;
+        }
+
+        public Ticket(int id, string name, double price, int soldAmt, int locationId)
+        {
+            Id = id;
+            Name = name;
+            Price = price;
             SoldAmount = soldAmt;
             LocationId = locationId;
         }
@@ -33,14 +47,13 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Location (Type, Price, TotalAmount, SoldAmount, LocationId)" +
-                "VALUES (@paraType, @paraPrice, @paraTotalAmt, @paraSoldAmt, @paraLocationId)";
+            string sqlStmt = "INSERT INTO Ticket (Name, Price, SoldAmount, LocationId)" +
+                "VALUES (@paraName, @paraPrice, @paraSoldAmt, @paraLocationId)";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraType", Type);
+            sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraPrice", Price);
-            sqlCmd.Parameters.AddWithValue("@paraTotalAmt", TotalAmount);
             sqlCmd.Parameters.AddWithValue("@paraSoldAmt", SoldAmount);
             sqlCmd.Parameters.AddWithValue("@paraLocationId", LocationId);
 
