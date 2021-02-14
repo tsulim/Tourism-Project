@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tobloggo
+namespace Tobloggo.Locations
 {
 
 
@@ -96,67 +96,40 @@ namespace Tobloggo
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl optionsInfo;
 
         /// <summary>
-        /// itemName control.
+        /// itemCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox itemName;
+        protected global::System.Web.UI.WebControls.HiddenField itemCount;
 
         /// <summary>
-        /// itemPrice control.
+        /// itemTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox itemPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlTable itemTable;
 
         /// <summary>
-        /// enableOption control.
+        /// multipleItemName1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button enableOption;
+        protected global::System.Web.UI.WebControls.TextBox multipleItemName1;
 
         /// <summary>
-        /// noItem control.
+        /// multipleItemPrice1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button noItem;
-
-        /// <summary>
-        /// noItemOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noItemOptions;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// moreOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl moreOptions;
+        protected global::System.Web.UI.WebControls.TextBox multipleItemPrice1;
 
         /// <summary>
         /// cancelBtn control.
