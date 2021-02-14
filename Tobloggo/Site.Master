@@ -135,12 +135,12 @@
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="SignUp.aspx">
+                                        <a class="nav-link" href="/SignUp.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Sign Up
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Login.aspx">
+                                        <a class="nav-link" href="/Login.aspx">
                                             <span class="glyphicon glyphicon-log-in"></span>Login
                                         </a>
                                     </li>
@@ -155,7 +155,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Logout.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Hi Trillium
                                         </a>
                                     </li>
@@ -165,7 +165,7 @@
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Logout.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
@@ -210,8 +210,8 @@
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
             <footer>
+            <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>

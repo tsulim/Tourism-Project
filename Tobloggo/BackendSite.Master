@@ -148,20 +148,20 @@
                             
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
-                                    <% if (Session["UserId"] != null) { %>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
-                                            <span class="glyphicon glyphicon-user"></span>Log Out
-                                        </a>
-                                    </li>
-                                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization >= 1){ %>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">
                                             <span class="glyphicon glyphicon-user"></span>Switch to User
                                         </a>
                                     </li>
+                                    <% if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1) { %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Log Out
+                                        </a>
+                                    </li>
+                                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization > 1){ %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Logout.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Hi Trillium
                                         </a>
                                     </li>

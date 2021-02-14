@@ -192,6 +192,7 @@
     <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
     <Content Include="Events\EventList.aspx" />
+    <Content Include="Locations\View.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="SignUp.aspx" />
@@ -363,6 +364,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Locations\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

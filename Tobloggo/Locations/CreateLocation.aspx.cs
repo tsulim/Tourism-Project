@@ -31,7 +31,7 @@ namespace Tobloggo.Locations
                 Guid g = Guid.NewGuid();
                 string fileName = Path.GetFileName(locaImages.PostedFiles[i].FileName);
                 string newFileName = g + fileName;
-                locaImages.SaveAs(Server.MapPath("~/images/" + newFileName));
+                locaImages.PostedFiles[i].SaveAs(Server.MapPath("~/images/" + newFileName));
                 fileList.Add(newFileName);
             }
 

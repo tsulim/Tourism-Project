@@ -80,6 +80,18 @@ namespace DBService
             return loca.SelectAll();
         }
 
+        public List<Location> GetAllAvailLocations()
+        {
+            Location loca = new Location();
+            return loca.SelectAllAvail();
+        }
+
+        public List<Location> GetAllTypeLocations(string type)
+        {
+            Location loca = new Location();
+            return loca.SelectAllType(type);
+        }
+
         public int CreateLocation(string name, string address, string type, string images, int userid)
         {
             Location loca = new Location(name, address, type, images, userid);
@@ -90,6 +102,12 @@ namespace DBService
         {
             Location loca = new Location();
             return loca.SelectLast(userid);
+        }
+
+        public Location GetLocationById(int locaid)
+        {
+            Location loca = new Location();
+            return loca.SelectById(locaid);
         }
         // Location Codes End
 

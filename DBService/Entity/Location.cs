@@ -102,6 +102,70 @@ namespace DBService.Entity
             return locaList;
         }
 
+        public List<Location> SelectAllAvail()
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Location where Status = @paraStatus";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraStatus", true);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Location> locaList = new List<Location>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = Convert.ToInt32(row["Id"]);
+                string name = row["Name"].ToString();
+                string address = row["Address"].ToString();
+                string type = row["Type"].ToString();
+                string images = row["Images"].ToString();
+                bool status = Convert.ToBoolean(row["Status"]);
+                int userId = Convert.ToInt32(row["UserId"]);
+
+                Location loca = new Location(id, name, address, type, images, status, userId);
+                locaList.Add(loca);
+            }
+            return locaList;
+        }
+
+        public List<Location> SelectAllType(string type)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Location where Type = @paraType AND Status = @paraStatus";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraType", type);
+            da.SelectCommand.Parameters.AddWithValue("@paraStatus", true);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Location> locaList = new List<Location>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = Convert.ToInt32(row["Id"]);
+                string name = row["Name"].ToString();
+                string address = row["Address"].ToString();
+                string images = row["Images"].ToString();
+                bool status = Convert.ToBoolean(row["Status"]);
+                int userId = Convert.ToInt32(row["UserId"]);
+
+                Location loca = new Location(id, name, address, type, images, status, userId);
+                locaList.Add(loca);
+            }
+            return locaList;
+        }
+
         public Location SelectLast(int userId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
@@ -127,6 +191,35 @@ namespace DBService.Entity
                 bool status = Convert.ToBoolean(row["Status"]);
 
                 loca = new Location(id, name, address, type, images, status, userId);
+            }
+            return loca;
+        }
+
+        public Location SelectById(int locaId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Location where Id = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", locaId);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            Location loca = null;
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt >= 1)
+            {
+                DataRow row = ds.Tables[0].Rows[rec_cnt - 1];  // Retrieve last record
+                string name = row["Name"].ToString();
+                string address = row["Address"].ToString();
+                string type = row["Type"].ToString();
+                string images = row["Images"].ToString();
+                bool status = Convert.ToBoolean(row["Status"]);
+                int userId = Convert.ToInt32(row["UserId"].ToString());
+
+                loca = new Location(locaId, name, address, type, images, status, userId);
             }
             return loca;
         }

@@ -33,6 +33,20 @@ namespace Tobloggo
                 "Admin/EditUserDetail/{userId}",
                 "~/Admin/EditUser.aspx"
             );
+
+            routes.MapPageRoute(
+                "ViewLocationRoute",
+                "Locations/Viewing/{locaId}",
+                "~/Locations/View.aspx"
+            );
+
+            routes.MapPageRoute(
+                "LocationTypeRoute",
+                "Locations/{locaType}",
+                "~/Locations/Default.aspx"
+            );
+
+            
         }
     }
 }

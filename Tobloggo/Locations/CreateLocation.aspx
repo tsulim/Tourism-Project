@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateLocation.aspx.cs" Inherits="Tobloggo.Locations.CreateLocation" %>
+﻿<%@ Page Title="Create Location" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateLocation.aspx.cs" Inherits="Tobloggo.Locations.CreateLocation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Location.css" rel="stylesheet">
     <script type="text/javascript">
@@ -176,7 +176,7 @@
         <li><a href="#">Location</a></li>
         <li>Add New Location</li>
     </ul>
-    <div class="page-content">
+    <div class="page-create-content">
         <div class="form-container">
             <h2><%: Title %></h2>
             <div class="form-row row">

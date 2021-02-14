@@ -1,4 +1,4 @@
-﻿.page-content {
+﻿.page-create-content {
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -82,32 +82,89 @@ output {
     border-color: #0069d9;
 }
 
+/* Public Locations CSS */
+.page-content {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 20px;
+}
+
+.vertical-line {
+    border-left: 2px solid #3D3D3D;
+    height: auto;
+    left: 50%;
+} 
+
+.feed-content {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.feed-card {
+    margin-bottom: 20px;
+}
+
+.feed-card a {
+    text-decoration: none;
+    color: #3D3D3D;
+}
+
+.feed-card a:hover {
+    color: #0095E6;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    text-align: center;
+}
+
+/* Sidebar in Locations */
 .sidenav {
-    position: fixed;
+    /*position: fixed;*/
     z-index: 1;
     top: 20px;
     left: 10px;
-    background: #eee;
+    /*background: #eee;*/
     overflow-x: hidden;
     padding: 8px 0;
+    width: fit-content;
 }
 
-.imageUploadDiv {
-    display: flex;
-    flex-wrap: wrap;
+.sidenav a {
+    padding: 6px 16px 6px 16px;
+    text-decoration: none;
+    color: #2196F3;
+    display: block;
+    border-left: 2px solid transparent;
 }
 
-.imageUploadDiv input::-webkit-file-upload-button {
-    visibility: hidden;
+.sidenav a:hover {
+    color: #064579;
 }
 
-.imageUploadDiv input {
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
-    border-radius: 3px;
-    white-space: normal;
-    cursor: pointer;
-    height: 100px;
-    width: 100px;
-    margin: 10px;
-}}
+.sidenav .active {
+    color: #3D3D3D;
+    border-left: 2px solid #3D3D3D;
+}
+/* End of Sidebar in Locations*/
+
+/* Start of View Location Page */
+
+/* End of View Location Page */
+
+@media screen and (min-width: 1000px) {
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+
+@media screen and (min-width: 1300px) {
+    .card-img-top {
+        height: 300px;
+    }
+}

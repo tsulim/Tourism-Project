@@ -62,6 +62,18 @@
   <wsdl:message name="IService1_GetAllLocations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllAvailLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailLocations" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllAvailLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllTypeLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeLocations" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllTypeLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeLocationsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreateLocation_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateLocation" />
   </wsdl:message>
@@ -73,6 +85,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetLastLocation_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLocationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLocationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CreateTicket_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateTicket" />
@@ -117,6 +135,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllLocations" message="tns:IService1_GetAllLocations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllLocationsResponse" message="tns:IService1_GetAllLocations_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllAvailLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAvailLocations" message="tns:IService1_GetAllAvailLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAvailLocationsResponse" message="tns:IService1_GetAllAvailLocations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllTypeLocations" message="tns:IService1_GetAllTypeLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllTypeLocationsResponse" message="tns:IService1_GetAllTypeLocations_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreateLocation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateLocation" message="tns:IService1_CreateLocation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateLocationResponse" message="tns:IService1_CreateLocation_OutputMessage" />
@@ -124,6 +150,10 @@
     <wsdl:operation name="GetLastLocation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastLocation" message="tns:IService1_GetLastLocation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastLocationResponse" message="tns:IService1_GetLastLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLocationById" message="tns:IService1_GetLocationById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLocationByIdResponse" message="tns:IService1_GetLocationById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTicket">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTicket" message="tns:IService1_CreateTicket_InputMessage" />
@@ -213,6 +243,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllAvailLocations">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllAvailLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeLocations">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllTypeLocations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreateLocation">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateLocation" style="document" />
       <wsdl:input>
@@ -224,6 +272,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetLastLocation">
       <soap:operation soapAction="http://tempuri.org/IService1/GetLastLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLocationById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

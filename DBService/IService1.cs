@@ -42,10 +42,21 @@ namespace DBService
         // Location Codes Start
         [OperationContract]
         List<Location> GetAllLocations();
+        
+        [OperationContract]
+        List<Location> GetAllAvailLocations();
+
+        [OperationContract]
+        List<Location> GetAllTypeLocations(string type);
+
         [OperationContract]
         int CreateLocation(string name, string address, string type, string images, int userid);
+        
         [OperationContract]
         Location GetLastLocation(int userid);
+
+        [OperationContract]
+        Location GetLocationById(int locaid);
         // Location Codes End
 
         // Ticket Codes Start
