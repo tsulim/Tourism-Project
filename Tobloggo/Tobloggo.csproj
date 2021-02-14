@@ -185,6 +185,8 @@
       <DependentUpon>TobloggoDB.mdf</DependentUpon>
     </Content>
     <Content Include="BackendSite.Master" />
+    <Content Include="CustomErrors\Error403.html" />
+    <Content Include="CustomErrors\Error404.html" />
     <Content Include="CustomErrors\Error500.html" />
     <Content Include="Locations\CreateLocation.aspx" />
     <Content Include="Locations\Default.aspx" />
