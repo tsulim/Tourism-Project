@@ -42,7 +42,7 @@ namespace Tobloggo
                 PanelCust.Visible = true;
 
                 Lbl_title.Text = tour.Title;
-                Lbl_image.Text = tour.Image;
+                Image1.ImageUrl = "Images\\" + tour.Image;
                 Lbl_details.Text = tour.Details;
                 Lbl_startDT.Text = Convert.ToString(tour.DateTime);
                 Lbl_minPpl.Text = Convert.ToString(tour.MinPeople);
@@ -58,7 +58,7 @@ namespace Tobloggo
                 PanelErrorResult.Visible = true;
                 PanelCust.Visible = false;
                 Lbl_title.Text = String.Empty;
-                Lbl_image.Text = String.Empty;
+                Image1.ImageUrl = String.Empty;
                 Lbl_details.Text = String.Empty;
                 Lbl_startDT.Text = String.Empty;
                 Lbl_endDT.Text = String.Empty;

@@ -69,6 +69,15 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Panel PanelCust;
 
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+
+        /// <summary>
         /// Lbl_title control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_title;
-
-        /// <summary>
-        /// Lbl_image control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_image;
 
         /// <summary>
         /// Lbl_details control.

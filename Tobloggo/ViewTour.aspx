@@ -11,14 +11,14 @@
             </asp:Panel>
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Search Tour Package</h3>
+                    <h3 class="panel-title" style="text-align:center;">Search Tour Package</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
                         <asp:Label ID="lbTitle" runat="server" Text="Title:"></asp:Label>
                         <asp:TextBox ID="tbTitle" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <asp:Button ID="btnGetTour" runat="server" CssClass="btn btn-default" Text="Search" OnClick="btnGetTour_Click" />
+                    <asp:Button ID="btnGetTour" runat="server" Text="Search" OnClick="btnGetTour_Click" BackColor="#C3B1E1" ForeColor="White" />
                 </div>
             </div>
             <asp:Panel ID="PanelCust" Visible="false" runat="server">
@@ -26,13 +26,11 @@
                     <div class="panel-heading">Results:</div>
                     <div class="panel-body">
                         <div class="row">
-                            <label for="Lbl_Title" class="col-sm-2 col-form-label">Title :</label>
+                            &nbsp;<label for="Lbl_Image" class="col-sm-2 col-form-label">Image :</label>
                             <div class="col-sm-4">
+                                <asp:Image ID="Image1" runat="server" />
+                                <br />
                                 <asp:Label ID="Lbl_title" runat="server"></asp:Label>
-                            </div>
-                            <label for="Lbl_Image" class="col-sm-2 col-form-label">Image :</label>
-                            <div class="col-sm-4">
-                                <asp:Label ID="Lbl_image" runat="server"></asp:Label>
                             </div>
                             <label for="Lbl_Details" class="col-sm-2 col-form-label">Details :</label>
                             <div class="col-sm-4">
@@ -84,8 +82,8 @@
             <asp:BoundField DataField="Details" HeaderText="Details" ReadOnly="True" />
             <asp:BoundField DataField="DateTime" HeaderText="Date Time" ReadOnly="True" />
             <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
-            <asp:BoundField DataField="MinPeople" HeaderText="Minimum Number of People" ReadOnly="True" />
-            <asp:BoundField DataField="MaxPeople" HeaderText="Maximium Number of People" ReadOnly="True" />
+            <asp:BoundField DataField="MinPeople" HeaderText="Minimum No. of People" ReadOnly="True" HeaderStyle-Width="10px" />
+            <asp:BoundField DataField="MaxPeople" HeaderText="Maximum No. of People" ReadOnly="True" HeaderStyle-Width="10px" />
             <asp:BoundField DataField="Itinerary" HeaderText="Itinerary" ReadOnly="True" />
         </Columns> 
     </asp:GridView>

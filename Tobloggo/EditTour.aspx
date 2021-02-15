@@ -6,7 +6,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <div>
-        <h3>Edit Tour Package</h3>
+        <h3 style="text-align:center;">Edit Tour Package</h3>
         <table class="auto-style6">
             <tr>
                 <td class="auto-style2">

@@ -30,7 +30,7 @@
         }
     </style>
     <div>
-        <h3>Create Tour Package</h3>
+        <h3 style="text-align:center;">Create Tour Package</h3>
         <table class="auto-style6">
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -124,6 +124,7 @@
 
         <br />
         <asp:Button ID="btnCreate" runat="server" OnClick="btnAdd_Click" Text="Create" />
+        <br />
         <br />
         <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
         <br />

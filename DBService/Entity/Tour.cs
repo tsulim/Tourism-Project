@@ -163,7 +163,7 @@ namespace DBService.Entity
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             // Step 2 - Create a SqlCommand object to add record with UPDATE statement
-            string sqlStmt = "UPDATE Tour SET details = @paraDetails where title = @paraTitle";
+            string sqlStmt = "UPDATE Tour SET image = @paraImage, details = @paraDetails, dateTime = @paraDateTime , price = @paraPrice, minPpl = @paraMinPpl, maxPpl = @paraMaxPpl, iti = @paraIti where title = @paraTitle";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             // Step 3 : Add each parameterised variable with value
