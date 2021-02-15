@@ -57,7 +57,7 @@ namespace DBService.Entity
             Images = images;
             EStartDate = eStartDate;
             EEndDate = eEndDate;
-            ProgCreated = ProgCreated;
+            ProgCreated = progCreated;
             PStartDate = pStartDate;
             PEndDate = pEndDate;
             UserId = userId;

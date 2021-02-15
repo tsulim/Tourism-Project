@@ -31,6 +31,7 @@ namespace Tobloggo.Events
                 DateTime.Parse(eventStartDate.Value),
                 DateTime.Parse(eventEndDate.Value),
                 client.GetUserByEmail(Session["UserID"].ToString()).Id);
+            Response.Redirect("/Events/EventList");
         }
     }
 }

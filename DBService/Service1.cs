@@ -97,6 +97,57 @@ namespace DBService
             return eventObj.SelectAll();
         }
 
+        //EventTeam
+        
+        public int CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId)
+        {
+            EventTeam eventTeamObj = new EventTeam(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
+            return eventTeamObj.CreateEventTeam();
+        }
+        public int UpdateEventTeam(EventTeam eventTeamObj)
+        {
+            return eventTeamObj.UpdateEventTeam();
+        }
+        public int DeleteEventTeam(string teamId)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.DeleteEventTeam(teamId);
+        }
+        public EventTeam GetEventTeamById(string id)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.SelectById(id);
+        }
+        public List<EventTeam> GetAllEventTeamByEventId(string eventId)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.SelectAllTeamByEventId(eventId);
+        }
+
+        //Tasks
+
+        public int CreateEventTask(string name, string desc, Double difficulty, string teamId)
+        {
+            Tasks taskObj = new Tasks(name, desc, difficulty, teamId);
+            return taskObj.CreateTask();
+        }
+        public int UpdateTask(Tasks taskObj)
+        {
+            return taskObj.UpdateTask();
+        }
+        
+        public int DeleteTask(string taskId)
+        {
+            Tasks taskObj = new Tasks();
+            return taskObj.DeleteTask(taskId);
+        }
+        public List<Tasks> GetAllTaskByEventTeamId(string eventTeamId)
+        {
+            Tasks taskObj = new Tasks();
+            return taskObj.SelectAllTasksByEventTeamId(eventTeamId);
+        }
+
+
 
         // Event Codes End
 

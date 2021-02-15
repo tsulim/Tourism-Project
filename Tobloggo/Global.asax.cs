@@ -33,6 +33,22 @@ namespace Tobloggo
                 "Admin/EditUserDetail/{userId}",
                 "~/Admin/EditUser.aspx"
             );
+            routes.MapPageRoute(
+                "EventProgressChartCreateRoute",
+                "Events/ProgressChartCreate/{eventId}",
+                "~/Events/CreateEventProgressChartPage.aspx"
+            );
+            routes.MapPageRoute(
+                "EventProgressChartRoute",
+                "Events/ProgressChart/{eventId}",
+                "~/Events/EventProgressChartPage.aspx"
+            );
+
+            routes.MapPageRoute(
+                "EventCreateTeamRoute",
+                "Events/ProgressChart/CreateTeam/{eventId}",
+                "~/Events/CreateEventTeam.aspx"
+            );
         }
     }
 }

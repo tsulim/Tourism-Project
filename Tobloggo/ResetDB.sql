@@ -192,6 +192,32 @@ CREATE TABLE [dbo].[Event]
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
 )
 
+CREATE TABLE [dbo].[EventTeam]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[TeamName] NVARCHAR(50) NULL, 
+	[ContactEmail] NVARCHAR(MAX) NULL, 
+	
+	[TStartDate] DATETIME NULL, 
+	[TEndDate] DATETIME NULL, 
+
+	[EventId] INT NULL,
+	[TeamLeader] INT NULL,
+	CONSTRAINT [FK_EventTeam_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]),
+	CONSTRAINT [FK_EventTeam_ToUser] FOREIGN KEY ([TeamLeader]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[EventTask]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[Name] NVARCHAR(50) NULL, 
+	[Description] NVARCHAR(MAX) NULL, 
+	[Difficulty] NVARCHAR(MAX) NULL, 
+	
+	[TeamId] INT NULL,
+	CONSTRAINT [FK_EventTask_ToEventTeam] FOREIGN KEY ([TeamId]) REFERENCES [EventTeam]([Id]),
+)
+
 CREATE TABLE [dbo].[LocationEvent]
 (
 	[LocationId] INT NOT NULL,

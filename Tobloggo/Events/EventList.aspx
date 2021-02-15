@@ -53,10 +53,16 @@
                         <asp:Label ID="Label5" runat="server" Text="Hello" />
                     </td>
                     <td runat="server">
-                        <% if (true)
-                            { %>
-                        <asp:Label ID="Label6" runat="server" Text="Create"/>
-                        <% } %>
+                        
+
+                        <asp:HyperLink ID="HyperLink2" href='<%#: GetRouteUrl("EventProgressChartCreateRoute", new {eventId = Eval("Id")}) %>' 
+                            visible = <%# Eval("ProgCreated").ToString()=="0" ? true : false %>
+                            runat="server">Create</asp:HyperLink> 
+
+                        <asp:HyperLink ID="HyperLink1" href='<%#: GetRouteUrl("EventProgressChartRoute", new {eventId = Eval("Id")}) %>' 
+                            visible = <%# Eval("ProgCreated").ToString()=="1" ? true : false %>
+                            runat="server">View</asp:HyperLink> 
+
                     </td>
                 </tr>
             </ItemTemplate>
@@ -66,7 +72,7 @@
 
 
 
-            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [PStartDate], [EEndDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
 
 
 

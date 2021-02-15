@@ -8,14 +8,10 @@ using Tobloggo.MyDBServiceReference;
 
 namespace Tobloggo.Events
 {
-    public partial class EventProgressChartPage : System.Web.UI.Page
+    public partial class CreateEventProgressChartPage : System.Web.UI.Page
     {
-
         MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-        private Event retrievedEvent;
-        private List<EventTeam> retrievedEventTeams;
-
-        public List<EventTeam> RetrievedEventTeams { get { return retrievedEventTeams; } }
+        Event retrievedEvent;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.RouteData.Values["eventId"] == null)
@@ -25,8 +21,6 @@ namespace Tobloggo.Events
             else
             {
                 retrievedEvent = client.GetEventById(RouteData.Values["eventId"].ToString());
-                retrievedEventTeams = client.GetAllEventTeamByEventId(retrievedEvent.Id).ToList();
-                
 
                 if (retrievedEvent == null)
                 {
@@ -34,16 +28,19 @@ namespace Tobloggo.Events
                 }
                 else
                 {
-                    eventTitle.Text = retrievedEvent.Name;
-                    eventLocation.Text = retrievedEvent.Location;
-                    eventStatus.Text = retrievedEvent.Status;
-                    eventManager.Text = "Meow";
-
-                    TeamRepeater.DataSource = retrievedEventTeams;
-                    TeamRepeater.DataBind();
-
                 }
             }
+        }
+
+        protected void btn_submit_Click(object sender, EventArgs e)
+        {
+
+            retrievedEvent.PStartDate = DateTime.Parse(preparationStartDate.Value);
+            retrievedEvent.PEndDate = DateTime.Parse(preparationEndDate.Value);
+            retrievedEvent.ProgCreated = 1;
+            client.UpdateEvent(retrievedEvent);
+
+            Response.RedirectToRoute("EventProgressChartRoute", new { eventId = retrievedEvent.Id });
         }
     }
 }

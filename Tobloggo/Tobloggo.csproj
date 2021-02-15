@@ -187,6 +187,8 @@
     <Content Include="BackendSite.Master" />
     <Content Include="CustomErrors\Error500.html" />
     <Content Include="Events\CreateEvent.aspx" />
+    <Content Include="Events\CreateEventProgressChartPage.aspx" />
+    <Content Include="Events\CreateEventTeam.aspx" />
     <Content Include="Events\EventProgressChartPage.aspx" />
     <Content Include="Events\EventTeamPage.aspx" />
     <Content Include="Locations\CreateLocation.aspx" />
@@ -246,6 +248,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -347,6 +355,20 @@
     </Compile>
     <Compile Include="Events\CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEventProgressChartPage.aspx.cs">
+      <DependentUpon>CreateEventProgressChartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEventProgressChartPage.aspx.designer.cs">
+      <DependentUpon>CreateEventProgressChartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEventTeam.aspx.cs">
+      <DependentUpon>CreateEventTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEventTeam.aspx.designer.cs">
+      <DependentUpon>CreateEventTeam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\EventProgressChartPage.aspx.cs">
       <DependentUpon>EventProgressChartPage.aspx</DependentUpon>
