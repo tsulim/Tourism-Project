@@ -150,22 +150,13 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label lbl_iti;
 
         /// <summary>
-        /// editor control.
+        /// tb_iti control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editor;
-
-        /// <summary>
-        /// hiddenContentField control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hiddenContentField;
+        protected global::System.Web.UI.WebControls.TextBox tb_iti;
 
         /// <summary>
         /// btnCreate control.
