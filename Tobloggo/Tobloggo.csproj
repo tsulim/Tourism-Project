@@ -245,6 +245,9 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="ResetDB.sql" />
     <Content Include="Scripts\bootstrap.js" />

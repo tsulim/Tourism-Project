@@ -25,10 +25,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>--%>
 
     <%--Font Awesome icons--%>
-    <%--	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">--%>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
     <%--Google fonts Icon--%>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -38,7 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 
     <%--Bootstrap CSS--%>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 
     <%-- Bootstrap 4 JS --%>
@@ -46,7 +44,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
 
     <asp:ContentPlaceHolder ID="ScriptHeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -111,7 +109,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link" href="/">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/Locations">Location</a>
@@ -152,6 +150,36 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">
                                             <span class="glyphicon glyphicon-user"></span>Switch to Admin
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 2){ %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <span class="glyphicon glyphicon-user"></span>Toggle Admin
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 3){ %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/BPartner">
+                                            <span class="glyphicon glyphicon-user"></span>Toggle Admin
                                         </a>
                                     </li>
                                     <li class="nav-item">

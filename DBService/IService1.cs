@@ -50,7 +50,7 @@ namespace DBService
         List<Location> GetAllTypeLocations(string type);
 
         [OperationContract]
-        int CreateLocation(string name, string address, string type, string images, int userid);
+        int CreateLocation(string name, string address, string details, string type, string images, int userid);
         
         [OperationContract]
         Location GetLastLocation(int userid);
@@ -62,6 +62,8 @@ namespace DBService
         // Ticket Codes Start
         [OperationContract]
         int CreateTicket(string name, double price, int locaid);
+        [OperationContract]
+        List<Ticket> GetTicketByLocaId(int locaId);
         // Ticket Codes End
 
     }

@@ -65,5 +65,34 @@ namespace DBService.Entity
 
             return result;
         }
+
+        public List<Ticket> SelectAllByLocaId(int locaId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Ticket where LocationId = @paraLocationId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraLocationId", locaId);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Ticket> ticList = new List<Ticket>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = Convert.ToInt32(row["Id"]);
+                string name = row["Name"].ToString();
+                double price = Convert.ToDouble(row["Price"].ToString());
+                int soldAmt = Convert.ToInt32(row["SoldAmount"].ToString());
+
+                Ticket tic = new Ticket(id, name, price, soldAmt, locaId);
+                ticList.Add(tic);
+            }
+            return ticList;
+        }
     }
 }

@@ -308,6 +308,9 @@ namespace Tobloggo.MyDBServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -344,6 +347,19 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
                 }
             }
         }
@@ -436,6 +452,115 @@ namespace Tobloggo.MyDBServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ticket", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Ticket : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LocationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoldAmountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LocationId {
+            get {
+                return this.LocationIdField;
+            }
+            set {
+                if ((this.LocationIdField.Equals(value) != true)) {
+                    this.LocationIdField = value;
+                    this.RaisePropertyChanged("LocationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoldAmount {
+            get {
+                return this.SoldAmountField;
+            }
+            set {
+                if ((this.SoldAmountField.Equals(value) != true)) {
+                    this.SoldAmountField = value;
+                    this.RaisePropertyChanged("SoldAmount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyDBServiceReference.IService1")]
     public interface IService1 {
@@ -507,10 +632,10 @@ namespace Tobloggo.MyDBServiceReference {
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllTypeLocationsAsync(string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        int CreateLocation(string name, string address, string type, string images, int userid);
+        int CreateLocation(string name, string address, string details, string type, string images, int userid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid);
+        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string details, string type, string images, int userid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
         Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid);
@@ -529,6 +654,12 @@ namespace Tobloggo.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
         System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketByLocaId", ReplyAction="http://tempuri.org/IService1/GetTicketByLocaIdResponse")]
+        Tobloggo.MyDBServiceReference.Ticket[] GetTicketByLocaId(int locaId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketByLocaId", ReplyAction="http://tempuri.org/IService1/GetTicketByLocaIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket[]> GetTicketByLocaIdAsync(int locaId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -646,12 +777,12 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetAllTypeLocationsAsync(type);
         }
         
-        public int CreateLocation(string name, string address, string type, string images, int userid) {
-            return base.Channel.CreateLocation(name, address, type, images, userid);
+        public int CreateLocation(string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.CreateLocation(name, address, details, type, images, userid);
         }
         
-        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid) {
-            return base.Channel.CreateLocationAsync(name, address, type, images, userid);
+        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.CreateLocationAsync(name, address, details, type, images, userid);
         }
         
         public Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid) {
@@ -676,6 +807,14 @@ namespace Tobloggo.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid) {
             return base.Channel.CreateTicketAsync(name, price, locaid);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Ticket[] GetTicketByLocaId(int locaId) {
+            return base.Channel.GetTicketByLocaId(locaId);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket[]> GetTicketByLocaIdAsync(int locaId) {
+            return base.Channel.GetTicketByLocaIdAsync(locaId);
         }
     }
 }

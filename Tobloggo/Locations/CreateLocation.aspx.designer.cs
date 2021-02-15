@@ -24,6 +24,15 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.WebControls.TextBox locaName;
 
         /// <summary>
+        /// lbl_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_name;
+
+        /// <summary>
         /// locaAddress control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,40 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.WebControls.TextBox locaAddress;
 
         /// <summary>
-        /// locaDetails control.
+        /// lbl_addr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox locaDetails;
+        protected global::System.Web.UI.WebControls.Label lbl_addr;
+
+        /// <summary>
+        /// hiddenContentField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenContentField;
+
+        /// <summary>
+        /// editor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editor;
+
+        /// <summary>
+        /// lbl_detail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_detail;
 
         /// <summary>
         /// locaType control.
@@ -49,6 +85,15 @@ namespace Tobloggo.Locations
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList locaType;
+
+        /// <summary>
+        /// lbl_type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_type;
 
         /// <summary>
         /// locaImages control.
@@ -69,13 +114,13 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl imageresult;
 
         /// <summary>
-        /// test control.
+        /// lbl_image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label test;
+        protected global::System.Web.UI.WebControls.Label lbl_image;
 
         /// <summary>
         /// itemInfo control.

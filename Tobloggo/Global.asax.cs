@@ -46,7 +46,10 @@ namespace Tobloggo
                 "~/Locations/Default.aspx"
             );
 
-            
+            routes.MapPageRoute(
+                "BPartnerRoute",
+                "BPartner",
+                "~/Locations/CreateLocation.aspx");
         }
     }
 }

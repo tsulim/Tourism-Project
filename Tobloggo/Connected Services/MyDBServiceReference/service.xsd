@@ -163,6 +163,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="details" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="images" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userid" type="xs:int" />
@@ -217,6 +218,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CreateTicketResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketByLocaId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="locaId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketByLocaIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTicketByLocaIdResult" nillable="true" type="q12:ArrayOfTicket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -92,9 +92,9 @@ namespace DBService
             return loca.SelectAllType(type);
         }
 
-        public int CreateLocation(string name, string address, string type, string images, int userid)
+        public int CreateLocation(string name, string address, string details, string type, string images, int userid)
         {
-            Location loca = new Location(name, address, type, images, userid);
+            Location loca = new Location(name, address, details, type, images, userid);
             return loca.Insert();
         }
 
@@ -116,6 +116,12 @@ namespace DBService
         {
             Ticket tic = new Ticket(name, price, locaid);
             return tic.Insert();
+        }
+
+        public List<Ticket> GetTicketByLocaId(int locaId)
+        {
+            Ticket tic = new Ticket();
+            return tic.SelectAllByLocaId(locaId);
         }
         // Ticket Codes End
     }

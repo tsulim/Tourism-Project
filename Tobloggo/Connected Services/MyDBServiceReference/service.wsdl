@@ -98,6 +98,12 @@
   <wsdl:message name="IService1_CreateTicket_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateTicketResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTicketByLocaId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketByLocaId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTicketByLocaId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketByLocaIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -158,6 +164,10 @@
     <wsdl:operation name="CreateTicket">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTicket" message="tns:IService1_CreateTicket_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateTicketResponse" message="tns:IService1_CreateTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketByLocaId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTicketByLocaId" message="tns:IService1_GetTicketByLocaId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTicketByLocaIdResponse" message="tns:IService1_GetTicketByLocaId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -290,6 +300,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateTicket">
       <soap:operation soapAction="http://tempuri.org/IService1/CreateTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketByLocaId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTicketByLocaId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

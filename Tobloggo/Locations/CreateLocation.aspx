@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Location" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateLocation.aspx.cs" Inherits="Tobloggo.Locations.CreateLocation" %>
+﻿<%@ Page Title="Create Location" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateLocation.aspx.cs" Inherits="Tobloggo.Locations.CreateLocation" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Location.css" rel="stylesheet">
     <script type="text/javascript">
@@ -20,6 +20,10 @@
             if (window.File && window.FileList && window.FileReader) {
                 var filesInput = document.getElementById("locaImages");
                 filesInput.addEventListener("change", function (event) {
+
+                    var fileLbl = document.getElementById("lbl_image");
+                    fileLbl.textContent = "";
+
                     if (files != "") {
                         prevFiles = files
                     }
@@ -168,6 +172,11 @@
             var hideField = document.getElementById("itemCount");
             hideField.value = itemCount;
         }
+
+        function storeContent() {
+            $('#<%= hiddenContentField.ClientID %>').val($('#editor .ql-editor').html());
+        }
+
     </script>
 </asp:Content>
 
@@ -186,17 +195,57 @@
                         <div class="form-group">
                             <label for="locaName">Location Name</label>
                             <asp:TextBox ID="locaName" runat="server" CssClass="form-control" placeholder="Enter Location Name" ClientIDMode="Static"></asp:TextBox>
+                            <asp:Label ID="lbl_name" runat="server" ClientIDMode="Static"></asp:Label>
+
                             <%--                            <input class="form-control" id="locaName" name="locaName" type="text" placeholder="Enter Location Name" />--%>
                         </div>
                         <div class="form-group">
                             <label for="locaAddress">Location Address</label>
                             <asp:TextBox ID="locaAddress" runat="server" CssClass="form-control" placeholder="Enter Location Address" ClientIDMode="Static"></asp:TextBox>
+                            <asp:Label ID="lbl_addr" runat="server" ClientIDMode="Static"></asp:Label>
                             <%--                            <input class="form-control" id="locaAddress" name="locaAddress" type="text" placeholder="Enter Location Address" />--%>
                         </div>
                         <div class="form-group">
                             <label for="locaDetails">Location Details</label>
-                            <asp:TextBox ID="locaDetails" runat="server" CssClass="form-control" placeholder="Enter Location Details" TextMode="MultiLine" ClientIDMode="Static"></asp:TextBox>
                             <%--<textarea class="form-control" id="locaDetails" name="locaDetails" placeholder="Enter Location Details"></textarea>--%>
+                            <!-- Include stylesheet -->
+
+                            <asp:HiddenField ID="hiddenContentField" runat="server" ClientIDMode="Static" />
+
+
+                            <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+                            <!-- Create the editor container -->
+                            <div id="editor" runat="server" ClientIDMode="Static"></div>
+                            <asp:Label ID="lbl_detail" runat="server" ClientIDMode="Static"></asp:Label>
+
+                            <!-- Include the Quill library -->
+                            <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+                            <!-- Initialize Quill editor -->
+                            <script>
+                                var quill = new Quill('#editor', {
+                                    placeholder: 'Enter Location Details..',
+                                    theme: 'snow'
+                                });
+
+                                $('#editor .ql-editor').on('keypress keyup keydown', function (e) {
+                                    const CHARS_NOT_ALLOWED = /[<>]/;
+                                    if (CHARS_NOT_ALLOWED.test(e.key)) {
+                                        e.preventDefault();
+                                    }
+
+                                    var detailText = $('#editor .ql-editor').text();
+
+                                    if (detailText.search(/(?=.*[<>])/) != -1) {
+                                        $('#editor .ql-editor').text(detailText.split("<").join("").split(">").join(""));
+                                    } else if (detailText.search("&lt;") != -1) {
+                                        $('#editor .ql-editor').text(detailText.split("&lt;").join(""));
+                                    } else if (detailText.search("&gt;") != -1) {
+                                        $('#editor .ql-editor').text(detailText.split("&gt;").join(""));
+                                    }
+                                })
+                            </script>
                         </div>
                     </div>
                     <div class="col-6">
@@ -208,6 +257,7 @@
                                 <asp:ListItem Value="Entertainment">Entertainment</asp:ListItem>
                                 <asp:ListItem Value="Cultural">Cultural</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:Label ID="lbl_type" runat="server" ClientIDMode="Static"></asp:Label>
                         </div>
                         <div class="form-group form-images">
                             <label for="locaImages">Location Images</label><br />
@@ -217,7 +267,7 @@
 
                             <output id="imageresult" runat="server" clientidmode="Static" />
 
-                            <asp:Label ID="test" runat="server" ClientIDMode="Static" />
+                            <asp:Label ID="lbl_image" runat="server" ClientIDMode="Static" />
                         </div>
                     </div>
                 </div>
@@ -227,7 +277,7 @@
                 <div class="row" id="itemInfo" clientidmode="Static" runat="server">
                     <div id="optionsInfo" clientidmode="Static" runat="server">
 
-                        <asp:HiddenField ID="itemCount" runat="server" ClientIDMode="Static" />
+                        <asp:HiddenField ID="itemCount" Value="1" runat="server" ClientIDMode="Static" />
                         
                         <table class="auto-style1" id="itemTable" runat="server" ClientIDMode="Static">
                             <tbody>
@@ -257,7 +307,7 @@
             </div>
             <div id="bottomLoca">
                 <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
-                <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" />
+                <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" OnClientClick="storeContent();" />
             </div>
         </div>
     </div>
