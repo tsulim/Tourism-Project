@@ -44,9 +44,7 @@ namespace Tobloggo
                 Lbl_title.Text = tour.Title;
                 Image1.ImageUrl = "Images\\" + tour.Image;
                 Lbl_details.Text = tour.Details;
-                Lbl_startDT.Text = Convert.ToString(tour.DateTime);
-                Lbl_minPpl.Text = Convert.ToString(tour.MinPeople);
-                Lbl_maxPpl.Text = Convert.ToString(tour.MaxPeople);
+                Lbl_DT.Text = Convert.ToString(tour.DateTime);
                 Lbl_price.Text = Convert.ToString(tour.Price);
                 Lbl_iti.Text = Convert.ToString(tour.Itinerary);
 
@@ -60,10 +58,7 @@ namespace Tobloggo
                 Lbl_title.Text = String.Empty;
                 Image1.ImageUrl = String.Empty;
                 Lbl_details.Text = String.Empty;
-                Lbl_startDT.Text = String.Empty;
-                Lbl_endDT.Text = String.Empty;
-                Lbl_minPpl.Text = String.Empty;
-                Lbl_maxPpl.Text = String.Empty;
+                Lbl_DT.Text = String.Empty;
                 Lbl_price.Text = String.Empty;
             }
 

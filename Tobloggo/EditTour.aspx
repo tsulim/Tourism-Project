@@ -26,10 +26,10 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:Label ID="lbl_details" runat="server" Text="Details :"></asp:Label>
+                    <asp:Label ID="lbl_details" runat="server" Text="Details :" ></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_details" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_details" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@
                     <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_iti" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
 

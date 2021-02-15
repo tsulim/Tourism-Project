@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Tobloggo
 {
     public partial class CreateTour : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -54,7 +56,8 @@ namespace Tobloggo
             {
                 lbMsg.Text += "Maximum number of people is required!" + "<br/>";
             }
-            if (String.IsNullOrEmpty(tb_iti.Text))
+
+            if (hiddenContentField.Value == "<p><br></p>")
             {
                 lbMsg.Text += "Itinerary is required!" + "<br/>";
             }
@@ -86,8 +89,13 @@ namespace Tobloggo
 
                 var reqDateTime = calendar.Text;
 
+                //convert to plain text
+                //var doc = new HtmlDocument();
+                //doc.LoadHtml(hiddenContentField.Value);
+                //var plainText = doc.DocumentNode.InnerText;
+
                 Service1Client client = new Service1Client();
-                int result = client.CreateTour(tb_title.Text, FileUpload.FileName, tb_details.Text, reqDateTime, price, minPpl, maxPpl, tb_iti.Text);
+                int result = client.CreateTour(tb_title.Text, FileUpload.FileName, tb_details.Text, reqDateTime, price, minPpl, maxPpl, hiddenContentField.Value);
                 if (result == 1)
                 {
                     string saveimg = Server.MapPath(" ") + "\\" + image;
@@ -103,5 +111,7 @@ namespace Tobloggo
         {
             Response.Redirect("TourOverview.aspx");
         }
+
+
     }
 }

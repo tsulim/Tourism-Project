@@ -26,17 +26,17 @@ namespace Tobloggo
                     ddlMaxPpl.Text = Session["SSMaxPpl"].ToString();
                     tb_iti.Text = Session["SSIti"].ToString();
 
-                    //Retrieve Tour by Title
-                    Service1Client client = new Service1Client();
-                    Tour tour = client.GetTourByTitle(lbl_title1.Text);
+                    ////Retrieve Tour by Title
+                    //Service1Client client = new Service1Client();
+                    //Tour tour = client.GetTourByTitle(lbl_title1.Text);
 
-                    tb_details.Text = tour.Details;
-                    ViewState["currDetails"] = tour.Details;
-                    ViewState["currDateTime"] = tour.DateTime;
-                    ViewState["currPrice"] = tour.Price.ToString();
-                    ViewState["currMinPpl"] = tour.MinPeople.ToString();
-                    ViewState["currMaxPpl"] = tour.MaxPeople.ToString();
-                    ViewState["currIti"] = tour.Itinerary;
+                    //tb_details.Text = tour.Details;
+                    //ViewState["currDetails"] = tour.Details;
+                    //ViewState["currDateTime"] = tour.DateTime;
+                    //ViewState["currPrice"] = tour.Price.ToString();
+                    //ViewState["currMinPpl"] = tour.MinPeople.ToString();
+                    //ViewState["currMaxPpl"] = tour.MaxPeople.ToString();
+                    //ViewState["currIti"] = tour.Itinerary;
 
                 }
                 else
@@ -59,12 +59,12 @@ namespace Tobloggo
             {
 
                 ////Retrieve the current value from ViewState
-                string currDetails = (string)ViewState["currDetails"];
-                string currDateTime = (string)ViewState["currDateTime"];
-                string currPrice = (string)ViewState["currPrice"];
-                string currMinPpl = (string)ViewState["currMinPpl"];
-                string currMaxPpl = (string)ViewState["currMaxPpl"];
-                string currIti = (string)ViewState["currIti"];
+                //string currDetails = (string)ViewState["currDetails"];
+                //string currDateTime = (string)ViewState["currDateTime"];
+                //string currPrice = (string)ViewState["currPrice"];
+                //string currMinPpl = (string)ViewState["currMinPpl"];
+                //string currMaxPpl = (string)ViewState["currMaxPpl"];
+                //string currIti = (string)ViewState["currIti"];
 
                 string newImage = FileUpload.FileName;
                 string newDetails = tb_details.Text;

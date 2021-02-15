@@ -1,7 +1,8 @@
-﻿<%@ Page Title="CreateTour" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateTour.aspx.cs" Inherits="Tobloggo.CreateTour" %>
+﻿<%@ Page Title="CreateTour" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateTour.aspx.cs" Inherits="Tobloggo.CreateTour" ValidateRequest="false"%>
 
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -30,7 +31,7 @@
         }
     </style>
     <div>
-        <h3 style="text-align:center;">Create Tour Package</h3>
+        <h3 style="text-align: center;">Create Tour Package</h3>
         <table class="auto-style6">
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -38,7 +39,7 @@
                     <asp:Label ID="lbl_title" runat="server" Text="Title :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_title" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_title" runat="server" Style="width: 1000px;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -56,7 +57,7 @@
                     <asp:Label ID="lbl_details" runat="server" Text="Details :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_details" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_details" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -65,7 +66,7 @@
                     <asp:Label ID="lbl_startD" runat="server" Text="Select Start Date Time and End Date Time:"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="calendar" runat="server" ClientIDMode="Static" Width="715px" />
+                    <asp:TextBox ID="calendar" runat="server" ClientIDMode="Static" Width="250px" />
                 </td>
             </tr>
             <tr>
@@ -93,7 +94,7 @@
             </tr>
             <tr>
                 <td class="auto-style3"></td>
-                <td class="auto-style4">
+                <td class="auto-style2">
                     <asp:Label ID="lbl_maxPpl" runat="server" Text="Maximum number of People :"></asp:Label>
                 </td>
                 <td>
@@ -116,14 +117,15 @@
                     <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
+                    <div id="editor" runat="server" clientidmode="Static" style="width: 1000px;"></div>
+                    <asp:HiddenField ID="hiddenContentField" runat="server" ClientIDMode="Static" />
                 </td>
             </tr>
 
         </table>
 
         <br />
-        <asp:Button ID="btnCreate" runat="server" OnClick="btnAdd_Click" Text="Create" />
+        <asp:Button ID="btnCreate" runat="server" OnClick="btnAdd_Click" OnClientClick="storeContent();" Text="Create" />
         <br />
         <br />
         <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
@@ -141,5 +143,35 @@
                 });
             });
         </script>
+        <!-- Include the Quill library -->
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+        <!-- Initialize Quill editor -->
+        <script>
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+            $('#editor .ql-editor').on('keypress keyup keydown', function (e) {
+                const CHARS_NOT_ALLOWED = /[<>]/;
+                if (CHARS_NOT_ALLOWED.test(e.key)) {
+                    e.preventDefault();
+                }
+
+                var detailText = $('#editor .ql-editor').text();
+
+                if (detailText.search(/(?=.*[<>])/) != -1) {
+                    $('#editor .ql-editor').text(detailText.split("<").join("").split(">").join(""));
+                } else if (detailText.search("&lt;") != -1) {
+                    $('#editor .ql-editor').text(detailText.split("&lt;").join(""));
+                } else if (detailText.search("&gt;") != -1) {
+                    $('#editor .ql-editor').text(detailText.split("&gt;").join(""));
+                }
+            })
+
+            function storeContent() {
+                $('#<%= hiddenContentField.ClientID %>').val($('#editor .ql-editor').html());
+            }
+      </script>
     </div>
 </asp:Content>

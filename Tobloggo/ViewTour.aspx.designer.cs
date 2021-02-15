@@ -69,15 +69,6 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Panel PanelCust;
 
         /// <summary>
-        /// Image1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-
-        /// <summary>
         /// Lbl_title control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_title;
+
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
         /// Lbl_details control.
@@ -96,22 +96,13 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label Lbl_details;
 
         /// <summary>
-        /// Lbl_startDT control.
+        /// Lbl_DT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_startDT;
-
-        /// <summary>
-        /// Lbl_endDT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_endDT;
+        protected global::System.Web.UI.WebControls.Label Lbl_DT;
 
         /// <summary>
         /// Lbl_price control.
@@ -121,24 +112,6 @@ namespace Tobloggo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_price;
-
-        /// <summary>
-        /// Lbl_minPpl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_minPpl;
-
-        /// <summary>
-        /// Lbl_maxPpl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_maxPpl;
 
         /// <summary>
         /// Lbl_iti control.
