@@ -154,6 +154,102 @@ output {
 
 /* Start of View Location Page */
 
+.post-row {
+    /* background-color: #f2f2f2; */
+    /*padding: 5px 20px 15px 20px*/;
+    /* border: 1px solid lightgrey; */
+    border-radius: 3px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0px 3px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    display: block;
+}
+
+.post-col {
+    margin-bottom: 10px;
+}
+
+#reviewBtn {
+    margin-left: 10px;
+}
+
+/* Start of 3 Dot Menu */
+.showLeft {
+    text-shadow: none !important;
+    color: #fff !important;
+    padding: 10px;
+}
+
+.icons li {
+    background: none repeat scroll 0 0 #3D3D3D;
+    height: 7px;
+    width: 7px;
+    line-height: 0;
+    list-style: none outside none;
+    margin-top: 3px;
+    vertical-align: top;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.btn-left {
+    left: 0.4em;
+}
+
+.btn-right {
+    right: 0.4em;
+}
+
+.btn-left, .btn-right {
+    position: absolute;
+    top: 0.24em;
+}
+
+.dropbtn {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(61,61,61, 0.3);
+    border-radius: 3px;
+}
+
+.dropdown {
+    position: absolute!important;
+    display: inline-block;
+    right: 0.4em;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    margin-top: 60px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: rgba(61,61,61, 0.2);
+}
+
+.show {
+    display: block;
+}
+/* End of 3 Dot Menu*/
+
 /* End of View Location Page */
 
 @media screen and (min-width: 1000px) {

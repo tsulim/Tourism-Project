@@ -12,6 +12,8 @@ namespace Tobloggo.Locations
     {
         private Location selectedLocation;
         public Location SelectedLocation { get {return selectedLocation;} }
+        private List<Ticket> ticketList;
+        public List<Ticket> TicketList { get { return ticketList; } }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.RouteData.Values["locaId"] == null)
@@ -21,6 +23,8 @@ namespace Tobloggo.Locations
             {
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
                 selectedLocation = client.GetLocationById(Convert.ToInt32(RouteData.Values["locaId"].ToString()));
+                ticketList = client.GetTicketByLocaId(selectedLocation.Id).ToList();
+                System.Diagnostics.Debug.WriteLine(ticketList.Count);
             }
         }
     }
