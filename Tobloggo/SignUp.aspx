@@ -15,7 +15,7 @@
 
             var feedback = document.getElementById("lbl_pwdchecker")
 
-            document.getElementById("btn_submit").disabled = true;
+            document.getElementById("signup_btn_submit").disabled = true;
 
             if (password.length < 8) {
                 feedback.innerHTML = "Password length must be at least 8 characters."

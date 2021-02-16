@@ -87,7 +87,7 @@ namespace DBService.Entity
                 "VALUES (@paraGoogleId, @paraProfImage, @paraName, @paraPasswordHash, @paraPasswordSalt, @paraEmail, @paraContact, @paraAuthorization, @paraStripeId, @paraIV, @paraKey)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraGoogleId", GoogleId);
+            sqlCmd.Parameters.AddWithValue("@paraGoogleId", String.Empty);
             sqlCmd.Parameters.AddWithValue("@paraProfImage", String.Empty);
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraPasswordHash", PasswordHash);
