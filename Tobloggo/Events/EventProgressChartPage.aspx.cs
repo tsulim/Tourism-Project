@@ -13,6 +13,8 @@ namespace Tobloggo.Events
 
         MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
         private Event retrievedEvent;
+        public Event RetrievedEvent { get { return retrievedEvent; } }
+
         private List<EventTeam> retrievedEventTeams;
 
         public List<EventTeam> RetrievedEventTeams { get { return retrievedEventTeams; } }
@@ -37,13 +39,66 @@ namespace Tobloggo.Events
                     eventTitle.Text = retrievedEvent.Name;
                     eventLocation.Text = retrievedEvent.Location;
                     eventStatus.Text = retrievedEvent.Status;
-                    eventManager.Text = "Meow";
+                    eventManager.Text = "Trillium (trilliumtay@gmail.com)"; // fix username and email <---
+
+                    preparationStartDate.Text = retrievedEvent.PStartDate.ToString("dd-MM-yyyy");
+                    preparationEndDate.Text = retrievedEvent.PEndDate.ToString("dd-MM-yyyy");
+                    eventStartDate.Text = retrievedEvent.EStartDate.ToString();
+                    eventEndDate.Text = retrievedEvent.EEndDate.ToString();
+
+
+                    TimeSpan daysRemainingTimeSpan = retrievedEvent.PEndDate - DateTime.Now;
+                    daysRemaining.Text = daysRemainingTimeSpan.Days.ToString();
+
+                    int actualTotal = 0;
+                    int expectedTotal = 0;
+
+                    foreach (EventTeam team in retrievedEventTeams)
+                    {
+                        int actualSum = 0;
+                        int expectedSum = 0;
+
+
+                        TimeSpan timeSpent = DateTime.Now - team.TStartDate;
+                        TimeSpan totalTime = team.TEndDate - team.TStartDate;
+                        int expectedPercentage = int.Parse(Math.Round((Double.Parse(timeSpent.Days.ToString()) / Double.Parse(totalTime.Days.ToString()) * 100), 0).ToString());
+
+
+                        List<Tasks> taskList = client.GetAllTaskByEventTeamId(team.Id).ToList();
+                        foreach (Tasks taskObj in taskList)
+                        {
+                            if (taskObj.Completed == true)
+                            {
+                                actualSum += int.Parse(taskObj.Difficulty.ToString());
+                                expectedSum += int.Parse(taskObj.Difficulty.ToString());
+                            } else
+                            {
+                                expectedSum += int.Parse(taskObj.Difficulty.ToString());
+                            }
+                        }
+
+                        int actualPercentage = int.Parse(Math.Round(Double.Parse(actualSum.ToString())/Double.Parse(expectedSum.ToString())*100).ToString());
+
+                        team.ActualPercent = actualPercentage;
+                        team.ExpectedPercent = expectedPercentage;
+
+
+                        actualTotal += actualSum;
+                        expectedTotal += expectedSum;
+                    }
+
+                    totalProgress.Text = int.Parse(Math.Round(Double.Parse(actualTotal.ToString()) / Double.Parse(expectedTotal.ToString()) * 100).ToString()).ToString() + "%";
+
 
                     TeamRepeater.DataSource = retrievedEventTeams;
                     TeamRepeater.DataBind();
 
+                    progressLinkCreateTeam.NavigateUrl = GetRouteUrl("EventCreateTeamRoute", new { eventId = RetrievedEvent.Id });
+                    progressLinkEdit.NavigateUrl = GetRouteUrl("EventEditProgressChartRoute", new { eventId = RetrievedEvent.Id });
+
                 }
             }
         }
+        
     }
 }

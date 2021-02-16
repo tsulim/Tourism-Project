@@ -194,14 +194,14 @@
   <xs:element name="CreateEventTeamResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="CreateEventTeamResult" type="xs:int" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="CreateEventTeamResult" nillable="true" type="q10:EventTeam" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateEventTeam">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="eventTeamObj" nillable="true" type="q10:EventTeam" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="eventTeamObj" nillable="true" type="q11:EventTeam" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -236,7 +236,7 @@
   <xs:element name="GetEventTeamByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetEventTeamByIdResult" nillable="true" type="q11:EventTeam" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetEventTeamByIdResult" nillable="true" type="q12:EventTeam" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +250,7 @@
   <xs:element name="GetAllEventTeamByEventIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllEventTeamByEventIdResult" nillable="true" type="q12:ArrayOfEventTeam" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllEventTeamByEventIdResult" nillable="true" type="q13:ArrayOfEventTeam" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -260,6 +260,7 @@
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="difficulty" type="xs:double" />
+        <xs:element minOccurs="0" name="completed" type="xs:boolean" />
         <xs:element minOccurs="0" name="teamId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -274,7 +275,7 @@
   <xs:element name="UpdateTask">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="taskObj" nillable="true" type="q13:Tasks" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="taskObj" nillable="true" type="q14:Tasks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -309,7 +310,7 @@
   <xs:element name="GetAllTaskByEventTeamIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTaskByEventTeamIdResult" nillable="true" type="q14:ArrayOfTasks" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTaskByEventTeamIdResult" nillable="true" type="q15:ArrayOfTasks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -321,7 +322,7 @@
   <xs:element name="GetAllLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q15:ArrayOfLocation" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q16:ArrayOfLocation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -353,7 +354,7 @@
   <xs:element name="GetLastLocationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q16:Location" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q17:Location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

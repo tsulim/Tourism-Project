@@ -16,6 +16,8 @@ namespace DBService.Entity
         public string Desc { get; set; }
         public Double Difficulty { get; set; }
 
+        public bool Completed { get; set; }
+
         public string TeamId { get; set; }
 
 
@@ -24,19 +26,22 @@ namespace DBService.Entity
 
         }
 
-        public Tasks(string name, string desc, Double difficulty, string teamId)
+        public Tasks(string name, string desc, Double difficulty, bool completed, string teamId)
         {
             Name = name;
             Desc = desc;
             Difficulty = difficulty;
+            Completed = completed;
             TeamId = teamId;
+
         }
-        public Tasks(string id, string name, string desc, Double difficulty, string teamId)
+        public Tasks(string id, string name, string desc, Double difficulty, bool completed, string teamId)
         {
             Id = id;
             Name = name;
             Desc = desc;
             Difficulty = difficulty;
+            Completed = completed;
             TeamId = teamId;
         }
 
@@ -46,13 +51,14 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO [EventTask] (Name, Description, Difficulty, TeamId ) " +
-                "VALUES (@paraName, @paraDescription, @paraDifficulty, @paraTeamId)";
+            string sqlStmt = "INSERT INTO [EventTask] (Name, Description, Difficulty, Completed, TeamId ) " +
+                "VALUES (@paraName, @paraDescription, @paraDifficulty, @paraCompleted, @paraTeamId)";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraDescription", Desc);
             sqlCmd.Parameters.AddWithValue("@paraDifficulty", Difficulty);
+            sqlCmd.Parameters.AddWithValue("@paraCompleted", Completed);
             sqlCmd.Parameters.AddWithValue("@paraTeamId", TeamId);
 
 
@@ -68,13 +74,14 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE [EventTask] SET Name=@paraName, Description=@paraDescription, Difficulty=@paraDifficulty, EventId=@paraEventId " +
+            string sqlStmt = "UPDATE [EventTask] SET Name=@paraName, Description=@paraDescription, Difficulty=@paraDifficulty, Completed=@paraCompleted, EventId=@paraEventId " +
                 "WHERE Id=@paraId;";
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraDescription", Desc);
             sqlCmd.Parameters.AddWithValue("@paraDifficulty", Difficulty);
+            sqlCmd.Parameters.AddWithValue("@paraCompleted", Completed);
             sqlCmd.Parameters.AddWithValue("@paraTeamId", TeamId);
 
             sqlCmd.Parameters.AddWithValue("@paraId", Id);
@@ -127,9 +134,10 @@ namespace DBService.Entity
                 string idVal = row["Id"].ToString();
                 string name = row["Name"].ToString();
                 string description = row["Description"].ToString();
+                bool completed = bool.Parse(row["Completed"].ToString());
                 Double difficulty = Double.Parse(row["Difficulty"].ToString());
 
-                Tasks taskObj = new Tasks(idVal, name, description, difficulty, eventTeamId);
+                Tasks taskObj = new Tasks(idVal, name, description, difficulty, completed, eventTeamId);
                 taskList.Add(taskObj);
             }
             return taskList;

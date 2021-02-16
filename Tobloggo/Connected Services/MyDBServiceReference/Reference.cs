@@ -526,10 +526,16 @@ namespace Tobloggo.MyDBServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ActualPercentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ContactEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ExpectedPercentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IdField;
@@ -557,6 +563,19 @@ namespace Tobloggo.MyDBServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ActualPercent {
+            get {
+                return this.ActualPercentField;
+            }
+            set {
+                if ((this.ActualPercentField.Equals(value) != true)) {
+                    this.ActualPercentField = value;
+                    this.RaisePropertyChanged("ActualPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ContactEmail {
             get {
                 return this.ContactEmailField;
@@ -578,6 +597,19 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.EventIdField, value) != true)) {
                     this.EventIdField = value;
                     this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ExpectedPercent {
+            get {
+                return this.ExpectedPercentField;
+            }
+            set {
+                if ((this.ExpectedPercentField.Equals(value) != true)) {
+                    this.ExpectedPercentField = value;
+                    this.RaisePropertyChanged("ExpectedPercent");
                 }
             }
         }
@@ -667,6 +699,9 @@ namespace Tobloggo.MyDBServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CompletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -688,6 +723,19 @@ namespace Tobloggo.MyDBServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Completed {
+            get {
+                return this.CompletedField;
+            }
+            set {
+                if ((this.CompletedField.Equals(value) != true)) {
+                    this.CompletedField = value;
+                    this.RaisePropertyChanged("Completed");
+                }
             }
         }
         
@@ -984,10 +1032,10 @@ namespace Tobloggo.MyDBServiceReference {
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Event[]> GetAllEventsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTeam", ReplyAction="http://tempuri.org/IService1/CreateEventTeamResponse")]
-        int CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
+        Tobloggo.MyDBServiceReference.EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTeam", ReplyAction="http://tempuri.org/IService1/CreateEventTeamResponse")]
-        System.Threading.Tasks.Task<int> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEventTeam", ReplyAction="http://tempuri.org/IService1/UpdateEventTeamResponse")]
         int UpdateEventTeam(Tobloggo.MyDBServiceReference.EventTeam eventTeamObj);
@@ -1014,10 +1062,10 @@ namespace Tobloggo.MyDBServiceReference {
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam[]> GetAllEventTeamByEventIdAsync(string eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTask", ReplyAction="http://tempuri.org/IService1/CreateEventTaskResponse")]
-        int CreateEventTask(string name, string desc, double difficulty, string teamId);
+        int CreateEventTask(string name, string desc, double difficulty, bool completed, string teamId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTask", ReplyAction="http://tempuri.org/IService1/CreateEventTaskResponse")]
-        System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, string teamId);
+        System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, bool completed, string teamId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTask", ReplyAction="http://tempuri.org/IService1/UpdateTaskResponse")]
         int UpdateTask(Tobloggo.MyDBServiceReference.Tasks taskObj);
@@ -1185,11 +1233,11 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetAllEventsAsync();
         }
         
-        public int CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
+        public Tobloggo.MyDBServiceReference.EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
             return base.Channel.CreateEventTeam(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
             return base.Channel.CreateEventTeamAsync(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
         }
         
@@ -1225,12 +1273,12 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetAllEventTeamByEventIdAsync(eventId);
         }
         
-        public int CreateEventTask(string name, string desc, double difficulty, string teamId) {
-            return base.Channel.CreateEventTask(name, desc, difficulty, teamId);
+        public int CreateEventTask(string name, string desc, double difficulty, bool completed, string teamId) {
+            return base.Channel.CreateEventTask(name, desc, difficulty, completed, teamId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, string teamId) {
-            return base.Channel.CreateEventTaskAsync(name, desc, difficulty, teamId);
+        public System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, bool completed, string teamId) {
+            return base.Channel.CreateEventTaskAsync(name, desc, difficulty, completed, teamId);
         }
         
         public int UpdateTask(Tobloggo.MyDBServiceReference.Tasks taskObj) {

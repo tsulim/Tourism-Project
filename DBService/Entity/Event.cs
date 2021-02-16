@@ -26,6 +26,12 @@ namespace DBService.Entity
         public DateTime PEndDate { get; set; }
         public string UserId { get; set; }
 
+
+        //public int TotalProgress { get; set; }
+
+        //public 
+
+
         public Event()
         {
 
@@ -129,7 +135,7 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select * from [Event] where Id = @paraId";
+            string sqlStmt = "Select * from [Event] INNER JOIN [User] ON [Event].UserId = [User].Id WHERE [Event].Id = @paraId";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
             da.SelectCommand.Parameters.AddWithValue("@paraId", id);
 
@@ -153,6 +159,7 @@ namespace DBService.Entity
                 DateTime pStartDate = DateTime.Parse(row["PStartDate"].ToString());
                 DateTime pEndDate = DateTime.Parse(row["PEndDate"].ToString());
                 string userId = row["UserId"].ToString();
+
 
 
 

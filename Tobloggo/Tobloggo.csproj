@@ -125,6 +125,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -189,6 +190,8 @@
     <Content Include="Events\CreateEvent.aspx" />
     <Content Include="Events\CreateEventProgressChartPage.aspx" />
     <Content Include="Events\CreateEventTeam.aspx" />
+    <Content Include="Events\DeleteEventTeamPage.aspx" />
+    <Content Include="Events\EditEventPage.aspx" />
     <Content Include="Events\EventProgressChartPage.aspx" />
     <Content Include="Events\EventTeamPage.aspx" />
     <Content Include="Locations\CreateLocation.aspx" />
@@ -369,6 +372,20 @@
     </Compile>
     <Compile Include="Events\CreateEventTeam.aspx.designer.cs">
       <DependentUpon>CreateEventTeam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\DeleteEventTeamPage.aspx.cs">
+      <DependentUpon>DeleteEventTeamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\DeleteEventTeamPage.aspx.designer.cs">
+      <DependentUpon>DeleteEventTeamPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EditEventPage.aspx.cs">
+      <DependentUpon>EditEventPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EditEventPage.aspx.designer.cs">
+      <DependentUpon>EditEventPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\EventProgressChartPage.aspx.cs">
       <DependentUpon>EventProgressChartPage.aspx</DependentUpon>

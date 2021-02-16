@@ -1,9 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EventProgressChartPage.aspx.cs" Inherits="Tobloggo.Events.EventProgressChartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script type="text/javascript">
+
+        //function deleteTeam(ele) {
+        //    var answer = confirm("Are you sure you want to delete this team?")
+        //    if (answer) {
+        //        console.log("/Events/ProgressChart/DeleteTeam/" + ele)
+        //        sleep(2000);
+        //        window.location.href = "/Events/ProgressChart/DeleteTeam/" + ele;
+
+        //    }
+        //}
+    </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
+
+    <asp:HiddenField ID="eventProgressChartPageHiddenValue" runat="server" ClientIDMode="Static"/>
+
     <div class="container" style="margin-top: 10px;">
 
         <asp:Label ID="eventTitle" runat="server" Text="" Font-Size="33pt" Font-Bold="True"></asp:Label>
@@ -68,14 +82,21 @@
                 </div>
             </div>
             <div class="d-flex flex-column justify-content-end">
-                <div class="d-flex flex-row justify-content-end align-items-center">
-                    <i class="fa fa-plus mx-1" style="font-size: 18px"></i>
-                    <asp:Label ID="Label15" runat="server" Text="Add New Team" Font-Size="18pt"></asp:Label>
-                </div>
-                <div class="d-flex flex-row justify-content-end align-items-center">
-                        <i class="fa fa-trash mx-1" style="font-size: 18px"></i>
-                    <asp:Label ID="Label17" runat="server" Text="Edit Event Details" Font-Size="18pt"></asp:Label>
-                </div>
+                <asp:HyperLink ID="progressLinkCreateTeam" runat="server">
+                    <div class="d-flex flex-row justify-content-end align-items-center">
+                        <i class="fa fa-plus mx-1" style="font-size: 18px"></i>
+                        <asp:Label ID="Label15" runat="server" Text="Add New Team" Font-Size="18pt"></asp:Label>
+                    </div>
+                </asp:HyperLink>
+
+                
+                <asp:HyperLink ID="progressLinkEdit" runat="server">
+                    <div class="d-flex flex-row justify-content-end align-items-center">
+                        <i class="fa fa-edit mx-2" style="font-size:18px;"></i>
+                        <asp:Label ID="Label17" runat="server" Text="Edit Event Details" Font-Size="18pt"></asp:Label>
+                    </div>
+                </asp:HyperLink>
+
             </div>
         </div>
 
@@ -97,10 +118,15 @@
                 
                     <div class="d-flex flex-row align-items-center">
                         <asp:Label class="mr-2" ID="Label11" runat="server" Font-Size="18pt"><%# Eval("TeamName") %></asp:Label>
-                        <i class="fa fa-edit mx-2" style="font-size:18px;"></i>
-                        <i class="fa fa-trash mx-2" style="font-size:18px;"></i>
+                        
+                        <asp:HyperLink ID="editTeamButton" href='<%# GetRouteUrl("EventTeamPageRoute", new { teamId = Eval("Id") }) %>' runat="server">
+                            <i class="fa fa-edit mx-2" style="font-size:18px;"></i>
+                        </asp:HyperLink>
+                        
+                        
+                        <asp:LinkButton runat="server"  href='<%# GetRouteUrl("EventTeamDeleteRoute", new { teamId = Eval("Id") }) %>'><i class="fa fa-trash mx-2" style="font-size:18px;"></i></asp:LinkButton>
                     </div>
-
+                    
 
                     <div class="d-flex flex-row align-items-center">
                         <div class="d-flex justify-content-end col-sm-1" >
@@ -108,9 +134,9 @@
                         </div>
                         <div class="progress" style="height: 15px; flex-grow: 100;">
                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100" style="background-color:#4DFF6D; width:50%"></div>
+                            aria-valuemin="0" aria-valuemax="100" style="background-color:#4DFF6D; width:<%# Eval("ActualPercent") %>%"></div>
                         </div>
-                        <asp:Label class="col-sm-1" ID="Label20" runat="server" Font-Size="12pt">100%</asp:Label>
+                        <asp:Label class="col-sm-1" ID="Label20" runat="server" Font-Size="12pt"><%# Eval("ActualPercent") %>%</asp:Label>
                     </div>
 
                     <div class="d-flex flex-row align-items-center">
@@ -119,9 +145,9 @@
                         </div>
                         <div class="progress" style="height: 15px; flex-grow: 100;">
                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100" style="background-color:#FFD666; width:50%"></div>
+                            aria-valuemin="0" aria-valuemax="100" style='background-color:#FFD666; width:<%# Eval("ExpectedPercent") %>%'></div>
                         </div>
-                        <asp:Label class="col-sm-1" ID="Label16" runat="server" Font-Size="12pt">100%</asp:Label>
+                        <asp:Label class="col-sm-1" ID="Label16" runat="server" Font-Size="12pt"><%# Eval("ExpectedPercent") %>%</asp:Label>
                     </div>
 
                 </div>

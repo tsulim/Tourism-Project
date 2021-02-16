@@ -45,9 +45,28 @@ namespace Tobloggo
             );
 
             routes.MapPageRoute(
+                "EventEditProgressChartRoute",
+                "Events/ProgressChart/Edit/{eventId}",
+                "~/Events/EditEventPage.aspx"
+            );
+
+            routes.MapPageRoute(
                 "EventCreateTeamRoute",
                 "Events/ProgressChart/CreateTeam/{eventId}",
                 "~/Events/CreateEventTeam.aspx"
+            );
+
+
+            routes.MapPageRoute(
+                "EventTeamPageRoute",
+                "Events/ProgressChart/TeamPage/{teamId}",
+                "~/Events/EventTeamPage.aspx"
+            );
+
+            routes.MapPageRoute(
+                "EventTeamDeleteRoute",
+                "Events/ProgressChart/DeleteTeam/{teamId}",
+                "~/Events/DeleteEventTeamPage.aspx"
             );
         }
     }

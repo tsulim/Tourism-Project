@@ -99,7 +99,7 @@ namespace DBService
 
         //EventTeam
         
-        public int CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId)
+        public EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId)
         {
             EventTeam eventTeamObj = new EventTeam(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
             return eventTeamObj.CreateEventTeam();
@@ -126,9 +126,9 @@ namespace DBService
 
         //Tasks
 
-        public int CreateEventTask(string name, string desc, Double difficulty, string teamId)
+        public int CreateEventTask(string name, string desc, Double difficulty, bool completed, string teamId)
         {
-            Tasks taskObj = new Tasks(name, desc, difficulty, teamId);
+            Tasks taskObj = new Tasks(name, desc, difficulty, completed, teamId);
             return taskObj.CreateTask();
         }
         public int UpdateTask(Tasks taskObj)

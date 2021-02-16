@@ -19,6 +19,10 @@ namespace DBService.Entity
         public DateTime TEndDate { get; set; }
 
 
+        public int ActualPercent { get; set; }
+        public int ExpectedPercent { get; set; }
+
+
         public string EventId { get; set; } //Event Id
 
         public EventTeam()
@@ -49,7 +53,7 @@ namespace DBService.Entity
             EventId = eventId;
         }
 
-        public int CreateEventTeam()
+        public EventTeam CreateEventTeam()
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -69,7 +73,32 @@ namespace DBService.Entity
             int result = sqlCmd.ExecuteNonQuery();
             myConn.Close();
 
-            return result;
+
+            string sqlStmt2 = "Select TOP 1 * from [EventTeam] Order By [Id] Desc ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt2, myConn);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            EventTeam eventTeamObj = null;
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+
+                string teamId= row["Id"].ToString();
+                string teamName = row["TeamName"].ToString();
+                string teamLeader = row["TeamLeader"].ToString();
+                string contactEmail = row["ContactEmail"].ToString();
+                DateTime tStartDate = DateTime.Parse(row["TStartDate"].ToString());
+                DateTime tEndDate = DateTime.Parse(row["TEndDate"].ToString());
+                string eventId = row["EventId"].ToString();
+
+
+
+                eventTeamObj = new EventTeam(teamId, teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
+            }
+            return eventTeamObj;
         }
 
         public int UpdateEventTeam()
@@ -77,8 +106,9 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE [EventTeam] SET TeamName=@paraTeamName, TeamLeader=@paraTeamLeader, ContactEmail=@paraContactEmail, TStartDate=@paraTStartDate, TEndDate=@paraTEndDate, EventId " +
-                "WHERE Id=@paraId;";
+            string sqlStmt = "UPDATE [EventTeam] SET TeamName=@paraTeamName, TeamLeader=@paraTeamLeader, ContactEmail=@paraContactEmail, TStartDate=@paraTStartDate, TEndDate=@paraTEndDate, EventId=@paraEventId " +
+                "WHERE [Id]=@paraId;";
+
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
             sqlCmd.Parameters.AddWithValue("@paraTeamName", TeamName);
             sqlCmd.Parameters.AddWithValue("@paraTeamLeader", TeamLeader);

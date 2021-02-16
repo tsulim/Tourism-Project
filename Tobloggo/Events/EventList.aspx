@@ -5,7 +5,7 @@
 
     <div class="container" style="margin-top: 10px;">
         <h1>Event List</h1>
-        <p>There are {} total events</p>
+        <p id="eventCounter" runat="server">There are {} total events</p>
 
         <div class="d-flex justify-content-end">
             <asp:HyperLink href="/Events/CreateEvent" ID="AddEventBtn" runat="server">+ Add New Event</asp:HyperLink>

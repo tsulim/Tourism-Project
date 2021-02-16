@@ -54,7 +54,7 @@ namespace DBService
 
         //EventTeam
         [OperationContract]
-        int CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId);
+        EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId);
 
         [OperationContract]
         int UpdateEventTeam(EventTeam eventTeamObj);
@@ -70,7 +70,7 @@ namespace DBService
         //Tasks
 
         [OperationContract]
-        int CreateEventTask(string name, string desc, Double difficulty, string teamId);
+        int CreateEventTask(string name, string desc, Double difficulty, bool completed, string teamId);
 
         [OperationContract]
         int UpdateTask(Tasks taskObj);

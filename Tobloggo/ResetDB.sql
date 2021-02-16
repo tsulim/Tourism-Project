@@ -213,9 +213,10 @@ CREATE TABLE [dbo].[EventTask]
 	[Name] NVARCHAR(50) NULL, 
 	[Description] NVARCHAR(MAX) NULL, 
 	[Difficulty] NVARCHAR(MAX) NULL, 
+    [Completed] BIT NULL, 
 	
 	[TeamId] INT NULL,
-	CONSTRAINT [FK_EventTask_ToEventTeam] FOREIGN KEY ([TeamId]) REFERENCES [EventTeam]([Id]),
+	CONSTRAINT [FK_EventTask_ToEventTeam] FOREIGN KEY ([TeamId]) REFERENCES [EventTeam]([Id]) ON DELETE CASCADE,
 )
 
 CREATE TABLE [dbo].[LocationEvent]
