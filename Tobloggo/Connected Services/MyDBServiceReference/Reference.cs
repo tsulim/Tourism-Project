@@ -308,6 +308,9 @@ namespace Tobloggo.MyDBServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -344,6 +347,19 @@ namespace Tobloggo.MyDBServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
                 }
             }
         }
@@ -436,6 +452,224 @@ namespace Tobloggo.MyDBServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ticket", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Ticket : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LocationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SoldAmountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LocationId {
+            get {
+                return this.LocationIdField;
+            }
+            set {
+                if ((this.LocationIdField.Equals(value) != true)) {
+                    this.LocationIdField = value;
+                    this.RaisePropertyChanged("LocationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SoldAmount {
+            get {
+                return this.SoldAmountField;
+            }
+            set {
+                if ((this.SoldAmountField.Equals(value) != true)) {
+                    this.SoldAmountField = value;
+                    this.RaisePropertyChanged("SoldAmount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PurchasedTicket", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class PurchasedTicket : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TicketIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TicketId {
+            get {
+                return this.TicketIdField;
+            }
+            set {
+                if ((this.TicketIdField.Equals(value) != true)) {
+                    this.TicketIdField = value;
+                    this.RaisePropertyChanged("TicketId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyDBServiceReference.IService1")]
     public interface IService1 {
@@ -494,11 +728,29 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllLocations", ReplyAction="http://tempuri.org/IService1/GetAllLocationsResponse")]
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllLocationsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        int CreateLocation(string name, string address, string type, string images, int userid);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllLocationsByUserId", ReplyAction="http://tempuri.org/IService1/GetAllLocationsByUserIdResponse")]
+        Tobloggo.MyDBServiceReference.Location[] GetAllLocationsByUserId(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllLocationsByUserId", ReplyAction="http://tempuri.org/IService1/GetAllLocationsByUserIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllLocationsByUserIdAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAvailLocations", ReplyAction="http://tempuri.org/IService1/GetAllAvailLocationsResponse")]
+        Tobloggo.MyDBServiceReference.Location[] GetAllAvailLocations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAvailLocations", ReplyAction="http://tempuri.org/IService1/GetAllAvailLocationsResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllAvailLocationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTypeLocations", ReplyAction="http://tempuri.org/IService1/GetAllTypeLocationsResponse")]
+        Tobloggo.MyDBServiceReference.Location[] GetAllTypeLocations(string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTypeLocations", ReplyAction="http://tempuri.org/IService1/GetAllTypeLocationsResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllTypeLocationsAsync(string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
-        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid);
+        int CreateLocation(string name, string address, string details, string type, string images, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
+        System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string details, string type, string images, int userid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
         Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid);
@@ -506,11 +758,53 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location> GetLastLocationAsync(int userid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLocationById", ReplyAction="http://tempuri.org/IService1/GetLocationByIdResponse")]
+        Tobloggo.MyDBServiceReference.Location GetLocationById(int locaid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLocationById", ReplyAction="http://tempuri.org/IService1/GetLocationByIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location> GetLocationByIdAsync(int locaid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
         int CreateTicket(string name, double price, int locaid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
         System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketById", ReplyAction="http://tempuri.org/IService1/GetTicketByIdResponse")]
+        Tobloggo.MyDBServiceReference.Ticket GetTicketById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketById", ReplyAction="http://tempuri.org/IService1/GetTicketByIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket> GetTicketByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketByLocaId", ReplyAction="http://tempuri.org/IService1/GetTicketByLocaIdResponse")]
+        Tobloggo.MyDBServiceReference.Ticket[] GetTicketByLocaId(int locaId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketByLocaId", ReplyAction="http://tempuri.org/IService1/GetTicketByLocaIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket[]> GetTicketByLocaIdAsync(int locaId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTicketAmt", ReplyAction="http://tempuri.org/IService1/UpdateTicketAmtResponse")]
+        int UpdateTicketAmt(int id, int soldAmt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTicketAmt", ReplyAction="http://tempuri.org/IService1/UpdateTicketAmtResponse")]
+        System.Threading.Tasks.Task<int> UpdateTicketAmtAsync(int id, int soldAmt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/CreatePurchasedTicketResponse")]
+        int CreatePurchasedTicket(int quantity, int ticketid, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/CreatePurchasedTicketResponse")]
+        System.Threading.Tasks.Task<int> CreatePurchasedTicketAsync(int quantity, int ticketid, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPurchasedTicketsByUserId", ReplyAction="http://tempuri.org/IService1/GetPurchasedTicketsByUserIdResponse")]
+        Tobloggo.MyDBServiceReference.PurchasedTicket[] GetPurchasedTicketsByUserId(int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPurchasedTicketsByUserId", ReplyAction="http://tempuri.org/IService1/GetPurchasedTicketsByUserIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.PurchasedTicket[]> GetPurchasedTicketsByUserIdAsync(int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/UpdatePurchasedTicketResponse")]
+        int UpdatePurchasedTicket(int id, int status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/UpdatePurchasedTicketResponse")]
+        System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -612,12 +906,36 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetAllLocationsAsync();
         }
         
-        public int CreateLocation(string name, string address, string type, string images, int userid) {
-            return base.Channel.CreateLocation(name, address, type, images, userid);
+        public Tobloggo.MyDBServiceReference.Location[] GetAllLocationsByUserId(int userId) {
+            return base.Channel.GetAllLocationsByUserId(userId);
         }
         
-        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string type, string images, int userid) {
-            return base.Channel.CreateLocationAsync(name, address, type, images, userid);
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllLocationsByUserIdAsync(int userId) {
+            return base.Channel.GetAllLocationsByUserIdAsync(userId);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Location[] GetAllAvailLocations() {
+            return base.Channel.GetAllAvailLocations();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllAvailLocationsAsync() {
+            return base.Channel.GetAllAvailLocationsAsync();
+        }
+        
+        public Tobloggo.MyDBServiceReference.Location[] GetAllTypeLocations(string type) {
+            return base.Channel.GetAllTypeLocations(type);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location[]> GetAllTypeLocationsAsync(string type) {
+            return base.Channel.GetAllTypeLocationsAsync(type);
+        }
+        
+        public int CreateLocation(string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.CreateLocation(name, address, details, type, images, userid);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.CreateLocationAsync(name, address, details, type, images, userid);
         }
         
         public Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid) {
@@ -628,12 +946,68 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.GetLastLocationAsync(userid);
         }
         
+        public Tobloggo.MyDBServiceReference.Location GetLocationById(int locaid) {
+            return base.Channel.GetLocationById(locaid);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Location> GetLocationByIdAsync(int locaid) {
+            return base.Channel.GetLocationByIdAsync(locaid);
+        }
+        
         public int CreateTicket(string name, double price, int locaid) {
             return base.Channel.CreateTicket(name, price, locaid);
         }
         
         public System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid) {
             return base.Channel.CreateTicketAsync(name, price, locaid);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Ticket GetTicketById(int id) {
+            return base.Channel.GetTicketById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket> GetTicketByIdAsync(int id) {
+            return base.Channel.GetTicketByIdAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Ticket[] GetTicketByLocaId(int locaId) {
+            return base.Channel.GetTicketByLocaId(locaId);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Ticket[]> GetTicketByLocaIdAsync(int locaId) {
+            return base.Channel.GetTicketByLocaIdAsync(locaId);
+        }
+        
+        public int UpdateTicketAmt(int id, int soldAmt) {
+            return base.Channel.UpdateTicketAmt(id, soldAmt);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTicketAmtAsync(int id, int soldAmt) {
+            return base.Channel.UpdateTicketAmtAsync(id, soldAmt);
+        }
+        
+        public int CreatePurchasedTicket(int quantity, int ticketid, int userid) {
+            return base.Channel.CreatePurchasedTicket(quantity, ticketid, userid);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreatePurchasedTicketAsync(int quantity, int ticketid, int userid) {
+            return base.Channel.CreatePurchasedTicketAsync(quantity, ticketid, userid);
+        }
+        
+        public Tobloggo.MyDBServiceReference.PurchasedTicket[] GetPurchasedTicketsByUserId(int userid) {
+            return base.Channel.GetPurchasedTicketsByUserId(userid);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.PurchasedTicket[]> GetPurchasedTicketsByUserIdAsync(int userid) {
+            return base.Channel.GetPurchasedTicketsByUserIdAsync(userid);
+        }
+        
+        public int UpdatePurchasedTicket(int id, int status) {
+            return base.Channel.UpdatePurchasedTicket(id, status);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status) {
+            return base.Channel.UpdatePurchasedTicketAsync(id, status);
         }
     }
 }

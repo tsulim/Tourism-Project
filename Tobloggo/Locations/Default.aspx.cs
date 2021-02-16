@@ -10,26 +10,19 @@ namespace Tobloggo.Locations
 {
     public partial class _Default : System.Web.UI.Page
     {
+        private string selectedLoca = "all";
+        public string SelectedLoca { get { return selectedLoca; } }
         protected void Page_Load(object sender, EventArgs e)
         {
-            RefreshGridView();
-        }
-        private void RefreshGridView()
-        {
-            List<Location> lList = new List<Location>();
-            MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
-            lList = client.GetAllLocations()?.ToList<Location>();
-
-            if (lList != null)
+            if (this.RouteData.Values["locaType"] != null)
             {
-                
-                gvLocation.Visible = true;
-                gvLocation.DataSource = lList;
-                gvLocation.DataBind();
-            }
-            else
-            {
-                gvLocation.Visible = false;
+                if (this.RouteData.Values["locaType"].ToString() == "Food" || this.RouteData.Values["locaType"].ToString() == "Entertainment" || this.RouteData.Values["locaType"].ToString() == "Cultural")
+                {
+                    selectedLoca = RouteData.Values["locaType"].ToString();
+                } else
+                {
+                    Response.Redirect("/Locations");
+                }
             }
         }
     }

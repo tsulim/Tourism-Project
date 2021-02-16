@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Location" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateLocation.aspx.cs" Inherits="Tobloggo.Locations.CreateLocation" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EditLocation.aspx.cs" Inherits="Tobloggo.Locations.EditLocation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Location.css" rel="stylesheet">
     <script type="text/javascript">
@@ -13,8 +13,17 @@
         var prevFiles = ""
         var files = ""
         var idList = []
+        var itemCount = 1
 
         window.onload = function () {
+
+            itemCount = document.getElementById("itemCount").value;
+
+            var myEditor = document.querySelector('#editor')
+            myEditor.children[0].innerHTML = "<%# LocaHTMLDetails %>"
+<%--            var locaDetail = document.getElementById("hiddenContentField");
+            $("#editor .ql-editor").html = "<%= LocaHTMLDetails %>";--%>
+            
 
             //Check File API support
             if (window.File && window.FileList && window.FileReader) {
@@ -61,6 +70,8 @@
 
                                 div.innerHTML = '<img class="thumbnail" src="' + picFile.result + '"' +
                                     'title="' + file.name + '"/>' +
+                                    '<input id = "file' + counter + '" name = "file' + counter +
+                                    '" type="file" hidden="true" value="' + picFile.result + '" />' +
                                     '<input id="Button' + counter + '" type="button" ' +
                                     'value="Remove" onclick = "RemoveFileUpload(this)" />';
                                 output.insertBefore(div, null);
@@ -145,7 +156,6 @@
 
         }
 
-        var itemCount = 1
         function addItem(e) {
             itemCount ++
             var tr = document.createElement("tr");
@@ -222,6 +232,8 @@
 
                             <!-- Initialize Quill editor -->
                             <script>
+
+
                                 var quill = new Quill('#editor', {
                                     placeholder: 'Enter Location Details..',
                                     theme: 'snow'
@@ -262,8 +274,11 @@
                             <p class="uploadInfo">Please upload .jpg or .png files that are under 1MB</p>
                             <asp:FileUpload ID="locaImages" runat="server" AllowMultiple="true" ClientIDMode="Static" />
                             <%--<input type="file" id="locaImages" name="locaImages" multiple/>--%>
+                            <asp:HiddenField ID="imgCount" runat="server" ClientIDMode="Static" />
 
-                            <output id="imageresult" runat="server" clientidmode="Static" />
+                            <output id="imageresult" runat="server" clientidmode="Static">
+                                
+                            </output>
 
                             <asp:Label ID="lbl_image" runat="server" ClientIDMode="Static" />
                         </div>
@@ -277,7 +292,7 @@
 
                         <asp:HiddenField ID="itemCount" Value="1" runat="server" ClientIDMode="Static" />
                         
-                        <table class="auto-style1" id="itemTable" runat="server" ClientIDMode="Static">
+                        <table class="auto-style1" id="itemTable">
                             <tbody>
                                 <tr>
                                     <td>Name</td>
@@ -286,18 +301,23 @@
                                     </td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" name="multipleItemName1" id="multipleItemName1" class="form-control" placeholder="Enter item name">
-                                    </td>
-                                    <td>
-                                        <input type="text" name="multipleItemPrice1" id="multipleItemPrice1" class="form-control" placeholder="$ Input">
-                                    </td>
-                                    <td>
-                                        <button type="button" runat="server" class="btn btn-outline-success" ClientIdMode="Static" onclick="addItem(this)" visible="true"><i class="fa fa-plus"></i></button>
-                                        <button type="button" runat="server" class="btn btn-outline-danger" ClientIdMode="Static" onclick="removeItem(this)" visible="true"><i class="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                                <asp:Repeater ID="Repeater1" runat="server">
+                                    <ItemTemplate>
+                                         <tr runat="server" id="itemStart" clientidmode="Static">
+                                             <td>
+                                                 <input type="text" name="multipleItemName<%#(Container.ItemIndex+1)%>" id="multipleItemName<%#(Container.ItemIndex+1)%>" value="<%# Eval("Name") %>" class="form-control" placeholder="Enter item name">
+                                             </td>
+                                             <td>
+                                                 <input type="text" name="multipleItemPrice<%#(Container.ItemIndex+1)%>" id="multipleItemPrice<%#(Container.ItemIndex+1)%>" value="<%# Eval("Price") %>" class="form-control" placeholder="$ Input">
+                                             </td>
+                                             <td>
+                                                 <button type="button" runat="server" class="btn btn-outline-success" clientidmode="Static" onclick="addItem(this)" visible="true"><i class="fa fa-plus"></i></button>
+                                                 <button type="button" runat="server" class="btn btn-outline-danger" clientidmode="Static" onclick="removeItem(this)" visible="true"><i class="fa fa-trash"></i></button>
+                                             </td>
+                                         </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -305,7 +325,7 @@
             </div>
             <div id="bottomLoca">
                 <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
-                <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" OnClientClick="storeContent();" />
+                <asp:Button ID="addBtn" runat="server" Text="Edit" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="addBtn_Click" OnClientClick="storeContent();" />
             </div>
         </div>
     </div>

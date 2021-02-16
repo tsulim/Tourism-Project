@@ -11,7 +11,13 @@ namespace Tobloggo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("~/CustomErrors/Error404.html");
+            } else if (new MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 0)
+            {
+                Response.Redirect("~/CustomErrors/Error404.html");
+            }
         }
     }
 }
