@@ -50,7 +50,7 @@
     </asp:ContentPlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" ClientIDMode="Static" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>

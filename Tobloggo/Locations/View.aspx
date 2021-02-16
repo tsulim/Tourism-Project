@@ -29,12 +29,67 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+            ready()
+        }
+
+        function ready() {
+            document.getElementById('openTicket').addEventListener('click', onTicket);
+            document.getElementById('closeTicket').addEventListener('click', offTicket);
+
+            // num ticket selected
+            var quantityInputs = document.getElementsByClassName("ticketQuantity");
+            for (var i = 0; i < quantityInputs.length; i++) {
+                quantityInputs[i].addEventListener("change", quantityInputUpdate);
+            }
+        }
+
+        function onTicket() {
+            document.getElementById("overlayTicket").style.display = "block";
+        }
+
+        function offTicket() {
+            document.getElementById("overlayTicket").style.display = "none";
+        }
+
+        function quantityInputUpdate(event) {
+            var button = event.target;
+
+            //Making sure the cartItem is one or bigger
+
+            if (button.value < 0 || isNaN(button.value)) {
+                button.value = 0;
+            }
+
+            updateSum();
+        }
+
+        function updateSum() {
+            var quantityInputs = document.getElementsByClassName("ticketQuantity");
+            var priceLabels = document.getElementsByClassName("ticketPrice");
+            var sum = 0
+            var amtToPay = document.getElementById("bookSum");
+
+            for (var i = 0; i < priceLabels.length; i++) {
+                var price = parseFloat(priceLabels[i].innerText.slice(2));
+                var quantity = parseInt(quantityInputs[i].value);
+                sum += price * quantity
+            }
+
+            sum = Math.round(sum * 100) / 100;
+            amtToPay.innerText = "S$" + sum.toString();
+        }
+
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-content">
         <div class="form-container">
-            
+
             <div class="post-row row d-flex">
                 <div class="col-sm-12 col-md-4" style="padding-left: 0px; padding-right: 0px;">
                     <% var imgList = SelectedLocation.Images.ToString().Split(',').ToList();
@@ -113,7 +168,7 @@
                         <% if (TicketList.Count != 0)
                             {%>
                         <div class="col-12" style="text-align:right; padding-bottom: 10px;">
-                            <button type="button" style="text-align:right; padding-bottom: 10px;" class="btn btn-outline-primary" clientidmode="Static"><i class="fa fa-calendar-check"></i> Book</button>
+                            <button id="openTicket" type="button" style="text-align:right; padding-bottom: 10px;" class="btn btn-outline-primary" clientidmode="Static"><i class="fa fa-calendar-check"></i> Book</button>
                         </div>
                         <% } %>
                     </div>
@@ -132,9 +187,10 @@
                 <h5>Reviews </h5>
                 <button type="button" id="reviewBtn" class="btn btn-secondary" clientidmode="Static">Write Review</button>
             </div>
+            <% if (TicketList.Count() > 0) { %>
             <div class="row">
                 <div class="col-12 feed-content">
-
+                    <%-- Start for --%>
                     <div class="col-sm-12 col-md-6 col-lg-4 feed-card">
                         <div class="card">
                             <%--<div class="card-Img">
@@ -145,52 +201,37 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-4 feed-card">
-                        <div class="card">
-                            <%--<div class="card-Img">
-                                <img src="/images/.." class="card-img-top">
-                            </div>--%>
-                            <div class="card-body justify-content-center align-items-center">
-                                <h5 class="card-title">Hi</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-4 feed-card">
-                        <div class="card">
-                            <div class="card-Img">
-                                <img src="/images/.." class="card-img-top">
-                            </div>
-                            <div class="card-body justify-content-center align-items-center">
-                                <h5 class="card-title">Hi</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-4 feed-card">
-                        <div class="card">
-                            <div class="card-Img">
-                                <img src="/images/.." class="card-img-top">
-                            </div>
-                            <div class="card-body justify-content-center align-items-center">
-                                <h5 class="card-title">Hi</h5>
-                            </div>
-                        </div>
-                    </div>
-
-
+                    <%-- End for --%>
                 </div>
-
             </div>
-
+            <% } else { %>
             <div class="row alert alert-info justify-content-center align-items-center">
 
                     No Reviews
 
             </div>
+            <% } %>
         </div>
     </div>
+
+    <%-- Overlay --%>
+    <div id="overlayTicket">
+        <a href="javascript:void(0)" class="closebtn" id="closeTicket">&times;</a>
+        <div id="overlaycontent" class="container form-container">
+            <h3>Booking Ticket</h3>
+            <div class="ticketContainer row">
+                <asp:Panel ID="ticketPanel" CssClass="ticketContainer col-10" runat="server">
+                </asp:Panel>
+            </div>
+            <div class="row justify-content-end" id="bottomBook">
+                <asp:Label ID="bookSum" runat="server" ClientIDMode="Static">S$0</asp:Label>
+                <asp:LinkButton ID="BookBtn" runat="server" ClientIDMode="Static" CssClass="btn btn-primary" OnClick="PayBtn_Click">Checkout</asp:LinkButton>
+            </div>
+        </div>
+    </div>
+    <%-- Overlay --%>
+    
+
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptAfterContent" runat="server">

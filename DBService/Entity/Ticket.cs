@@ -66,6 +66,35 @@ namespace DBService.Entity
             return result;
         }
 
+        public Ticket SelectAllById(int id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Ticket where Id = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", id);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            Ticket tic = new Ticket();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+
+                string name = row["Name"].ToString();
+                double price = Convert.ToDouble(row["Price"].ToString());
+                int soldAmt = Convert.ToInt32(row["SoldAmount"].ToString());
+                int locaId = Convert.ToInt32(row["LocationId"].ToString());
+
+                tic = new Ticket(id, name, price, soldAmt, locaId);
+            }
+            return tic;
+        }
+
         public List<Ticket> SelectAllByLocaId(int locaId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
@@ -93,6 +122,25 @@ namespace DBService.Entity
                 ticList.Add(tic);
             }
             return ticList;
+        }
+
+        public int UpdateTicketAmt(int id, int soldAmt)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE PurchasedTicket SET SoldAmount=@paraSoldAmount WHERE Id=@paraId;";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", id);
+            sqlCmd.Parameters.AddWithValue("@paraSoldAmount", soldAmt);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+
+            return result;
         }
     }
 }

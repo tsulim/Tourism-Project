@@ -107,6 +107,38 @@ namespace DBService.Entity
             return locaList;
         }
 
+        public List<Location> SelectAllByUserId(int userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Location where UserId = @paraUserId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Location> locaList = new List<Location>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = Convert.ToInt32(row["Id"]);
+                string name = row["Name"].ToString();
+                string address = row["Address"].ToString();
+                string details = row["Details"].ToString();
+                string type = row["Type"].ToString();
+                string images = row["Images"].ToString();
+                bool status = Convert.ToBoolean(row["Status"]);
+
+                Location loca = new Location(id, name, address, details, type, images, status, userId);
+                locaList.Add(loca);
+            }
+            return locaList;
+        }
+
         public List<Location> SelectAllAvail()
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;

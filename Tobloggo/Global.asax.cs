@@ -7,6 +7,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.Configuration;
+using Stripe;
 
 namespace Tobloggo
 {
@@ -49,7 +51,33 @@ namespace Tobloggo
             routes.MapPageRoute(
                 "BPartnerRoute",
                 "BPartner",
-                "~/Locations/CreateLocation.aspx");
+                "~/Locations/Overview.aspx"
+            );
+
+            routes.MapPageRoute(
+                "CreateLocationRoute",
+                "BPartner/Locations/Create",
+                "~/Locations/CreateLocation.aspx"
+            );
+
+            routes.MapPageRoute(
+                "EditLocationRoute",
+                "BPartner/Locations/Edit/{locaId}",
+                "~/Locations/EditLocation.aspx"
+            );
+
+
+            routes.MapPageRoute(
+                "PaymentRoute",
+                "Payment/Checkout/{paySum}",
+                "~/Charge.aspx"
+            );
+
+            routes.MapPageRoute(
+                "PaymentSuccessRoute",
+                "Payment/Success",
+                "~/Successful.aspx"
+            );
         }
     }
 }

@@ -62,6 +62,12 @@
   <wsdl:message name="IService1_GetAllLocations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllLocationsByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllLocationsByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsByUserIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAllAvailLocations_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAvailLocations" />
   </wsdl:message>
@@ -98,11 +104,41 @@
   <wsdl:message name="IService1_CreateTicket_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateTicketResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTicketById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTicketById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetTicketByLocaId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTicketByLocaId" />
   </wsdl:message>
   <wsdl:message name="IService1_GetTicketByLocaId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTicketByLocaIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTicketAmt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicketAmt" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTicketAmt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicketAmtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreatePurchasedTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePurchasedTicket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreatePurchasedTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePurchasedTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPurchasedTicketsByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchasedTicketsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPurchasedTicketsByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPurchasedTicketsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePurchasedTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePurchasedTicket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePurchasedTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePurchasedTicketResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
@@ -141,6 +177,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllLocations" message="tns:IService1_GetAllLocations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllLocationsResponse" message="tns:IService1_GetAllLocations_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllLocationsByUserId" message="tns:IService1_GetAllLocationsByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllLocationsByUserIdResponse" message="tns:IService1_GetAllLocationsByUserId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllAvailLocations">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAvailLocations" message="tns:IService1_GetAllAvailLocations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAvailLocationsResponse" message="tns:IService1_GetAllAvailLocations_OutputMessage" />
@@ -165,9 +205,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateTicket" message="tns:IService1_CreateTicket_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateTicketResponse" message="tns:IService1_CreateTicket_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetTicketById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTicketById" message="tns:IService1_GetTicketById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTicketByIdResponse" message="tns:IService1_GetTicketById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTicketByLocaId">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTicketByLocaId" message="tns:IService1_GetTicketByLocaId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTicketByLocaIdResponse" message="tns:IService1_GetTicketByLocaId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketAmt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTicketAmt" message="tns:IService1_UpdateTicketAmt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTicketAmtResponse" message="tns:IService1_UpdateTicketAmt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePurchasedTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePurchasedTicket" message="tns:IService1_CreatePurchasedTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePurchasedTicketResponse" message="tns:IService1_CreatePurchasedTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchasedTicketsByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPurchasedTicketsByUserId" message="tns:IService1_GetPurchasedTicketsByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPurchasedTicketsByUserIdResponse" message="tns:IService1_GetPurchasedTicketsByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePurchasedTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePurchasedTicket" message="tns:IService1_UpdatePurchasedTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePurchasedTicketResponse" message="tns:IService1_UpdatePurchasedTicket_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -253,6 +313,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllLocationsByUserId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllLocationsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllAvailLocations">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllAvailLocations" style="document" />
       <wsdl:input>
@@ -307,8 +376,53 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTicketById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTicketById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetTicketByLocaId">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTicketByLocaId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketAmt">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTicketAmt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePurchasedTicket">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreatePurchasedTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchasedTicketsByUserId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPurchasedTicketsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePurchasedTicket">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePurchasedTicket" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

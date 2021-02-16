@@ -129,11 +129,11 @@ CREATE TABLE [dbo].[Ticket]
 CREATE TABLE [dbo].[PurchasedTicket]
 (
 	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(MAX) NULL, 
-	[Price] FLOAT NULL, 
-	[TotalAmount] INT NULL, 
-	[SoldAmount] INT NULL, 
+	[Quantity] FLOAT NULL, 
+	[Status] INT NULL,
+	[TicketId] INT NULL, 
 	[UserId] INT NULL,
+	CONSTRAINT [FK_PurchasedTicket_ToTicket] FOREIGN KEY ([TicketId]) REFERENCES [Ticket]([Id]),
 	CONSTRAINT [FK_PurchasedTicket_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 

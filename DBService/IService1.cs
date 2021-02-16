@@ -42,6 +42,8 @@ namespace DBService
         // Location Codes Start
         [OperationContract]
         List<Location> GetAllLocations();
+        [OperationContract]
+        List<Location> GetAllLocationsByUserId(int userId);
         
         [OperationContract]
         List<Location> GetAllAvailLocations();
@@ -63,7 +65,17 @@ namespace DBService
         [OperationContract]
         int CreateTicket(string name, double price, int locaid);
         [OperationContract]
+        Ticket GetTicketById(int id);
+        [OperationContract]
         List<Ticket> GetTicketByLocaId(int locaId);
+        [OperationContract]
+        int UpdateTicketAmt(int id, int soldAmt);
+        [OperationContract]
+        int CreatePurchasedTicket(int quantity, int ticketid, int userid);
+        [OperationContract]
+        List<PurchasedTicket> GetPurchasedTicketsByUserId(int userid);
+        [OperationContract]
+        int UpdatePurchasedTicket(int id, int status);
         // Ticket Codes End
 
     }
