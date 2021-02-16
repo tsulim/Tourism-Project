@@ -176,7 +176,7 @@ CREATE TABLE [dbo].[Comment]
 
 CREATE TABLE [dbo].[Event]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(50) NULL, 
 	[Location] NVARCHAR(MAX) NULL, 
 	[Status] NVARCHAR(MAX) NULL, 
@@ -184,12 +184,40 @@ CREATE TABLE [dbo].[Event]
 	[Images] NVARCHAR(MAX) NULL, 
 	[EStartDate] DATETIME NULL, 
 	[EEndDate] DATETIME NULL, 
-
+	
+	[ProgCreated] INT NOT NULL, 
 	[PStartDate] DATETIME NULL, 
 	[PEndDate] DATETIME NULL, 
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[EventTeam]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[TeamName] NVARCHAR(50) NULL, 
+	[ContactEmail] NVARCHAR(MAX) NULL, 
+	
+	[TStartDate] DATETIME NULL, 
+	[TEndDate] DATETIME NULL, 
+
+	[EventId] INT NULL,
+	[TeamLeader] INT NULL,
+	CONSTRAINT [FK_EventTeam_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]),
+	CONSTRAINT [FK_EventTeam_ToUser] FOREIGN KEY ([TeamLeader]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[EventTask]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[Name] NVARCHAR(50) NULL, 
+	[Description] NVARCHAR(MAX) NULL, 
+	[Difficulty] NVARCHAR(MAX) NULL, 
+    [Completed] BIT NULL, 
+	
+	[TeamId] INT NULL,
+	CONSTRAINT [FK_EventTask_ToEventTeam] FOREIGN KEY ([TeamId]) REFERENCES [EventTeam]([Id]) ON DELETE CASCADE,
 )
 
 CREATE TABLE [dbo].[LocationEvent]
@@ -226,6 +254,7 @@ CREATE TABLE [dbo].[Booking] (
 	[Id]        INT            NOT NULL,
 	[StartDate] DATE           NULL,
 	[EndDate]   DATE           NULL,
+	[CreateDate] DATETIME NULL,
 	[AmtPpl]    INT            NULL,
 	[Status]    NVARCHAR (30) NULL,
 	[TourId] INT NULL, 
@@ -253,21 +282,14 @@ CREATE TABLE [dbo].[LocationTour]
 )
 
 -- Nazrie
-CREATE TABLE [dbo].[Invoice]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(20) NULL, 
-	[CreateDate] DATETIME NULL, 
-	[Status] BIT NULL,
-
-	[BookingId] INT NULL,
-	[TourId] INT NULL,
-	[UserId] INT NULL,
-	CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [Booking]([Id]), 
-	CONSTRAINT [FK_Invoice_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
-	CONSTRAINT [FK_Invoice_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-
-)
+CREATE TABLE [dbo].[Invoice] (
+    [BookingId]  INT           NOT NULL,
+    [Type]       NVARCHAR (20) NULL,
+    [CreateDate] DATETIME      NULL,
+    [Status]     BIT           NULL,
+    PRIMARY KEY CLUSTERED ([BookingId] ASC),
+    CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [dbo].[Booking] ([Id])
+);
 
 CREATE TABLE [dbo].[Reminder]
 (
@@ -276,22 +298,5 @@ CREATE TABLE [dbo].[Reminder]
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-)
-
-CREATE TABLE [dbo].[Policy]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Desc] NVARCHAR(MAX) NULL
-)
-
-CREATE TABLE [dbo].[Feedback]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(10) NULL, 
-	[Desc] NVARCHAR(MAX) NULL,
-
-	[UserId] INT NULL,
-	CONSTRAINT [FK_Feedback_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-
 )
 

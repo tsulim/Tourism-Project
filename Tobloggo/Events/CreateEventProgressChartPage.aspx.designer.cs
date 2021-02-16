@@ -11,7 +11,7 @@ namespace Tobloggo.Events
 {
 
 
-    public partial class CreateEvent
+    public partial class CreateEventProgressChartPage
     {
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Tobloggo.Events
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label editUserTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editUserTitle;
 
         /// <summary>
         /// Label1 control.
@@ -33,51 +33,6 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// eventName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox eventName;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// eventLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox eventLocation;
-
-        /// <summary>
-        /// Label6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-
-        /// <summary>
-        /// eventDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox eventDescription;
-
-        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -87,13 +42,13 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// eventStartDate control.
+        /// preparationStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl preparationStartDate;
 
         /// <summary>
         /// Label3 control.
@@ -105,21 +60,21 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// eventEndDate control.
+        /// preparationEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl preparationEndDate;
 
         /// <summary>
-        /// event_create_btn_submit control.
+        /// event_prog_btn_submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button event_create_btn_submit;
+        protected global::System.Web.UI.WebControls.Button event_prog_btn_submit;
     }
 }

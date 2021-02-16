@@ -133,6 +133,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -197,6 +198,13 @@
     <Content Include="CustomErrors\Error403.html" />
     <Content Include="CustomErrors\Error404.html" />
     <Content Include="CustomErrors\Error500.html" />
+    <Content Include="Events\CreateEvent.aspx" />
+    <Content Include="Events\CreateEventProgressChartPage.aspx" />
+    <Content Include="Events\CreateEventTeam.aspx" />
+    <Content Include="Events\DeleteEventTeamPage.aspx" />
+    <Content Include="Events\EditEventPage.aspx" />
+    <Content Include="Events\EventProgressChartPage.aspx" />
+    <Content Include="Events\EventTeamPage.aspx" />
     <Content Include="Locations\CreateLocation.aspx" />
     <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
@@ -255,6 +263,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
@@ -362,6 +379,55 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEvent.aspx.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEvent.aspx.designer.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEventProgressChartPage.aspx.cs">
+      <DependentUpon>CreateEventProgressChartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEventProgressChartPage.aspx.designer.cs">
+      <DependentUpon>CreateEventProgressChartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\CreateEventTeam.aspx.cs">
+      <DependentUpon>CreateEventTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\CreateEventTeam.aspx.designer.cs">
+      <DependentUpon>CreateEventTeam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\DeleteEventTeamPage.aspx.cs">
+      <DependentUpon>DeleteEventTeamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\DeleteEventTeamPage.aspx.designer.cs">
+      <DependentUpon>DeleteEventTeamPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EditEventPage.aspx.cs">
+      <DependentUpon>EditEventPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EditEventPage.aspx.designer.cs">
+      <DependentUpon>EditEventPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventProgressChartPage.aspx.cs">
+      <DependentUpon>EventProgressChartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventProgressChartPage.aspx.designer.cs">
+      <DependentUpon>EventProgressChartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventTeamPage.aspx.cs">
+      <DependentUpon>EventTeamPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventTeamPage.aspx.designer.cs">
+      <DependentUpon>EventTeamPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

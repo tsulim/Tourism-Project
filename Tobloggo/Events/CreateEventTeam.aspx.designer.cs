@@ -11,26 +11,26 @@ namespace Tobloggo.Events
 {
 
 
-    public partial class EventProgressChartPage
+    public partial class CreateEventTeam
     {
 
         /// <summary>
-        /// eventProgressChartPageHiddenValue control.
+        /// teamItemCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField eventProgressChartPageHiddenValue;
+        protected global::System.Web.UI.WebControls.HiddenField teamItemCount;
 
         /// <summary>
-        /// eventTitle control.
+        /// editUserTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventTitle;
+        protected global::System.Web.UI.WebControls.Label editUserTitle;
 
         /// <summary>
         /// Label1 control.
@@ -42,76 +42,13 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// eventLocation control.
+        /// teamName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventLocation;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// eventStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventStatus;
-
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// eventManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventManager;
-
-        /// <summary>
-        /// eventManagerEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventManagerEmail;
-
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// totalProgress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalProgress;
+        protected global::System.Web.UI.WebControls.TextBox teamName;
 
         /// <summary>
         /// Label5 control.
@@ -123,13 +60,76 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// daysRemaining control.
+        /// teamLeaderId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label daysRemaining;
+        protected global::System.Web.UI.WebControls.TextBox teamLeaderId;
+
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// teamContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox teamContact;
+
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// teamStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl teamStartDate;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// teamEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl teamEndDate;
+
+        /// <summary>
+        /// Label14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label14;
 
         /// <summary>
         /// Label6 control.
@@ -141,33 +141,6 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// preparationStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label preparationStartDate;
-
-        /// <summary>
-        /// Label7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
-
-        /// <summary>
-        /// preparationEndDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label preparationEndDate;
-
-        /// <summary>
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -175,33 +148,6 @@ namespace Tobloggo.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-
-        /// <summary>
-        /// eventStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventStartDate;
-
-        /// <summary>
-        /// Label10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-
-        /// <summary>
-        /// eventEndDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label eventEndDate;
 
         /// <summary>
         /// Label9 control.
@@ -213,75 +159,39 @@ namespace Tobloggo.Events
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Label12 control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// progressLinkCreateTeam control.
+        /// Label11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink progressLinkCreateTeam;
+        protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
-        /// Label15 control.
+        /// createTask control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton createTask;
 
         /// <summary>
-        /// progressLinkEdit control.
+        /// team_create_btn_submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink progressLinkEdit;
-
-        /// <summary>
-        /// Label17 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label17;
-
-        /// <summary>
-        /// Label18 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label18;
-
-        /// <summary>
-        /// Label19 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label19;
-
-        /// <summary>
-        /// TeamRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater TeamRepeater;
+        protected global::System.Web.UI.WebControls.Button team_create_btn_submit;
     }
 }

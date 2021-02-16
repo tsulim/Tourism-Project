@@ -39,6 +39,51 @@ namespace DBService
         List<User> GetAllUsers();
         // User Codes End
 
+        // Event Codes Start
+        [OperationContract]
+        int CreateEvent(string name, string location, string desc, DateTime eStartDate, DateTime eEndDate, string userId);
+
+        [OperationContract]
+        int UpdateEvent(Event eventObj);
+
+        [OperationContract]
+        Event GetEventById(string id);
+
+        [OperationContract]
+        List<Event> GetAllEvents();
+
+        //EventTeam
+        [OperationContract]
+        EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId);
+
+        [OperationContract]
+        int UpdateEventTeam(EventTeam eventTeamObj);
+        [OperationContract]
+        int DeleteEventTeam(string teamId);
+
+        [OperationContract]
+        EventTeam GetEventTeamById(string id);
+
+        [OperationContract]
+        List<EventTeam> GetAllEventTeamByEventId(string eventId);
+
+        //Tasks
+
+        [OperationContract]
+        int CreateEventTask(string name, string desc, Double difficulty, bool completed, string teamId);
+
+        [OperationContract]
+        int UpdateTask(Tasks taskObj);
+
+        [OperationContract]
+        int DeleteTask(string taskId);
+
+        [OperationContract]
+        List<Tasks> GetAllTaskByEventTeamId(string eventTeamId);
+
+
+        // Event Codes End
+
         // Location Codes Start
         [OperationContract]
         List<Location> GetAllLocations();
