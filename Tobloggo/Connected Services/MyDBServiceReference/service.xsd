@@ -336,7 +336,7 @@
   <xs:element name="GetAllLocationsByUserIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsByUserIdResult" nillable="true" type="q8:ArrayOfLocation" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsByUserIdResult" nillable="true" type="q17:ArrayOfLocation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -348,7 +348,7 @@
   <xs:element name="GetAllAvailLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllAvailLocationsResult" nillable="true" type="q9:ArrayOfLocation" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllAvailLocationsResult" nillable="true" type="q18:ArrayOfLocation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -362,7 +362,7 @@
   <xs:element name="GetAllTypeLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTypeLocationsResult" nillable="true" type="q10:ArrayOfLocation" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTypeLocationsResult" nillable="true" type="q19:ArrayOfLocation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -395,7 +395,7 @@
   <xs:element name="GetLastLocationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q11:Location" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q20:Location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -409,7 +409,7 @@
   <xs:element name="GetLocationByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLocationByIdResult" nillable="true" type="q12:Location" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLocationByIdResult" nillable="true" type="q21:Location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -439,7 +439,7 @@
   <xs:element name="GetTicketByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTicketByIdResult" nillable="true" type="q13:Ticket" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTicketByIdResult" nillable="true" type="q22:Ticket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -453,7 +453,7 @@
   <xs:element name="GetTicketByLocaIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTicketByLocaIdResult" nillable="true" type="q14:ArrayOfTicket" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTicketByLocaIdResult" nillable="true" type="q23:ArrayOfTicket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -498,7 +498,7 @@
   <xs:element name="GetPurchasedTicketsByUserIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetPurchasedTicketsByUserIdResult" nillable="true" type="q15:ArrayOfPurchasedTicket" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetPurchasedTicketsByUserIdResult" nillable="true" type="q24:ArrayOfPurchasedTicket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
