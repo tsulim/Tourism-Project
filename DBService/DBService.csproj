@@ -68,11 +68,9 @@
     <Compile Include="Entity\Booking.cs" />
     <Compile Include="Entity\Comment.cs" />
     <Compile Include="Entity\Event.cs" />
-    <Compile Include="Entity\Feedback.cs" />
     <Compile Include="Entity\Invoice.cs" />
     <Compile Include="Entity\Like.cs" />
     <Compile Include="Entity\Location.cs" />
-    <Compile Include="Entity\Policy.cs" />
     <Compile Include="Entity\Promotion.cs" />
     <Compile Include="Entity\PurchasedTicket.cs" />
     <Compile Include="Entity\Reminder.cs" />
