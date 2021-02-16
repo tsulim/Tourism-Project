@@ -225,6 +225,7 @@ CREATE TABLE [dbo].[Booking] (
 	[Id]        INT            NOT NULL,
 	[StartDate] DATE           NULL,
 	[EndDate]   DATE           NULL,
+	[CreateDate] DATETIME NULL,
 	[AmtPpl]    INT            NULL,
 	[Status]    NVARCHAR (30) NULL,
 	[TourId] INT NULL, 
@@ -252,21 +253,14 @@ CREATE TABLE [dbo].[LocationTour]
 )
 
 -- Nazrie
-CREATE TABLE [dbo].[Invoice]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(20) NULL, 
-	[CreateDate] DATETIME NULL, 
-	[Status] BIT NULL,
-
-	[BookingId] INT NULL,
-	[TourId] INT NULL,
-	[UserId] INT NULL,
-	CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [Booking]([Id]), 
-	CONSTRAINT [FK_Invoice_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id]), 
-	CONSTRAINT [FK_Invoice_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-
-)
+CREATE TABLE [dbo].[Invoice] (
+    [BookingId]  INT           NOT NULL,
+    [Type]       NVARCHAR (20) NULL,
+    [CreateDate] DATETIME      NULL,
+    [Status]     BIT           NULL,
+    PRIMARY KEY CLUSTERED ([BookingId] ASC),
+    CONSTRAINT [FK_Invoice_ToBooking] FOREIGN KEY ([BookingId]) REFERENCES [dbo].[Booking] ([Id])
+);
 
 CREATE TABLE [dbo].[Reminder]
 (
@@ -275,22 +269,5 @@ CREATE TABLE [dbo].[Reminder]
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-)
-
-CREATE TABLE [dbo].[Policy]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Desc] NVARCHAR(MAX) NULL
-)
-
-CREATE TABLE [dbo].[Feedback]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-	[Type] NVARCHAR(10) NULL, 
-	[Desc] NVARCHAR(MAX) NULL,
-
-	[UserId] INT NULL,
-	CONSTRAINT [FK_Feedback_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-
 )
 
