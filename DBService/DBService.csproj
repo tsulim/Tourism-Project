@@ -68,6 +68,8 @@
     <Compile Include="Entity\Booking.cs" />
     <Compile Include="Entity\Comment.cs" />
     <Compile Include="Entity\Event.cs" />
+    <Compile Include="Entity\EventTeam.cs" />
+    <Compile Include="Entity\Feedback.cs" />
     <Compile Include="Entity\Invoice.cs" />
     <Compile Include="Entity\Like.cs" />
     <Compile Include="Entity\Location.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Entity\Reminder.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="Entity\Statistic.cs" />
+    <Compile Include="Entity\Tasks.cs" />
     <Compile Include="Entity\Ticket.cs" />
     <Compile Include="Entity\Tour.cs" />
     <Compile Include="Entity\User.cs" />

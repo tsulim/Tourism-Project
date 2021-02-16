@@ -46,7 +46,6 @@ namespace Tobloggo.Admin
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(editAuthorization.SelectedValue);
             retrievedUser.Authorization = int.Parse(editAuthorization.SelectedValue);
             client.UpdateUser(retrievedUser);
 

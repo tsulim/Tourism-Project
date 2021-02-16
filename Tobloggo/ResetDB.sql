@@ -175,7 +175,7 @@ CREATE TABLE [dbo].[Comment]
 
 CREATE TABLE [dbo].[Event]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(50) NULL, 
 	[Location] NVARCHAR(MAX) NULL, 
 	[Status] NVARCHAR(MAX) NULL, 
@@ -183,12 +183,40 @@ CREATE TABLE [dbo].[Event]
 	[Images] NVARCHAR(MAX) NULL, 
 	[EStartDate] DATETIME NULL, 
 	[EEndDate] DATETIME NULL, 
-
+	
+	[ProgCreated] INT NOT NULL, 
 	[PStartDate] DATETIME NULL, 
 	[PEndDate] DATETIME NULL, 
 
 	[UserId] INT NULL,
 	CONSTRAINT [FK_Event_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[EventTeam]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[TeamName] NVARCHAR(50) NULL, 
+	[ContactEmail] NVARCHAR(MAX) NULL, 
+	
+	[TStartDate] DATETIME NULL, 
+	[TEndDate] DATETIME NULL, 
+
+	[EventId] INT NULL,
+	[TeamLeader] INT NULL,
+	CONSTRAINT [FK_EventTeam_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]),
+	CONSTRAINT [FK_EventTeam_ToUser] FOREIGN KEY ([TeamLeader]) REFERENCES [User]([Id]),
+)
+
+CREATE TABLE [dbo].[EventTask]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
+	[Name] NVARCHAR(50) NULL, 
+	[Description] NVARCHAR(MAX) NULL, 
+	[Difficulty] NVARCHAR(MAX) NULL, 
+    [Completed] BIT NULL, 
+	
+	[TeamId] INT NULL,
+	CONSTRAINT [FK_EventTask_ToEventTeam] FOREIGN KEY ([TeamId]) REFERENCES [EventTeam]([Id]) ON DELETE CASCADE,
 )
 
 CREATE TABLE [dbo].[LocationEvent]

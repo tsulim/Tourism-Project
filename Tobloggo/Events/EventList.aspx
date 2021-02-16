@@ -5,10 +5,10 @@
 
     <div class="container" style="margin-top: 10px;">
         <h1>Event List</h1>
-        <p>There are {} total events</p>
+        <p id="eventCounter" runat="server">There are {} total events</p>
 
         <div class="d-flex justify-content-end">
-            <asp:HyperLink ID="AddEventBtn" runat="server">+ Add New Event</asp:HyperLink>
+            <asp:HyperLink href="/Events/CreateEvent" ID="AddEventBtn" runat="server">+ Add New Event</asp:HyperLink>
         </div>
 
         <hr />
@@ -53,10 +53,16 @@
                         <asp:Label ID="Label5" runat="server" Text="Hello" />
                     </td>
                     <td runat="server">
-                        <% if (true)
-                            { %>
-                        <asp:Label ID="Label6" runat="server" Text="Create"/>
-                        <% } %>
+                        
+
+                        <asp:HyperLink ID="HyperLink2" href='<%#: GetRouteUrl("EventProgressChartCreateRoute", new {eventId = Eval("Id")}) %>' 
+                            visible = <%# Eval("ProgCreated").ToString()=="0" ? true : false %>
+                            runat="server">Create</asp:HyperLink> 
+
+                        <asp:HyperLink ID="HyperLink1" href='<%#: GetRouteUrl("EventProgressChartRoute", new {eventId = Eval("Id")}) %>' 
+                            visible = <%# Eval("ProgCreated").ToString()=="1" ? true : false %>
+                            runat="server">View</asp:HyperLink> 
+
                     </td>
                 </tr>
             </ItemTemplate>
@@ -66,7 +72,7 @@
 
 
 
-            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [PStartDate], [EEndDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
 
 
 

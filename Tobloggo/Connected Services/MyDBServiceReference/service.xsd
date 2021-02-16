@@ -120,6 +120,200 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CreateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eStartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="eEndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="eventObj" nillable="true" type="q7:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetEventByIdResult" nillable="true" type="q8:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEvents">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllEventsResult" nillable="true" type="q9:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="teamName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="teamLeader" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contactEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tStartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="tEndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="eventId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventTeamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="CreateEventTeamResult" nillable="true" type="q10:EventTeam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="eventTeamObj" nillable="true" type="q11:EventTeam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEventTeamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEventTeamResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="teamId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEventTeamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEventTeamResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventTeamById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventTeamByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetEventTeamByIdResult" nillable="true" type="q12:EventTeam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEventTeamByEventId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEventTeamByEventIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllEventTeamByEventIdResult" nillable="true" type="q13:ArrayOfEventTeam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="difficulty" type="xs:double" />
+        <xs:element minOccurs="0" name="completed" type="xs:boolean" />
+        <xs:element minOccurs="0" name="teamId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEventTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateEventTaskResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="taskObj" nillable="true" type="q14:Tasks" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTaskResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTaskResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTaskByEventTeamId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventTeamId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTaskByEventTeamIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTaskByEventTeamIdResult" nillable="true" type="q15:ArrayOfTasks" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllLocations">
     <xs:complexType>
       <xs:sequence />
@@ -128,7 +322,7 @@
   <xs:element name="GetAllLocationsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q7:ArrayOfLocation" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllLocationsResult" nillable="true" type="q16:ArrayOfLocation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -160,7 +354,7 @@
   <xs:element name="GetLastLocationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q8:Location" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetLastLocationResult" nillable="true" type="q17:Location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

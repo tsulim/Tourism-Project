@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EventTeamPage.aspx.cs" Inherits="Tobloggo.Events.EventTeamPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="CreateEventTeam.aspx.cs" Inherits="Tobloggo.Events.CreateEventTeam" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">        
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script>
-        var itemCount = <%= RetrieveEventTasks.Count %>;
+        var itemCount = 0
         function addItem(e) {
             itemCount++
 
@@ -39,7 +40,7 @@
 
     <div class="container" style="margin-top: 10px;">
         
-        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" value='<%= RetrieveEventTasks.Count %>'/>
+        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" />
 
         <div>
             <br />
@@ -145,7 +146,7 @@
 
         <div id="taskContainer">
 
-<%--       <div class="d-flex flex-row my-2">
+<%--            <div class="d-flex flex-row my-2">
                 <asp:TextBox CssClass="col-2 mx-1 taskName" ID="TextBox1" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="col-5 mx-1 taskDesc" ID="TextBox2" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="col-3 mx-1 taskDiff" ID="TextBox3" runat="server"></asp:TextBox>
@@ -157,40 +158,7 @@
                 <input id="delete1" class="col-1" type="button" onclick="deleteItem(this)" value="Delete"></input>
 
             </div>--%>
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="EventTeamPageListView">
-                <LayoutTemplate>
-                    
-                    <div id="itemPlaceholder" runat="server">
-                    </div>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    
-                    <div id="taskContainer" runat="server">
-                        <div id="taskRow<%#Container.DataItemIndex+1 %>">
-                            <div class="d-flex flex-row my-2" > 
-                                <input class = "col-2 mx-1" name="taskName<%#Container.DataItemIndex+1 %>" value="<%# Eval("Name") %>" ></input > 
-                                <input class="col-5 mx-1" name="taskDesc<%#Container.DataItemIndex+1 %>" value="<%# Eval("Description") %>"></input> 
-                                <input CssClass="col-3 mx-1" name="taskDiff<%#Container.DataItemIndex+1 %>" value="<%# Eval("Difficulty") %>" ></input> 
-                                <div class="col-1 d-flex align-items-center justify-content-center" > 
 
-                                <input class="h-100 w-100" name="taskComplete<%#Container.DataItemIndex+1 %>" type="checkbox" id="flexCheckDefault" <%#((bool)Eval("Completed") == true) ? "checked" : "" %> value="<%# ((bool)Eval("Completed") == true) ? "1" : "0" %>"> 
-
-                                </div> 
-
-                                <input id="delete<%#Container.DataItemIndex+1 %>" name="<%#Container.DataItemIndex+1 %>" class="col-1" type="button" onclick="deleteItem(this.id)" value="Delete"></input> 
-                            </div>
-                        </div>
-                    </div>
-
-
-                </ItemTemplate>
-            </asp:ListView>
-
-            <asp:SqlDataSource ID="EventTeamPageListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Name], [Description], [Difficulty], [Completed] FROM [EventTask] WHERE ([TeamId] = @TeamId)">
-                <SelectParameters>
-                    <asp:RouteParameter Name="TeamId" RouteKey="teamId" />
-                </SelectParameters>
-            </asp:SqlDataSource>
 
         </div>
 
@@ -210,4 +178,5 @@
 
 
     </div>
+
 </asp:Content>
