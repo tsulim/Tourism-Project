@@ -73,6 +73,84 @@ namespace DBService
         }
         // User Codes End
 
+        // Event Codes Start
+        public int CreateEvent(string name, string location, string desc, DateTime eStartDate, DateTime eEndDate, string userId)
+        {
+            Event eventObj = new Event(name, location, desc, eStartDate, eEndDate, userId);
+            return eventObj.CreateEvent();
+        }
+
+        public int UpdateEvent(Event eventObj)
+        {
+            return eventObj.UpdateEvent();
+        }
+
+        public Event GetEventById(string id)
+        {
+            Event eventObj = new Event();
+            return eventObj.SelectById(id);
+        }
+
+        public List<Event> GetAllEvents()
+        {
+            Event eventObj = new Event();
+            return eventObj.SelectAll();
+        }
+
+        //EventTeam
+        
+        public EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, DateTime tStartDate, DateTime tEndDate, string eventId)
+        {
+            EventTeam eventTeamObj = new EventTeam(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
+            return eventTeamObj.CreateEventTeam();
+        }
+        public int UpdateEventTeam(EventTeam eventTeamObj)
+        {
+            return eventTeamObj.UpdateEventTeam();
+        }
+        public int DeleteEventTeam(string teamId)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.DeleteEventTeam(teamId);
+        }
+        public EventTeam GetEventTeamById(string id)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.SelectById(id);
+        }
+        public List<EventTeam> GetAllEventTeamByEventId(string eventId)
+        {
+            EventTeam eventTeamObj = new EventTeam();
+            return eventTeamObj.SelectAllTeamByEventId(eventId);
+        }
+
+        //Tasks
+
+        public int CreateEventTask(string name, string desc, Double difficulty, bool completed, string teamId)
+        {
+            Tasks taskObj = new Tasks(name, desc, difficulty, completed, teamId);
+            return taskObj.CreateTask();
+        }
+        public int UpdateTask(Tasks taskObj)
+        {
+            return taskObj.UpdateTask();
+        }
+        
+        public int DeleteTask(string taskId)
+        {
+            Tasks taskObj = new Tasks();
+            return taskObj.DeleteTask(taskId);
+        }
+        public List<Tasks> GetAllTaskByEventTeamId(string eventTeamId)
+        {
+            Tasks taskObj = new Tasks();
+            return taskObj.SelectAllTasksByEventTeamId(eventTeamId);
+        }
+
+
+
+        // Event Codes End
+
         // Location Codes Start
         public List<Location> GetAllLocations()
         {

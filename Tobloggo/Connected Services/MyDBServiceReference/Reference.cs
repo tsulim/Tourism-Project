@@ -297,6 +297,525 @@ namespace Tobloggo.MyDBServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Event : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime PEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime PStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProgCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Desc {
+            get {
+                return this.DescField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescField, value) != true)) {
+                    this.DescField = value;
+                    this.RaisePropertyChanged("Desc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EEndDate {
+            get {
+                return this.EEndDateField;
+            }
+            set {
+                if ((this.EEndDateField.Equals(value) != true)) {
+                    this.EEndDateField = value;
+                    this.RaisePropertyChanged("EEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EStartDate {
+            get {
+                return this.EStartDateField;
+            }
+            set {
+                if ((this.EStartDateField.Equals(value) != true)) {
+                    this.EStartDateField = value;
+                    this.RaisePropertyChanged("EStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Images {
+            get {
+                return this.ImagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagesField, value) != true)) {
+                    this.ImagesField = value;
+                    this.RaisePropertyChanged("Images");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Location {
+            get {
+                return this.LocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime PEndDate {
+            get {
+                return this.PEndDateField;
+            }
+            set {
+                if ((this.PEndDateField.Equals(value) != true)) {
+                    this.PEndDateField = value;
+                    this.RaisePropertyChanged("PEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime PStartDate {
+            get {
+                return this.PStartDateField;
+            }
+            set {
+                if ((this.PStartDateField.Equals(value) != true)) {
+                    this.PStartDateField = value;
+                    this.RaisePropertyChanged("PStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProgCreated {
+            get {
+                return this.ProgCreatedField;
+            }
+            set {
+                if ((this.ProgCreatedField.Equals(value) != true)) {
+                    this.ProgCreatedField = value;
+                    this.RaisePropertyChanged("ProgCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventTeam", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class EventTeam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ActualPercentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContactEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ExpectedPercentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TeamLeaderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TeamNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ActualPercent {
+            get {
+                return this.ActualPercentField;
+            }
+            set {
+                if ((this.ActualPercentField.Equals(value) != true)) {
+                    this.ActualPercentField = value;
+                    this.RaisePropertyChanged("ActualPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContactEmail {
+            get {
+                return this.ContactEmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContactEmailField, value) != true)) {
+                    this.ContactEmailField = value;
+                    this.RaisePropertyChanged("ContactEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventIdField, value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ExpectedPercent {
+            get {
+                return this.ExpectedPercentField;
+            }
+            set {
+                if ((this.ExpectedPercentField.Equals(value) != true)) {
+                    this.ExpectedPercentField = value;
+                    this.RaisePropertyChanged("ExpectedPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TEndDate {
+            get {
+                return this.TEndDateField;
+            }
+            set {
+                if ((this.TEndDateField.Equals(value) != true)) {
+                    this.TEndDateField = value;
+                    this.RaisePropertyChanged("TEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TStartDate {
+            get {
+                return this.TStartDateField;
+            }
+            set {
+                if ((this.TStartDateField.Equals(value) != true)) {
+                    this.TStartDateField = value;
+                    this.RaisePropertyChanged("TStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TeamLeader {
+            get {
+                return this.TeamLeaderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TeamLeaderField, value) != true)) {
+                    this.TeamLeaderField = value;
+                    this.RaisePropertyChanged("TeamLeader");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TeamName {
+            get {
+                return this.TeamNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TeamNameField, value) != true)) {
+                    this.TeamNameField = value;
+                    this.RaisePropertyChanged("TeamName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tasks", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Tasks : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CompletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double DifficultyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TeamIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Completed {
+            get {
+                return this.CompletedField;
+            }
+            set {
+                if ((this.CompletedField.Equals(value) != true)) {
+                    this.CompletedField = value;
+                    this.RaisePropertyChanged("Completed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Desc {
+            get {
+                return this.DescField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescField, value) != true)) {
+                    this.DescField = value;
+                    this.RaisePropertyChanged("Desc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Difficulty {
+            get {
+                return this.DifficultyField;
+            }
+            set {
+                if ((this.DifficultyField.Equals(value) != true)) {
+                    this.DifficultyField = value;
+                    this.RaisePropertyChanged("Difficulty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TeamId {
+            get {
+                return this.TeamIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TeamIdField, value) != true)) {
+                    this.TeamIdField = value;
+                    this.RaisePropertyChanged("TeamId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
     [System.SerializableAttribute()]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -488,6 +1007,84 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllUsers", ReplyAction="http://tempuri.org/IService1/GetAllUsersResponse")]
         System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User[]> GetAllUsersAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEvent", ReplyAction="http://tempuri.org/IService1/CreateEventResponse")]
+        int CreateEvent(string name, string location, string desc, System.DateTime eStartDate, System.DateTime eEndDate, string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEvent", ReplyAction="http://tempuri.org/IService1/CreateEventResponse")]
+        System.Threading.Tasks.Task<int> CreateEventAsync(string name, string location, string desc, System.DateTime eStartDate, System.DateTime eEndDate, string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
+        int UpdateEvent(Tobloggo.MyDBServiceReference.Event eventObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
+        System.Threading.Tasks.Task<int> UpdateEventAsync(Tobloggo.MyDBServiceReference.Event eventObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventById", ReplyAction="http://tempuri.org/IService1/GetEventByIdResponse")]
+        Tobloggo.MyDBServiceReference.Event GetEventById(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventById", ReplyAction="http://tempuri.org/IService1/GetEventByIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Event> GetEventByIdAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllEvents", ReplyAction="http://tempuri.org/IService1/GetAllEventsResponse")]
+        Tobloggo.MyDBServiceReference.Event[] GetAllEvents();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllEvents", ReplyAction="http://tempuri.org/IService1/GetAllEventsResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Event[]> GetAllEventsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTeam", ReplyAction="http://tempuri.org/IService1/CreateEventTeamResponse")]
+        Tobloggo.MyDBServiceReference.EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTeam", ReplyAction="http://tempuri.org/IService1/CreateEventTeamResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEventTeam", ReplyAction="http://tempuri.org/IService1/UpdateEventTeamResponse")]
+        int UpdateEventTeam(Tobloggo.MyDBServiceReference.EventTeam eventTeamObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEventTeam", ReplyAction="http://tempuri.org/IService1/UpdateEventTeamResponse")]
+        System.Threading.Tasks.Task<int> UpdateEventTeamAsync(Tobloggo.MyDBServiceReference.EventTeam eventTeamObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteEventTeam", ReplyAction="http://tempuri.org/IService1/DeleteEventTeamResponse")]
+        int DeleteEventTeam(string teamId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteEventTeam", ReplyAction="http://tempuri.org/IService1/DeleteEventTeamResponse")]
+        System.Threading.Tasks.Task<int> DeleteEventTeamAsync(string teamId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventTeamById", ReplyAction="http://tempuri.org/IService1/GetEventTeamByIdResponse")]
+        Tobloggo.MyDBServiceReference.EventTeam GetEventTeamById(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventTeamById", ReplyAction="http://tempuri.org/IService1/GetEventTeamByIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> GetEventTeamByIdAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllEventTeamByEventId", ReplyAction="http://tempuri.org/IService1/GetAllEventTeamByEventIdResponse")]
+        Tobloggo.MyDBServiceReference.EventTeam[] GetAllEventTeamByEventId(string eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllEventTeamByEventId", ReplyAction="http://tempuri.org/IService1/GetAllEventTeamByEventIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam[]> GetAllEventTeamByEventIdAsync(string eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTask", ReplyAction="http://tempuri.org/IService1/CreateEventTaskResponse")]
+        int CreateEventTask(string name, string desc, double difficulty, bool completed, string teamId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEventTask", ReplyAction="http://tempuri.org/IService1/CreateEventTaskResponse")]
+        System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, bool completed, string teamId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTask", ReplyAction="http://tempuri.org/IService1/UpdateTaskResponse")]
+        int UpdateTask(Tobloggo.MyDBServiceReference.Tasks taskObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTask", ReplyAction="http://tempuri.org/IService1/UpdateTaskResponse")]
+        System.Threading.Tasks.Task<int> UpdateTaskAsync(Tobloggo.MyDBServiceReference.Tasks taskObj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTask", ReplyAction="http://tempuri.org/IService1/DeleteTaskResponse")]
+        int DeleteTask(string taskId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTask", ReplyAction="http://tempuri.org/IService1/DeleteTaskResponse")]
+        System.Threading.Tasks.Task<int> DeleteTaskAsync(string taskId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTaskByEventTeamId", ReplyAction="http://tempuri.org/IService1/GetAllTaskByEventTeamIdResponse")]
+        Tobloggo.MyDBServiceReference.Tasks[] GetAllTaskByEventTeamId(string eventTeamId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTaskByEventTeamId", ReplyAction="http://tempuri.org/IService1/GetAllTaskByEventTeamIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tasks[]> GetAllTaskByEventTeamIdAsync(string eventTeamId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllLocations", ReplyAction="http://tempuri.org/IService1/GetAllLocationsResponse")]
         Tobloggo.MyDBServiceReference.Location[] GetAllLocations();
         
@@ -602,6 +1199,110 @@ namespace Tobloggo.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.User[]> GetAllUsersAsync() {
             return base.Channel.GetAllUsersAsync();
+        }
+        
+        public int CreateEvent(string name, string location, string desc, System.DateTime eStartDate, System.DateTime eEndDate, string userId) {
+            return base.Channel.CreateEvent(name, location, desc, eStartDate, eEndDate, userId);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateEventAsync(string name, string location, string desc, System.DateTime eStartDate, System.DateTime eEndDate, string userId) {
+            return base.Channel.CreateEventAsync(name, location, desc, eStartDate, eEndDate, userId);
+        }
+        
+        public int UpdateEvent(Tobloggo.MyDBServiceReference.Event eventObj) {
+            return base.Channel.UpdateEvent(eventObj);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateEventAsync(Tobloggo.MyDBServiceReference.Event eventObj) {
+            return base.Channel.UpdateEventAsync(eventObj);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Event GetEventById(string id) {
+            return base.Channel.GetEventById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Event> GetEventByIdAsync(string id) {
+            return base.Channel.GetEventByIdAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Event[] GetAllEvents() {
+            return base.Channel.GetAllEvents();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Event[]> GetAllEventsAsync() {
+            return base.Channel.GetAllEventsAsync();
+        }
+        
+        public Tobloggo.MyDBServiceReference.EventTeam CreateEventTeam(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
+            return base.Channel.CreateEventTeam(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> CreateEventTeamAsync(string teamName, string teamLeader, string contactEmail, System.DateTime tStartDate, System.DateTime tEndDate, string eventId) {
+            return base.Channel.CreateEventTeamAsync(teamName, teamLeader, contactEmail, tStartDate, tEndDate, eventId);
+        }
+        
+        public int UpdateEventTeam(Tobloggo.MyDBServiceReference.EventTeam eventTeamObj) {
+            return base.Channel.UpdateEventTeam(eventTeamObj);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateEventTeamAsync(Tobloggo.MyDBServiceReference.EventTeam eventTeamObj) {
+            return base.Channel.UpdateEventTeamAsync(eventTeamObj);
+        }
+        
+        public int DeleteEventTeam(string teamId) {
+            return base.Channel.DeleteEventTeam(teamId);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteEventTeamAsync(string teamId) {
+            return base.Channel.DeleteEventTeamAsync(teamId);
+        }
+        
+        public Tobloggo.MyDBServiceReference.EventTeam GetEventTeamById(string id) {
+            return base.Channel.GetEventTeamById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam> GetEventTeamByIdAsync(string id) {
+            return base.Channel.GetEventTeamByIdAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.EventTeam[] GetAllEventTeamByEventId(string eventId) {
+            return base.Channel.GetAllEventTeamByEventId(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.EventTeam[]> GetAllEventTeamByEventIdAsync(string eventId) {
+            return base.Channel.GetAllEventTeamByEventIdAsync(eventId);
+        }
+        
+        public int CreateEventTask(string name, string desc, double difficulty, bool completed, string teamId) {
+            return base.Channel.CreateEventTask(name, desc, difficulty, completed, teamId);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateEventTaskAsync(string name, string desc, double difficulty, bool completed, string teamId) {
+            return base.Channel.CreateEventTaskAsync(name, desc, difficulty, completed, teamId);
+        }
+        
+        public int UpdateTask(Tobloggo.MyDBServiceReference.Tasks taskObj) {
+            return base.Channel.UpdateTask(taskObj);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTaskAsync(Tobloggo.MyDBServiceReference.Tasks taskObj) {
+            return base.Channel.UpdateTaskAsync(taskObj);
+        }
+        
+        public int DeleteTask(string taskId) {
+            return base.Channel.DeleteTask(taskId);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteTaskAsync(string taskId) {
+            return base.Channel.DeleteTaskAsync(taskId);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Tasks[] GetAllTaskByEventTeamId(string eventTeamId) {
+            return base.Channel.GetAllTaskByEventTeamId(eventTeamId);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tasks[]> GetAllTaskByEventTeamIdAsync(string eventTeamId) {
+            return base.Channel.GetAllTaskByEventTeamIdAsync(eventTeamId);
         }
         
         public Tobloggo.MyDBServiceReference.Location[] GetAllLocations() {

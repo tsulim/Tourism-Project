@@ -23,6 +23,66 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="Event">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Images" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProgCreated" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="ArrayOfEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
+  <xs:complexType name="EventTeam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActualPercent" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpectedPercent" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TeamLeader" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TeamName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventTeam" nillable="true" type="tns:EventTeam" />
+  <xs:complexType name="ArrayOfEventTeam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventTeam" nillable="true" type="tns:EventTeam" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventTeam" nillable="true" type="tns:ArrayOfEventTeam" />
+  <xs:complexType name="Tasks">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Completed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Difficulty" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TeamId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tasks" nillable="true" type="tns:Tasks" />
+  <xs:complexType name="ArrayOfTasks">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tasks" nillable="true" type="tns:Tasks" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTasks" nillable="true" type="tns:ArrayOfTasks" />
   <xs:complexType name="ArrayOfLocation">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
