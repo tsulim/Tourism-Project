@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.30.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -113,6 +117,7 @@
     <Content Include="App_Data\MINEDB_log.ldf">
       <DependentUpon>MINEDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ATour.aspx" />
     <Content Include="BackendSite.Master" />
     <None Include="Connected Services\DBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\DBServiceReference\configuration.svcinfo" />
@@ -127,7 +132,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrap4.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateTour.aspx" />
     <Content Include="Default.aspx" />
@@ -212,6 +216,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ATour.aspx.cs">
+      <DependentUpon>ATour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATour.aspx.designer.cs">
+      <DependentUpon>ATour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BackendSite.Master.cs">
       <DependentUpon>BackendSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

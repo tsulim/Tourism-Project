@@ -98,7 +98,8 @@ namespace DBService.Entity
             if (rec_cnt == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
-                string image = row["image"].ToString();
+                string title1 = row["title"].ToString();
+                string image = "Images\\" + row["image"].ToString();
                 string details = row["details"].ToString();
                 string dateTime = row["dateTime"].ToString();;
                 string p = row["price"].ToString();
@@ -106,7 +107,7 @@ namespace DBService.Entity
                 int minPpl = Convert.ToInt32(row["minPpl"].ToString());
                 int maxPpl = Convert.ToInt32(row["maxPpl"].ToString());
                 string iti = row["iti"].ToString();
-                tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+                tour = new Tour(title1, image, details, dateTime, price, minPpl, maxPpl, iti);
             }
             return tour;
         }

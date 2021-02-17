@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="TourOverview.aspx.cs" Inherits="Tobloggo.TourOverview" %>
+﻿<%@ Page Title="Tour Overview" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="TourOverview.aspx.cs" Inherits="Tobloggo.TourOverview" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
     <h3 style="text-align:center;">Overview of Tour Package</h3>

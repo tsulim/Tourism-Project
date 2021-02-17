@@ -11,53 +11,8 @@ namespace Tobloggo
 {
 
 
-    public partial class ViewTour
+    public partial class ATour
     {
-
-        /// <summary>
-        /// PanelErrorResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelErrorResult;
-
-        /// <summary>
-        /// Lbl_err control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_err;
-
-        /// <summary>
-        /// lbTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTitle;
-
-        /// <summary>
-        /// tbTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbTitle;
-
-        /// <summary>
-        /// btnGetTour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGetTour;
 
         /// <summary>
         /// PanelCust control.
@@ -123,12 +78,12 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label Lbl_iti;
 
         /// <summary>
-        /// gvTour control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTour;
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

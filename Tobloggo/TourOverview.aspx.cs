@@ -32,7 +32,8 @@ namespace Tobloggo
         {
             GridViewRow row = gvTour.SelectedRow;
             Session["SSTitle"] = row.Cells[0].Text;
-            Session["SSImage"] = row.Cells[1].Text;
+            Image img = row.Cells[1].Controls[0] as Image;
+            Session["SSImage"] = img.ImageUrl;
             Session["SSDetails"] = row.Cells[2].Text;
             Session["SSDateTime"] = row.Cells[3].Text;
             Session["SSPrice"] = row.Cells[4].Text;

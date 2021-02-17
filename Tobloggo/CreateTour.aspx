@@ -38,7 +38,7 @@
                     <asp:Label ID="lbl_title" runat="server" Text="Title :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_title" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_title" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -74,7 +74,7 @@
                     <asp:Label ID="lbl_price" runat="server" Text="Price :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_price" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_price" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -116,7 +116,7 @@
                     <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_iti" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
 
@@ -129,17 +129,5 @@
         <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
         <br />
         <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
-        <script>
-            $(function () {
-                $('input[id="calendar"]').daterangepicker({
-                    timePicker: true,
-                    startDate: moment().startOf('hour'),
-                    endDate: moment().startOf('hour').add(32, 'hour'),
-                    locale: {
-                        format: 'MM/DD/YY hh:mm A'
-                    }
-                });
-            });
-        </script>
     </div>
 </asp:Content>

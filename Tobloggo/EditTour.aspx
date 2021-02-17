@@ -29,7 +29,7 @@
                     <asp:Label ID="lbl_details" runat="server" Text="Details :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_details" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_details" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@
                     <asp:Label ID="lbl_price" runat="server" Text="Price :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_price" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_price" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@
                     <asp:Label ID="lbl_iti" runat="server" Text="Itinerary :"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="tb_iti" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_iti" runat="server" style="width:1000px;"></asp:TextBox>
                 </td>
             </tr>
 

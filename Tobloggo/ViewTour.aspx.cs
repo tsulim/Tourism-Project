@@ -42,11 +42,9 @@ namespace Tobloggo
                 PanelCust.Visible = true;
 
                 Lbl_title.Text = tour.Title;
-                Image1.ImageUrl = "Images\\" + tour.Image;
+                Image1.ImageUrl = tour.Image;
                 Lbl_details.Text = tour.Details;
-                Lbl_startDT.Text = Convert.ToString(tour.DateTime);
-                Lbl_minPpl.Text = Convert.ToString(tour.MinPeople);
-                Lbl_maxPpl.Text = Convert.ToString(tour.MaxPeople);
+                Lbl_DT.Text = Convert.ToString(tour.DateTime);
                 Lbl_price.Text = Convert.ToString(tour.Price);
                 Lbl_iti.Text = Convert.ToString(tour.Itinerary);
 
@@ -60,12 +58,26 @@ namespace Tobloggo
                 Lbl_title.Text = String.Empty;
                 Image1.ImageUrl = String.Empty;
                 Lbl_details.Text = String.Empty;
-                Lbl_startDT.Text = String.Empty;
-                Lbl_endDT.Text = String.Empty;
-                Lbl_minPpl.Text = String.Empty;
-                Lbl_maxPpl.Text = String.Empty;
+                Lbl_DT.Text = String.Empty;
                 Lbl_price.Text = String.Empty;
             }
+
+        }
+
+        protected void gvTour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvTour.SelectedRow;
+            Session["SSTitle"] = row.Cells[0].Text;
+            Image img = row.Cells[1].Controls[0] as Image;
+            Session["SSImage"] = img.ImageUrl;
+            Session["SSDetails"] = row.Cells[2].Text;
+            Session["SSDateTime"] = row.Cells[3].Text;
+            Session["SSPrice"] = row.Cells[4].Text;
+            Session["SSMinPpl"] = row.Cells[5].Text;
+            Session["SSMaxPpl"] = row.Cells[6].Text;
+            Session["SSIti"] = row.Cells[7].Text;
+
+            Response.Redirect("ATour.aspx");
 
         }
     }
