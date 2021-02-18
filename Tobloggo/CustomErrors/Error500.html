@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+    <title>Error 500 - Internal Server Error</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+
+    <style>
+        .full-screen {
+            background-color: #333333;
+            width: 100vw;
+            height: 100vh;
+            color: white;
+            font-family: "Arial Black";
+            text-align: center;
+        }
+
+        .container {
+            padding-top: 4em;
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .error-num {
+            font-size: 8em;
+        }
+
+        .eye {
+            background: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            height: 100px;
+            position: relative;
+            width: 100px;
+        }
+
+            .eye::after {
+                background: #000;
+                border-radius: 50%;
+                bottom: 56.1px;
+                content: " ";
+                height: 33px;
+                position: absolute;
+                right: 33px;
+                width: 33px;
+            }
+
+        .italic {
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 4em;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        a:hover {
+            color: lightgray;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+
+</head>
+
+<body translate="no">
+    <div class="full-screen">
+        <div class='container'>
+            <span class="error-num">5</span>
+            <div class='eye'></div>
+            <div class='eye'></div>
+
+            <p class="sub-text">Oh eyeballs! Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
+            <a href="/">Go back</a>
+        </div>
+    </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script id="rendered-js">
+        $(".full-screen").mousemove(function (event) {
+            var eye = $(".eye");
+            var x = eye.offset().left + eye.width() / 2;
+            var y = eye.offset().top + eye.height() / 2;
+            var rad = Math.atan2(event.pageX - x, event.pageY - y);
+            var rot = rad * (180 / Math.PI) * -1 + 180;
+            eye.css({
+                '-webkit-transform': 'rotate(' + rot + 'deg)',
+                '-moz-transform': 'rotate(' + rot + 'deg)',
+                '-ms-transform': 'rotate(' + rot + 'deg)',
+                'transform': 'rotate(' + rot + 'deg)'
+            });
+
+        });
+//# sourceURL=pen.js
+    </script>
+
+
+
+</body>
+
+</html>
+

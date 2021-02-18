@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tobloggo.DBServiceReference;
+using Tobloggo.MyDBServiceReference;
 
 namespace Tobloggo
 {

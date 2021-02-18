@@ -7,8 +7,8 @@ body {
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .myDatagrid td {
@@ -33,6 +33,7 @@ textarea {
     max-width: 280px;
 }
 
+/* Start of Navigation CSS */
 .navbar {
     background-color: #0095E6!important;
     color: white!important;
@@ -81,6 +82,41 @@ textarea {
 .userNavLink {
     width: 20%;
 }
+/* End of Navigation Codes*/
+
+/* Start of BreadCrumb Codes*/
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: transparent;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 15px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+/* End of BreadCrumb Codes*/
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 632px) {
@@ -110,9 +146,9 @@ textarea {
         margin-top: 20px;
     }
 
-    .body-content {
+/*    .body-content {
         padding: 0;
-    }
+    }*/
     .searchbar1 {
         display: flex;
     }

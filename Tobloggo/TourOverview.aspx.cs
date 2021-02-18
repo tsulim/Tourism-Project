@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tobloggo.DBServiceReference;
+using Tobloggo.MyDBServiceReference;
 
 namespace Tobloggo
 {
@@ -19,7 +19,11 @@ namespace Tobloggo
         {
             List<Tour> tList = new List<Tour>();
             Service1Client client = new Service1Client();
-            tList = client.GetAllTour().ToList<Tour>();
+
+            if (client.GetAllTour() != null)
+            {
+                tList = client.GetAllTour().ToList<Tour>();
+            }
 
             // using gridview to bind to the list of tour objects
             gvTour.Visible = true;

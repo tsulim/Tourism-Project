@@ -11,6 +11,10 @@ namespace Tobloggo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] != null)
+            {
+                System.Diagnostics.Debug.WriteLine(Session["UserId"]);
+            }
 
         }
     }
