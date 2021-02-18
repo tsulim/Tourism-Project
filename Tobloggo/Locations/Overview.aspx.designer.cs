@@ -11,16 +11,16 @@ namespace Tobloggo.Locations
 {
 
 
-    public partial class _Default
+    public partial class Overview
     {
 
         /// <summary>
-        /// hiden control.
+        /// gvLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hiden;
+        protected global::System.Web.UI.WebControls.GridView gvLocation;
     }
 }

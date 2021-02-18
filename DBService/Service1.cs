@@ -158,9 +158,27 @@ namespace DBService
             return loca.SelectAll();
         }
 
-        public int CreateLocation(string name, string address, string type, string images, int userid)
+        public List<Location> GetAllLocationsByUserId(int userid)
         {
-            Location loca = new Location(name, address, type, images, userid);
+            Location loca = new Location();
+            return loca.SelectAllByUserId(userid);
+        }
+
+        public List<Location> GetAllAvailLocations()
+        {
+            Location loca = new Location();
+            return loca.SelectAllAvail();
+        }
+
+        public List<Location> GetAllTypeLocations(string type)
+        {
+            Location loca = new Location();
+            return loca.SelectAllType(type);
+        }
+
+        public int CreateLocation(string name, string address, string details, string type, string images, int userid)
+        {
+            Location loca = new Location(name, address, details, type, images, userid);
             return loca.Insert();
         }
 
@@ -169,6 +187,12 @@ namespace DBService
             Location loca = new Location();
             return loca.SelectLast(userid);
         }
+
+        public Location GetLocationById(int locaid)
+        {
+            Location loca = new Location();
+            return loca.SelectById(locaid);
+        }
         // Location Codes End
 
         // Ticket Codes Start
@@ -176,6 +200,42 @@ namespace DBService
         {
             Ticket tic = new Ticket(name, price, locaid);
             return tic.Insert();
+        }
+
+        public Ticket GetTicketById(int id)
+        {
+            Ticket tic = new Ticket();
+            return tic.SelectAllById(id);
+        }
+
+        public List<Ticket> GetTicketByLocaId(int locaId)
+        {
+            Ticket tic = new Ticket();
+            return tic.SelectAllByLocaId(locaId);
+        }
+
+        public int UpdateTicketAmt(int id, int soldAmt)
+        {
+            Ticket tic = new Ticket(); ;
+            return tic.UpdateTicketAmt(id, soldAmt);
+        }
+
+        public int CreatePurchasedTicket(int quantity, int ticketId, int userId)
+        {
+            PurchasedTicket pTic = new PurchasedTicket(quantity, ticketId, userId);
+            return pTic.Insert();
+        }
+
+        public List<PurchasedTicket> GetPurchasedTicketsByUserId(int userId)
+        {
+            PurchasedTicket pTic = new PurchasedTicket();
+            return pTic.SelectAllByUserId(userId);
+        }
+
+        public int UpdatePurchasedTicket(int id, int status)
+        {
+            PurchasedTicket pTic = new PurchasedTicket();
+            return pTic.UpdatePurchasedTicket(id, status);
         }
         // Ticket Codes End
 

@@ -11,7 +11,7 @@ namespace Tobloggo.Locations
 {
 
 
-    public partial class CreateLocation
+    public partial class EditLocation
     {
 
         /// <summary>
@@ -105,6 +105,15 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.WebControls.FileUpload locaImages;
 
         /// <summary>
+        /// imgCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField imgCount;
+
+        /// <summary>
         /// imageresult control.
         /// </summary>
         /// <remarks>
@@ -150,13 +159,13 @@ namespace Tobloggo.Locations
         protected global::System.Web.UI.WebControls.HiddenField itemCount;
 
         /// <summary>
-        /// itemTable control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable itemTable;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
 
         /// <summary>
         /// cancelBtn control.

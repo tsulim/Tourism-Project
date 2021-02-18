@@ -88,14 +88,39 @@ namespace DBService
         [OperationContract]
         List<Location> GetAllLocations();
         [OperationContract]
-        int CreateLocation(string name, string address, string type, string images, int userid);
+        List<Location> GetAllLocationsByUserId(int userId);
+        
+        [OperationContract]
+        List<Location> GetAllAvailLocations();
+
+        [OperationContract]
+        List<Location> GetAllTypeLocations(string type);
+
+        [OperationContract]
+        int CreateLocation(string name, string address, string details, string type, string images, int userid);
+        
         [OperationContract]
         Location GetLastLocation(int userid);
+
+        [OperationContract]
+        Location GetLocationById(int locaid);
         // Location Codes End
 
         // Ticket Codes Start
         [OperationContract]
         int CreateTicket(string name, double price, int locaid);
+        [OperationContract]
+        Ticket GetTicketById(int id);
+        [OperationContract]
+        List<Ticket> GetTicketByLocaId(int locaId);
+        [OperationContract]
+        int UpdateTicketAmt(int id, int soldAmt);
+        [OperationContract]
+        int CreatePurchasedTicket(int quantity, int ticketid, int userid);
+        [OperationContract]
+        List<PurchasedTicket> GetPurchasedTicketsByUserId(int userid);
+        [OperationContract]
+        int UpdatePurchasedTicket(int id, int status);
         // Ticket Codes End
 
         // Tour Codes Start

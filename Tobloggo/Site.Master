@@ -45,11 +45,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
     <asp:ContentPlaceHolder ID="ScriptHeadContent" runat="server">
     </asp:ContentPlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" ClientIDMode="Static" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -108,10 +109,10 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link" href="/">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Locations.aspx">Location</a>
+                                        <a class="nav-link" href="/Locations">Location</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Blogs</a>
@@ -132,12 +133,12 @@
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="SignUp.aspx">
+                                        <a class="nav-link" href="/SignUp.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Sign Up
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Login.aspx">
+                                        <a class="nav-link" href="/Login.aspx">
                                             <span class="glyphicon glyphicon-log-in"></span>Login
                                         </a>
                                     </li>
@@ -193,11 +194,26 @@
                                 </ul>   
 
                             </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 3){ %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/BPartner">
+                                            <span class="glyphicon glyphicon-user"></span>Toggle Admin
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
                             <%} else { %>
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Logout.aspx">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
@@ -220,7 +236,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Locations.aspx">Location</a>
+                        <a class="nav-link" href="/Locations">Location</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blogs</a>
@@ -242,8 +258,8 @@
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
             <footer>
+            <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
@@ -255,8 +271,8 @@
 
     <%--  Optional JavaScript --%>
     <%--jQuery first, then Popper.js, then Bootstrap JS --%>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js"></script>
 

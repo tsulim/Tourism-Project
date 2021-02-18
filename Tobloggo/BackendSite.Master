@@ -45,6 +45,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
     <webopt:BundleReference runat="server" Path="~/Content/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -85,6 +86,32 @@
                                             <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
                                         </div>
                                     </li>
+                                <% if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1) { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Event</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Location</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Promotions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Tour Package</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Invoices</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Booking Records</a>
+                                    </li>
+
+                                <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 2) { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Event</a>
+                                    </li>
+
+                                <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 3) { %>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Overview</a>
                                     </li>
@@ -94,21 +121,50 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Promotions</a>
                                     </li>
+
+                                <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 4) { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Overview</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Tour Package</a>
+                                    </li>
+                                    
+                                <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 5) { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Dashboard</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Invoices</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Booking Records</a>
+                                    </li>
+                                    <%}%>
                                 </ul>
                             </div>
+                            
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <span class="glyphicon glyphicon-user"></span>Sign Up
+                                        <a class="nav-link" href="/">
+                                            <span class="glyphicon glyphicon-user"></span>Toggle User
                                         </a>
                                     </li>
+                                    <% if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1) { %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
-                                            <span class="glyphicon glyphicon-log-in"></span>Login
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
-                                </ul>
+                                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization > 1){ %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                        </a>
+                                    </li>
+                                    <%}%>
+                                </ul>   
                             </div>
                         </div>
                     </div>
@@ -122,6 +178,32 @@
                             <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </li>
+                    <% if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Promotions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tour Package</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Invoices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Booking Records</a>
+                    </li>
+
+                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 2) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Event</a>
+                    </li>
+
+                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 3) { %>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Overview</a>
                     </li>
@@ -131,6 +213,26 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Promotions</a>
                     </li>
+
+                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 4) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tour Package</a>
+                    </li>
+
+                    <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 5) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Invoices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Booking Records</a>
+                    </li>
+                    <%}%>
                 </ul>
             </div>
         </nav>
