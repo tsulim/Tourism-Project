@@ -304,7 +304,7 @@
                 </div>
             </div>
             <div id="bottomLoca">
-                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
+                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/BPartner" ClientIDMode="Static" />
                 <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="btnAdd_onClick" OnClientClick="storeContent();" />
             </div>
         </div>

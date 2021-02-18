@@ -11,7 +11,11 @@
             <asp:BoundField DataField="Images" HeaderText="Images" />
             <asp:BoundField DataField="Status" HeaderText="Status" />
             <asp:BoundField DataField="UserId" DataFormatString="{0:N}" HeaderText="User Id" />
-            <asp:HyperLinkField DataNavigateUrlFields="Id" HeaderText="Action" NavigateUrl="/BPartner/Location/Edit/{locaId}" Text="Edit" />
+            <asp:TemplateField HeaderText="Action">
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#GetRouteUrl("EditLocationRoute", new{locaId= Eval("Id").ToString()}) %>' Text="Edit"></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 </asp:Content>

@@ -21,17 +21,20 @@ namespace Tobloggo.Locations
                 if (user.Authorization == 1)
                 {
                     locationList = client.GetAllLocations().ToList();
+                    gvLocation.DataSource = locationList;
+                    gvLocation.DataBind();
                 }
-                else if (user.Authorization == 3)
+                else if (user.Authorization > 1)
                 {
                     locationList = client.GetAllLocationsByUserId(Convert.ToInt32(user.Id)).ToList();
-                }
+                    gvLocation.DataSource = locationList;
+                    gvLocation.DataBind();
+                } else
                 {
                     Response.Redirect("~/CustomErrors/Error403.html");
                 }
 
-                gvLocation.DataSource = locationList;
-                gvLocation.DataBind();
+                
             }
         }
     }
