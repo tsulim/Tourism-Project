@@ -233,21 +233,18 @@ CREATE TABLE [dbo].[LocationEvent]
 -- Hui En
 
 CREATE TABLE [dbo].[Tour] (
-	[Id]            INT            NOT NULL,
-	[Image]         NVARCHAR (MAX) NULL,
-	[Name]          NVARCHAR (MAX) NULL,
-	[Details]       NVARCHAR (MAX) NULL,
-	[StartDateTime] DATETIME       NULL,
-	[EndDateTime]   DATETIME       NULL,
-	[Price]         FLOAT (50)     NULL,
-	[MinPpl]        INT            NULL,
-	[MaxPpl]        INT            NULL,
-	[AvailSlots]    INT            NULL,
-	[Itin]          NVARCHAR (MAX) NULL,
-	[UserId] INT NULL,
-	PRIMARY KEY CLUSTERED ([Id] ASC), 
-	CONSTRAINT [FK_Tour_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
-)
+    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [Title]    NVARCHAR (MAX) NULL,
+    [Image]    NVARCHAR (MAX) NULL,
+    [Details]  NVARCHAR (MAX) NULL,
+    [DateTime] NVARCHAR (MAX) NULL,
+    [Price]    FLOAT (53)     NULL,
+    [MinPpl]   INT            NULL,
+    [MaxPpl]   INT            NULL,
+    [Iti]      NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
 
 CREATE TABLE [dbo].[Booking] (
 	[Id]        INT            NOT NULL,

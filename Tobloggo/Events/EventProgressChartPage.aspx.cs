@@ -86,8 +86,13 @@ namespace Tobloggo.Events
                         actualTotal += actualSum;
                         expectedTotal += expectedSum;
                     }
-
-                    totalProgress.Text = int.Parse(Math.Round(Double.Parse(actualTotal.ToString()) / Double.Parse(expectedTotal.ToString()) * 100).ToString()).ToString() + "%";
+                    //var percentDiff = Double.Parse(actualTotal.ToString()) / Double.Parse(expectedTotal.ToString()) * 100;
+                    //if (percentDiff == Double.NaN)
+                    //{
+                    //    percentDiff = 0;
+                    //}
+                    //var roundedDiff = Math.Round(percentDiff, 0).ToString();
+                    //totalProgress.Text = int.Parse(roundedDiff).ToString() + "%";
 
 
                     TeamRepeater.DataSource = retrievedEventTeams;

@@ -178,5 +178,30 @@ namespace DBService
             return tic.Insert();
         }
         // Ticket Codes End
+
+        // Tour Codes Start
+        public List<Tour> GetAllTour()
+        {
+            Tour tour = new Tour();
+            return tour.SelectAll();
+        }
+        public Tour GetTourByTitle(string title)
+        {
+            Tour tour = new Tour();
+            return tour.SelectByTitle(title);
+        }
+        public int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+            Tour tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+            return tour.Insert();
+        }
+
+        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+
+            Tour tour = new Tour();
+            return tour.UpdateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+        }
+        // Tour Codes End
     }
 }

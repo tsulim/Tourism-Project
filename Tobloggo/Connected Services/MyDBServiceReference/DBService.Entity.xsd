@@ -101,4 +101,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Location" nillable="true" type="tns:Location" />
+  <xs:complexType name="ArrayOfTour">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tour" nillable="true" type="tns:Tour" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTour" nillable="true" type="tns:ArrayOfTour" />
+  <xs:complexType name="Tour">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Itinerary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxPeople" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPeople" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tour" nillable="true" type="tns:Tour" />
 </xs:schema>

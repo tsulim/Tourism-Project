@@ -185,8 +185,11 @@
     <Content Include="App_Data\TobloggoDB_log.ldf">
       <DependentUpon>TobloggoDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ATour.aspx" />
     <Content Include="BackendSite.Master" />
+    <Content Include="CreateTour.aspx" />
     <Content Include="CustomErrors\Error500.html" />
+    <Content Include="EditTour.aspx" />
     <Content Include="Events\CreateEvent.aspx" />
     <Content Include="Events\CreateEventProgressChartPage.aspx" />
     <Content Include="Events\CreateEventTeam.aspx" />
@@ -194,6 +197,13 @@
     <Content Include="Events\EditEventPage.aspx" />
     <Content Include="Events\EventProgressChartPage.aspx" />
     <Content Include="Events\EventTeamPage.aspx" />
+    <Content Include="images\flyer.jfif" />
+    <Content Include="images\mountain wallpaper.jpeg" />
+    <Content Include="images\museum.jfif" />
+    <Content Include="images\nightsafari.jfif" />
+    <Content Include="images\pink and purple sky.jpg" />
+    <Content Include="images\riversafari.jfif" />
+    <Content Include="images\Zoo.jpg" />
     <Content Include="Locations\CreateLocation.aspx" />
     <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
@@ -202,6 +212,8 @@
     <Content Include="Logout.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Content\Location.css" />
+    <Content Include="TourOverview.aspx" />
+    <Content Include="ViewTour.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
@@ -257,6 +269,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -326,6 +341,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ATour.aspx.cs">
+      <DependentUpon>ATour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATour.aspx.designer.cs">
+      <DependentUpon>ATour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BackendSite.Master.cs">
       <DependentUpon>BackendSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,12 +367,26 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreateTour.aspx.cs">
+      <DependentUpon>CreateTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateTour.aspx.designer.cs">
+      <DependentUpon>CreateTour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTour.aspx.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTour.aspx.designer.cs">
+      <DependentUpon>EditTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\CreateEvent.aspx.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
@@ -464,12 +500,26 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="TourOverview.aspx.cs">
+      <DependentUpon>TourOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourOverview.aspx.designer.cs">
+      <DependentUpon>TourOverview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTour.aspx.cs">
+      <DependentUpon>ViewTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTour.aspx.designer.cs">
+      <DependentUpon>ViewTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -496,9 +546,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MyDBServiceReference\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

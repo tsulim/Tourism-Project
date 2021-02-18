@@ -98,6 +98,20 @@ namespace DBService
         int CreateTicket(string name, double price, int locaid);
         // Ticket Codes End
 
+        // Tour Codes Start
+        [OperationContract]
+        List<Tour> GetAllTour();
+
+        [OperationContract]
+        Tour GetTourByTitle(string title);
+
+        [OperationContract]
+        int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+
+        [OperationContract]
+        int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+
+        // Tour Codes End
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

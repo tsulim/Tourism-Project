@@ -3,10 +3,189 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DBService.Entity
 {
-    class Tour
+    public class Tour
     {
+
+        //Define class properties
+        public string Title { get; set; }
+        public string Image { get; set; }
+        public string Details { get; set; }
+        public string DateTime{ get; set; }
+        public double Price { get; set; }
+        public int MinPeople { get; set; }
+        public int MaxPeople { get; set; }
+        public string Itinerary { get; set; }
+
+        //public int AvailableSlots { get; set; }
+
+        public Tour()
+        {
+        }
+
+        //Define a constructor to initialize all the properties
+        public Tour(string title, string img, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+            Title = title;
+            Image = img;
+            Details = details;
+            DateTime = dateTime;
+            Price = price;
+            MinPeople = minPpl;
+            MaxPeople = maxPpl;
+            Itinerary = iti;
+            //AvailableSlot = CalculateAvailSlots();
+        }
+
+        public int Insert()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from App.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Create a SqlCommand object to add record with INSERT statement
+            string sqlStmt = "INSERT INTO Tour (title, image, details, DateTime, price, minPpl, maxPpl, iti) " + "VALUES (@paraTitle, @paraImage, @paraDetails, @paraDateTime, @paraPrice, @paraMinPpl, @paraMaxPpl, @paraIti)";
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@paraTitle", Title);
+            sqlCmd.Parameters.AddWithValue("@paraImage", Image);
+            sqlCmd.Parameters.AddWithValue("@paraDetails", Details);
+            sqlCmd.Parameters.AddWithValue("@paraDateTime", DateTime);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", Price);
+            sqlCmd.Parameters.AddWithValue("@paraMinPpl", MinPeople);
+            sqlCmd.Parameters.AddWithValue("@paraMaxPpl", MaxPeople);
+            sqlCmd.Parameters.AddWithValue("@paraIti", Itinerary);
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+            return result;
+        }
+        
+        
+        public Tour SelectByTitle(string title)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from App.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from Tour where title = @paraTitle";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraTitle", title);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet.
+            Tour tour = null;
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
+                string title1 = row["title"].ToString();
+                string image = "Images\\" + row["image"].ToString();
+                string details = row["details"].ToString();
+                string dateTime = row["dateTime"].ToString();;
+                string p = row["price"].ToString();
+                double price = Convert.ToDouble(p);
+                int minPpl = Convert.ToInt32(row["minPpl"].ToString());
+                int maxPpl = Convert.ToInt32(row["maxPpl"].ToString());
+                string iti = row["iti"].ToString();
+                tour = new Tour(title1, image, details, dateTime, price, minPpl, maxPpl, iti);
+            }
+            return tour;
+        }
+
+        public List<Tour> SelectAll()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from App.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter object to retrieve data from the database table
+            string sqlStmt = "Select * from Tour";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<Tour> tourList = new List<Tour>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 0)
+            {
+                tourList = null;
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    string title = row["title"].ToString();
+                    string image = "Images\\" + row["image"].ToString();
+                    string details = row["details"].ToString();
+                    string dateTime = row["dateTime"].ToString();
+                    string p = row["price"].ToString();
+                    double price = Convert.ToDouble(p);
+                    int minPpl = Convert.ToInt32(row["minPpl"].ToString());
+                    int maxPpl = Convert.ToInt32(row["maxPpl"].ToString());
+                    string iti = row["iti"].ToString();
+                    Tour tour = new Tour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+                    tourList.Add(tour);
+                }
+            }
+            return tourList;
+        }
+
+        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from App.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Create a SqlCommand object to add record with UPDATE statement
+            string sqlStmt = "UPDATE Tour SET image = @paraImage, details = @paraDetails, dateTime = @paraDateTime , price = @paraPrice, minPpl = @paraMinPpl, maxPpl = @paraMaxPpl, iti = @paraIti where title = @paraTitle";
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@paraTitle", title);
+            sqlCmd.Parameters.AddWithValue("@paraImage", image);
+            sqlCmd.Parameters.AddWithValue("@paraDetails", details);
+            sqlCmd.Parameters.AddWithValue("@paraDateTime", dateTime);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", price);
+            sqlCmd.Parameters.AddWithValue("@paraMinPpl", minPpl);
+            sqlCmd.Parameters.AddWithValue("@paraMaxPpl", maxPpl);
+            sqlCmd.Parameters.AddWithValue("@paraIti", iti);
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+            return result;
+        }
     }
 }
+
