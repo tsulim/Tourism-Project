@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Tobloggo.MyDBServiceReference;
 
 namespace Tobloggo
 {
@@ -40,7 +42,7 @@ namespace Tobloggo
             if (reporttype == "BKSales")
             {
                 List<Booking> BKList = new List<Booking>();
-                TobloggoServiceReference.Service1Client client = new TobloggoServiceReference.Service1Client();
+                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
                 //TODO: ADD date range filter feature. Dont hardcode. Date must be in the correct format.
                 BKList = client.DisplayBookingSales("", "", "").ToList<Booking>();
 
@@ -78,7 +80,7 @@ namespace Tobloggo
             else
             {
                 List<Tour> TourList = new List<Tour>();
-                TobloggoServiceReference.Service1Client client = new TobloggoServiceReference.Service1Client();
+                MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
                 //TODO: ADD range filter feature. Dont hardcode
                 TourList = client.DisplayPackageProfit("0", "1000", "0", "1000", "-1000", "0").ToList<Tour>();
 

@@ -182,6 +182,11 @@ namespace DBService
             return loca.Insert();
         }
 
+        public int UpdateLocation(int id, string name, string address, string details, string type, string images, int userid)
+        {
+            Location loca = new Location();
+            return loca.UpdateLocation(id, name, address, details, type, images, userid);
+        }
         public Location GetLastLocation(int userid)
         {
             Location loca = new Location();
@@ -220,6 +225,12 @@ namespace DBService
             return tic.UpdateTicketAmt(id, soldAmt);
         }
 
+        public int UpdateTicketInfo(int id, string name, double price)
+        {
+            Ticket tic = new Ticket();
+            return tic.UpdateTicketInfo(id, name, price);
+        }
+
         public int CreatePurchasedTicket(int quantity, int ticketId, int userId)
         {
             PurchasedTicket pTic = new PurchasedTicket(quantity, ticketId, userId);
@@ -236,6 +247,12 @@ namespace DBService
         {
             PurchasedTicket pTic = new PurchasedTicket();
             return pTic.UpdatePurchasedTicket(id, status);
+        }
+
+        public int DeleteTicket(int id)
+        {
+            Ticket tic = new Ticket();
+            return tic.DeleteTicket(id);
         }
         // Ticket Codes End
 

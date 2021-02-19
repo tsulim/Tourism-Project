@@ -164,6 +164,12 @@
   <wsdl:message name="IService1_CreateLocation_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateLocationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetLastLocation_InputMessage">
     <wsdl:part name="parameters" element="tns:GetLastLocation" />
   </wsdl:message>
@@ -200,6 +206,12 @@
   <wsdl:message name="IService1_UpdateTicketAmt_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTicketAmtResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateTicketInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicketInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTicketInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTicketInfoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CreatePurchasedTicket_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePurchasedTicket" />
   </wsdl:message>
@@ -217,6 +229,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_UpdatePurchasedTicket_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePurchasedTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTicket" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTicketResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetAllTour_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTour" />
@@ -419,6 +437,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateLocation" message="tns:IService1_CreateLocation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateLocationResponse" message="tns:IService1_CreateLocation_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateLocation" message="tns:IService1_UpdateLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateLocationResponse" message="tns:IService1_UpdateLocation_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetLastLocation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLastLocation" message="tns:IService1_GetLastLocation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLastLocationResponse" message="tns:IService1_GetLastLocation_OutputMessage" />
@@ -443,6 +465,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTicketAmt" message="tns:IService1_UpdateTicketAmt_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTicketAmtResponse" message="tns:IService1_UpdateTicketAmt_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateTicketInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTicketInfo" message="tns:IService1_UpdateTicketInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTicketInfoResponse" message="tns:IService1_UpdateTicketInfo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CreatePurchasedTicket">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreatePurchasedTicket" message="tns:IService1_CreatePurchasedTicket_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreatePurchasedTicketResponse" message="tns:IService1_CreatePurchasedTicket_OutputMessage" />
@@ -454,6 +480,10 @@
     <wsdl:operation name="UpdatePurchasedTicket">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePurchasedTicket" message="tns:IService1_UpdatePurchasedTicket_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePurchasedTicketResponse" message="tns:IService1_UpdatePurchasedTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTicket" message="tns:IService1_DeleteTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteTicketResponse" message="tns:IService1_DeleteTicket_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllTour">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllTour" message="tns:IService1_GetAllTour_InputMessage" />
@@ -756,6 +786,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateLocation">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetLastLocation">
       <soap:operation soapAction="http://tempuri.org/IService1/GetLastLocation" style="document" />
       <wsdl:input>
@@ -810,6 +849,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateTicketInfo">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTicketInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CreatePurchasedTicket">
       <soap:operation soapAction="http://tempuri.org/IService1/CreatePurchasedTicket" style="document" />
       <wsdl:input>
@@ -830,6 +878,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePurchasedTicket">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdatePurchasedTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTicket">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteTicket" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

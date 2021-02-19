@@ -264,5 +264,30 @@ namespace DBService.Entity
             }
             return loca;
         }
+
+        public int UpdateLocation(int id, string name, string address, string details, string type, string images, int userid)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Location SET Name=@paraName, Address=@paraAddress, Details=@paraDetails, Type=@paraType, Images=@paraImages, UserId=@paraUserId  WHERE Id=@paraId;";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", id);
+            sqlCmd.Parameters.AddWithValue("@paraName", name);
+            sqlCmd.Parameters.AddWithValue("@paraAddress", address);
+            sqlCmd.Parameters.AddWithValue("@paraDetails", details);
+            sqlCmd.Parameters.AddWithValue("@paraType", type);
+            sqlCmd.Parameters.AddWithValue("@paraImages", images);
+            sqlCmd.Parameters.AddWithValue("@paraUserId", userid);
+
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+
+            return result;
+        }
     }
 }

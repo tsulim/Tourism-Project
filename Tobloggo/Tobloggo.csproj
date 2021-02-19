@@ -187,9 +187,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddInvoice.aspx" />
     <Content Include="Admin\EditUser.aspx" />
     <Content Include="Admin\ListUsers.aspx" />
     <Content Include="Admin\Test.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="InvoiceForm.aspx" />
+    <Content Include="Payment.aspx" />
     <Content Include="Tours\ATour.aspx" />
     <Content Include="BackendSite.Master" />
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
@@ -235,10 +246,6 @@
     <Content Include="Tours\ViewTour.aspx" />
     <Content Include="SVG\character-10.svg" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -248,10 +255,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Connected Services\MyDBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -292,6 +295,18 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking.datasource" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource~develop" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource~HEAD" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice.datasource" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~develop" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~HEAD" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="ResetDB.sql" />
     <Content Include="Scripts\bootstrap.js" />
@@ -323,12 +338,21 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UpdateInvoicePage.aspx" />
+    <Content Include="ViewReport.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddInvoice.aspx.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInvoice.aspx.designer.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,6 +385,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceForm.aspx.cs">
+      <DependentUpon>InvoiceForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoiceForm.aspx.designer.cs">
+      <DependentUpon>InvoiceForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tours\ATour.aspx.cs">
       <DependentUpon>ATour.aspx</DependentUpon>
@@ -563,6 +601,20 @@
     </Compile>
     <Compile Include="Tours\TourOverview.aspx.designer.cs">
       <DependentUpon>TourOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateInvoicePage.aspx.cs">
+      <DependentUpon>UpdateInvoicePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateInvoicePage.aspx.designer.cs">
+      <DependentUpon>UpdateInvoicePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewReport.aspx.cs">
+      <DependentUpon>ViewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewReport.aspx.designer.cs">
+      <DependentUpon>ViewReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EditLocation.aspx.cs" Inherits="Tobloggo.Locations.EditLocation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EditLocation.aspx.cs" Inherits="Tobloggo.Locations.EditLocation" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Location.css" rel="stylesheet">
     <script type="text/javascript">
@@ -305,10 +305,10 @@
                                     <ItemTemplate>
                                          <tr runat="server" id="itemStart" clientidmode="Static">
                                              <td>
-                                                 <input type="text" name="multipleItemName<%#(Container.ItemIndex+1)%>" id="multipleItemName<%#(Container.ItemIndex+1)%>" value="<%# Eval("Name") %>" class="form-control" placeholder="Enter item name">
+                                                 <input type="text" name="multipleItemNamex<%#(Container.ItemIndex+1)%>" id="multipleItemNamex<%#(Container.ItemIndex+1)%>" value="<%# Eval("Name") %>" class="form-control" placeholder="Enter item name">
                                              </td>
                                              <td>
-                                                 <input type="text" name="multipleItemPrice<%#(Container.ItemIndex+1)%>" id="multipleItemPrice<%#(Container.ItemIndex+1)%>" value="<%# Eval("Price") %>" class="form-control" placeholder="$ Input">
+                                                 <input type="text" name="multipleItemPricex<%#(Container.ItemIndex+1)%>" id="multipleItemPricex<%#(Container.ItemIndex+1)%>" value="<%# Eval("Price") %>" class="form-control" placeholder="$ Input">
                                              </td>
                                              <td>
                                                  <button type="button" runat="server" class="btn btn-outline-success" clientidmode="Static" onclick="addItem(this)" visible="true"><i class="fa fa-plus"></i></button>
@@ -317,7 +317,18 @@
                                          </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                               
+                               <tr>
+                                    <td>
+                                        <input type="text" name="multipleItemName1" id="multipleItemName1" class="form-control" placeholder="Enter item name">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="multipleItemPrice1" id="multipleItemPrice1" class="form-control" placeholder="$ Input">
+                                    </td>
+                                    <td>
+                                        <button type="button" runat="server" class="btn btn-outline-success" ClientIdMode="Static" onclick="addItem(this)" visible="true"><i class="fa fa-plus"></i></button>
+                                        <button type="button" runat="server" class="btn btn-outline-danger" ClientIdMode="Static" onclick="removeItem(this)" visible="true"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

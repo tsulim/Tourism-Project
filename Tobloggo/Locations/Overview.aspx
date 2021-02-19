@@ -13,7 +13,7 @@
             <asp:BoundField DataField="UserId" DataFormatString="{0:N}" HeaderText="User Id" />
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#GetRouteUrl("EditLocationRoute", new{locaId= Eval("Id").ToString()}) %>' Text="Edit"></asp:HyperLink>
+                   <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#GetRouteUrl("EditLocationRoute", new{locaId= Eval("Id").ToString()}) %>' Text="Edit"></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

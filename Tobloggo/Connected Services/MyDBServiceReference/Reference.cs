@@ -2012,6 +2012,12 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateLocation", ReplyAction="http://tempuri.org/IService1/CreateLocationResponse")]
         System.Threading.Tasks.Task<int> CreateLocationAsync(string name, string address, string details, string type, string images, int userid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLocation", ReplyAction="http://tempuri.org/IService1/UpdateLocationResponse")]
+        int UpdateLocation(int id, string name, string address, string details, string type, string images, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLocation", ReplyAction="http://tempuri.org/IService1/UpdateLocationResponse")]
+        System.Threading.Tasks.Task<int> UpdateLocationAsync(int id, string name, string address, string details, string type, string images, int userid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLastLocation", ReplyAction="http://tempuri.org/IService1/GetLastLocationResponse")]
         Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid);
         
@@ -2048,6 +2054,12 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTicketAmt", ReplyAction="http://tempuri.org/IService1/UpdateTicketAmtResponse")]
         System.Threading.Tasks.Task<int> UpdateTicketAmtAsync(int id, int soldAmt);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTicketInfo", ReplyAction="http://tempuri.org/IService1/UpdateTicketInfoResponse")]
+        int UpdateTicketInfo(int id, string name, double price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTicketInfo", ReplyAction="http://tempuri.org/IService1/UpdateTicketInfoResponse")]
+        System.Threading.Tasks.Task<int> UpdateTicketInfoAsync(int id, string name, double price);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/CreatePurchasedTicketResponse")]
         int CreatePurchasedTicket(int quantity, int ticketid, int userid);
         
@@ -2065,6 +2077,12 @@ namespace Tobloggo.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/UpdatePurchasedTicketResponse")]
         System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTicket", ReplyAction="http://tempuri.org/IService1/DeleteTicketResponse")]
+        int DeleteTicket(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTicket", ReplyAction="http://tempuri.org/IService1/DeleteTicketResponse")]
+        System.Threading.Tasks.Task<int> DeleteTicketAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTour", ReplyAction="http://tempuri.org/IService1/GetAllTourResponse")]
         Tobloggo.MyDBServiceReference.Tour[] GetAllTour();
@@ -2398,6 +2416,14 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.CreateLocationAsync(name, address, details, type, images, userid);
         }
         
+        public int UpdateLocation(int id, string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.UpdateLocation(id, name, address, details, type, images, userid);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateLocationAsync(int id, string name, string address, string details, string type, string images, int userid) {
+            return base.Channel.UpdateLocationAsync(id, name, address, details, type, images, userid);
+        }
+        
         public Tobloggo.MyDBServiceReference.Location GetLastLocation(int userid) {
             return base.Channel.GetLastLocation(userid);
         }
@@ -2446,6 +2472,14 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.UpdateTicketAmtAsync(id, soldAmt);
         }
         
+        public int UpdateTicketInfo(int id, string name, double price) {
+            return base.Channel.UpdateTicketInfo(id, name, price);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTicketInfoAsync(int id, string name, double price) {
+            return base.Channel.UpdateTicketInfoAsync(id, name, price);
+        }
+        
         public int CreatePurchasedTicket(int quantity, int ticketid, int userid) {
             return base.Channel.CreatePurchasedTicket(quantity, ticketid, userid);
         }
@@ -2468,6 +2502,14 @@ namespace Tobloggo.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status) {
             return base.Channel.UpdatePurchasedTicketAsync(id, status);
+        }
+        
+        public int DeleteTicket(int id) {
+            return base.Channel.DeleteTicket(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteTicketAsync(int id) {
+            return base.Channel.DeleteTicketAsync(id);
         }
         
         public Tobloggo.MyDBServiceReference.Tour[] GetAllTour() {
