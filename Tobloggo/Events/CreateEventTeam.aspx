@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script>
-        var itemCount = 0
         function addItem(e) {
             itemCount++
 
@@ -13,7 +12,7 @@
             var div = document.createElement("div")
             div.setAttribute("id", "taskRow" + itemCount)
 
-            div.innerHTML = '<div class="d-flex flex-row my-2" >' + 
+            div.innerHTML = '<div class="d-flex flex-row my-2" >' +
                 '<input class = "col-2 mx-1" name="taskName' + itemCount + '"   ></input >' +
                 '<input class="col-5 mx-1" name="taskDesc' + itemCount + '" ></input>' +
                 '<input CssClass="col-3 mx-1" name="taskDiff' + itemCount + '"  ></input>' +
@@ -30,17 +29,27 @@
 
             var hideField = document.getElementById("teamItemCount");
             hideField.value = itemCount;
+            console.log(document.getElementById("teamDeleteList").value);
 
         }
 
-        function deleteItem(id){
+        function deleteItem(id) {
+
+            var previousIgnoreList = $.makeArray(document.getElementById("teamDeleteList").value.split(","))
+            previousIgnoreList.push(id.slice(6))
+            document.getElementById("teamDeleteList").value = previousIgnoreList.join();
+
             document.getElementById("taskRow" + id.slice(6)).remove();
         }
     </script>
 
     <div class="container" style="margin-top: 10px;">
         
-        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" />
+        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" value=""/>
+        <script>
+            var itemCount = document.getElementById("teamItemCount").value;
+        </script>
+        <asp:HiddenField ID="teamDeleteList" runat="server" ClientIDMode="Static" value=""/>
 
         <div>
             <br />

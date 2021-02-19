@@ -45,7 +45,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
     <asp:ContentPlaceHolder ID="ScriptHeadContent" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -76,6 +75,7 @@
         </asp:ScriptManager>
 
         <%-- Start of Navigation Bar --%>
+
         <nav class="navbar navbar-expand-sm bg-light navbar-dark">
             <div>
                 <a class="navbar-brand" href="#">
@@ -147,18 +147,9 @@
                             <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1){ %>
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
+
                                     <li class="nav-item">
-
-                                        <div class="dropdown">
-                                            <button class="dropbtn">Administrator
-                                                <i class="fa fa-caret-down"></i>
-                                            </button>
-                                            <div class="dropdown-content">
-                                                <a href="/Admin/ListUsers">User List</a>
-                                            </div>
-                                        </div>
-
-
+                                        <a class="nav-link" href="/Admin/ListUsers">User List</a>
                                     </li>
                                     
                                     <li class="nav-item">
@@ -172,19 +163,12 @@
                             <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 2){ %>
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
+
+                                    
                                     <li class="nav-item">
-
-                                        <div class="dropdown">
-                                        <button class="dropbtn">Events
-                                            <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <div class="dropdown-content">
-                                            <a href='/Events/EventList' >Event List</a>
-                                        </div>
-                                        </div>
-
-
+                                        <a class="nav-link" href="/Events/EventList">Event List</a>
                                     </li>
+
                                     
                                     <li class="nav-item">
                                         <a class="nav-link" href="Logout.aspx">

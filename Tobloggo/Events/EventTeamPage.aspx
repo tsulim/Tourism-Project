@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">        
     <script>
-        var itemCount = <%= RetrieveEventTasks.Count %>;
+
         function addItem(e) {
             itemCount++
 
@@ -29,17 +29,27 @@
 
             var hideField = document.getElementById("teamItemCount");
             hideField.value = itemCount;
+            console.log(document.getElementById("teamDeleteList").value);
 
         }
 
-        function deleteItem(id){
+        function deleteItem(id) {
+            
+            var previousIgnoreList = $.makeArray(document.getElementById("teamDeleteList").value.split(","))
+            previousIgnoreList.push(id.slice(6))
+            document.getElementById("teamDeleteList").value = previousIgnoreList.join();
+
             document.getElementById("taskRow" + id.slice(6)).remove();
         }
     </script>
 
     <div class="container" style="margin-top: 10px;">
         
-        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" value='<%= RetrieveEventTasks.Count %>'/>
+        <asp:HiddenField ID="teamItemCount" runat="server" ClientIDMode="Static" value=""/>
+        <script>
+            var itemCount = document.getElementById("teamItemCount").value;
+        </script>
+        <asp:HiddenField ID="teamDeleteList" runat="server" ClientIDMode="Static" value=""/>
 
         <div>
             <br />
@@ -52,7 +62,7 @@
                         <asp:Label ID="Label1" runat="server" Text="Team Name: " Width="272px"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="teamName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="teamName" runat="server" name="teamName"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -60,7 +70,7 @@
                         <asp:Label ID="Label5" runat="server" Text="Team Leader: " Width="272px"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="teamLeaderId" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="teamLeaderId" runat="server" name="teamLeader"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +79,7 @@
                     </td>
 
                     <td>
-                        <asp:TextBox ID="teamContact" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="teamContact" runat="server" name="teamContact"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +87,7 @@
                         <asp:Label ID="Label4" runat="server" Text="Start Date: "></asp:Label>
                     </td>
                     <td>
-                        <input type="date" id="teamStartDate" runat="server">
+                        <input type="date" id="teamStartDate" runat="server" name="teamStart">
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +95,7 @@
                         <asp:Label ID="Label3" runat="server" Text="End Date: "></asp:Label>
                     </td>
                     <td>
-                        <input type="date" id="teamEndDate" runat="server">
+                        <input type="date" id="teamEndDate" runat="server" name="teamEnd">
                     </td>
                 </tr>
             </table>

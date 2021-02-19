@@ -61,7 +61,15 @@ namespace Tobloggo.Events
 
                         TimeSpan timeSpent = DateTime.Now - team.TStartDate;
                         TimeSpan totalTime = team.TEndDate - team.TStartDate;
-                        int expectedPercentage = int.Parse(Math.Round((Double.Parse(timeSpent.Days.ToString()) / Double.Parse(totalTime.Days.ToString()) * 100), 0).ToString());
+                        int expectedPercentage;
+                        if (totalTime.Days == 0)
+                        {
+                            expectedPercentage = 0;
+                        } else
+                        {
+                            Double roundedTotal = Math.Round((Double.Parse(timeSpent.Days.ToString()) / Double.Parse(totalTime.Days.ToString()) * 100), 0);
+                            expectedPercentage = int.Parse(roundedTotal.ToString());
+                        }
 
 
                         List<Tasks> taskList = client.GetAllTaskByEventTeamId(team.Id).ToList();
@@ -86,13 +94,18 @@ namespace Tobloggo.Events
                         actualTotal += actualSum;
                         expectedTotal += expectedSum;
                     }
-                    //var percentDiff = Double.Parse(actualTotal.ToString()) / Double.Parse(expectedTotal.ToString()) * 100;
-                    //if (percentDiff == Double.NaN)
-                    //{
-                    //    percentDiff = 0;
-                    //}
-                    //var roundedDiff = Math.Round(percentDiff, 0).ToString();
-                    //totalProgress.Text = int.Parse(roundedDiff).ToString() + "%";
+
+
+                    Double percentDiff;
+                    if (expectedTotal == 0)
+                    {
+                        percentDiff = 0;
+                    } else
+                    {
+                        percentDiff = Double.Parse(actualTotal.ToString()) / Double.Parse(expectedTotal.ToString()) * 100;
+                    }
+                    var roundedDiff = Math.Round(percentDiff, 0).ToString();
+                    totalProgress.Text = int.Parse(roundedDiff).ToString() + "%";
 
 
                     TeamRepeater.DataSource = retrievedEventTeams;

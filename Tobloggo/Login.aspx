@@ -48,16 +48,17 @@
         </asp:LinkButton>
         <%--  --%>
 
-            <br />
-            <asp:Label ID="lbl_errormsg" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_errormsg" runat="server"></asp:Label>
 
-            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+        
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignUp.aspx">Click here to Register</asp:HyperLink>
+        <br />
+        <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
 
-        </div>
+    </div>
 
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/SignUp.aspx">Click here to Register</asp:HyperLink>
-    <br />
-    <asp:Label ID="lbl_gScore" runat="server" ></asp:Label>
 
 
 </asp:Content>

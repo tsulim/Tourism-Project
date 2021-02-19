@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -46,10 +47,18 @@ namespace Tobloggo.Events
             {
 
                 var itemNum = Convert.ToInt32(teamItemCount.Value);
-                
+
+                var ignoreList = teamDeleteList.Value.Split(',');
+                ignoreList = ignoreList.Skip(1).ToArray();
+
 
                 for (var num = 1; num < itemNum + 1; num++)
                 {
+                    if (((IList)ignoreList).Contains(num.ToString()))
+                    {
+                        continue;
+                    }
+
                     var taskNameName = "taskName" + num;
                     var taskDescName = "taskDesc" + num;
                     var taskDiffName = "taskDiff" + num;
@@ -88,6 +97,11 @@ namespace Tobloggo.Events
 
                     for (var num = 1; num < itemNum + 1; num++)
                     {
+
+                        if (((IList)ignoreList).Contains(num.ToString()))
+                        {
+                            continue;
+                        }
                         var taskNameName = "taskName" + num;
                         var taskDescName = "taskDesc" + num;
                         var taskDiffName = "taskDiff" + num;

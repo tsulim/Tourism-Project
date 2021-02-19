@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,6 +32,11 @@ namespace Tobloggo.Events
 
                 eventTeam = client.GetEventTeamById(teamId);
 
+                if (eventTeam == null)
+                {
+                    Response.Redirect("/Events/EventList");
+                }
+
                 teamName.Text = eventTeam.TeamName;
                 teamLeaderId.Text = eventTeam.TeamLeader;
                 teamContact.Text = eventTeam.ContactEmail;
@@ -38,6 +44,12 @@ namespace Tobloggo.Events
                 teamEndDate.Value = eventTeam.TEndDate.ToString("yyyy-MM-dd");
 
                 retrievedEventTasks = client.GetAllTaskByEventTeamId(teamId).ToList();
+                if (!IsPostBack)
+                {
+
+
+                    teamItemCount.Value = retrievedEventTasks.Count().ToString();
+                }
 
             }
         }
@@ -60,9 +72,20 @@ namespace Tobloggo.Events
 
                 var itemNum = Convert.ToInt32(teamItemCount.Value);
 
+                var ignoreList = teamDeleteList.Value.Split(',');
+                ignoreList = ignoreList.Skip(1).ToArray();
+
+
 
                 for (var num = 1; num < itemNum + 1; num++)
                 {
+                    if (((IList)ignoreList).Contains(num.ToString()))
+                    {
+                        continue;
+                    }
+
+                    System.Diagnostics.Debug.WriteLine(num);
+
                     var taskNameName = "taskName" + num;
                     var taskDescName = "taskDesc" + num;
                     var taskDiffName = "taskDiff" + num;
@@ -115,6 +138,11 @@ namespace Tobloggo.Events
 
                     for (var num = 1; num < itemNum + 1; num++)
                     {
+                        if (((IList)ignoreList).Contains(num.ToString()))
+                        {
+                            continue;
+                        }
+
                         var taskNameName = "taskName" + num;
                         var taskDescName = "taskDesc" + num;
                         var taskDiffName = "taskDiff" + num;

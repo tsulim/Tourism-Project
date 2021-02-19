@@ -1,18 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EventProgressChartPage.aspx.cs" Inherits="Tobloggo.Events.EventProgressChartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <script type="text/javascript">
-
-        //function deleteTeam(ele) {
-        //    var answer = confirm("Are you sure you want to delete this team?")
-        //    if (answer) {
-        //        console.log("/Events/ProgressChart/DeleteTeam/" + ele)
-        //        sleep(2000);
-        //        window.location.href = "/Events/ProgressChart/DeleteTeam/" + ele;
-
-        //    }
-        //}
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" >
 
