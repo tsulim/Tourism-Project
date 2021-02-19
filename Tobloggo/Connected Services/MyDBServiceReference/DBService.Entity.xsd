@@ -142,15 +142,65 @@
   <xs:element name="ArrayOfTour" nillable="true" type="tns:ArrayOfTour" />
   <xs:complexType name="Tour">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ActualProfit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AvailSlots" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BKConfirmed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BKRefunded" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateTime" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Itinerary" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MaxPeople" type="xs:int" />
       <xs:element minOccurs="0" name="MinPeople" type="xs:int" />
+      <xs:element minOccurs="0" name="PeakProfit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element minOccurs="0" name="RefundLoss" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tour" nillable="true" type="tns:Tour" />
+  <xs:complexType name="ArrayOfInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoice" nillable="true" type="tns:ArrayOfInvoice" />
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Booked" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Created" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TourName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+  <xs:complexType name="ArrayOfBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Booking" nillable="true" type="tns:Booking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBooking" nillable="true" type="tns:ArrayOfBooking" />
+  <xs:complexType name="Booking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartCMDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartCMDayProfit" type="xs:double" />
+      <xs:element minOccurs="0" name="ChartMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartMonthTotal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NumAttendees" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAmt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TourName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TourPrice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Booking" nillable="true" type="tns:Booking" />
 </xs:schema>

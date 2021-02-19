@@ -118,7 +118,7 @@
                                         <a class="nav-link" href="#">Blogs</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Tour Packages</a>
+                                        <a class="nav-link" href="/Tours/ViewTour.aspx">Tour Package</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Events</a>
@@ -188,7 +188,31 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/Logout.aspx">
-                                            <span class="glyphicon glyphicon-user"></span>Hi Trillium
+                                            <span class="glyphicon glyphicon-user"></span>Logout
+                                        </a>
+                                    </li>
+                                </ul>   
+                            </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 4){ %>
+                            <div class="usernNavLinks">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+
+                                        <div class="dropdown">
+                                        <button class="dropbtn">Tours
+                                            <i class="fa fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href='/Tours/TourOverview.aspx' >Tour List</a>
+                                        </div>
+                                        </div>
+
+
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Logout.aspx">
+                                            <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
                                 </ul>   
@@ -226,7 +250,7 @@
                         <a class="nav-link" href="#">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tour Packages</a>
+                        <a class="nav-link" href="ViewTour.aspx">Tour Packages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Events</a>

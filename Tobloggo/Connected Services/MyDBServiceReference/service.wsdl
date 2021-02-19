@@ -242,6 +242,78 @@
   <wsdl:message name="IService1_UpdateTour_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTourResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAllInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInvoiceByBookingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByBookingId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInvoiceByBookingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByBookingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DisplayBookingSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayBookingSales" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DisplayBookingSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayBookingSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckValidBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckValidBooking" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CheckValidBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckValidBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInvoiceTypeOnCreate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceTypeOnCreate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInvoiceTypeOnCreate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceTypeOnCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DisplayPackageProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayPackageProfit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DisplayPackageProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisplayPackageProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProfitChart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfitChart" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProfitChart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfitChartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCMProfitChart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMProfitChart" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCMProfitChart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMProfitChartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgress" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgressResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -398,6 +470,54 @@
     <wsdl:operation name="UpdateTour">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTour" message="tns:IService1_UpdateTour_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTourResponse" message="tns:IService1_UpdateTour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllInvoice" message="tns:IService1_GetAllInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllInvoiceResponse" message="tns:IService1_GetAllInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByBookingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetInvoiceByBookingId" message="tns:IService1_GetInvoiceByBookingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetInvoiceByBookingIdResponse" message="tns:IService1_GetInvoiceByBookingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateInvoice" message="tns:IService1_CreateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateInvoiceResponse" message="tns:IService1_CreateInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateInvoice" message="tns:IService1_UpdateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateInvoiceResponse" message="tns:IService1_UpdateInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SendInvoice" message="tns:IService1_SendInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SendInvoiceResponse" message="tns:IService1_SendInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisplayBookingSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DisplayBookingSales" message="tns:IService1_DisplayBookingSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DisplayBookingSalesResponse" message="tns:IService1_DisplayBookingSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckValidBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CheckValidBooking" message="tns:IService1_CheckValidBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CheckValidBookingResponse" message="tns:IService1_CheckValidBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceTypeOnCreate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetInvoiceTypeOnCreate" message="tns:IService1_GetInvoiceTypeOnCreate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetInvoiceTypeOnCreateResponse" message="tns:IService1_GetInvoiceTypeOnCreate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisplayPackageProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DisplayPackageProfit" message="tns:IService1_DisplayPackageProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DisplayPackageProfitResponse" message="tns:IService1_DisplayPackageProfit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfitChart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProfitChart" message="tns:IService1_GetProfitChart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProfitChartResponse" message="tns:IService1_GetProfitChart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMProfitChart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCMProfitChart" message="tns:IService1_GetCMProfitChart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCMProfitChartResponse" message="tns:IService1_GetCMProfitChart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProgress" message="tns:IService1_GetProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProgressResponse" message="tns:IService1_GetProgress_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -746,6 +866,114 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateTour">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateTour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInvoice">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByBookingId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetInvoiceByBookingId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvoice">
+      <soap:operation soapAction="http://tempuri.org/IService1/SendInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisplayBookingSales">
+      <soap:operation soapAction="http://tempuri.org/IService1/DisplayBookingSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckValidBooking">
+      <soap:operation soapAction="http://tempuri.org/IService1/CheckValidBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceTypeOnCreate">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetInvoiceTypeOnCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisplayPackageProfit">
+      <soap:operation soapAction="http://tempuri.org/IService1/DisplayPackageProfit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfitChart">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProfitChart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMProfitChart">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCMProfitChart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgress">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProgress" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

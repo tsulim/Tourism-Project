@@ -78,6 +78,15 @@ namespace Tobloggo
         protected global::System.Web.UI.WebControls.Label Lbl_iti;
 
         /// <summary>
+        /// quantityTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox quantityTB;
+
+        /// <summary>
         /// btnBack control.
         /// </summary>
         /// <remarks>

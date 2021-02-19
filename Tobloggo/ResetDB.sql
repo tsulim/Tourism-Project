@@ -109,6 +109,7 @@ CREATE TABLE [dbo].[Promotion]
 (
 	[Id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY, 
 	[Title] NVARCHAR(50) NULL, 
+	[Details] NVARCHAR(MAX) NULL,
 	[StartDate] DATETIME NULL, 
 	[EndDate] DATETIME NULL, 
 	[LocationArr] NVARCHAR(MAX) NULL,

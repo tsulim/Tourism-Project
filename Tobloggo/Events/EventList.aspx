@@ -72,7 +72,7 @@
 
 
 
-            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MineDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
 
 
 

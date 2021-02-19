@@ -15,20 +15,11 @@ using System.IO;
 using System.Web.Script.Serialization;
 using System.Web.Services;
 using Tobloggo.MyDBServiceReference;
-
-
-
 using Nemiro.OAuth;
 using Nemiro.OAuth.Clients;
 using System.Configuration;
-
 using Newtonsoft.Json;
-using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Threading.Tasks;
 
 namespace Tobloggo

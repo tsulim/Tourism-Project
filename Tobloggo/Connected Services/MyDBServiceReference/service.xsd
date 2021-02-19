@@ -517,4 +517,247 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllTour">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTourResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllTourResult" nillable="true" type="q25:ArrayOfTour" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTourByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTourByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetTourByTitleResult" nillable="true" type="q26:Tour" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="image" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="details" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
+        <xs:element minOccurs="0" name="minPpl" type="xs:int" />
+        <xs:element minOccurs="0" name="maxPpl" type="xs:int" />
+        <xs:element minOccurs="0" name="iti" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTourResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateTourResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="image" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="details" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateTime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
+        <xs:element minOccurs="0" name="minPpl" type="xs:int" />
+        <xs:element minOccurs="0" name="maxPpl" type="xs:int" />
+        <xs:element minOccurs="0" name="iti" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTourResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTourResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetAllInvoiceResult" nillable="true" type="q27:ArrayOfInvoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceByBookingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceByBookingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetInvoiceByBookingIdResult" nillable="true" type="q28:Invoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateInvoiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateInvoiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendInvoiceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayBookingSales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startdate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="enddate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayBookingSalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="DisplayBookingSalesResult" nillable="true" type="q29:ArrayOfBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckValidBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckValidBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="CheckValidBookingResult" nillable="true" type="q30:Booking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceTypeOnCreate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceTypeOnCreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetInvoiceTypeOnCreateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayPackageProfit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startPrice" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endPrice" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startProfit" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endProfit" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startLoss" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endLoss" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayPackageProfitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="DisplayPackageProfitResult" nillable="true" type="q31:ArrayOfTour" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProfitChart">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProfitChartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetProfitChartResult" nillable="true" type="q32:ArrayOfBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCMProfitChart">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCMProfitChartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetCMProfitChartResult" nillable="true" type="q33:ArrayOfBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgress">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DBService.Entity" minOccurs="0" name="GetProgressResult" nillable="true" type="q34:Invoice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

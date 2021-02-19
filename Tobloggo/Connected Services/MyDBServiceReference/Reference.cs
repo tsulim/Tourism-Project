@@ -973,163 +973,6 @@ namespace Tobloggo.MyDBServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tour", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
-    [System.SerializableAttribute()]
-    public partial class Tour : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DateTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ItineraryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxPeopleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MinPeopleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PriceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DateTime {
-            get {
-                return this.DateTimeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DateTimeField, value) != true)) {
-                    this.DateTimeField = value;
-                    this.RaisePropertyChanged("DateTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Details {
-            get {
-                return this.DetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
-                    this.DetailsField = value;
-                    this.RaisePropertyChanged("Details");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Image {
-            get {
-                return this.ImageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
-                    this.ImageField = value;
-                    this.RaisePropertyChanged("Image");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Itinerary {
-            get {
-                return this.ItineraryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItineraryField, value) != true)) {
-                    this.ItineraryField = value;
-                    this.RaisePropertyChanged("Itinerary");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxPeople {
-            get {
-                return this.MaxPeopleField;
-            }
-            set {
-                if ((this.MaxPeopleField.Equals(value) != true)) {
-                    this.MaxPeopleField = value;
-                    this.RaisePropertyChanged("MaxPeople");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MinPeople {
-            get {
-                return this.MinPeopleField;
-            }
-            set {
-                if ((this.MinPeopleField.Equals(value) != true)) {
-                    this.MinPeopleField = value;
-                    this.RaisePropertyChanged("MinPeople");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Ticket", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
     [System.SerializableAttribute()]
     public partial class Ticket : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1346,6 +1189,669 @@ namespace Tobloggo.MyDBServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tour", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Tour : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActualProfitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AvailSlotsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BKConfirmedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BKRefundedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ItineraryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxPeopleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinPeopleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PeakProfitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RefundLossField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ActualProfit {
+            get {
+                return this.ActualProfitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActualProfitField, value) != true)) {
+                    this.ActualProfitField = value;
+                    this.RaisePropertyChanged("ActualProfit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AvailSlots {
+            get {
+                return this.AvailSlotsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AvailSlotsField, value) != true)) {
+                    this.AvailSlotsField = value;
+                    this.RaisePropertyChanged("AvailSlots");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BKConfirmed {
+            get {
+                return this.BKConfirmedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BKConfirmedField, value) != true)) {
+                    this.BKConfirmedField = value;
+                    this.RaisePropertyChanged("BKConfirmed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BKRefunded {
+            get {
+                return this.BKRefundedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BKRefundedField, value) != true)) {
+                    this.BKRefundedField = value;
+                    this.RaisePropertyChanged("BKRefunded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DateTime {
+            get {
+                return this.DateTimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DateTimeField, value) != true)) {
+                    this.DateTimeField = value;
+                    this.RaisePropertyChanged("DateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Itinerary {
+            get {
+                return this.ItineraryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItineraryField, value) != true)) {
+                    this.ItineraryField = value;
+                    this.RaisePropertyChanged("Itinerary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxPeople {
+            get {
+                return this.MaxPeopleField;
+            }
+            set {
+                if ((this.MaxPeopleField.Equals(value) != true)) {
+                    this.MaxPeopleField = value;
+                    this.RaisePropertyChanged("MaxPeople");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinPeople {
+            get {
+                return this.MinPeopleField;
+            }
+            set {
+                if ((this.MinPeopleField.Equals(value) != true)) {
+                    this.MinPeopleField = value;
+                    this.RaisePropertyChanged("MinPeople");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PeakProfit {
+            get {
+                return this.PeakProfitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PeakProfitField, value) != true)) {
+                    this.PeakProfitField = value;
+                    this.RaisePropertyChanged("PeakProfit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RefundLoss {
+            get {
+                return this.RefundLossField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RefundLossField, value) != true)) {
+                    this.RefundLossField = value;
+                    this.RaisePropertyChanged("RefundLoss");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Invoice", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Invoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BookedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BookingIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TourNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Booked {
+            get {
+                return this.BookedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BookedField, value) != true)) {
+                    this.BookedField = value;
+                    this.RaisePropertyChanged("Booked");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BookingId {
+            get {
+                return this.BookingIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BookingIdField, value) != true)) {
+                    this.BookingIdField = value;
+                    this.RaisePropertyChanged("BookingId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Created {
+            get {
+                return this.CreatedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedField, value) != true)) {
+                    this.CreatedField = value;
+                    this.RaisePropertyChanged("Created");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustName {
+            get {
+                return this.CustNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustNameField, value) != true)) {
+                    this.CustNameField = value;
+                    this.RaisePropertyChanged("CustName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sent {
+            get {
+                return this.SentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SentField, value) != true)) {
+                    this.SentField = value;
+                    this.RaisePropertyChanged("Sent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TourName {
+            get {
+                return this.TourNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TourNameField, value) != true)) {
+                    this.TourNameField = value;
+                    this.RaisePropertyChanged("TourName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Booking", Namespace="http://schemas.datacontract.org/2004/07/DBService.Entity")]
+    [System.SerializableAttribute()]
+    public partial class Booking : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BookIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ChartCMDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ChartCMDayProfitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ChartMonthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ChartMonthTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ChartYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumAttendeesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TotalAmtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TourNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TourPriceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BookId {
+            get {
+                return this.BookIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BookIdField, value) != true)) {
+                    this.BookIdField = value;
+                    this.RaisePropertyChanged("BookId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ChartCMDate {
+            get {
+                return this.ChartCMDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChartCMDateField, value) != true)) {
+                    this.ChartCMDateField = value;
+                    this.RaisePropertyChanged("ChartCMDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ChartCMDayProfit {
+            get {
+                return this.ChartCMDayProfitField;
+            }
+            set {
+                if ((this.ChartCMDayProfitField.Equals(value) != true)) {
+                    this.ChartCMDayProfitField = value;
+                    this.RaisePropertyChanged("ChartCMDayProfit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ChartMonth {
+            get {
+                return this.ChartMonthField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChartMonthField, value) != true)) {
+                    this.ChartMonthField = value;
+                    this.RaisePropertyChanged("ChartMonth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ChartMonthTotal {
+            get {
+                return this.ChartMonthTotalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChartMonthTotalField, value) != true)) {
+                    this.ChartMonthTotalField = value;
+                    this.RaisePropertyChanged("ChartMonthTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ChartYear {
+            get {
+                return this.ChartYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChartYearField, value) != true)) {
+                    this.ChartYearField = value;
+                    this.RaisePropertyChanged("ChartYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumAttendees {
+            get {
+                return this.NumAttendeesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumAttendeesField, value) != true)) {
+                    this.NumAttendeesField = value;
+                    this.RaisePropertyChanged("NumAttendees");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TotalAmt {
+            get {
+                return this.TotalAmtField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TotalAmtField, value) != true)) {
+                    this.TotalAmtField = value;
+                    this.RaisePropertyChanged("TotalAmt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TourName {
+            get {
+                return this.TourNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TourNameField, value) != true)) {
+                    this.TourNameField = value;
+                    this.RaisePropertyChanged("TourName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TourPrice {
+            get {
+                return this.TourPriceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TourPriceField, value) != true)) {
+                    this.TourPriceField = value;
+                    this.RaisePropertyChanged("TourPrice");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MyDBServiceReference.IService1")]
     public interface IService1 {
@@ -1524,30 +2030,6 @@ namespace Tobloggo.MyDBServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTicket", ReplyAction="http://tempuri.org/IService1/CreateTicketResponse")]
         System.Threading.Tasks.Task<int> CreateTicketAsync(string name, double price, int locaid);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTour", ReplyAction="http://tempuri.org/IService1/GetAllTourResponse")]
-        Tobloggo.MyDBServiceReference.Tour[] GetAllTour();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTour", ReplyAction="http://tempuri.org/IService1/GetAllTourResponse")]
-        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> GetAllTourAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTourByTitle", ReplyAction="http://tempuri.org/IService1/GetTourByTitleResponse")]
-        Tobloggo.MyDBServiceReference.Tour GetTourByTitle(string title);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTourByTitle", ReplyAction="http://tempuri.org/IService1/GetTourByTitleResponse")]
-        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour> GetTourByTitleAsync(string title);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTour", ReplyAction="http://tempuri.org/IService1/CreateTourResponse")]
-        int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTour", ReplyAction="http://tempuri.org/IService1/CreateTourResponse")]
-        System.Threading.Tasks.Task<int> CreateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTour", ReplyAction="http://tempuri.org/IService1/UpdateTourResponse")]
-        int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTour", ReplyAction="http://tempuri.org/IService1/UpdateTourResponse")]
-        System.Threading.Tasks.Task<int> UpdateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketById", ReplyAction="http://tempuri.org/IService1/GetTicketByIdResponse")]
         Tobloggo.MyDBServiceReference.Ticket GetTicketById(int id);
         
@@ -1583,6 +2065,102 @@ namespace Tobloggo.MyDBServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePurchasedTicket", ReplyAction="http://tempuri.org/IService1/UpdatePurchasedTicketResponse")]
         System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTour", ReplyAction="http://tempuri.org/IService1/GetAllTourResponse")]
+        Tobloggo.MyDBServiceReference.Tour[] GetAllTour();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllTour", ReplyAction="http://tempuri.org/IService1/GetAllTourResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> GetAllTourAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTourByTitle", ReplyAction="http://tempuri.org/IService1/GetTourByTitleResponse")]
+        Tobloggo.MyDBServiceReference.Tour GetTourByTitle(string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTourByTitle", ReplyAction="http://tempuri.org/IService1/GetTourByTitleResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour> GetTourByTitleAsync(string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTour", ReplyAction="http://tempuri.org/IService1/CreateTourResponse")]
+        int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateTour", ReplyAction="http://tempuri.org/IService1/CreateTourResponse")]
+        System.Threading.Tasks.Task<int> CreateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTour", ReplyAction="http://tempuri.org/IService1/UpdateTourResponse")]
+        int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTour", ReplyAction="http://tempuri.org/IService1/UpdateTourResponse")]
+        System.Threading.Tasks.Task<int> UpdateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllInvoice", ReplyAction="http://tempuri.org/IService1/GetAllInvoiceResponse")]
+        Tobloggo.MyDBServiceReference.Invoice[] GetAllInvoice(string filter, string sort, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllInvoice", ReplyAction="http://tempuri.org/IService1/GetAllInvoiceResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice[]> GetAllInvoiceAsync(string filter, string sort, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInvoiceByBookingId", ReplyAction="http://tempuri.org/IService1/GetInvoiceByBookingIdResponse")]
+        Tobloggo.MyDBServiceReference.Invoice GetInvoiceByBookingId(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInvoiceByBookingId", ReplyAction="http://tempuri.org/IService1/GetInvoiceByBookingIdResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice> GetInvoiceByBookingIdAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateInvoice", ReplyAction="http://tempuri.org/IService1/CreateInvoiceResponse")]
+        int CreateInvoice(string bookId, string type, System.DateTime createDate, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateInvoice", ReplyAction="http://tempuri.org/IService1/CreateInvoiceResponse")]
+        System.Threading.Tasks.Task<int> CreateInvoiceAsync(string bookId, string type, System.DateTime createDate, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateInvoice", ReplyAction="http://tempuri.org/IService1/UpdateInvoiceResponse")]
+        int UpdateInvoice(string id, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateInvoice", ReplyAction="http://tempuri.org/IService1/UpdateInvoiceResponse")]
+        System.Threading.Tasks.Task<int> UpdateInvoiceAsync(string id, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendInvoice", ReplyAction="http://tempuri.org/IService1/SendInvoiceResponse")]
+        int SendInvoice(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendInvoice", ReplyAction="http://tempuri.org/IService1/SendInvoiceResponse")]
+        System.Threading.Tasks.Task<int> SendInvoiceAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DisplayBookingSales", ReplyAction="http://tempuri.org/IService1/DisplayBookingSalesResponse")]
+        Tobloggo.MyDBServiceReference.Booking[] DisplayBookingSales(string startdate, string enddate, string filter);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DisplayBookingSales", ReplyAction="http://tempuri.org/IService1/DisplayBookingSalesResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> DisplayBookingSalesAsync(string startdate, string enddate, string filter);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckValidBooking", ReplyAction="http://tempuri.org/IService1/CheckValidBookingResponse")]
+        Tobloggo.MyDBServiceReference.Booking CheckValidBooking(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckValidBooking", ReplyAction="http://tempuri.org/IService1/CheckValidBookingResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking> CheckValidBookingAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInvoiceTypeOnCreate", ReplyAction="http://tempuri.org/IService1/GetInvoiceTypeOnCreateResponse")]
+        string GetInvoiceTypeOnCreate(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInvoiceTypeOnCreate", ReplyAction="http://tempuri.org/IService1/GetInvoiceTypeOnCreateResponse")]
+        System.Threading.Tasks.Task<string> GetInvoiceTypeOnCreateAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DisplayPackageProfit", ReplyAction="http://tempuri.org/IService1/DisplayPackageProfitResponse")]
+        Tobloggo.MyDBServiceReference.Tour[] DisplayPackageProfit(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DisplayPackageProfit", ReplyAction="http://tempuri.org/IService1/DisplayPackageProfitResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> DisplayPackageProfitAsync(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitChart", ReplyAction="http://tempuri.org/IService1/GetProfitChartResponse")]
+        Tobloggo.MyDBServiceReference.Booking[] GetProfitChart();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitChart", ReplyAction="http://tempuri.org/IService1/GetProfitChartResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> GetProfitChartAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCMProfitChart", ReplyAction="http://tempuri.org/IService1/GetCMProfitChartResponse")]
+        Tobloggo.MyDBServiceReference.Booking[] GetCMProfitChart();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCMProfitChart", ReplyAction="http://tempuri.org/IService1/GetCMProfitChartResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> GetCMProfitChartAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProgress", ReplyAction="http://tempuri.org/IService1/GetProgressResponse")]
+        Tobloggo.MyDBServiceReference.Invoice GetProgress();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProgress", ReplyAction="http://tempuri.org/IService1/GetProgressResponse")]
+        System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice> GetProgressAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1844,38 +2422,6 @@ namespace Tobloggo.MyDBServiceReference {
             return base.Channel.CreateTicketAsync(name, price, locaid);
         }
         
-        public Tobloggo.MyDBServiceReference.Tour[] GetAllTour() {
-            return base.Channel.GetAllTour();
-        }
-        
-        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> GetAllTourAsync() {
-            return base.Channel.GetAllTourAsync();
-        }
-        
-        public Tobloggo.MyDBServiceReference.Tour GetTourByTitle(string title) {
-            return base.Channel.GetTourByTitle(title);
-        }
-        
-        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour> GetTourByTitleAsync(string title) {
-            return base.Channel.GetTourByTitleAsync(title);
-        }
-        
-        public int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
-            return base.Channel.CreateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
-        }
-        
-        public System.Threading.Tasks.Task<int> CreateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
-            return base.Channel.CreateTourAsync(title, image, details, dateTime, price, minPpl, maxPpl, iti);
-        }
-        
-        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
-            return base.Channel.UpdateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
-            return base.Channel.UpdateTourAsync(title, image, details, dateTime, price, minPpl, maxPpl, iti);
-        }
-        
         public Tobloggo.MyDBServiceReference.Ticket GetTicketById(int id) {
             return base.Channel.GetTicketById(id);
         }
@@ -1922,6 +2468,134 @@ namespace Tobloggo.MyDBServiceReference {
         
         public System.Threading.Tasks.Task<int> UpdatePurchasedTicketAsync(int id, int status) {
             return base.Channel.UpdatePurchasedTicketAsync(id, status);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Tour[] GetAllTour() {
+            return base.Channel.GetAllTour();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> GetAllTourAsync() {
+            return base.Channel.GetAllTourAsync();
+        }
+        
+        public Tobloggo.MyDBServiceReference.Tour GetTourByTitle(string title) {
+            return base.Channel.GetTourByTitle(title);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour> GetTourByTitleAsync(string title) {
+            return base.Channel.GetTourByTitleAsync(title);
+        }
+        
+        public int CreateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
+            return base.Channel.CreateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
+            return base.Channel.CreateTourAsync(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+        }
+        
+        public int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
+            return base.Channel.UpdateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTourAsync(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti) {
+            return base.Channel.UpdateTourAsync(title, image, details, dateTime, price, minPpl, maxPpl, iti);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Invoice[] GetAllInvoice(string filter, string sort, string search) {
+            return base.Channel.GetAllInvoice(filter, sort, search);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice[]> GetAllInvoiceAsync(string filter, string sort, string search) {
+            return base.Channel.GetAllInvoiceAsync(filter, sort, search);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Invoice GetInvoiceByBookingId(string id) {
+            return base.Channel.GetInvoiceByBookingId(id);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice> GetInvoiceByBookingIdAsync(string id) {
+            return base.Channel.GetInvoiceByBookingIdAsync(id);
+        }
+        
+        public int CreateInvoice(string bookId, string type, System.DateTime createDate, string status) {
+            return base.Channel.CreateInvoice(bookId, type, createDate, status);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateInvoiceAsync(string bookId, string type, System.DateTime createDate, string status) {
+            return base.Channel.CreateInvoiceAsync(bookId, type, createDate, status);
+        }
+        
+        public int UpdateInvoice(string id, string type) {
+            return base.Channel.UpdateInvoice(id, type);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateInvoiceAsync(string id, string type) {
+            return base.Channel.UpdateInvoiceAsync(id, type);
+        }
+        
+        public int SendInvoice(string id) {
+            return base.Channel.SendInvoice(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> SendInvoiceAsync(string id) {
+            return base.Channel.SendInvoiceAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Booking[] DisplayBookingSales(string startdate, string enddate, string filter) {
+            return base.Channel.DisplayBookingSales(startdate, enddate, filter);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> DisplayBookingSalesAsync(string startdate, string enddate, string filter) {
+            return base.Channel.DisplayBookingSalesAsync(startdate, enddate, filter);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Booking CheckValidBooking(string id) {
+            return base.Channel.CheckValidBooking(id);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking> CheckValidBookingAsync(string id) {
+            return base.Channel.CheckValidBookingAsync(id);
+        }
+        
+        public string GetInvoiceTypeOnCreate(string id) {
+            return base.Channel.GetInvoiceTypeOnCreate(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetInvoiceTypeOnCreateAsync(string id) {
+            return base.Channel.GetInvoiceTypeOnCreateAsync(id);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Tour[] DisplayPackageProfit(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss) {
+            return base.Channel.DisplayPackageProfit(startPrice, endPrice, startProfit, endProfit, startLoss, endLoss);
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Tour[]> DisplayPackageProfitAsync(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss) {
+            return base.Channel.DisplayPackageProfitAsync(startPrice, endPrice, startProfit, endProfit, startLoss, endLoss);
+        }
+        
+        public Tobloggo.MyDBServiceReference.Booking[] GetProfitChart() {
+            return base.Channel.GetProfitChart();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> GetProfitChartAsync() {
+            return base.Channel.GetProfitChartAsync();
+        }
+        
+        public Tobloggo.MyDBServiceReference.Booking[] GetCMProfitChart() {
+            return base.Channel.GetCMProfitChart();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Booking[]> GetCMProfitChartAsync() {
+            return base.Channel.GetCMProfitChartAsync();
+        }
+        
+        public Tobloggo.MyDBServiceReference.Invoice GetProgress() {
+            return base.Channel.GetProgress();
+        }
+        
+        public System.Threading.Tasks.Task<Tobloggo.MyDBServiceReference.Invoice> GetProgressAsync() {
+            return base.Channel.GetProgressAsync();
         }
     }
 }
