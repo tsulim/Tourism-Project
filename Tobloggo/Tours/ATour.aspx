@@ -13,7 +13,7 @@
                     <div class="panel-body"> 
                         <div class="row"> 
                             <div class="col-sm-12"></div> 
-                            <asp:Image ID="Image1" runat="server" Style="display: block; margin-left: 50px; margin-right: 50px; height: 500px; width: 1000px;" /> 
+                            <asp:Image ID="Image1" runat="server" Style="display: block; margin-left: auto; margin-right: auto; height: 500px; width: 1000px;" /> 
                             <br /> 
                         </div> 
  

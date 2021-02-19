@@ -190,18 +190,20 @@
     <Content Include="Admin\EditUser.aspx" />
     <Content Include="Admin\ListUsers.aspx" />
     <Content Include="Admin\Test.aspx" />
-    <Content Include="App_Data\TobloggoDB.mdf" />
-    <Content Include="App_Data\TobloggoDB_log.ldf">
-      <DependentUpon>TobloggoDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="ATour.aspx" />
+    <Content Include="Tours\ATour.aspx" />
     <Content Include="BackendSite.Master" />
-    <Content Include="CreateTour.aspx" />
+    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Charge.aspx" />
+    <Content Include="Tours\CreateTour.aspx" />
     <Content Include="CustomErrors\Error403.html" />
     <Content Include="CustomErrors\Error404.html" />
     <Content Include="CustomErrors\Error500.html" />
-    <Content Include="EditTour.aspx" />
+    <Content Include="Tours\EditTour.aspx" />
     <Content Include="Events\CreateEvent.aspx" />
     <Content Include="Events\CreateEventProgressChartPage.aspx" />
     <Content Include="Events\CreateEventTeam.aspx" />
@@ -209,13 +211,13 @@
     <Content Include="Events\EditEventPage.aspx" />
     <Content Include="Events\EventProgressChartPage.aspx" />
     <Content Include="Events\EventTeamPage.aspx" />
-    <Content Include="images\flyer.jfif" />
-    <Content Include="images\mountain wallpaper.jpeg" />
-    <Content Include="images\museum.jfif" />
-    <Content Include="images\nightsafari.jfif" />
-    <Content Include="images\pink and purple sky.jpg" />
-    <Content Include="images\riversafari.jfif" />
-    <Content Include="images\Zoo.jpg" />
+    <Content Include="Tours\Images\flyer.jfif" />
+    <Content Include="Tours\Images\mountain wallpaper.jpeg" />
+    <Content Include="Tours\Images\museum.jfif" />
+    <Content Include="Tours\Images\nightsafari.jfif" />
+    <Content Include="Tours\Images\pink and purple sky.jpg" />
+    <Content Include="Tours\Images\riversafari.jfif" />
+    <Content Include="Tours\Images\Zoo.jpg" />
     <Content Include="Locations\CreateLocation.aspx" />
     <Content Include="Locations\Default.aspx" />
     <Content Include="Content\Login.css" />
@@ -228,26 +230,15 @@
     <Content Include="SignUp.aspx" />
     <Content Include="Content\Location.css" />
     <Content Include="Successful.aspx" />
-    <Content Include="TourOverview.aspx" />
-    <Content Include="ViewTour.aspx" />
-    <Content Include="WebForm1.aspx" />
-    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="TourOverview.aspx" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Tours\TourOverview.aspx" />
+    <Content Include="Tours\ViewTour.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateTour.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="EditTour.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -259,26 +250,20 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\DBServiceReference\DBService.Entity.xsd">
+    <None Include="Connected Services\MyDBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\DBService.xsd">
+    <None Include="Connected Services\MyDBServiceReference\DBService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\service.wsdl" />
-    <None Include="Connected Services\DBServiceReference\service.xsd">
+    <None Include="Connected Services\MyDBServiceReference\service.wsdl" />
+    <None Include="Connected Services\MyDBServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\service1.xsd">
+    <None Include="Connected Services\MyDBServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\DBServiceReference\Tobloggo.DBServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DBServiceReference\Tobloggo.DBServiceReference.Tour.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
@@ -287,16 +272,22 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -331,7 +322,6 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="ViewTour.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -367,11 +357,14 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ATour.aspx.cs">
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Tours\ATour.aspx.cs">
       <DependentUpon>ATour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ATour.aspx.designer.cs">
+    <Compile Include="Tours\ATour.aspx.designer.cs">
       <DependentUpon>ATour.aspx</DependentUpon>
     </Compile>
     <Compile Include="BackendSite.Master.cs">
@@ -400,11 +393,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateTour.aspx.cs">
+    <Compile Include="Tours\CreateTour.aspx.cs">
       <DependentUpon>CreateTour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateTour.aspx.designer.cs">
+    <Compile Include="Tours\CreateTour.aspx.designer.cs">
       <DependentUpon>CreateTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -414,11 +407,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditTour.aspx.cs">
+    <Compile Include="Tours\EditTour.aspx.cs">
       <DependentUpon>EditTour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditTour.aspx.designer.cs">
+    <Compile Include="Tours\EditTour.aspx.designer.cs">
       <DependentUpon>EditTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\CreateEvent.aspx.cs">
@@ -470,9 +463,6 @@
     <Compile Include="Events\EventTeamPage.aspx.designer.cs">
       <DependentUpon>EventTeamPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Locations\CreateLocation.aspx.cs">
       <DependentUpon>CreateLocation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -493,9 +483,6 @@
     </Compile>
     <Compile Include="Events\EventList.aspx.designer.cs">
       <DependentUpon>EventList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Locations\EditLocation.aspx.cs">
       <DependentUpon>EditLocation.aspx</DependentUpon>
@@ -554,19 +541,19 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="TourOverview.aspx.cs">
-      <DependentUpon>TourOverview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourOverview.aspx.designer.cs">
-      <DependentUpon>TourOverview.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Successful.aspx.cs">
       <DependentUpon>Successful.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Successful.aspx.designer.cs">
       <DependentUpon>Successful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tours\TourOverview.aspx.cs">
+      <DependentUpon>TourOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tours\TourOverview.aspx.designer.cs">
+      <DependentUpon>TourOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -575,25 +562,11 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTour.aspx.cs">
+    <Compile Include="Tours\ViewTour.aspx.cs">
       <DependentUpon>ViewTour.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTour.aspx.designer.cs">
-      <DependentUpon>ViewTour.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewTour.aspx.cs">
-      <DependentUpon>ViewTour.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewTour.aspx.designer.cs">
+    <Compile Include="Tours\ViewTour.aspx.designer.cs">
       <DependentUpon>ViewTour.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -612,9 +585,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\DBServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\MyDBServiceReference\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
