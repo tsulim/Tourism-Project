@@ -11,80 +11,62 @@ namespace Tobloggo
 {
 
 
-    public partial class ATour
+    public partial class UpdateInvoicePage
     {
 
         /// <summary>
-        /// PanelCust control.
+        /// lbBookId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelCust;
+        protected global::System.Web.UI.WebControls.Label lbBookId;
 
         /// <summary>
-        /// Lbl_title control.
+        /// lbTourName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_title;
+        protected global::System.Web.UI.WebControls.Label lbTourName;
 
         /// <summary>
-        /// Image1 control.
+        /// lbCustName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Label lbCustName;
 
         /// <summary>
-        /// Lbl_details control.
+        /// ddlInvType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_details;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInvType;
 
         /// <summary>
-        /// Lbl_DT control.
+        /// lbResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_DT;
+        protected global::System.Web.UI.WebControls.Label lbResult;
 
         /// <summary>
-        /// Lbl_price control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_price;
-
-        /// <summary>
-        /// Lbl_iti control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_iti;
-
-        /// <summary>
-        /// quantityTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantityTB;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
         /// btnBack control.

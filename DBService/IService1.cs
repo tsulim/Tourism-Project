@@ -137,6 +137,44 @@ namespace DBService
         int UpdateTour(string title, string image, string details, string dateTime, double price, int minPpl, int maxPpl, string iti);
 
         // Tour Codes End
+
+        // Invoice Codes Start
+        [OperationContract]
+        List<Invoice> GetAllInvoice(string filter, string sort, string search);
+
+        [OperationContract]
+        Invoice GetInvoiceByBookingId(string id);
+
+        [OperationContract]
+        int CreateInvoice(string bookId, string type, DateTime createDate, string status);
+
+        [OperationContract]
+        int UpdateInvoice(string id, string type);
+
+        [OperationContract]
+        int SendInvoice(string id);
+
+        [OperationContract]
+        List<Booking> DisplayBookingSales(string startdate, string enddate, string filter);
+
+        [OperationContract]
+        Booking CheckValidBooking(string id);
+
+        [OperationContract]
+        string GetInvoiceTypeOnCreate(string id);
+
+        [OperationContract]
+        List<Tour> DisplayPackageProfit(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss);
+
+        [OperationContract]
+        List<Booking> GetProfitChart();
+
+        [OperationContract]
+        List<Booking> GetCMProfitChart();
+
+        [OperationContract]
+        Invoice GetProgress();
+        // Invoice Codes End
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

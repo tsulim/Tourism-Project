@@ -263,5 +263,76 @@ namespace DBService
             return tour.UpdateTour(title, image, details, dateTime, price, minPpl, maxPpl, iti);
         }
         // Tour Codes End
+
+        // Invoice Codes Start
+        public List<Invoice> GetAllInvoice(string filter, string sort, string search)
+        {
+            Invoice inv = new Invoice();
+            return inv.SelectAll(filter, sort, search);
+        }
+
+        public Invoice GetInvoiceByBookingId(string id)
+        {
+            Invoice inv = new Invoice();
+            return inv.SelectInvoiceByBookingId(id);
+        }
+
+        public int CreateInvoice(string bookId, string type, DateTime createDate, string status)
+        {
+            Invoice inv = new Invoice(bookId, type, createDate, status);
+            return inv.Insert();
+        }
+
+        public int UpdateInvoice(string id, string invtype)
+        {
+            Invoice inv = new Invoice();
+            return inv.UpdateByBookingId(id, invtype);
+        }
+
+        public int SendInvoice(string id)
+        {
+            Invoice inv = new Invoice();
+            return inv.SendInvoice(id);
+        }
+        public List<Booking> DisplayBookingSales(string startdate, string enddate, string filter)
+        {
+            Booking bk = new Booking();
+            return bk.DisplayBookingSales(startdate, enddate, filter);
+        }
+        public Booking CheckValidBooking(string id)
+        {
+            Booking bk = new Booking();
+            return bk.SelectBookingByBookingId(id);
+        }
+
+        public string GetInvoiceTypeOnCreate(string id)
+        {
+            Booking bk = new Booking();
+            return bk.DetermineInvoiceTypeByBookStatus(id);
+        }
+
+        public List<Tour> DisplayPackageProfit(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss)
+        {
+            Tour t = new Tour();
+            return t.DisplayPackageProfit(startPrice, endPrice, startProfit, endProfit, startLoss, endLoss);
+        }
+
+        public List<Booking> GetProfitChart()
+        {
+            Booking bk = new Booking();
+            return bk.RetrieveChartData();
+        }
+        public List<Booking> GetCMProfitChart()
+        {
+            Booking bk = new Booking();
+            return bk.RetrieveCMDayAndProfit();
+        }
+
+        public Invoice GetProgress()
+        {
+            Invoice inv = new Invoice();
+            return inv.calculateProgressPercent();
+        }
+        // Invoice Codes End
     }
 }

@@ -196,11 +196,18 @@
     </Content>
     <Content Include="ATour.aspx" />
     <Content Include="BackendSite.Master" />
+    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="CreateTour.aspx" />
     <Content Include="Charge.aspx" />
     <Content Include="CustomErrors\Error403.html" />
     <Content Include="CustomErrors\Error404.html" />
     <Content Include="CustomErrors\Error500.html" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="EditTour.aspx" />
     <Content Include="Events\CreateEvent.aspx" />
     <Content Include="Events\CreateEventProgressChartPage.aspx" />
@@ -228,15 +235,10 @@
     <Content Include="SignUp.aspx" />
     <Content Include="Content\Location.css" />
     <Content Include="Successful.aspx" />
+    <Content Include="SVG\character-10.svg" />
     <Content Include="TourOverview.aspx" />
     <Content Include="ViewTour.aspx" />
     <Content Include="WebForm1.aspx" />
-    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="TourOverview.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Contact.aspx" />
@@ -259,26 +261,20 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\DBServiceReference\DBService.Entity.xsd">
+    <None Include="Connected Services\MyDBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\DBService.xsd">
+    <None Include="Connected Services\MyDBServiceReference\DBService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\service.wsdl" />
-    <None Include="Connected Services\DBServiceReference\service.xsd">
+    <None Include="Connected Services\MyDBServiceReference\service.wsdl" />
+    <None Include="Connected Services\MyDBServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\DBServiceReference\service1.xsd">
+    <None Include="Connected Services\MyDBServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\DBServiceReference\Tobloggo.DBServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\DBServiceReference\Tobloggo.DBServiceReference.Tour.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
@@ -287,16 +283,22 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -406,6 +408,13 @@
     </Compile>
     <Compile Include="CreateTour.aspx.designer.cs">
       <DependentUpon>CreateTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -612,9 +621,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\DBServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\MyDBServiceReference\" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
