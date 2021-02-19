@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Net.Mail;
+using System.Linq;
 using System.Net;
+using System.Net.Mail;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DBService.Entity
 {
@@ -21,6 +20,9 @@ namespace DBService.Entity
         public string Type { get; set; }
         public DateTime CreateDate { get; set; }
         public string Status { get; set; }
+        public string Sent { get; set; }
+        public string Created { get; set; }
+        public string Booked { get; set; }
 
         //Define constructor
         //1. Base Construct - to create an empty instance of Invoice class object
@@ -46,6 +48,13 @@ namespace DBService.Entity
             CreateDate = createDate;
             Status = status;
 
+        }
+        //4.Secondary Construct - used for parsing work progress information
+        public Invoice(string sent, string created, string booked)
+        {
+            Sent = sent;
+            Created = created;
+            Booked = booked;
         }
 
         public int Insert()
@@ -80,7 +89,7 @@ namespace DBService.Entity
             //TODO: Implement filter feature here. SelectAll will take in a filter parameter. just change the "order by" accordingly. Same for selectById
             //For search bar text field, can do backend onkeyup database search instead of frontend client side jquery?
             string filterSqlStmt = ""; // Default: Filter by None
-            string sortSqlStmt = ""; //Default: Sort by dateDesc
+            string sortSqlStmt = "ORDER BY 5 DESC"; //Default: Sort by dateDesc
             string searchSqlStmt = ""; //Default: No search
 
             if (filter == "BC")
@@ -101,11 +110,11 @@ namespace DBService.Entity
             }
             if (sort == "dateDesc")
             {
-                sortSqlStmt = "ORDER BY 3 DESC";
+                sortSqlStmt = "ORDER BY 5 DESC";
             }
             else if (sort == "dateAsc")
             {
-                sortSqlStmt = "ORDER BY 3 ASC";
+                sortSqlStmt = "ORDER BY 5 ASC";
             }
             else if (sort == "idDesc")
             {
@@ -346,6 +355,38 @@ namespace DBService.Entity
             myConn.Close();
 
             return result;
+        }
+
+        public Invoice calculateProgressPercent()
+        {
+            Invoice inv = null;
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //FOR TESTING WE SET IT TO CURRENT MONTH ONLY --> 0
+            //Only count invoices for Bookings that are less than 4 months old. (I.e. Bookings made in last 3 months only; current month inclusive) --> 2
+            string sqlStmt = "SELECT (SELECT count(Invoice.Status) As Sent_Invoice FROM Booking INNER JOIN Invoice ON Invoice.BookingId = Booking.Id " +
+                "WHERE DATEDIFF(month, Booking.CreateDate, GETDATE()) <= 2 AND Invoice.Status = 1) AS Sent_Inv, " +
+                "count(x.BookingId) AS Total_Inv_Created, (SELECT count(y.Id) FROM Booking y WHERE DATEDIFF(month, y.CreateDate, GETDATE()) <= 2) AS Total_Book " +
+                "FROM Invoice x";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            //Will return a single row of No of Sent Invoices, No. of Created Invoices, and No. of Bookings made in the last 3 mths.
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];  // Sql command returns only one record
+                string sent = row["Sent_Inv"].ToString();
+                string created = row["Total_Inv_Created"].ToString();
+                string booked = row["Total_Book"].ToString();
+
+                inv = new Invoice(sent, created, booked);
+
+            }
+            return inv;
         }
 
     }
