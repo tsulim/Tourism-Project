@@ -13,14 +13,21 @@ namespace DBService.Entity
     {
 
         //Define class properties
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
         public string Details { get; set; }
         public string DateTime{ get; set; }
+        public string BKConfirmed { get; set; }
+        public string BKRefunded { get; set; }
+        public string AvailSlots { get; set; }
         public double Price { get; set; }
         public int MinPeople { get; set; }
         public int MaxPeople { get; set; }
         public string Itinerary { get; set; }
+        public string PeakProfit { get; set; }
+        public string ActualProfit { get; set; }
+        public string RefundLoss { get; set; }
 
         //public int AvailableSlots { get; set; }
 
@@ -41,6 +48,22 @@ namespace DBService.Entity
             Itinerary = iti;
             //AvailableSlot = CalculateAvailSlots();
         }
+
+        // Nazrie's Constructor
+        public Tour(string id, string title, string confirmedbk, string refundedbk, string tavailslots, double price, int mp, string pprofit, string aprofit, string refloss)
+        {
+            Id = id;
+            Title = title;
+            BKConfirmed = confirmedbk;
+            BKRefunded = refundedbk;
+            AvailSlots = tavailslots;
+            Price = price;
+            MaxPeople = mp;
+            PeakProfit = pprofit;
+            ActualProfit = aprofit;
+            RefundLoss = refloss;
+        }
+        
 
         public int Insert()
         {
@@ -185,6 +208,75 @@ namespace DBService.Entity
             myConn.Close();
 
             return result;
+        }
+
+        // Nazrie's Method
+        //Call this method to display Tour Package Profit Report
+        public List<Tour> DisplayPackageProfit(string startPrice, string endPrice, string startProfit, string endProfit, string startLoss, string endLoss)
+        {
+            //Set Aliases for each column
+            string TourIdColName = "Id";
+            string TourNameColName = "Title";
+            string ConfirmedBKColName = "Confirmed";
+            string RefundedBKColName = "Refunded";
+            string AvailSlotsColName = "Available_Slots_Left";
+            string TourPriceColName = "price";
+            string MaxPplColName = "maxPpl";
+            string PeakProfitColName = "Peak_Profit";
+            string ActualProfitColName = "Actual_Profit";
+            string RefundLossColName = "Loss_from_Refunds";
+            string TableName = "Tour";
+
+            //Set range filter sql statements
+            string priceRangeSqlStmt = $"{TourPriceColName} BETWEEN {startPrice} AND {endPrice} ";
+            string actProfitRangeSqlStmt = $"{ActualProfitColName} BETWEEN {startProfit} AND {endProfit} ";
+            string refundLossRangeSqlStmt = $"{RefundLossColName} BETWEEN {startLoss} AND {endLoss} ";
+
+            //Set DB Connection
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Wrap original select query statement in another select query statement.
+            //This will allow us to use the Aliases found the subqueried table in where clause.
+            //TODO: Remove tour id column and loss from refund column. change base price to unit price. Change Peak Profit to ???
+            string sqlStmt = $"SELECT * FROM (SELECT x.id AS {TourIdColName}, x.Name AS {TourNameColName}, " +
+                "(CASE WHEN EXISTS(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON [Tour].id = [Booking].tourId where STATUS = 1 AND Tour.id = x.id GROUP BY TourId) " +
+                $"THEN(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 1 AND Tour.id = x.id GROUP BY TourId) ELSE '0' END) AS {ConfirmedBKColName}, " +
+                "(CASE WHEN EXISTS((Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 0 AND Tour.id = x.id GROUP BY TourId)) " +
+                $"THEN(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 0 AND Tour.id = x.id GROUP BY TourId) ELSE '0' END) AS {RefundedBKColName}, " +
+                $"x.AvailSlots AS {AvailSlotsColName}, x.Price AS {TourPriceColName}, x.MaxPpl AS {MaxPplColName}, " +
+                "(0.35 * x.Price * x.MaxPpl * (x.AvailSlots + " +
+                "(CASE WHEN EXISTS(select count(booking.id) from booking inner join[tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, name) " +
+                $"THEN(select count(booking.id) from booking inner join [tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, name) ELSE '0' END))) AS {PeakProfitColName}, " +
+                $"(0.35 * sum(CASE WHEN[Booking].status = 1 THEN(x.price * [Booking].amtPpl) ELSE '0' END)) AS {ActualProfitColName}, " +
+                $"(0.35 * sum(CASE WHEN[Booking].status = 0 THEN(x.price * [Booking].amtPpl * -1) ELSE '0' END)) AS {RefundLossColName} " +
+                "FROM Booking RIGHT JOIN Tour x ON x.id = Booking.TourId GROUP BY Booking.TourId, x.id, x.Name, x.AvailSlots, x.Price, x.MaxPpl) " +
+                $"AS {TableName} ORDER BY Tour_ID";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<Tour> bkList = new List<Tour>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record at a time
+                Tour obj = new Tour(
+                    row[TourIdColName].ToString(),
+                    row[TourNameColName].ToString(),
+                    row[ConfirmedBKColName].ToString(),
+                    row[RefundedBKColName].ToString(),
+                    row[AvailSlotsColName].ToString(),
+                    Convert.ToDouble(row[TourPriceColName].ToString()),
+                    Convert.ToInt32(row[MaxPplColName].ToString()),
+                    row[PeakProfitColName].ToString(),
+                    row[ActualProfitColName].ToString(),
+                    row[RefundLossColName].ToString()
+                    );
+                bkList.Add(obj);
+            }
+            return bkList;
         }
     }
 }

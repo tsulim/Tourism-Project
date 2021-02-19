@@ -11,88 +11,106 @@ namespace Tobloggo
 {
 
 
-    public partial class ATour
+    public partial class ViewReport
     {
 
         /// <summary>
-        /// PanelCust control.
+        /// ChooseReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelCust;
+        protected global::System.Web.UI.WebControls.Panel ChooseReport;
 
         /// <summary>
-        /// Lbl_title control.
+        /// ViewBKSalesGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_title;
+        protected global::System.Web.UI.WebControls.Button ViewBKSalesGV;
 
         /// <summary>
-        /// Image1 control.
+        /// ViewTourProfitGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Button ViewTourProfitGV;
 
         /// <summary>
-        /// Lbl_details control.
+        /// PanelSharedView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_details;
+        protected global::System.Web.UI.WebControls.Panel PanelSharedView;
 
         /// <summary>
-        /// Lbl_DT control.
+        /// btnExport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_DT;
+        protected global::System.Web.UI.WebControls.Button btnExport;
 
         /// <summary>
-        /// Lbl_price control.
+        /// ReportTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_price;
+        protected global::System.Web.UI.WebControls.Label ReportTitle;
 
         /// <summary>
-        /// Lbl_iti control.
+        /// lblMsgResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_iti;
+        protected global::System.Web.UI.WebControls.Label lblMsgResults;
 
         /// <summary>
-        /// quantityTB control.
+        /// PanelViewBKSales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantityTB;
+        protected global::System.Web.UI.WebControls.Panel PanelViewBKSales;
 
         /// <summary>
-        /// btnBack control.
+        /// gvBKSales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.GridView gvBKSales;
+
+        /// <summary>
+        /// PanelViewTourProfit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelViewTourProfit;
+
+        /// <summary>
+        /// gvTourProfit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTourProfit;
     }
 }
