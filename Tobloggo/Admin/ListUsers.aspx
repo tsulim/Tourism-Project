@@ -52,7 +52,7 @@
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="TobloggoUsers" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TobloggoDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [GoogleId], [Name], [Email], [Contact], [Authorization], [StripeId] FROM [User]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="TobloggoUsers" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MineDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [GoogleId], [Name], [Email], [Contact], [Authorization], [StripeId] FROM [User]"></asp:SqlDataSource>
     </div>
 
 </asp:Content>

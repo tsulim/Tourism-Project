@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
     <h3 style="text-align:center;">Overview of Tour Package</h3>
-    <asp:GridView ID="gvTour" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" OnSelectedIndexChanged="gvTour_SelectedIndexChanged" HorizontalAlign="Center">
+    <asp:GridView ID="gvTour" runat="server" AutoGenerateColumns="False" CellPadding="0" CssClass="myDatagrid" EmptyDataText="Record is empty" OnSelectedIndexChanged="gvTour_SelectedIndexChanged" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="Title" HeaderText="Name" ReadOnly="True" />
             <asp:ImageField DataImageUrlField="Image" HeaderText="Image" ControlStyle-CssClass="img" ></asp:ImageField>  
