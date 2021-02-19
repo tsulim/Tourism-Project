@@ -45,9 +45,9 @@ namespace Tobloggo.Locations
                 //string details = locaDetails.Text.ToString();
                 string type = locaType.SelectedValue.ToString();
                 string images = string.Join(",", fileList);
-                int userid = 1;
 
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                int userid = Convert.ToInt32(client.GetUserByEmail(Session["UserId"].ToString()));
                 int result = client.CreateLocation(name, address, details, type, images, userid);
                 if (result == 1)
                 {

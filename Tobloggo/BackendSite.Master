@@ -97,16 +97,19 @@
                                         <a class="nav-link" href="#">Promotions</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Tour Package</a>
+                                        <a class="nav-link" href="/Tours/TourOverview.aspx">Tour Overview</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Dashboard">Dashboard</a>
+                                        <a class="nav-link" href="/Tours/CreateTour.aspx">Create Tour Package</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/InvoiceForm">Invoices</a>
+                                        <a class="nav-link" href="/Dashboard">Dashboard</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/ViewReport">Reports</a>
+                                        <a class="nav-link" href="/InvoiceForm">Invoices</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/ViewReport">Reports</a>
                                     </li>
 
                                 <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 2) { %>
@@ -135,13 +138,13 @@
                                     
                                 <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 5) { %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/Dashboard">Dashboard</a>
+                                        <a class="nav-link" href="/Dashboard">Dashboard</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/InvoiceForm">Invoices</a>
+                                        <a class="nav-link" href="/InvoiceForm">Invoices</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="~/ViewReport">Reports</a>
+                                        <a class="nav-link" href="/ViewReport">Reports</a>
                                     </li>
                                     <%}%>
                                 </ul>
@@ -156,7 +159,7 @@
                                     </li>
                                     <% if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 1) { %>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>

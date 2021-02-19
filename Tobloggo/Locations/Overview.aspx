@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="Overview.aspx.cs" Inherits="Tobloggo.Locations.Overview" %>
+﻿<%@ Page Title="Overview of Locations" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="Overview.aspx.cs" Inherits="Tobloggo.Locations.Overview" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

@@ -52,7 +52,9 @@
                             <asp:ListItem Selected="True" Value="0">User</asp:ListItem>
                             <asp:ListItem Value="1">Administrator</asp:ListItem>
                             <asp:ListItem Value="2">Event Manager</asp:ListItem>
-                            <asp:ListItem Value="3">Tour Guide</asp:ListItem>
+                            <asp:ListItem Value="3">Business Partner</asp:ListItem>
+                            <asp:ListItem Value="4">Tour Guide</asp:ListItem>
+                            <asp:ListItem Value="5">Finance Executive</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

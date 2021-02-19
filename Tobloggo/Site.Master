@@ -153,7 +153,7 @@
                                     </li>
                                     
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
@@ -171,7 +171,7 @@
 
                                     
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
@@ -183,11 +183,11 @@
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/BPartner">
-                                            <span class="glyphicon glyphicon-user"></span>Toggle Admin
+                                            <span></span>Locations
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Logout
                                         </a>
                                     </li>
@@ -211,17 +211,34 @@
                                     </li>
                                     
                                     <li class="nav-item">
-                                        <a class="nav-link" href="Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>
                                 </ul>   
                             </div>
+                            <%} else if (new Tobloggo.MyDBServiceReference.Service1Client().GetUserByEmail(Session["UserId"].ToString()).Authorization == 5){ %>
+                            <div class="usernNavLinks">
+                                 <ul class="navbar-nav navbar-right">
+
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Events/EventList">Toggle Admin</a>
+                                    </li>
+
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Signout">
+                                            <span class="glyphicon glyphicon-user"></span>Log Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <%} else { %>
                             <div class="usernNavLinks">
                                 <ul class="navbar-nav navbar-right">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/Logout.aspx">
+                                        <a class="nav-link" href="/Signout">
                                             <span class="glyphicon glyphicon-user"></span>Log Out
                                         </a>
                                     </li>

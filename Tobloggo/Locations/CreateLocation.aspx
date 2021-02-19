@@ -180,7 +180,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <ul class="breadcrumb">
-        <li><a href="#">Location</a></li>
+        <li><a href="/BPartner">Location</a></li>
         <li>Add New Location</li>
     </ul>
     <div class="page-create-content">

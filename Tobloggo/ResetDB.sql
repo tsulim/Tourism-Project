@@ -243,6 +243,7 @@ CREATE TABLE [dbo].[Tour] (
     [Price]    FLOAT (53)     NULL,
     [MinPpl]   INT            NULL,
     [MaxPpl]   INT            NULL,
+	[AvailSlots] INT		  NULL,
     [Iti]      NVARCHAR (MAX) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
@@ -298,3 +299,22 @@ CREATE TABLE [dbo].[Reminder]
 	CONSTRAINT [FK_Reminder_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )
 
+--Generating Data
+-- Admin account: admin@gmail.com
+-- Test account: test@gmail.com
+-- Both Password: testTEST1!
+SET IDENTITY_INSERT [dbo].[User] ON
+INSERT INTO [dbo].[User] ([Id], [GoogleId], [ProfImage], [Name], [PasswordHash], [PasswordSalt], [Email], [Contact], [Authorization], [StripeId], [IV], [Key]) VALUES (1, N'', N'', N'Admin', N'qilrEmQrqmyXOLlSqKMERajphuorYUxpuWW4YuAkP/Kd0gSCwIuM/cmj30I6SyXD14L+nn1SU51sTfz2ZEoqFQ==', N'oXmwjiNyXfU=', N'admin@gmail.com', N'988765432', 1, N'', N'zUjkwPieiqUCg2F6ICNM+w==', N'nPK0LRxRm+JzXFBE8pvQLfqIfkgo9gnAZrJL3839HK4=')
+INSERT INTO [dbo].[User] ([Id], [GoogleId], [ProfImage], [Name], [PasswordHash], [PasswordSalt], [Email], [Contact], [Authorization], [StripeId], [IV], [Key]) VALUES (2, N'', N'', N'Test', N'V/4DAGJ57Tk3jhcZYkb1GOd+EwnMQxJ/4b4MdjD6c1eMK/4xcjaoLFC8d00CPH/+aNZFDbl8UqHiNKO2Uia4dA==', N'6Fv0iuW8u8k=', N'test@gmail.com', N'98765432', 3, N'', N'lhhVjmA+iMBM2vrORUPA1A==', N'Oj1xYPWER7GTGbzUrCQUMXECTBqPaTyXyY0OafiMp8w=')
+SET IDENTITY_INSERT [dbo].[User] OFF
+
+SET IDENTITY_INSERT [dbo].[Location] ON
+INSERT INTO [dbo].[Location] ([Id], [Name], [Address], [Details], [Type], [Images], [Status], [UserId]) VALUES (1, N'Pizza Hut Restaurant - Thomson Plaza', N'301 Upper Thomson Road, 26 Thomson Plaza, #02-24, 574408', N'<p><span style="color: rgb(137, 137, 137);">Pizza Hut </span><strong style="color: rgb(137, 137, 137);">operates in 84 countries</strong><span style="color: rgb(137, 137, 137);"> and territories throughout the world under the name </span><strong style="color: rgb(137, 137, 137);">“Pizza Hut”</strong><span style="color: rgb(137, 137, 137);"> and features a variety of pizzas with different toppings as well as pasta, salads, sandwiches and other food items and beverages. The distinctive décor features a bright red roof.</span></p>', N'Food', N'd4f34788-43a1-4f4a-b96c-ad4be22e3cf0image.png', 1, 1)
+INSERT INTO [dbo].[Location] ([Id], [Name], [Address], [Details], [Type], [Images], [Status], [UserId]) VALUES (2, N'Causeway Point', N'642 Ang Mo Kio Ave 5', N'<p>Fun place to be! With lots of attractions and food stores!</p><p>Here are the listed few:</p><ul><li>Rollercoasters</li><li><strong>Bouncy Castles!!</strong></li><li>Merry Go Round</li><li>and many more..</li></ul>', N'Entertainment', N'5b0ea2e5-059f-4f10-920a-dcb8b590e1aaimage.jpg', 1, 2)
+SET IDENTITY_INSERT [dbo].[Location] OFF
+
+SET IDENTITY_INSERT [dbo].[Ticket] ON
+INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) VALUES (1, N'Adult', 10, 0, 2)
+INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) VALUES (2, N'Child', 6, 0, 2)
+INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) VALUES (3, N'Elderly', 6, 0, 2)
+SET IDENTITY_INSERT [dbo].[Ticket] OFF

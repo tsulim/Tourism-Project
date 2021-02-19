@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EditLocation.aspx.cs" Inherits="Tobloggo.Locations.EditLocation" ValidateRequest="false" %>
+﻿<%@ Page Title="Edit Location" Language="C#" MasterPageFile="~/BackendSite.Master" AutoEventWireup="true" CodeBehind="EditLocation.aspx.cs" Inherits="Tobloggo.Locations.EditLocation" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Content/Location.css" rel="stylesheet">
     <script type="text/javascript">
@@ -190,8 +190,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <ul class="breadcrumb">
-        <li><a href="#">Location</a></li>
-        <li>Add New Location</li>
+        <li><a href="/BPartner">Location</a></li>
+        <li>Edit Location</li>
     </ul>
     <div class="page-create-content">
         <div class="form-container">
@@ -335,7 +335,7 @@
                 </div>
             </div>
             <div id="bottomLoca">
-                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="~/WebForm1.aspx" ClientIDMode="Static" />
+                <asp:HyperLink ID="cancelBtn" runat="server" Text="Cancel" CssClass="btn btn-outline-danger" NavigateUrl="/BPartner" ClientIDMode="Static" />
                 <asp:Button ID="addBtn" runat="server" Text="Edit" CssClass="btn btn-primary" ClientIDMode="Static" OnClick="addBtn_Click" OnClientClick="storeContent();" />
             </div>
         </div>
