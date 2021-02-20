@@ -113,6 +113,11 @@ namespace Tobloggo
                 "Payment/Success",
                 "~/Successful.aspx"
             );
+
+            routes.MapPageRoute(
+                "LogoutRoute",
+                "Signout",
+                "~/Logout.aspx");
         }
     }
 }

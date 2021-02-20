@@ -98,7 +98,10 @@ namespace DBService
 
         [OperationContract]
         int CreateLocation(string name, string address, string details, string type, string images, int userid);
-        
+
+        [OperationContract]
+        int UpdateLocation(int id, string name, string address, string details, string type, string images, int userid);
+
         [OperationContract]
         Location GetLastLocation(int userid);
 
@@ -116,11 +119,15 @@ namespace DBService
         [OperationContract]
         int UpdateTicketAmt(int id, int soldAmt);
         [OperationContract]
+        int UpdateTicketInfo(int id, string name, double price);
+        [OperationContract]
         int CreatePurchasedTicket(int quantity, int ticketid, int userid);
         [OperationContract]
         List<PurchasedTicket> GetPurchasedTicketsByUserId(int userid);
         [OperationContract]
         int UpdatePurchasedTicket(int id, int status);
+        [OperationContract]
+        int DeleteTicket(int id);
         // Ticket Codes End
 
         // Tour Codes Start

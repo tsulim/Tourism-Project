@@ -191,6 +191,14 @@
     <Content Include="Admin\EditUser.aspx" />
     <Content Include="Admin\ListUsers.aspx" />
     <Content Include="Admin\Test.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
     <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
@@ -238,10 +246,6 @@
     <Content Include="Tours\ViewTour.aspx" />
     <Content Include="SVG\character-10.svg" />
     <Content Include="Contact.aspx" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -251,10 +255,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Connected Services\MyDBServiceReference\DBService.Entity.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -274,6 +274,39 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking.datasource" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource~develop" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource~HEAD" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice.datasource" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~develop" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~HEAD" />
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -392,7 +425,6 @@
     <Compile Include="InvoiceForm.aspx.designer.cs">
       <DependentUpon>InvoiceForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -642,6 +674,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MyDBServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

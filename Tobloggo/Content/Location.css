@@ -15,7 +15,29 @@
     display: block;
 }
 
-.form-control {
+.btn:hover, .btn:focus, .btn.focus {
+    text-decoration: none!important;
+    border: 1px solid !important;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    border: 1px solid !important;
+}
+
+.btn-outline-success:hover {
+    color: #fff !important;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-danger:hover {
+    color: #fff!important;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/*.form-control {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -29,7 +51,7 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+}*/
 
 .form-group textarea {
     width: 80%;

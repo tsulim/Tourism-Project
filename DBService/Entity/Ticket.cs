@@ -142,5 +142,43 @@ namespace DBService.Entity
 
             return result;
         }
+
+        public int UpdateTicketInfo(int id, string name, double price)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Ticket SET Name=@paraName, Price=@paraPrice WHERE Id=@paraId;";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", id);
+            sqlCmd.Parameters.AddWithValue("@paraName", name);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", price);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+
+            return result;
+
+        }
+        public int DeleteTicket(int id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "DELETE FROM Ticket WHERE Id=@paraId;";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+            sqlCmd.Parameters.AddWithValue("@paraId", id);
+
+            myConn.Open();
+            int result = sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+
+            return result;
+
+        }
     }
 }
