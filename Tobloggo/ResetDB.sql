@@ -256,8 +256,10 @@ CREATE TABLE [dbo].[Booking] (
 	[CreateDate] DATETIME NULL,
 	[AmtPpl]    INT            NULL,
 	[Status]    NVARCHAR (30) NULL,
+	[UserId] INT NULL,
 	[TourId] INT NULL, 
 	PRIMARY KEY CLUSTERED ([Id] ASC), 
+	CONSTRAINT [FK_Booking_ToUser] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
 	CONSTRAINT [FK_Booking_ToTour] FOREIGN KEY ([TourId]) REFERENCES [Tour]([Id])
 );
 
