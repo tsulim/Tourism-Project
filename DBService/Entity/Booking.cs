@@ -148,7 +148,7 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "SELECT [Booking].id, [Booking].createDate, [Booking].status, [Tour].name, [Tour].price, [Booking].amtPpl, " +
+            string sqlStmt = "SELECT [Booking].id, [Booking].createDate, [Booking].status, [Tour].Title, [Tour].price, [Booking].amtPpl, " +
                 "(CASE WHEN[Booking].status = 1 THEN([Tour].price * [Booking].amtPpl) " +
                 "ELSE ([Tour].price * [Booking].amtPpl * -1) END) AS Total " +
                 "FROM [Booking] INNER JOIN[Tour] ON[Tour].id = [Booking].tourId " + datefilterSqlStmt + "ORDER BY [Booking].id DESC";
@@ -156,7 +156,7 @@ namespace DBService.Entity
             if (filter == "pending")
             {
                 //overwrite sql statement
-                sqlStmt = "SELECT [Booking].id, [Booking].createDate, [Booking].status, [Tour].name, [Tour].price, [Booking].amtPpl, " +
+                sqlStmt = "SELECT [Booking].id, [Booking].createDate, [Booking].status, [Tour].Title, [Tour].price, [Booking].amtPpl, " +
                     "(CASE WHEN[Booking].status = 1 THEN([Tour].price * [Booking].amtPpl) " +
                     "ELSE([Tour].price * [Booking].amtPpl * -1) END) AS Total " +
                     "FROM[Booking] INNER JOIN[Tour] ON[Tour].id = [Booking].tourId " +

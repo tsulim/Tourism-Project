@@ -130,7 +130,7 @@ namespace DBService.Entity
                 searchSqlStmt =
                 $"([Invoice].BookingId LIKE '%{search}%' OR " +
                 $"[User].Name LIKE '%{search}%' OR " +
-                $"[Tour].Name LIKE '%{search}%') ";
+                $"[Tour].Title LIKE '%{search}%') ";
             }
 
             //Correct the syntax. Should allow search within filtered results.
@@ -153,7 +153,7 @@ namespace DBService.Entity
 
 
             string sqlStmt =
-                "SELECT [Invoice].BookingId, [Tour].Name As TourName, [User].name AS CustomerName, [Invoice].Type, [Invoice].CreateDate, [Invoice].Status " +
+                "SELECT [Invoice].BookingId, [Tour].Title As TourName, [User].name AS CustomerName, [Invoice].Type, [Invoice].CreateDate, [Invoice].Status " +
                 "FROM [Invoice] INNER JOIN [Booking] ON [Booking].id = [Invoice].bookingid " +
                 "INNER JOIN [Tour] ON [Tour].id = [Booking].tourid " +
                 "INNER JOIN [User] ON [User].id = [Booking].userid " +
@@ -271,7 +271,7 @@ namespace DBService.Entity
             string DBConnect = ConfigurationManager.ConnectionStrings["TobloggoDB"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "SELECT[Invoice].BookingId, [Booking].CreateDate, [Tour].Name As Tour, [User].name AS Customer, [User].[Email] AS Email, [Invoice].Type, [Invoice].Status " +
+            string sqlStmt = "SELECT[Invoice].BookingId, [Booking].CreateDate, [Tour].Title As Tour, [User].name AS Customer, [User].[Email] AS Email, [Invoice].Type, [Invoice].Status " +
                 "FROM[Invoice] INNER JOIN[Booking] ON[Booking].id = [Invoice].bookingid " +
                 "INNER JOIN[Tour] ON[Tour].id = [Booking].tourid " +
                 "INNER JOIN[User] ON[User].id = [Booking].userid " +
