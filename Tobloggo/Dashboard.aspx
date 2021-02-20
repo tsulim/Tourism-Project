@@ -5,6 +5,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
@@ -36,8 +45,7 @@
             <section class="dumbbells">
                     <h3>Targeted Profit VS Actual Profit By Individual Tour Packages&nbsp;&nbsp;&nbsp;
                         <span class="glyphicon glyphicon-question-sign"
-                        data-toggle="popover" title="How do I intepret this?" data-placement="bottom" 
-                            data-content="This chart helps you identify the more lucrative tour packages. The shorter the lines, the closer we are towards eventually earning maximum profit from that particular tour package."></span>
+                        data-toggle="tooltip" title="How do I intepret this? This chart helps you identify the more lucrative tour packages. The shorter the lines, the closer we are towards eventually earning maximum profit from that particular tour package." data-placement="bottom" ></span>
                     </h3>
                     <div id="dumbbellchartdiv"></div>
             </section>
@@ -66,7 +74,7 @@
 
                 <section class="chart">
                 <h3>Profits Earned By Day For This Month&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign" 
-                    data-toggle="popover" title="How do I intepret this?" data-placement="right" data-content="This chart helps you identify trends in booking activity. The more the nodes across the days, the higher the booking activity during those period of days."></span>
+                    data-toggle="tooltip" title="How do I intepret this? This chart helps you identify trends in booking activity. The more the nodes across the days, the higher the booking activity during those period of days." data-placement="right"></span>
                 </h3>
                     <div id="trendchartdiv"></div>
 
@@ -77,8 +85,7 @@
 
         <section class="chart">
             <h3>Segmentation of Profits Earned from Tour Packages&nbsp;&nbsp;&nbsp;
-                <span class="glyphicon glyphicon-question-sign" data-toggle="popover" title="How do I intepret this?" data-placement="right" 
-                    data-content="This chart helps you identify the more popular tour packages based on their number of bookings all time (since the date of their creation)."></span>
+                <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="How do I intepret this? This chart helps you identify the more popular tour packages based on their number of bookings all time (since the date of their creation)." data-placement="right" ></span>
             </h3>
             <div id="piechartdiv"></div>
         </section>
@@ -284,9 +291,7 @@
             transform-origin: 40% 4px;
         }
         .glyphicon-question-sign{
-            width:15px;
-            height:15px;
-            font-size: 15px;
+            font-size: 30px;
         }
 
     @-webkit-keyframes ring {
@@ -457,8 +462,8 @@
         bullet.propertyFields.fillOpacity = "opacity";
         bullet.propertyFields.strokeOpacity = "opacity";
 
-        var hoverState = bullet.states.create("hover");
-        hoverState.properties.scale = 1.7;
+        var tooltipState = bullet.states.create("tooltip");
+        tooltipState.properties.scale = 1.7;
 
         function createTrendLine(data) {
             var trend = trendchart.series.push(new am4charts.LineSeries());
@@ -474,17 +479,17 @@
             bullet.stroke = am4core.color("#fff")
             bullet.circle.fill = trend.stroke;
 
-            var hoverState = bullet.states.create("hover");
-            hoverState.properties.scale = 1.7;
+            var tooltipState = bullet.states.create("tooltip");
+            tooltipState.properties.scale = 1.7;
 
             return trend;
         }
 
 
-        //createTrendLine([
-        //    { "date": "2021-02-04", "value": 164 },
-        //    { "date": "2021-02-08", "value": 380 }
-        //]);
+        createTrendLine([
+            { "date": "2021-02-04", "value": 164 },
+            { "date": "2021-02-08", "value": 380 }
+        ]);
     </script>
 
     <script>
@@ -500,17 +505,23 @@
         var json = JSON.parse('<%=serializedSharedChartResult%>');
         for (var key in json) {
             if (json.hasOwnProperty(key)) {
-                delete json[key].TourId;
+                delete json[key].ExtensionData;
+                delete json[key].DateTime;
+                delete json[key].Details;
+                delete json[key].Image;
+                delete json[key].Itinerary;
+                delete json[key].Id;
                 delete json[key].BKConfirmed;
                 delete json[key].BKRefunded;
                 delete json[key].AvailSlots;
-                delete json[key].TourPrice;
-                delete json[key].MaxPpl;
+                delete json[key].Price;
+                delete json[key].MinPeople;
+                delete json[key].MaxPeople;
                 delete json[key].RefundLoss;
                 delete json[key].PeakProfit;
 
-                json[key].tour = json[key].TourName;
-                delete json[key].TourName;
+                json[key].tour = json[key].Title;
+                delete json[key].Title;
                 json[key].profit = json[key].ActualProfit;
                 delete json[key].ActualProfit;
 
@@ -537,23 +548,28 @@
         var json = JSON.parse('<%=serializedSharedChartResult%>');
         for (var key in json) {
             if (json.hasOwnProperty(key)) {
-                delete json[key].TourId;
+                delete json[key].ExtensionData;
+                delete json[key].DateTime;
+                delete json[key].Details;
+                delete json[key].Image;
+                delete json[key].Itinerary;
+                delete json[key].Id;
                 delete json[key].BKConfirmed;
                 delete json[key].BKRefunded;
                 delete json[key].AvailSlots;
-                delete json[key].TourPrice;
-                delete json[key].MaxPpl;
+                delete json[key].Price;
+                delete json[key].MinPeople;
+                delete json[key].MaxPeople;
                 delete json[key].RefundLoss;
-                names.push(json[key].TourName);
-                json[key].category = json[key].TourName;
-                delete json[key].TourName;
+                names.push(json[key].Title);
+                json[key].category = json[key].Title;
+                delete json[key].Title;
                 json[key].open = json[key].ActualProfit;
                 delete json[key].ActualProfit;
                 json[key].close = json[key].PeakProfit;
                 delete json[key].PeakProfit;
             }
         }
-
 
         dumbbellchart.data = json;
         var categoryAxis = dumbbellchart.xAxes.push(new am4charts.CategoryAxis());
@@ -599,11 +615,5 @@
 
         dumbbellchart.scrollbarX = new am4core.Scrollbar();
         dumbbellchart.scrollbarY = new am4core.Scrollbar();
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover();
-        });
     </script>
 </asp:Content>

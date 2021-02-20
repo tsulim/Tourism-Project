@@ -11,13 +11,14 @@ namespace Tobloggo
 {
     public partial class AddInvoice : System.Web.UI.Page
     {
+        public string bookidselect;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //FIXME: Should use Hui En's retrieve all instead, but use my other method for now because it can also retrieve the values
             if (!Page.IsPostBack)
             {
 
                 MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
+                //Only show bookings 3 months from now that have not been sent.
                 List<Booking> BKList = client.DisplayBookingSales(DateTime.Now.AddMonths(-3).Date.ToString(), DateTime.Now.Date.ToString(), "pending").ToList<Booking>();
 
                 if (BKList != null)
@@ -46,7 +47,6 @@ namespace Tobloggo
             DateTime createdate = DateTime.Now;
             string status = "False"; //When creating a new invoice, it will not be sent first
             string type = client.GetInvoiceTypeOnCreate(Session["BookingId"].ToString());
-
             int result = client.CreateInvoice(Session["BookingId"].ToString(), type, createdate, status);
             if (result == 1)
             {

@@ -43,12 +43,12 @@
             EmptyDataText="No records Found." PageSize="15">
             <Columns>
                 <%--<asp:BoundField DataField="tourid" HeaderText="Tour ID" ReadOnly="True" />--%>
-                <asp:BoundField DataField="tourname" HeaderText="Tour" ReadOnly="True" />
+                <asp:BoundField DataField="title" HeaderText="Tour" ReadOnly="True" />
                 <asp:BoundField DataField="bkconfirmed" HeaderText="Confirmed Bookings" ReadOnly="True" />
                 <asp:BoundField DataField="bkrefunded" HeaderText="Refunded Bookings" ReadOnly="True" />
                 <asp:BoundField DataField="availslots" HeaderText="Available Slots Left" ReadOnly="True" />
-                <asp:BoundField DataField="tourprice" HeaderText="Unit Price ($)" ReadOnly="True" />
-                <asp:BoundField DataField="maxppl" HeaderText="Max. No. of People Per Booking" ReadOnly="True" />
+                <asp:BoundField DataField="price" HeaderText="Unit Price ($)" ReadOnly="True" />
+                <asp:BoundField DataField="maxpeople" HeaderText="Max. No. of People Per Booking" ReadOnly="True" />
                 <asp:BoundField DataField="peakprofit" HeaderText="Targeted Profit ($)" ReadOnly="True" />
                 <asp:BoundField DataField="actualprofit" HeaderText="Actual Profit ($)" ReadOnly="True" />
 <%--                <asp:BoundField DataField="refundloss" HeaderText="Loss from Refunds ($)" ReadOnly="True" />--%>

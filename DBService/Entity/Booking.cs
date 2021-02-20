@@ -176,7 +176,7 @@ namespace DBService.Entity
                 string bookid = row["id"].ToString();
                 DateTime cDate = Convert.ToDateTime(row["createdate"].ToString());
                 string stat = row["status"].ToString();
-                string tname = row["name"].ToString();
+                string tname = row["title"].ToString();
                 string tprice = row["price"].ToString();
                 string numA = row["amtPpl"].ToString();
                 string total = row["total"].ToString();
@@ -251,7 +251,7 @@ namespace DBService.Entity
             da.Fill(ds);
 
             //Step 5 -  Read data from DataSet.
-            string type = null;
+            string type = "BC"; //Set BC as default
             int rec_cnt = ds.Tables[0].Rows.Count;
             if (rec_cnt == 1)
             {

@@ -19,7 +19,8 @@ namespace Tobloggo
         {
             MyDBServiceReference.Service1Client client = new MyDBServiceReference.Service1Client();
             List<Booking> TrendChartDataList = client.GetCMProfitChart().ToList();
-            List<Tour> SharedDataList = client.DisplayPackageProfit("0", "1000", "0", "10000", "-1000", "0").ToList();
+            //Parameters are for filter feature. Not yet implemented.
+            List<Tour> SharedDataList = client.DisplayPackageProfit("0", "0", "0", "0", "0", "0").ToList();
 
             var serializer = new JavaScriptSerializer();
             serializedTrendChartResult = serializer.Serialize(TrendChartDataList);
@@ -48,25 +49,28 @@ namespace Tobloggo
                 {
                     lblProgressPercentage.Text = Math.Round(percentage, 1).ToString() + "%";
                     //There are bookings
+                    string pending = (Double.Parse(progr.Booked) - Double.Parse(progr.Sent)).ToString();
+                    string notcreated = (Double.Parse(progr.Booked) - Double.Parse(progr.Created)).ToString();
+
                     if (percentage < 50)
                     {
-                        lblProgressMessage.Text = "Your work is piling up!";
+                        lblProgressMessage.Text = $"Your work is piling up! You have {pending} pending (unsent) invoices, of which {notcreated} out of {pending} has not been created yet.";
                         lblProgressMessage.ForeColor = Color.Red;
                     }
                     else if (percentage < 75)
                     {
-                        lblProgressMessage.Text = "Your work is piling up!";
+                        lblProgressMessage.Text = $"Your work is piling up! You have {pending} pending (unsent) invoices, of which {notcreated} out of {pending} has not been created yet.";
                         lblProgressMessage.ForeColor = Color.Gold;
                     }
                     else if (percentage < 100)
                     {
-                        lblProgressMessage.Text = "Your work is piling up! ";
+                        lblProgressMessage.Text = $"Your work is piling up! You have {pending} pending (unsent) invoices, of which {notcreated} out of {pending} has not been created yet.";
                         lblProgressMessage.ForeColor = Color.DeepSkyBlue;
                     }
                     else if (percentage == 100)
                     {
                         //All bookings has an invoice and all invoices have been sent
-                        lblProgressMessage.Text = "All work done!";
+                        lblProgressMessage.Text = $"All work done! You have sent {progr.Sent} invoices for the last 3 months.";
                         lblProgressMessage.ForeColor = Color.DeepSkyBlue;
                     }
                 }             
