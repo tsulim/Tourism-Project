@@ -7,7 +7,7 @@
     <div class="container" style="margin-top: 10px;">
         <h1>User List</h1>
         <hr />
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="TobloggoUsers">
+        <asp:ListView ID="ListView1" runat="server">
             <LayoutTemplate>
                 <table runat="server" id="table1" border="1" style="width: 100%; padding: 5px;" >
                     <tr runat="server">
@@ -52,7 +52,6 @@
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="TobloggoUsers" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MineDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [GoogleId], [Name], [Email], [Contact], [Authorization], [StripeId] FROM [User]"></asp:SqlDataSource>
     </div>
 
 </asp:Content>

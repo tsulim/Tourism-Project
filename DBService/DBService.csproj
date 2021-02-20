@@ -68,9 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\DBService.dll.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\TobloggoDB.mdf" />
+    <Content Include="bin\Debug\TobloggoDB_log.ldf">
+      <DependentUpon>TobloggoDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="bin\Debug\DBService.dll" />
+    <Content Include="bin\Debug\DBService.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

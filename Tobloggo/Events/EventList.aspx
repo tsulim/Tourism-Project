@@ -13,7 +13,7 @@
 
         <hr />
 
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="EventListView">
+        <asp:ListView ID="ListView1" runat="server">
             <LayoutTemplate>
                 <table runat="server" id="table1" border="1" style="width: 100%; padding: 5px;" >
                     <tr runat="server">
@@ -72,7 +72,7 @@
 
 
 
-            <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MineDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>
+<%--        <asp:SqlDataSource ID="EventListView" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MineDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Id], [Name], [Status], [Location], [EStartDate], [EEndDate], [ProgCreated], [PStartDate], [PEndDate] FROM [Event]"></asp:SqlDataSource>--%>
 
 
 

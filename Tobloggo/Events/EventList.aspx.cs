@@ -14,6 +14,8 @@ namespace Tobloggo.Events
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Event> eventList = client.GetAllEvents().ToList();
+            ListView1.DataSource = eventList;
+            ListView1.DataBind();
             eventCounter.InnerText = "There are " + eventList.Count + " Total Events.";
 
         }
