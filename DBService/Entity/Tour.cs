@@ -239,19 +239,19 @@ namespace DBService.Entity
             //Wrap original select query statement in another select query statement.
             //This will allow us to use the Aliases found the subqueried table in where clause.
             //TODO: Remove tour id column and loss from refund column. change base price to unit price. Change Peak Profit to ???
-            string sqlStmt = $"SELECT * FROM (SELECT x.id AS {TourIdColName}, x.Name AS {TourNameColName}, " +
+            string sqlStmt = $"SELECT * FROM (SELECT x.id AS {TourIdColName}, x.Title AS {TourNameColName}, " +
                 "(CASE WHEN EXISTS(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON [Tour].id = [Booking].tourId where STATUS = 1 AND Tour.id = x.id GROUP BY TourId) " +
                 $"THEN(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 1 AND Tour.id = x.id GROUP BY TourId) ELSE '0' END) AS {ConfirmedBKColName}, " +
                 "(CASE WHEN EXISTS((Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 0 AND Tour.id = x.id GROUP BY TourId)) " +
                 $"THEN(Select count(Booking.id) FROM Booking INNER JOIN[Tour] ON[Tour].id = [Booking].tourId where STATUS = 0 AND Tour.id = x.id GROUP BY TourId) ELSE '0' END) AS {RefundedBKColName}, " +
                 $"x.AvailSlots AS {AvailSlotsColName}, x.Price AS {TourPriceColName}, x.MaxPpl AS {MaxPplColName}, " +
                 "(0.35 * x.Price * x.MaxPpl * (x.AvailSlots + " +
-                "(CASE WHEN EXISTS(select count(booking.id) from booking inner join[tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, name) " +
-                $"THEN(select count(booking.id) from booking inner join [tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, name) ELSE '0' END))) AS {PeakProfitColName}, " +
+                "(CASE WHEN EXISTS(select count(booking.id) from booking inner join[tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, title) " +
+                $"THEN(select count(booking.id) from booking inner join [tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, title) ELSE '0' END))) AS {PeakProfitColName}, " +
                 $"(0.35 * sum(CASE WHEN[Booking].status = 1 THEN(x.price * [Booking].amtPpl) ELSE '0' END)) AS {ActualProfitColName}, " +
                 $"(0.35 * sum(CASE WHEN[Booking].status = 0 THEN(x.price * [Booking].amtPpl * -1) ELSE '0' END)) AS {RefundLossColName} " +
                 "FROM Booking RIGHT JOIN Tour x ON x.id = Booking.TourId GROUP BY Booking.TourId, x.id, x.Name, x.AvailSlots, x.Price, x.MaxPpl) " +
-                $"AS {TableName} ORDER BY Tour_ID";
+                $"AS {TableName} ORDER BY Id";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
             DataSet ds = new DataSet();
