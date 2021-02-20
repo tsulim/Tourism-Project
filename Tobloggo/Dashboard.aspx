@@ -3,20 +3,17 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
 
     <main>
         <section class="personalmsg">
             <div class="msg">
-                <h2 class="card-title darkPurple">Welcome Back!</h2>
+                <h2 class="card-title darkPurple">Welcome Back!</h2>    
                 <h4 class="card-text"><asp:Label runat="server" ID="lblpersonalmsg">There are currently no updates available.</asp:Label></h4>
             </div>
 
@@ -86,7 +83,6 @@
             <div id="piechartdiv"></div>
         </section>
     </main>
-
 
     <style>
         body{
@@ -604,6 +600,10 @@
         dumbbellchart.scrollbarX = new am4core.Scrollbar();
         dumbbellchart.scrollbarY = new am4core.Scrollbar();
     </script>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
 </asp:Content>
