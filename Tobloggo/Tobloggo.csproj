@@ -199,27 +199,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="InvoiceForm.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="Tours\ATour.aspx" />
     <Content Include="BackendSite.Master" />
-    <Content Include="bin\libgrpc_csharp_ext.x64.dylib" />
-    <Content Include="bin\libgrpc_csharp_ext.x64.so" />
-    <Content Include="bin\libgrpc_csharp_ext.x86.dylib" />
-    <Content Include="bin\libgrpc_csharp_ext.x86.so" />
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.exe.config" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\Tobloggo.dll.config" />
-    <None Include="Connected Services\MyDBServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\MyDBServiceReference\configuration.svcinfo" />
     <Content Include="Charge.aspx" />
     <Content Include="Tours\CreateTour.aspx" />
     <Content Include="CustomErrors\Error403.html" />
@@ -272,10 +261,6 @@
     <None Include="Connected Services\MyDBServiceReference\DBService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MyDBServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\MyDBServiceReference\service.wsdl" />
     <None Include="Connected Services\MyDBServiceReference\service.xsd">
       <SubType>Designer</SubType>
@@ -283,11 +268,10 @@
     <None Include="Connected Services\MyDBServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking.datasource" />
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking1.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Booking.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice1.datasource">
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
@@ -323,6 +307,33 @@
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice.datasource" />
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~develop" />
     <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource~HEAD" />
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.EventTeam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Invoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Location.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.PurchasedTicket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tasks.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Ticket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.Tour.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\MyDBServiceReference\Tobloggo.MyDBServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="ResetDB.sql" />
     <Content Include="Scripts\bootstrap.js" />
@@ -400,9 +411,9 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\MyDBServiceReference\Reference.cs">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -664,7 +675,9 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MyDBServiceReference\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

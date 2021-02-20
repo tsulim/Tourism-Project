@@ -205,7 +205,7 @@ CREATE TABLE [dbo].[EventTeam]
 
 	[EventId] INT NULL,
 	[TeamLeader] INT NULL,
-	CONSTRAINT [FK_EventTeam_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]),
+	CONSTRAINT [FK_EventTeam_ToEvent] FOREIGN KEY ([EventId]) REFERENCES [Event]([Id]) ON DELETE CASCADE,
 	CONSTRAINT [FK_EventTeam_ToUser] FOREIGN KEY ([TeamLeader]) REFERENCES [User]([Id]),
 )
 
