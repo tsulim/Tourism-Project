@@ -2,4 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        body{
+            background-color:#f0e6ff;
+        }
+    </style>
 </asp:Content>

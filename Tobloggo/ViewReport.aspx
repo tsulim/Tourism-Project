@@ -59,5 +59,11 @@
             <RowStyle BackColor="White" />
         </asp:GridView>
     </asp:Panel>
+
+    <style>
+        body{
+            background-color:#f0e6ff;
+        }
+    </style>
    
 </asp:Content>

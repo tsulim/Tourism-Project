@@ -89,6 +89,10 @@
 
 
     <style>
+        body{
+            background-color:#f0e6ff;
+        }
+
         main, section {
             margin: 0;
             padding: 20px;

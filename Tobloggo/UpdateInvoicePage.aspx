@@ -59,4 +59,10 @@
         </tr>
         
     </table>
+
+    <style>
+        body{
+            background-color:#f0e6ff;
+        }
+    </style>
 </asp:Content>
