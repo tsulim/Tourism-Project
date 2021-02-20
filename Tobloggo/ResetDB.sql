@@ -320,3 +320,9 @@ INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) V
 INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) VALUES (2, N'Child', 6, 0, 2)
 INSERT INTO [dbo].[Ticket] ([Id], [Name], [Price], [SoldAmount], [LocationId]) VALUES (3, N'Elderly', 6, 0, 2)
 SET IDENTITY_INSERT [dbo].[Ticket] OFF
+
+SET IDENTITY_INSERT [dbo].[Tour] ON
+INSERT INTO [dbo].[Tour] ([Id], [Title], [Image], [Details], [DateTime], [Price], [MinPpl], [MaxPpl], [AvailSlots], [Iti]) VALUES (1, N'River Safari', N'riversafari.jfif', N' River Safari', N'02/22/21 08:00 PM - 02/22/21 10:00 PM', 40, 5, 20, NULL, N'(8PM - 10PM) Explore')
+INSERT INTO [dbo].[Tour] ([Id], [Title], [Image], [Details], [DateTime], [Price], [MinPpl], [MaxPpl], [AvailSlots], [Iti]) VALUES (2, N'Singapore Zoo ', N'Zoo.jpg', N'Zoo', N'02/23/21 02:00 PM - 02/23/21 05:00 PM', 50, 5, 20, NULL, N'(2PM - 5PM) Walk around ')
+INSERT INTO [dbo].[Tour] ([Id], [Title], [Image], [Details], [DateTime], [Price], [MinPpl], [MaxPpl], [AvailSlots], [Iti]) VALUES (3, N'Museum', N'museum.jfif', N'Art Museum', N'02/20/21 01:00 PM - 02/20/21 05:00 PM', 60, 5, 20, NULL, N'(1PM - 5PM) View collections')
+SET IDENTITY_INSERT [dbo].[Tour] OFF
