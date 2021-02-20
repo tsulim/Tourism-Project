@@ -481,10 +481,10 @@
         }
 
 
-        createTrendLine([
-            { "date": "2021-02-04", "value": 164 },
-            { "date": "2021-02-08", "value": 380 }
-        ]);
+        //createTrendLine([
+        //    { "date": "2021-02-04", "value": 164 },
+        //    { "date": "2021-02-08", "value": 380 }
+        //]);
     </script>
 
     <script>
