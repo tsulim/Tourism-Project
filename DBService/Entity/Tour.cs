@@ -250,7 +250,7 @@ namespace DBService.Entity
                 $"THEN(select count(booking.id) from booking inner join [tour] on [tour].id = [booking].tourid where status = 1 AND tourid = x.id group by tourid, title) ELSE '0' END))) AS {PeakProfitColName}, " +
                 $"(0.35 * sum(CASE WHEN[Booking].status = 1 THEN(x.price * [Booking].amtPpl) ELSE '0' END)) AS {ActualProfitColName}, " +
                 $"(0.35 * sum(CASE WHEN[Booking].status = 0 THEN(x.price * [Booking].amtPpl * -1) ELSE '0' END)) AS {RefundLossColName} " +
-                "FROM Booking RIGHT JOIN Tour x ON x.id = Booking.TourId GROUP BY Booking.TourId, x.id, x.Name, x.AvailSlots, x.Price, x.MaxPpl) " +
+                "FROM Booking RIGHT JOIN Tour x ON x.id = Booking.TourId GROUP BY Booking.TourId, x.id, x.Title, x.AvailSlots, x.Price, x.MaxPpl) " +
                 $"AS {TableName} ORDER BY Id";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
